@@ -7,10 +7,17 @@
 # 学员
 
 [@guizhiwu](https://github.com/guizhiwu)
+
 [@faqiang007](https://github.com/faqiang007)
+
 [@quan0523](https://github.com/quan0523)
+
 [@liuzhongjia](https://github.com/liuzhongjia)
+
 [@slona-song](https://github.com/slona-song)
+
 [@liwanlsl](https://github.com/liwanlsl)
+
 [@baishanheishui](https://github.com/baishanheishui)
+
 [@shuyushei](https://github.com/shuyushei)
