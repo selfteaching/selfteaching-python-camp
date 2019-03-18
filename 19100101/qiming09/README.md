@@ -1,22 +1,9 @@
-# 自学 Python 入门训练营 001期01班
+python exercise notes
 
-# 教练
-
-[@realcaiying](https://github.com/realcaiying)
-
-# 学员
-
-[@xiaoguaishou01](https://github.com/xiaoguaishou01)
-
-[@WangRui0802](https://github.com/WangRui0802)
-
-[@raoxin007](https://github.com/raoxin007)
-
-[@YanHuiii](https://github.com/YanHuiii)
-
-[@zhwycsz](https://github.com/zhwycsz)
-
-[@qiming09](https://github.com/qiming09)
-
-[@sundyyang](https://github.com/sundyyang)
-
+2019.3.18
+1. create an account of github.
+2. create a repository named 'hello world'.
+3. learn concept of branch and master.
+4. pull request and merge content between branch and master.
+5. use sourcetree tool to manage remote project.
+6. commit changes of local to remote project.
