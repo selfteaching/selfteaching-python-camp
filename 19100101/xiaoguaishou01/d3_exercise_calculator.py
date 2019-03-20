@@ -31,3 +31,5 @@ elif choice == '4':
    print(num1,"/",num2,"=", divide(num1,num2))
 else:
    print("非法输入")
+
+   #这个是简单版本，我只会定义函数，后面有些是从Google借鉴的，先提交作业，晚上再慢慢消化
