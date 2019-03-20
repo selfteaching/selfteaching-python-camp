@@ -3,6 +3,7 @@
 def add(x,y):
     return x+y
 #定义减法函数
+<<<<<<< HEAD
 def subtract(x,y):
     return x-y
 #定义乘法函数  
@@ -10,6 +11,15 @@ def multiply(x,y):
     return x*y
 #定义除法函数
 def divide(x,y):
+=======
+def substract（x,y):
+    return x-y
+#定义乘法函数
+def multiply（x,y):
+    return x*y
+#定义除法函数
+def divide（x,y):
+>>>>>>> ed4d68ace4d1c45365b9242f37bde4b5a20dea96
     return x/y
 #定义执行方式，当执行脚本本身，执行如下代码
 if __name__ == '__main__':               
