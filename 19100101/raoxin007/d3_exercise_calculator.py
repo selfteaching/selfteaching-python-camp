@@ -21,13 +21,13 @@ print("4、除")
 choise = input("输入你的选择（1/2/3/4):")
 num1 = int(input("输入第一个数字: "))
 num2 = int(input("输入第二个数字: "))
-if choice == '1':
+if choise == '1':
    print(num1,"+",num2,"=",add(num1,num2))
-elif choice == '2':
+elif choise == '2':
    print(num1,"-",num2,"=", subtract(num1,num2)) 
-elif choice == '3':
+elif choise == '3':
    print(num1,"*",num2,"=", multiply(num1,num2))
-elif choice == '4':
+elif choise == '4':
    print(num1,"/",num2,"=", divide(num1,num2))
 else:
    print("你输入的有误，请重新输入")
