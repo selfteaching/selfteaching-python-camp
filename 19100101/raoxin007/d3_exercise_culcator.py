@@ -12,7 +12,7 @@ def multiply(x,y):
 def divide(x,y):
     return x/y
 #定义执行方式，当执行脚本本身，执行如下代码
-if__name__ == '__main__':    
+if __name__ == '__main__':    
   print("选择运算:")
   print("1、加")
   print("2、减")
