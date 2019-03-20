@@ -1,14 +1,9 @@
-from IPython.core.interactiveshell import InteractiveShell
-InteractiveShell.ast_node_interactivity = "all"
+#加减乘除计算器
 
-def get_number(i):
+def get_number(i):#获取输入的数字
     print('请输入运算的第',i,end='')
     a = float(input(' 个数字'))
     return a
-
-def is_number(i):
-    if type(i)==int:
-        return True
 
 cal=input('请输入运算符（仅支持+、-、*、/）')
 if cal=='+':
