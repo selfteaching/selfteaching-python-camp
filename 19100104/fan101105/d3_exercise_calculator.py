@@ -10,6 +10,7 @@ def cal():
         print( "结果为 ",numA-numB)
     elif op == '*':
         numB = float(input('请输入第二个数字: '))
+        print ("结果为 ",numA*numB)
     elif op == '/':
         numB = float(input('请输入第二个数字: '))
         print ("结果为",numA/numB)
