@@ -3,13 +3,13 @@
 def add(x,y):
     return x+y
 #定义减法函数
-def substract（x，y):
+def substract（x,y):
     return x-y
 #定义乘法函数
-def multiply（x，y):
+def multiply（x,y):
     return x*y
 #定义除法函数
-def divide（x，y):
+def divide（x,y):
     return x/y
 #定义执行方式，当执行脚本本身，执行如下代码
 if __name__ == '__main__':               
@@ -30,5 +30,5 @@ elif choice == '3':
 elif choice == '4':
    print(num1,"/",num2,"=", divide(num1,num2))
 else:
-    print("你输入的有误，请重新输入")
+   print("你输入的有误，请重新输入")
 
