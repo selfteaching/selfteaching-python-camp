@@ -1,4 +1,4 @@
-# calculator
+# 定义函数
 def add(x, y):
    """相加"""
  
