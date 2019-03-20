@@ -22,12 +22,12 @@ if __name__ == '__main__':
   num1 = int(input("输入第一个数字: "))
   num2 = int(input("输入第二个数字: "))
   if choise == '1':
-   print(num1,"+",num2,"=",add(num1,num2))
+     print(num1,"+",num2,"=",add(num1,num2))
   elif choise == '2':
-   print(num1,"-",num2,"=", subtract(num1,num2)) 
+     print(num1,"-",num2,"=", subtract(num1,num2)) 
   elif choise == '3':
-   print(num1,"*",num2,"=", multiply(num1,num2))
+     print(num1,"*",num2,"=", multiply(num1,num2))
   elif choise == '4':
-   print(num1,"/",num2,"=", divide(num1,num2))
+     print(num1,"/",num2,"=", divide(num1,num2))
   else:
-   print("你输入的有误，请重新输入")
+     print("你输入的有误，请重新输入")
