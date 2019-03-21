@@ -19,14 +19,17 @@ for x in range(1, 10):
 #初始值a = 1，在竖行中递增
 a = 1
 while int(a) <= 9:
+    #判断a是否为奇数
+    if a % 2 != 0:
     #初始值b = 1，在每一横行中递增
-    b = 1
+        b = 1
     #while函数，当某个条件满足时执行
-    while int(b) <= int(a):
-        num = a * b
-        print(a, "*", b, "=", num, end='\t')
-        #初始值b = 1，在每一横行中递增
-        b = b + 1
-    print(" ")
-    #初始值a = 1，一行行递增
+        while int(b) <= int(a):
+            num = a * b
+            print(a, "*", b, "=", num, end='\t')
+            #初始值b = 1，在每一横行中递增
+            b = b + 1
+        print(" ")
+        #初始值a = 1，一行行递增
     a = a + 1
+        
