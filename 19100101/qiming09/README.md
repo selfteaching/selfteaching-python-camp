@@ -9,7 +9,6 @@ python exercise notes
 1. learn basic concept of python computing.
 2. try to write a calculator program.
 
-
 2019.3.19
 1. install Anaconda.
 2. run Anaconda and install vs code， jupyter lab， jupyter notebook.
