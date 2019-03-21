@@ -4,8 +4,6 @@ def Multiplication_table(a):    #定义一个乘法表，它的功能是输出�
     for x in range(1,a+1):   #判断当x在1至a之间（即1，2,……,a）时,开始循环
         for y in range(1,x+1):   #判断当y在1至x之间（即1，2,……,x）时,开始循环
             print(x,'*',y,'=',x*y,end = '   ')   #打印“x*y=”及其运算结果
-            if x == a and y == a-1:   #判断当x=a且y=a-1时，执行以下语句
-                print("\n")   #打印一个“换行符”即“回车”  
         
         print("\n")   #打印一个“换行符”即“回车”
     
@@ -19,8 +17,6 @@ def Multiplication_table1(a):   #定义一个乘法表，它的功能是输出�
         while y <=x:    #判断当y在1至x之间（即1，2,……,x）时,开始循环
             if x % 2 != 0:   #判断当x为奇数时，执行语句
                 print(x,'*',y,'=',x*y,end = '   ')   #打印“x*y=”及其运算结果
-                if x == a and y == a-1:   #判断当x=a且y=a-1时，执行以下语句
-                    print("\n")   #打印一个“换行符”即“回车”
 
             y += 1   #把y+1的值赋给y,即y=y+1
         while x % 2 != 0:   #判断当x为奇数时，开始循环。说明：这里是可以用if语句代替的，我的主要目的是测试一下break的功能
