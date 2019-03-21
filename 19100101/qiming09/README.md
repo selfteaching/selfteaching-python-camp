@@ -1,8 +1,13 @@
 python exercise notes
-2019.3.20
-1. learn basic concept of python computing
-2. try to write a calculator program
 
+2019.3.21
+1. learn to use for…in and while statments to make flow control.
+2. use if statement to conditional execution.
+3. make a multiplication table program.
+
+2019.3.20
+1. learn basic concept of python computing.
+2. try to write a calculator program.
 
 2019.3.19
 1. install Anaconda.
