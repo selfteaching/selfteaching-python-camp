@@ -1,35 +1,20 @@
-#计算器
-def add(x,y):
-   return (x+y)
-def subract(x,y):
-   return (x-y)
-def multiply(x,y):
-   return (x*y)
-def divide(x,y):
-   return (x/y)
+# 乘法口诀
+for x in range(1,10):  # x的范围1=<x<10 
+    for y in range(1,x+1):   # y的范围1=<y<x+1 
+        print(x,'x',y,'=' ,y*x,end='  ')  # y<x+1为ture时，输出x*y=乘积，并两个空格
+    print(end='\n')   # y<x+1为flase时，换行
 
-#用户输入
-print ("选择运算:")
-print("1、相加")
-print("2、相减")
-print("3、相乘")
-print("4、相除")
+# 增加空行
+print('\n')
 
-choice = input("选择你的选择（1/2/3/4）")
- 
-num1 = float(input("输入第一个数字: "))
-num2 = float(input("输入第二个数字: "))
- 
-if choice == '1':
-   print(num1,"+",num2,"=", add(num1,num2))
- 
-elif choice == '2':
-   print(num1,"-",num2,"=", subract(num1,num2))
- 
-elif choice == '3':
-   print(num1,"*",num2,"=", multiply(num1,num2))
- 
-elif choice == '4':
-   print(num1,"/",num2,"=", divide(num1,num2))
-else: 
-   print('非法输入')
+x=1   # 初设x=1
+while x<10:  # x的范围
+    y=1   # 在上述条件下，初设y=1
+    if(x%2==1):   # 若x/2余数为1为ture时
+        while y<x+1:  # y的范围 y<x+1
+            print( x,"x", y,"=" ,x*y,end="  ")  # y<x+1为ture时，输出x*y=乘积，并两个空格
+            y=y+1  # 且返回新y=y+1
+        print (end="\n")  # y<x+1为flase时，换行
+        x=x+1  # 且返回新x=x+1
+    else:
+        x=x+1  # 若x/2余数为1为flase时，返回新x=x+1
