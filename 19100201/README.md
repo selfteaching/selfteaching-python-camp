@@ -7,3 +7,13 @@
 # 学员
 
 [@jiap](https://github.com/jiap)
+
+[@zhangqingyannn](https://github.com/zhangqingyannn)
+
+[@wiltonwung](https://github.com/wiltonwung)
+
+[@Chen20190321](https://github.com/Chen20190321)
+
+[@niubiabo](https://github.com/niubiabo)
+
+[@xrh2010](https://github.com/xrh2010)
