@@ -7,7 +7,7 @@ for i in range(1,10):
           break
 
     
-#使用while循环打印九九乘法表
+#使用while循环打印九九乘法表除去偶数的程序
 x = 1
 y = 1
 while(x<10):
