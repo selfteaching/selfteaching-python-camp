@@ -3,3 +3,5 @@ Type "help", "copyright", "credits" or "license()" for more information.
 >>> print ("helle world")
 helle world
 >>> 
+msg="hello world"
+print(msg)
