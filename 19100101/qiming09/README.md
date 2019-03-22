@@ -1,5 +1,8 @@
 python exercise notes
 
+2019.3.22
+too tired to write down something, update later...
+
 2019.3.21
 1. learn to use for…in and while statments to make flow control.
 2. use if statement to conditional execution.
