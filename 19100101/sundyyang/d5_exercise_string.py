@@ -21,22 +21,22 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 #将非英文字符替换为空格
-text=text.replace(',',' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('*',' ')
+x=text.replace(',',' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('*',' ').replace('!',' ')
 
 #以空格拆分为独立的单词
-text=text.split()
+y=text.split()
 temp1="ea"  # 剔除包含ea的英文单词,参照issue里的问题
 temp2=[]
-for i in text:
+for i in y:
     if i.find(temp1)<1:
         temp2.append(i)
 print(temp2)
 
-text=text.replace('better', 'worse') # better 替换成 worse
-print(text)
+z=text.replace('better', 'worse') # better 替换成 worse
+print(z)
 
-text=text.swapcase()  #大小写字母转换
-print(text)
+m=text.swapcase()  #大小写字母转换
+print(m)
 
 temp2.sort()    #将所有单词按a，...z升序排列
-print(temp2)
+print(temp2) 
