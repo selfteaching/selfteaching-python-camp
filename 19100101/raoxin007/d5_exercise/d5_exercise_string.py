@@ -24,7 +24,7 @@ list = text.split()
 str1="ea"
 str2=[]
 for i in list:
-    if i.find(str1) > -1:
+    if i.find(str1) < 0:
         str2.append(i)
 print(str2)
 
