@@ -9,4 +9,5 @@
     "python.unitTest.pyTestEnabled": false,
     "python.unitTest.nosetestsEnabled": false,
     "python.unitTest.unittestEnabled": true
+    "python.pythonPath": "/Users/apple/anaconda3/bin/python"
 }
