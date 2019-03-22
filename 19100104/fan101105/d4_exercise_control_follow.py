@@ -10,7 +10,7 @@ def ninenineodd():
     n=1
     x=1
     while (n<=9):
-            while (n % 2 != 0):
+            while (n % 2 == 0):
                 while(x <= n):
                     print(n,'*',x,'=',n*x,end='\t')
                     x=x+1
