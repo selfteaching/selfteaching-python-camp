@@ -40,6 +40,13 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea. Namespaces are one honking great idea -- let's do more of those!
 
 '''
+#将better全部替换成worse
+text=text.replace('better','worse')
+print(text)
+
+#大写字母转换成小写，小写字母转换成大写
+text=text.swapcase()
+print(text)
 
 
 #将字符串样本text里英文单词中包含ea的英文单词剔除
@@ -51,14 +58,6 @@ for i in text:
     if i.find(temp1)<1:
         temp2.append(i)
 print(temp2)
-
-#将better全部替换成worse
-text=text.replace('better','worse')
-print(text)
-
-#大写字母转换成小写，小写字母转换成大写
-text=text.swapcase()
-print(text)
 
 #将所有单词按a...z的升序排列
 temp2.sort()
