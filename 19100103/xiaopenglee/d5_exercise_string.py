@@ -26,7 +26,8 @@ text=text.swapcase()
 mytext = text.split( ) #将text拆分成一个个单词
 
 #问题1，将包含ea的单词删掉
-str1 = "ea"
+
+str1 = "EA"
 newtext=[]
 for i in mytext:
     if i.find(str1) < 0:  
