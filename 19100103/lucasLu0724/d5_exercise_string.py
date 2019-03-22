@@ -29,40 +29,39 @@ Namespaces are one honking great idea -- let's do more of those!
 #4.将所有单词 按A-Z排列
 
 #思路:把text文本内容转换成list的一个个元素,然后遍历处理
-# def remove_ea(a):
-#     allWords =a.split(" ")
-#     for item in allWords:
-#         if "ea" in item:
-#             allWords.remove(item)
-#     print(allWords)
+def remove_ea(a):
+    allWords =a.split(" ")
+    for item in allWords:
+        if "ea" in item:
+            allWords.remove(item)
+    print(allWords)
 
 #把better 替换成 worse 
 #思路:遍历当前词语为better时,替换成worse,
 # 思考难点,index的定位,不适用for item in items,该用index 定位的循环
 
-# def replace_worse_to_better(a):
-#     wordLi=a.split(" ")
-#     for index in range(len(wordLi)):
-#         if wordLi[index]=="better":
-#             wordLi[index]="worse"
-#     print(wordLi)
+def replace_worse_to_better(a):
+    wordLi=a.split(" ")
+    for index in range(len(wordLi)):
+        if wordLi[index]=="better":
+            wordLi[index]="worse"
+    print(wordLi)
 
-# replace_worse_to_better(text)
+replace_worse_to_better(text)
 
 #把大写转成小写,小写改为大写
 #字符串的处理方法中有一个swapcase方法,专门处理,直接调用即可
-# def reverse_the_case(a):
-#     wordLi=a.split(" ")
-#     for index in range(len(wordLi)):
-#         wordLi[index]=str(wordLi[index]).swapcase()
-#     print(wordLi)
+def reverse_the_case(a):
+    wordLi=a.split(" ")
+    for index in range(len(wordLi)):
+        wordLi[index]=str(wordLi[index]).swapcase()
+    print(wordLi)
 
-# reverse_the_case(text)
+reverse_the_case(text)
 
-# def sort_word(a):
-#     wordLi=a.split(" ")
-#     wordLi.sort()
-#     print(wordLi)
-# sort_word(text)
-
+def sort_word(a):
+    wordLi=a.split(" ")
+    wordLi.sort()
+    print(wordLi)
+sort_word(text)
 
