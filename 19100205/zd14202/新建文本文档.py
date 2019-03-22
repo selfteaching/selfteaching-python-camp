@@ -1,1 +1,0 @@
-print(hello 6world)
