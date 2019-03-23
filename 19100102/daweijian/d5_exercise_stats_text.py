@@ -1,7 +1,3 @@
-
-from IPython.core.interactiveshell import InteractiveShell
-InteractiveShell.ast_node_interactivity = "all"
-
 def cut_clean(s):
     #切分字符串
     s=s.split()
@@ -14,6 +10,15 @@ def cut_clean(s):
         else:
             i=i+1
     return s
+
+#把list转化为dict并统计词频
+def list_dict(aList):
+    aDict={}
+    for i in range(len(aList)): 
+        aDict[aList[i]]=0
+    for i in range(len(aList)): 
+        aDict[aList[i]]=aDict[aList[i]]+1
+    return aDict
 
 text='''
 The Zen of Python, by Tim Peters
@@ -38,8 +43,7 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 text = cut_clean(text) #切分字符串并清洗标点符号
-text_dict = dict(text) #将text转化为字典并统计词频
+text_dict = list_dict(text) #将text转化为字典并统计词频
 #对字典按照value值排序
-#参考网页：https://www.cnblogs.com/dylan-wu/p/6041465.html
 text_dict = sorted(text_dict.items(),key=lambda item:item[1],reverse=True)
 print(text_dict)
