@@ -7,3 +7,9 @@
 # 学员
 
 [@shanchongyue](https://github.com/shanchongyue)
+
+[@cn5036519](https://github.com/cn5036519)
+
+[@weidong3597](https://github.com/weidong3597)
+
+[@sztanbu](https://github.com/sztanbu)
