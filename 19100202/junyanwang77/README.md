@@ -22,3 +22,4 @@ day3: 003_HelloPython_002期
 #!/usr/bin/python
 #-*- coding:UTF-8 -*-   #set chinese code
 终端中可以正常输出中文，但还是无法运行，有一个变量没有定义，暂时自己还不会解决，再研究参考资料，争取把这个程序跑出来。
+经过教练的指导，将两处raw_input更改为input后，跑出了程序，很开心。
