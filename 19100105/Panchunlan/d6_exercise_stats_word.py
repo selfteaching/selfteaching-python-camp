@@ -1,26 +1,20 @@
 
-#统计英文词频函数
-
-#将代码封装入函数
 def stats_text_en():                
     import d5_exercise_stats_text
     
-#定义注释函数
-def annotation(string) -> '''This is a text''':     #用文档字符串进行注释
+
+def annotation(string) -> '''This is a text''':    
     print("Annotation:",annotation.__annotations__) 
 
 stats_text_en()         
-
-docstr=stats_text_en.__doc__    #使用文本文档属性函数
-
-annotation(docstr)              #对文本文档进行注释
+docstr=stats_text_en.__doc__    
+annotation(docstr)              
 
 
-#统计中文词频函数
 
-cndic={}                        #初始化一个空的字典
+cndic={}                        
 
-def stats_text_cn(checkstr):    #定义检索中文函数
+def stats_text_cn(checkstr):  
     for i in checkstr:
         if u'\u4e00' <= i <= u'\u9fff':
             cndic[i] = checkstr.count(i)
@@ -54,7 +48,6 @@ we got two trucks leaving the target building
 '''
 
 stats_text_cn(text)            
-
 
 print(cndic)                           
 
