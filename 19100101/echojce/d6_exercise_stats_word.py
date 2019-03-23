@@ -1,21 +1,3 @@
-Skip to content
- 
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@echojce Sign out
-11
-21 99 selfteaching/selfteaching-python-camp
- Code  Issues 42  Pull requests 7  Projects 0  Wiki  Insights
-selfteaching-python-camp/19100101/YanHuiii/d6_exercise_stats_word.py
-@YanHuiii YanHuiii 第六天作业，第二次修改@realcaiying
-17977d6 3 hours ago
-99 lines (83 sloc)  3.51 KB
-    
 '''这是一个封装统计英文词频的函数，以及一个封装中文词频的函数
 6.1创建一个名为stats_text_en的函数，并用它封装d5_exercise_stats_text.py文件中的代码 '''
 
@@ -93,7 +75,7 @@ def stats_text_cn(text):
     '''删除list1中为空的列表元素'''
     while '' in list1:   
         list1.remove('')
-    
+
     ''' 把dict3的行拆成单字，拆成字典格式的'''
     dict3 = dict()
     '''给dict3赋值'''
@@ -111,15 +93,3 @@ def stats_text_cn(text):
 #打印统计中文词频的结果
 print("统计中文词频的结果为:")
 print(stats_text_cn(text))
-© 2019 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
