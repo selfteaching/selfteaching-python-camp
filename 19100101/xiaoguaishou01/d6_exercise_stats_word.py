@@ -45,14 +45,17 @@ print("按照出现次数从大到小输出所有的单词及出现的次数")
 print (sorted(frequency.items(), key=lambda frequency: frequency[1],reverse=True))
 
 #创建一个名为stats_text_cn的函数，功能：统计每个中文汉字出现的次数
+import re
 def stats_text_cn(str):
     '''统计每个中文汉字出现的次数'''
+    result = re.findall(u'[\u4e00-\u9fff]+', str)#\u是unincode编码，u4e00是十六进制表达值
+    rep = ''.join(result)
     resoult = {}
-    for i in str:
-        resoult[i] = str.count(i)
+    for i in rep:
+        resoult[i] = rep.count(i)
     return resoult
 stats_text_cn(str = "")
-print(stats_text_cn("今天是自学训练营的第五天,学习内容是掌握函数的用法及参数的变化"))
+print(stats_text_cn("hello world,今天天气多云转小雨"))
     
     
     
