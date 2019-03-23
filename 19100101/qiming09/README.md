@@ -1,5 +1,3 @@
-python exercise notes
-
 2019.3.23
 1. try to define functions.
 2. use list, dict, string conversition to stats text.
