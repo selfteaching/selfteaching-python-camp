@@ -19,6 +19,7 @@ Although never is often better than *right* now.
 If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
+这是中文
 '''
 #先将text里的标点符号去除
 symbol = ",.!-*"
@@ -27,12 +28,14 @@ for str in symbol:
 print(text)
 #创建一个名为stats_text_en的函数
 #使用字典（dict）统计字符串样本text中各个英文单词出现的次数
+import re
 def stats_text_en(text):
     '''统计次数.
-
+    
     使用字典（dict)统计text中每个英文单词出现的次数.'''
+    result = re.sub("[^A-Za-z]", " ", text.strip())
     d = {}    
-    for x in text.split( ):
+    for x in result.split( ):
         if not x in d:
             d[x] = 1
         else:
