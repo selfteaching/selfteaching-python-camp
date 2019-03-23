@@ -20,11 +20,16 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
+#先将text里的标点符号去除
+symbol = ",.!-*"
+for str in symbol:
+    text = text.replace(str,'')
+print(text)
 #创建一个名为stats_text_en的函数
 #使用字典（dict）统计字符串样本text中各个英文单词出现的次数
 def stats_text_en(text):
     '''统计次数.
-    
+
     使用字典（dict)统计text中每个英文单词出现的次数.'''
     d = {}    
     for x in text.split( ):
@@ -35,7 +40,19 @@ def stats_text_en(text):
     return d
 
 print(stats_text_en(text))
-
 frequency = stats_text_en(text)
 print("按照出现次数从大到小输出所有的单词及出现的次数")
 print (sorted(frequency.items(), key=lambda frequency: frequency[1],reverse=True))
+
+#创建一个名为stats_text_cn的函数，功能：统计每个中文汉字出现的次数
+def stats_text_cn(str):
+    '''统计每个中文汉字出现的次数'''
+    resoult = {}
+    for i in str:
+        resoult[i] = str.count(i)
+    return resoult
+stats_text_cn(str = "")
+print(stats_text_cn("今天是自学训练营的第五天,学习内容是掌握函数的用法及参数的变化"))
+    
+    
+    
