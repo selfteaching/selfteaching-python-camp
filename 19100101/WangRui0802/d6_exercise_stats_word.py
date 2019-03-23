@@ -1,30 +1,3 @@
-# 统计英文词频函数
-
-# 将代码封装入函数
-def stats_text_en():                
-    import d5_exercise_stats_text
-    
-# 定义注释函数
-def annotation(string) -> '''This is a document''':     # 用文档字符串进行注释
-    print("Annotation:",annotation.__annotations__) 
-
-stats_text_en()         # 运行封装英文文本
-
-docstr=stats_text_en.__doc__    # 使用文本文档属性函数
-
-annotation(docstr)              # 对文本文档进行注释
-
-
-# 统计中文词频函数
-
-cndic={}                        # 初始化一个空的字典
-
-def stats_text_cn(checkstr):    # 定义检索中文函数
-    for i in checkstr:
-        if u'\u4e00' <= i <= u'\u9fff':
-            cndic[i] = checkstr.count(i)
-    return cndic
-
 # 一个中英混杂的文本
 text = '''
 The Zen of Python, by Tim Peters
