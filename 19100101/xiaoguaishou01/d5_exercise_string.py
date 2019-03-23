@@ -21,12 +21,12 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-#将字符串样本text里英文单词中包含ea的英文单词剔除
+#清除texe里的标点符号
 symbol = ",.!-*"
 for str in symbol:
     text = text.replace(str,'')
 print(text)
-
+#将字符串样本text里英文单词中包含ea的英文单词剔除
 list = text.split( )#将text的字符串以空格为分割符分割成字符串并赋值给变量list
 str1 = "ea"
 str2=[]
