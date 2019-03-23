@@ -8,58 +8,63 @@
 
 # 看了半天，似懂非懂，但是我真的想不到怎么做一个计算器咯，所以我就抄了google的，然后附上注释吧
 
-import time  # 导入模板  时间，import是导入的意思
-while 1:  #while是循环直到条件不满足为止
-    print '---------------科学计算器------------'
-    a=float(input('请输入第一个数字:'))   # 看不懂，
-    c=raw_input('请输入+ - * /:')   # 看不懂
-    d=['+','-','*','/']    
-    while c not in d:
-        print '算术输入格式错误请重新输入'
-        c=raw_input('请输入+ - * /:')
-    b=float(input('请输入第二个数字:'))    
-    
-    def add(d,e):    
-            time.sleep(2)
-            print '计算结果:',float(d+e)
-            return d+e    
+def add(string):                                #定义加法
+    tmp = 0
+    numbers = []
+    numbers += string.split("+")               #对用户输入的数字以+号做分割，写入到列表里。
+    for i in numbers:                          #遍历列表。
+        tmp += int(i.strip())                  #先对遍历的对象i,去除空格后，得出结果tmp = i + tmp
+    print("{0} = {1}".format(string, tmp))     #打印结果tmp
 
-    def minus(f,g):
-            time.sleep(2)
-            print '计算结果:',float(f-g)
-            return float(f-g)
 
-    def mult(h,i):
-            time.sleep(2)
-            print '计算结果:',float(h*i)
-            return h*i
+def subtraction(string):                        #定义减法
+    numbers = []
+    numbers += string.split("-")                #对用户输入的数字以-号做分割，写入到列表里。
+    tmp = int(numbers[0].strip())               #取列表的第一个数字给tmp
+    numbers.pop(0)                              #因为第一个值给了tmp 所以删除第一个值。
+    for i in numbers:                           #遍历numbers
+        tmp -= int(i.strip())                   #得出结果tmp ，每次循环都删除第一个值然后相减。
+    print("{0} = {1}".format(string, tmp))
 
-    def chu(j,k):
-            time.sleep(2)
-            try:
-                m=j/k
-                print '计算结果:',float(m)
-            except ZeroDivisionError:
-                print '零不能做除数'            
-    if c in d:
-                
-        if c=='+':
-                add(a,b)          
 
-        elif c=='/':
-              chu(a,b)
-            
-        elif c=='-':
-                minus(a,b)
-        elif c=='*':
-                mult(a,b)
+def multiplication(string):                     #定义乘法
+    numbers = []
+    numbers += string.split("*")                #对用户输入的数字以*号做分割，写入到列表里。
+    tmp = int(numbers[0].strip())               #取列表的第一个数字给tmp
+    numbers.pop(0)                              #因为第一个值给了tmp 所以删除第一个值。
+    for i in numbers:                           #遍历numbers
+        tmp *= int(i.strip())                   #得出结果tmp ，每次循环都删除第一个值然后相乘。
+    print("{0} = {1}".format(string, tmp))
 
-# 哎，今天真的不知道为什么，完全没有头绪去做题，其实计算器，好像就是一个定义的过程，如果没有好的想法，真的无从下手
 
-"""
---------------------- 
-作者：月食之暗 
-来源：CSDN 
-原文：https://blog.csdn.net/qq_44666628/article/details/87727473 
-版权声明：本文为博主原创文章，转载请附上博文链接！
-"""
+def division(string):                            #定义除法
+    numbers = []
+    numbers += string.split("/")                 #对用户输入的数字以/号做分割，写入到列表里。
+    tmp = int(numbers[0].strip())                #取列表的第一个数字给tmp
+    numbers.pop(0)                               #因为第一个值给了tmp 所以删除第一个值。
+    for i in numbers:                            #遍历numbers
+        tmp /= int(i.strip())                    #得出结果tmp ，每次循环都删除第一个值然后相除。
+    print("{0} = {1}".format(string, tmp))
+
+
+if __name__ == '__main__':                       #定义执行方式，当执行脚本本身，执行如下代码。
+    print("******************************")
+    print("          计算器")
+    print("******************************")
+    chose = input("选择你要的计算方式，1/加法 ，2/减法，3/乘法，4/除法: ")
+    if chose == "1":
+        tmp = input("请输入你要计算的数字:")
+        add(tmp)
+    elif chose == '2':
+        tmp = input("请输入你要计算的数字:")
+        subtraction(tmp)
+    elif chose == '3':
+        tmp = input("请输入你要计算的数字:")
+        multiplication(tmp)
+    elif chose == '4':
+        tmp = input("请输入你要计算的数字:")
+        division(tmp)
+    else:
+        print("你输入的有误，请重新输入")
+
+
