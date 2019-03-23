@@ -1,6 +1,6 @@
 #计算器
 
-def get_number(i):#获取输入的数字
+def get_number(i):
     print('请输入运算的第',i,end='')
     a = float(input(' 个数字'))
     return a
