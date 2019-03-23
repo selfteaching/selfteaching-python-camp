@@ -29,6 +29,7 @@ dict2 = {}
 dict3 = {}
 dict4 = {}
 
+
 """创建一个名为stats_text_en的函数，它的功能是为统计英文词频"""
 def stats_text_en(text):
     import re
@@ -55,11 +56,19 @@ str = ''
 
 
 '''6.2创建一个名为stats_text_cn的函数，并用它实现统计汉字词频的功能'''
-
+text1 = '''自学营的体验真不错，以后一定要讲自学当做一种习惯.
+The experience of self-study camp is really good, in the future must talk about self-study as a habit.
+'''
+def histogram(s, old_d):
+    d = old_d
+    for c in s:
+        d[c] = d.get(c, 0) + 1
+    return d
 """创建一个名为stats_text_cn的函数，它的功能是为统计中文词频"""
 def stats_text_cn(text):
     import re
-
+    """去掉text中的英文和数字"""
+    text = re.sub("[A-Za-z0-9]", "", text)
     '''将字符串text转换为列表list1,只保留单词为list1中的元素'''
     list1 = re.split(r"\W+",text)   
 
@@ -67,14 +76,13 @@ def stats_text_cn(text):
     while '' in list1:   
         list1.remove('')
     
-    """i属于list1中的元素，开始循环"""
-    for i in list1:   
-        """判断是否为中文字"""
-        if i >= u'/u4e00' and i <= u'/u9fa5':
-            """将列表中的单词及单词的出现次数，分别赋值给dict1的键和值"""
-            dict3.setdefault(i,list1.count(i))  
+    ''' 把dict3的行拆成单字，拆成字典格式的'''
+    dict3 = dict()
+    '''给dict3赋值'''
+    for i in range(len(list1)):
+        dict3 = histogram(list1[i], dict3)
 
-    """将dict1按照value值从大到小排列，并将结果赋给元组tup1"""
+    """将dict3按照value值从大到小排列，并将结果赋给元组tup1"""
     tup1 = sorted(dict3.items(),key = lambda items:items[1],reverse = True)  
 
     """遍历元组tup1"""
@@ -84,4 +92,4 @@ def stats_text_cn(text):
 
 #打印统计中文词频的结果
 print("统计中文词频的结果为:")
-print(stats_text_cn(text))
+print(stats_text_cn(text1))
