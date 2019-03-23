@@ -41,7 +41,6 @@ def stats_text_en(text):
 print("统计text中每个英文单词出现的次数")
 print(stats_text_en(text))
 frequency = stats_text_en(text)
-#print("按照出现次数从大到小输出所有的单词及出现的次数")
 import re
 def stats_text_cn(str):
     '''统计每个中文汉字出现的次数'''
