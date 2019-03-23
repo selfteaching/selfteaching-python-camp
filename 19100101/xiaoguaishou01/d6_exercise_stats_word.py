@@ -19,7 +19,6 @@ Although never is often better than *right* now.
 If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
-这是中文
 '''
 #先将text里的标点符号去除
 symbol = ",.!-*"
