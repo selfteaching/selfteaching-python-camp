@@ -1,3 +1,6 @@
+2019.3.24
+1. use module to use funtions in different files.
+
 2019.3.23
 1. try to define functions.
 2. use list, dict, string conversition to stats text.
