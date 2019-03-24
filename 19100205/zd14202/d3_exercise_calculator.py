@@ -2,17 +2,21 @@
 a=0
 b=0
 x="+"
-a = int(input('第一个数字'))
-b = int(input('第二个数字'))
-x = input('选择运算符+-*/')
+a = int(input('1'))
+b = int(input('1'))
+x = input('+')
 while x!="="
   if x=="+":
     print(a+b)
+    a=a+b
   elif x=="-":
     print(a-b)
+     a=a-b
   elif x=="*":
     print(a*b)
+     a=a*b
   elif x=="/":
     print(a/b)
-  b = int(input('第二个数字'))
-  x = input('选择运算符+-*/')
+     a=a/b
+  b = int(input('1'))
+  x = input('+')
