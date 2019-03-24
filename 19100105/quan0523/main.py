@@ -50,3 +50,5 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 '''
 
 mymodule.stats_word.stats_text(text)     # 运行函数内容
+
+    # 或者不import，直接 from mymodule import stats_word
