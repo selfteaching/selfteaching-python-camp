@@ -7,7 +7,7 @@ for i in range(1,10):
           print('')
           break
 
-    
+
 # #使用while循环打印九九乘法表并用条件判断除去偶数
 # x = 1
 # y = 1

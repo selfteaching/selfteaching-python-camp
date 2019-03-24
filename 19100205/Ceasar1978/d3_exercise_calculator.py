@@ -5,27 +5,29 @@ def multiply (x,y):return x*y
 def divide (x,y):return x/y
 
 # 用户输入
-print("请输入您需要执行的运算：")
-print("1：加法")
-print("2：减法")
-print("3：乘法")
-print("4：除法")
-
+for    print("""
+       请输入您需要执行的运算：
+        1：加法
+        2：减法
+        3：乘法
+        4：除法
+        """)
 # 运行计算
-choice = input("请输入您需要执行的运算(1/2/3/4)：")
-num1 = int(input("第一个数字:"))
-num2 = int(input("第二个数字:"))
-if choice == '1':
-    print(num1,"+",num2,"=",add(num1,num2))
+        choice = input("请输入您需要执行的运算(1/2/3/4)：")
+        num1 = int(input("第一个数字:"))
+        num2 = int(input("第二个数字:"))
+        if choice == '1':
+            print(num1,"+",num2,"=",add(num1,num2))
 
-elif choice == '2':
-    print(num1,"-",num2,"=",abstract(num1,num2))
+        elif choice == '2':
+             print(num1,"-",num2,"=",abstract(num1,num2))
 
-elif choice == '3':
-    print(num1,"*",num2,"=",multiply(num1,num2))
+        elif choice == '3':
+             print(num1,"*",num2,"=",multiply(num1,num2))
 
-elif choice == '4':
-    print(num1,"/",num2,"=",divide(num1,num2))
+        elif choice == '4':
+             print(num1,"/",num2,"=",divide(num1,num2))
 
-else :
-    print("输入错误")
+            else :
+            print("输入错误")
+        

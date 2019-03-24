@@ -1,4 +1,3 @@
-
 # 原始文本
 text = '''
 The Zen of Python, by Tim Peters

@@ -1,4 +1,3 @@
-
 # 示例字符串
 string1 =  '''
 The Zen of Python, by Tim Peters
@@ -48,7 +47,7 @@ def stats_text_en(string_en):
             newList[i].remove(' ')
         else:
             i=i+1
-    # print('英文单词词频统计结果： ',collections.Counter(newList),'\n')
+    print('英文单词词频统计结果： ',collections.Counter(newList),'\n')
 
 
 def stats_text_cn(string_cn):
@@ -82,4 +81,4 @@ def stats_text_cn(string_cn):
 
 # 调用函数
 stats_text_en(string1)
-# stats_text_cn(string1)
+stats_text_cn(string1)
