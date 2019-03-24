@@ -51,5 +51,5 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
-import stats_word
+from mymodule import stats_word
 print('合并词频统计结果： ', stats_word.stats_text(text))
