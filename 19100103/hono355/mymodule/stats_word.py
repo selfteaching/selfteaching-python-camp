@@ -24,12 +24,12 @@ Namespaces are one honking great idea -- 让我们继续为之努力!
 
 def stats_text_en(text):
     #封装统计英文词频的函数
+    import sys
+    sys.path.append(r'D:\我的文档\Documents\GitHub\selfteaching-python-camp\19100103\hono355')
     import d5_exercise_stats_text
     result = d5_exercise_stats_text.sort_en_word(text)
     return result
-
-
-
+    
 
 def stats_text_cn(text):
     #封装统计中文词频的函数
@@ -54,14 +54,21 @@ def stats_text_cn(text):
     print(sort_word)
     
     result = sort_word
-  
     print(result)
     return result
 
+
+def stats_text(text):
+    result = stats_text_en(text) + stats_text_cn(text)
+    return result
+    print(result)
+    
 def main():
     stats_text_en(template)
     stats_text_cn(template)
-
+    stats_text(template)
 
 if __name__ == '__main__':
     main()
+
+
