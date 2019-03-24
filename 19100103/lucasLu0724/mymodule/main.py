@@ -1,4 +1,4 @@
-import mymodule.stats_word as sw
+import stats_word as sw
 sw.test_import("ff")
 
 text = '''
