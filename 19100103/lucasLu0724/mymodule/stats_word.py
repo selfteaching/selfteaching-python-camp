@@ -76,3 +76,5 @@ def stats_text_cn(input):
     return result
 
 
+def test_import(test):
+    print("测试成功",test)
