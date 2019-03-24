@@ -1,3 +1,6 @@
+# this is d5 excercise_2 for text
+# date : 2019.3.22
+# author by : qiming
 
 # 原始文本
 text = '''
@@ -23,12 +26,9 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 
-# 将全部better变换为worse
-txt1 = text.replace('better','worse')
-# 大写字母转换成小写，小写转换成大写
-txt2 = txt1.swapcase()
-# 剔除标点，将所有单词按a…z升序排列，同时转换为列表
-list1 = txt2.split( )
+
+# 只统计英文单词，不包括非英文字符的其他任何符号，如连接符号、空白字符等等
+list1 = text.split( )
 i=0
 for i in range(0,len(list1)):
     list1[i]=list1[i].strip('*-,.!')
@@ -36,13 +36,9 @@ for i in range(0,len(list1)):
         list1[i].remove(' ')
     else:
         i=i+1
-list2 = sorted(list1)
-# 剔除包含‘ea’的英文单词，同时将列表转换为字符串
-str1 = 'EA'
-list3 = []
-for i in list2:
-    if i.find(str1) == -1 :
-        list3.append(i)
-    else :
-        continue
-print(' '.join(list3))
+# 使用dict统计字符串样本中各个英文单词出现的次数
+# 按照出现次数从大到小排列，示例 {'is': 10, ‘better’ : 9, …… }
+import collections
+print(collections.Counter(list1))
+
+
