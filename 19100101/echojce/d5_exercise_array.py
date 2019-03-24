@@ -1,6 +1,4 @@
-# this is d5 excercise_3 for array
-# date : 2019.3.22
-# author by : qiming
+
 
 # 定义原始数组
 arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]

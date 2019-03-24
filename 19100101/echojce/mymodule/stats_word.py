@@ -83,3 +83,24 @@ def stats_text_cn(string_cn):
 # 调用函数
 stats_text_en(string1)
 # stats_text_cn(string1)
+
+# stats_text 函数，实现调用stats_text_en , stats_text_cn ，输出合并词频统计结果
+import collections
+import re
+
+def stats_text_en(en) :
+    ''' 英文词频统计'''
+    text_en = re.sub("[^A-Za-z]", " ", en.strip())
+    enList = text_en.split( )
+    return collections.Counter(enList)
+
+    
+def stats_text_cn(cn) :
+    ''' 汉字字频统计 '''
+    cnList = re.findall(u'[\u4e00-\u9fff]+', cn.strip())
+    cnString = ''.join(cnList)
+    return collections.Counter(cnString)
+
+def stats_text(text_en_cn) :
+    ''' 合并英汉词频统计 '''
+    return (stats_text_en(text_en_cn)+stats_text_cn(text_en_cn))

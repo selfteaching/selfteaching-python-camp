@@ -1,6 +1,3 @@
-# this is d5 excercise_2 for text
-# date : 2019.3.22
-# author by : qiming
 
 # 原始文本
 text = '''
