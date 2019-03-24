@@ -19,4 +19,4 @@ def stats_text_cn(cn) :
     return collections.Counter(cnString)
 
 def stats_text(text_en_cn) :
-    return (stats_text_en(text_en_cn),stats_text_cn(text_en_cn))
+    return (stats_text_en(text_en_cn)+stats_text_cn(text_en_cn))
