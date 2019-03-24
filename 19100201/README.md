@@ -17,3 +17,7 @@
 [@niubiabo](https://github.com/niubiabo)
 
 [@xrh2010](https://github.com/xrh2010)
+
+[@luodongrui](https://github.com/luodongrui)
+
+[@liangqichang](https://github.com/liangqichang)
