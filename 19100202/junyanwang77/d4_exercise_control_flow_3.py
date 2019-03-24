@@ -6,6 +6,7 @@ while i < 10:
            break
         print('{}*{}={}'.format(i,j,i*j),end='\t')
         j += 1
+    i +=1
     print()
-    i += 1
+    
     
