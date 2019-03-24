@@ -47,5 +47,5 @@ text = '''
 	Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 	'''
 
-import stats_word #导入stats_word模块
+from mymodule import stats_word #导入stats_word模块
 print(stats_word.stats_text(text)) #调用stats_word模块中的函数stats_text(),把text参数传递进去
