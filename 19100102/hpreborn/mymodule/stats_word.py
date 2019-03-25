@@ -38,7 +38,12 @@ def stats_text_en(text):
     # 在这里写具体操作
     mydict={}
     mylist=[]
-    mylist=re.findall(en_pattern,text)
+    try:
+        mylist=re.findall(en_pattern,text)
+    except ValueError:
+        print("stats_text_en(ValueError):please input string")
+    except TypeError:
+        print("stats_text_en(TypeError):please input string")
     for mylinum in mylist:
         if mylinum in mydict:
             mydict[mylinum]=int(mydict[mylinum])+1
@@ -57,7 +62,12 @@ def stats_text_cn(text):
     # 在这里写具体操作
     mydict={}
     mylist=[]
-    mylist=re.findall(cn_pattern,text)
+    try:
+        mylist=re.findall(cn_pattern,text)
+    except ValueError:
+        print("stats_text_cn(ValueError):please input string")
+    except TypeError:
+        print("stats_text_cn(TypeError):please input string")
     for mylinum in mylist:
         if mylinum in mydict:
             mydict[mylinum]=int(mydict[mylinum])+1
@@ -73,7 +83,14 @@ def stats_text(text):
     :param text:string
     :return dict:中文和英文单词词频统计结果
     '''
-    return dict(stats_text_en(text),**stats_text_cn(text))
+    dicttmp = {}
+    try:
+        dicttmp = dict(stats_text_en(text),**stats_text_cn(text))
+    except ValueError:
+        print("stats_text(ValueError):please input string")
+    except TypeError:
+        print("stats_text(TypeError):please input string")
+    return dicttmp
 
 
 def main():

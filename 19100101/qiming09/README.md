@@ -1,3 +1,7 @@
+2019.3.25
+1. learn concept of errors and exceptions.
+2. use try…except to deal with exceptions.
+
 2019.3.24
 1. use module to use funtions in different files.
 

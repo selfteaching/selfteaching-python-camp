@@ -22,6 +22,8 @@ Namespaces are one honking great idea -- let's do more of those!
 '''
 def sort_en_word(text):
 #统计字符串样本中英文单词出现的次数
+    text_en = "".join(i for i in text if ord(i) < 256)     #分离出文本中的英文
+    text = text_en
     for i in '*,，。.-!':
         text = text.replace(i,'')#去掉标点等符号
     text = text.lower()#将所有大写变成小写，以便后面单词计数
@@ -35,8 +37,10 @@ def sort_en_word(text):
             word_dict[i] +=1
     
     sort_word = sorted(word_dict.items(),key=lambda item:item[1],reverse=True)#按单词出现次数降序排序
+    
     print(sort_word)
-
+    return(sort_word)
+    
 sort_en_word(text)
 '''
 word_dict.items()是将word_dict转换为可迭代对象，items()方法将字典的元素转化为了元组，
