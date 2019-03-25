@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 #思路：
-#模块中实现统计词频功能 函数
-#从module文件夹引入 的函数
+#模块中实现统计词频功能函数
+#从module文件夹引入函数
 #print 合并统计词频的结果 textcn作为参数x，
 #核心应该是利用另外一模块的 合并函数处理本文件的textec
 textec =  ''' 
@@ -34,6 +34,10 @@ The wise old man was totally silenced.
 When the guardian gods of the mountains saw how determined Yugong and his crew were, they were struck with fear and reported the incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
-
-from mymodule import stats_word #有别的写法吗？
-print('合并统计结果： ',stats_word.stats_text(textec)) #利用stats_word模块中的stats_text函数统计textcn中的词频
+x=1
+from mymodule import stats_word 
+try:
+    '''捕获异常'''
+    print('合并统计结果： ',stats_word.stats_text(x)) 
+except ValueError as w:
+    print(w)
