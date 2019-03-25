@@ -6,23 +6,18 @@
 
 # 学员
 
+[@MichaelCcccc](https://github.com/MichaelCcccc)
 
-[@7Lou](https://github.com/7Lou)
+[@Xuzhengfu](https://github.com/Xuzhengfu)
 
-[@catynchyna](https://github.com/catynchyna)
+[@cc-one](https://github.com/cc-one)
 
-[@DequanZhang](https://github.com/DequanZhang)
+[@xueer49](https://github.com/xueer49)
 
-[@macheng2017](https://github.com/macheng2017)
+[@ggg50](https://github.com/ggg50)
 
-[@huyusu](https://github.com/huyusu)
+[@ArtetaSong](https://github.com/ArtetaSong)
 
-[@boy88](https://github.com/boy88)
+[@jiangquanhuai](https://github.com/jiangquanhuai)
 
-[@balancewdh](https://github.com/balancewdh)
-
-[@aosjiabei](https://github.com/aosjiabei)
-
-[@Yolo218](https://github.com/Yolo218)
-
-[@feioman](https://github.com/feioman)
+[@jiahaolawyer](https://github.com/jiahaolawyer)
