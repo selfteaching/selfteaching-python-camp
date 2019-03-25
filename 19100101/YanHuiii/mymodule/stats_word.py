@@ -9,8 +9,7 @@ dict2 = {}
 def stats_text_en(text):
     '''参数类型检查（必须为字符串类型）'''
     while not isinstance(text,str):
-        print(ValueError,end = ",你输入的内容不是字符串.\n")
-        break
+        raise ValueError("你输入的内容不是字符串.")
     else:
         pass
     import re
@@ -44,8 +43,7 @@ def histogram(s, old_d):
 def stats_text_cn(text):
     '''参数类型检查（必须为字符串类型）'''
     while not isinstance(text,str):
-        print(ValueError,end = ",你输入的内容不是字符串.\n")
-        break
+        raise ValueError("你输入的内容不是字符串.")
     else:
         pass
     import re
@@ -78,8 +76,7 @@ def stats_text_cn(text):
 def stats_text(text):
     '''参数类型检查（必须为字符串类型）'''
     while not isinstance(text,str):
-        print(ValueError,end = ",你输入的内容不是字符串.\n")
-        break
+        raise ValueError("你输入的内容不是字符串.")
     else:
         pass
     return (stats_text_en(text),stats_text_cn(text))
