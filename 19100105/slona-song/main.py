@@ -1,6 +1,12 @@
 
 #通过stats_word导入stats_text模块
 import mymodule.stats_word
+try:
+    mymodule.stats_word
+except Exception as exc:
+    print(type(exc))
+    print("Unexpect Error:")
+    raise
 
 text = '''
 愚公移山
@@ -51,4 +57,10 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 #运行导入的函数
-mymodule.stats_word.stats_text(text)
+#mymodule.stats_word.stats_text(text)
+
+a=5
+mymodule.stats_word.stats_text_cn(a)
+
+b='slona-song'
+mymodule.stats_word.stats_text_en(b)
