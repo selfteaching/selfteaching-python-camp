@@ -25,12 +25,12 @@ text = text.replace('better', 'worse')
 print(text)
 
 # 删除包含ea的单词
-list_text = text.split ()
+list_text = text.split () # 将字符串转换为列表
 list_text1 = []
 for i in list_text:
     if 'ea' not in i:
-        list_text1.append(i)
-text = " ".join(list_text1)
+        list_text1.append(i) # 此循环用if条件擅除包含ea的单词
+text = " ".join(list_text1) #将列表转换为字符串
 print(text)
 
 # 大小写翻转
@@ -38,5 +38,11 @@ text = text.swapcase()
 print(text)
 
 # 单词按升序排列
-list_text1.sort()
+text = text.replace('.', '')
+text = text.replace('!', '')
+text = text.replace('--', '')
+text = text.replace('*', '')
+text = text.replace(',', '') # 去除标点符号
+list_text1 = text.split ()
+list_text1.sort() # 列表中的元素（单词）进行排序
 print(list_text1)
