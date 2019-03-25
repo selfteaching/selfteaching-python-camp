@@ -25,3 +25,19 @@ Day 1
 2.像GitHub  这样，每个 commit 都“长期保存”，直接结果会不会是很大的存储负担？这方面暂时还不太明白。
 
 <hr>
+
+姓名：谢嘉锋
+所属班级：003期1班
+学习用时：5h +
+
+收获总结：
+这次习题，主要在第二个步骤上花了特别多时间看了好久，一直琢磨不透，究竟要怎么个配置法...... 
+后面好像有点明白了，在VS Code 里似乎要特别注意 environment，就是选择一个Interpreter， environment 分为三种：Global , Virtual , conda.
+
+Global, 是，我们跑到哪儿都可以用的，但是如果我们什么都在放到Global的话，就会很混乱，所以就有 Virtual;
+Virtual, 范围更小，似乎是局限于特定的文件里面；
+而 conda , 是专门配置给 python的 environment 
+
+所以第二个题目是为了让我们通过那个文档理解 VS Code 的environment 
+进而所需要的操作，“仅仅是”让我们去选择一个 conda environment，因为所谓的“语法检查、代码提示这些辅助开发功能”都是conda environment 自带的 …… 
+
