@@ -1,6 +1,6 @@
 #这是一个调用stats_word.py模块，统计并输出一段文字中英文和中文词频的程序
 
-text = '''
+text1 = '''
 愚公移山
 
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，檔住去路，使他 和家人往來極為不便。
@@ -77,10 +77,26 @@ to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two
 mighty gods to carry the mountains away.
 '''
+text = {}   
 
 """导入stats_word模块"""
 from mymodule import stats_word
 
 """调用stats_word模块中的stats_text函数"""
 print("汉字和英文单词出现的结果如下：")
-print(stats_word.stats_text(text))
+try:
+    print(stats_word.stats_text(text))
+except ValueError as a:
+    print(a)
+
+print("程序正常执行完毕")
+
+"""调用stats_word中的三个函数，验证输入内容是否为字符串（已验证成功）"""
+
+#print("验证stats_word文件中stats_text_en函数的结果为：")
+#stats_word.stats_text_en(text)
+#print("验证stats_word文件中stats_text_cn函数的结果为：")
+#stats_word.stats_text_cn(text)
+#print("验证stats_word文件中stats_text函数的结果为：")
+#stats_word.stats_text(text)
+
