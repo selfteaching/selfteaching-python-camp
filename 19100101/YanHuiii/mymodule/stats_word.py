@@ -7,6 +7,12 @@ dict2 = {}
 
 """创建一个名为stats_text_en的函数，它的功能是为统计英文词频"""
 def stats_text_en(text):
+    '''参数类型检查（必须为字符串类型）'''
+    while not isinstance(text,str):
+        print(ValueError,end = ",你输入的内容不是字符串.\n")
+        break
+    else:
+        pass
     import re
     '''只保留英文'''
     text = re.sub("[^A-Za-z]", " ", text.strip())
@@ -36,6 +42,12 @@ def histogram(s, old_d):
     return d
 """创建一个名为stats_text_cn的函数，它的功能是为统计中文词频"""
 def stats_text_cn(text):
+    '''参数类型检查（必须为字符串类型）'''
+    while not isinstance(text,str):
+        print(ValueError,end = ",你输入的内容不是字符串.\n")
+        break
+    else:
+        pass
     import re
     """去掉text中的英文和数字"""
     text = re.sub("[A-Za-z0-9]", "", text)
@@ -64,4 +76,10 @@ def stats_text_cn(text):
 #7.1定义一个函数stats_text，实现功能为分别调用stats_text_en和stats_text_cn,并叔叔词频统计结果
 
 def stats_text(text):
+    '''参数类型检查（必须为字符串类型）'''
+    while not isinstance(text,str):
+        print(ValueError,end = ",你输入的内容不是字符串.\n")
+        break
+    else:
+        pass
     return (stats_text_en(text),stats_text_cn(text))
