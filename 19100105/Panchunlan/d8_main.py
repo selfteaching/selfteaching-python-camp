@@ -61,9 +61,15 @@ mighty gods to carry the mountains away.
 '''
 
 text =[]
+"""导入stats_word模块"""
 from mymodule import stats_word
-try : 
-    print('合并词频统计结果： ', stats_word.stats_text(text))
-except ValueError as ve :
-    print(ve)
-   
+	
+"""调用stats_word模块中的stats_text函数"""
+print("汉字和英文单词出现的结果如下：")
+print(stats_word.stats_text_cn)
+try:
+	print(stats_word.stats_text_cn)
+except ValueError as a:
+	    print(a)
+	
+print("程序正常执行完毕")
