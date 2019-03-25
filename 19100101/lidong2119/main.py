@@ -1,4 +1,4 @@
-text = '''
+text1 = '''
 􏴇􏱘􏴈􏴉
 􏴊􏰵􏰔􏴋􏴌􏳓􏴉􏰇􏴍􏰧􏰔􏴎􏴏􏱆􏴐􏰫􏳔􏴑􏰇􏴒􏴓􏰔􏲏􏴔􏴇􏱘􏱵􏳓􏴉􏴕􏰻􏴖􏴗􏰔􏴘􏴎􏰶􏴙􏰔􏰨􏱠
 􏰑􏴚􏴛􏴜􏴝􏴞􏴟􏲴􏴠􏱵
@@ -61,5 +61,12 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two
 mighty gods to carry the mountains away.
 '''
 
+text = []
+
 from mymodule import stats_word
-print('中文汉字和英文单词频率统计结果：',stats_word.stats_text(text))
+
+try:
+    print('中文汉字和英文单词频率统计结果：',stats_word.stats_text(text))
+except ValueError as lidong:
+    print(lidong)
+
