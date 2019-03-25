@@ -43,4 +43,3 @@ def stats_text(text_bn):
         return str1
     else:
         raise ValueError ("This is not an str type")
-    

@@ -27,6 +27,11 @@ for str in symbol:
     text = text.replace(str,'')
 print(text)
 #将字符串样本text里英文单词中包含ea的英文单词剔除
+symbol = ",.!-*"
+for str in symbol:
+    text = text.replace(str,'')
+print(text)
+
 list = text.split( )#将text的字符串以空格为分割符分割成字符串并赋值给变量list
 str1 = "ea"
 str2=[]
