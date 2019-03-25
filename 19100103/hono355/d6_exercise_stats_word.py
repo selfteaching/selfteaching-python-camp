@@ -27,7 +27,7 @@ def stats_text_en(text):
     import d5_exercise_stats_text
     result = d5_exercise_stats_text.sort_en_word(text)
     return result
-
+   
 
 
 
@@ -35,7 +35,7 @@ def stats_text_cn(text):
     #封装统计中文词频的函数
     text_cn = "".join(i for i in text if ord(i) >= 256)    #分离出文本中的中文
     text = text_cn
-    for i in '*,，。.-!':
+    for i in '*,，。.-!、？！“”""?「」':
         text = text.replace(i,'')#去掉标点等符号
 
     textlist = []
@@ -48,14 +48,12 @@ def stats_text_cn(text):
         if j not in word_dict:
             word_dict[j] = 1
         else:
-            word_dict[j] +=1
+            word_dict[j] += 1
     
-    sort_word = sorted(word_dict.items(),key=lambda item:item[1],reverse=True)#按汉字出现次数降序排序
-    print(sort_word)
-    
-    result = sort_word
+    sort_cn_word = sorted(word_dict.items(),key=lambda item:item[1],reverse=True)#按汉字出现次数降序排序
+    result = sort_cn_word
   
-    print(result)
+    print('sort_cn_word => ', result)
     return result
 
 def main():
