@@ -14,6 +14,9 @@ def stats_text_cn(cn) :
     cnString = ''.join(cnList)
     return collections.Counter(cnString)
 
-def stats_text(text) :
+def stats_text(text):
     ''' 合并英汉词频统计 '''
-    return (stats_text_en(text),stats_text_cn(text))
+    if type(text) ==str:
+         return (stats_text_en(text),stats_text_cn(text))
+    else:
+         raise ValueError ('this is not Valid Character')
