@@ -21,8 +21,6 @@ Although never is often better than *right* now.
 Namespaces are one honking great idea -- 让我们继续为之努力!
 '''
 
-Template_en = "".join(i for i in template if ord(i) < 256)     #分离出文本中的英文
-Template_cn = "".join(i for i in template if ord(i) >= 256)    #分离出文本中的中文
 
 def stats_text_en(text):
     #封装统计英文词频的函数
@@ -35,6 +33,8 @@ def stats_text_en(text):
 
 def stats_text_cn(text):
     #封装统计中文词频的函数
+    text_cn = "".join(i for i in text if ord(i) >= 256)    #分离出文本中的中文
+    text = text_cn
     for i in '*,，。.-!':
         text = text.replace(i,'')#去掉标点等符号
 
@@ -54,13 +54,13 @@ def stats_text_cn(text):
     print(sort_word)
     
     result = sort_word
-    return result
+  
     print(result)
-
+    return result
 
 def main():
-    stats_text_en(Template_en)
-    stats_text_cn(Template_cn)
+    stats_text_en(template)
+    stats_text_cn(template)
 
 
 if __name__ == '__main__':
