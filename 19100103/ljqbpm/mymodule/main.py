@@ -49,4 +49,8 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 
 import stats_word
 
-stats_word.stats_text(text)
+#stats_word.stats_text(text)
+try:
+    stats_word.stats_text(123)
+except ValueError as VE:
+    print(VE)
