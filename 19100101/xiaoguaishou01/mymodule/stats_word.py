@@ -16,11 +16,11 @@ def stats_text_en(text):
     else:
         raise ValueError ("This is not an str type")
 
-def stats_text_cn(str):
+def stats_text_cn(st):
     '''1、统计每个中文汉字出现的次数
     2、添加类型检查，如果不是字符串类型为异常'''
-    if type(str) == str:
-        result = re.findall(u'[\u4e00-\u9fff]+', str)#\u是unincode编码，u4e00是十六进制表达值
+    if type(st) == str:
+        result = re.findall(u'[\u4e00-\u9fff]+', st)#\u是unincode编码，u4e00是十六进制表达值
         rep = ''.join(result)
         resoult = {}
         for i in rep:
@@ -28,7 +28,6 @@ def stats_text_cn(str):
         return resoult
     else:
         raise ValueError ("This is not an str type")
-stats_text_cn(str = "")
 
 #定义stats_word函数，分别调用stats_text_en,stats_text_cn,输出合并词频统计结果
 
