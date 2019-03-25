@@ -2,7 +2,7 @@
 
 from mymodule import stats_word
 
-text = '''
+text1 = '''
 愚公移山
 
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他和家人往來極為不便。
@@ -50,5 +50,10 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
+text = ['This is not Valid Character! 这不是一个有效字符']
+try:
 
-print("英文、汉字词频统计：",stats_word.stats_text(text))
+  print("英文、汉字词频统计：",stats_word.stats_text(text))
+
+except ValueError:
+  print('This is not Valid Character!')
