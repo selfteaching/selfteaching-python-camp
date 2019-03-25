@@ -1,4 +1,13 @@
+# day8 作业,参数类型检查,思路:使用isinstance判断是否为str,如果是rasie built-in exception 
+def checkParam(*inputs):#不清楚输入的参数有多少个,可以确定是每个输入的参数必须为str类型
+    for item in inputs:
+        if isinstance(item,str):
+            continue
+        else:
+            raise ValueError("输入参数不正确")
+
 def stats_text(input):
+    checkParam(input)
     result1 =stats_text_en(input)
     print("英文词频----")
     print(result1)
@@ -18,6 +27,7 @@ def stats_text_en(input):
     3.把数组转换成字典
     然后把结果返回
     '''
+    checkParam(input)
     result =text_to_list(input)
     result =clean_list(result)
     result =statistisc(result)

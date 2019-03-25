@@ -1,5 +1,5 @@
 import stats_word as sw
-sw.test_import("ff")
+# sw.test_import("ff")
 
 text = '''
 愚公移山
@@ -106,4 +106,7 @@ mighty gods to carry the mountains away.
 '''
 
 
-sw.stats_text(text)
+try:
+    sw.stats_text(text)
+except ValueError:
+    print("捕捉到了异常了")    
