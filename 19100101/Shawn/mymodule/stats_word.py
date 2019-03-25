@@ -1,5 +1,6 @@
 import collections
 import re
+
 #英文字频统计
 def stats_text_en(text_en):
         if type(text_en) == str:

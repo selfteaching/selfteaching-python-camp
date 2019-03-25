@@ -20,4 +20,8 @@
 
 [worldknowme](https://github.com/worldknowme)
 
-[wleis2020](https://github.com/wleis2020)
+[wleis2019](https://github.com/wleis2019)
+
+[xiaopenglee](https://github.com/xiaopenglee)
+
+[hzzxhn](https://github.com/hzzxhn)
