@@ -83,7 +83,7 @@ def stats_text_en(text, print_text=False):
     Potential Bug:
     若英文字符和中文字符连在一起，则不被字典收录
     """
-    if type(text)!=str:
+    if not isinstance(text,str):
         raise ValueError('It\'s not a string!')
     text = cut_and_clean(text) #切分字符串并清洗标点符号
     text = english_only(text) #除去非英文字符串
@@ -105,7 +105,7 @@ def stats_text_cn(text, print_text=False):
     Potential Bug:
     超出了基本汉字集的汉字（如汉字补充、汉字偏旁部首等）不会被字典收录
     """
-    if type(text)!=str:
+    if not isinstance(text,str):
         raise ValueError('It\'s not a string!')
     text = chinese_only(text)
     text = list(text) #将中文字符串转换为中文列表
@@ -128,7 +128,7 @@ def stats_text(text, en_first=True):
     1.超出了基本汉字集的汉字（如汉字补充、汉字偏旁部首等）不会被字典收录
     2.若英文字符和中文字符连在一起，则不被字典收录
     """
-    if type(text)!=str:
+    if not isinstance(text,str):
         raise ValueError('It\'s not a string!')
     if en_first:
         print(stats_text_en(text) + stats_text_cn(text))
