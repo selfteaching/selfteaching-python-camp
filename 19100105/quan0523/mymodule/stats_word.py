@@ -21,11 +21,13 @@ def stats_text_en(checken):    # 定义检索英文字符（在D5的作业基础
     
     for i in entext:
         counten[i]=entext.count(i)    # 检索出来的内容放进新字典
-    counten=sorted(counten.items(),key=lambda item:item[1],reverse=True)    # 安置排序
+    counten=sorted(counten.items(),key=lambda item:item[1],reverse=True)    # 按值排序
     print(counten)
     return counten
 
-def stats_text(check_cn_en):   # 定义函数
+def stats_text(check):   # 定义函数
     '''定义函数功能，分别统计中英文词频'''
-    stats_text_cn(checkcn)
-    stats_text_en(checken)
+    stats_text_cn(check)
+    stats_text_en(check)
+    # 如果用return (stats_text_cn(check)+stats_text_en(check))
+    # 输出结果会出现两次，why？
