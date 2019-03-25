@@ -23,3 +23,17 @@ while(a<9):#当a小于9时进行循环
             b=0#b值重新变为0
             print()#并转行
             break#结束循环
+
+#利用求余函数
+n=1
+m=1
+while (n <= 9):
+    if n%2 != 0:
+        while (m<=n):
+            print('%s*%s=%s'%(m,n,m*n),end=' ')
+            m+=1
+        print()
+        n+=1#若直接n+=2，就不需要后面的else了
+        m=1
+    else:
+        n+=1
