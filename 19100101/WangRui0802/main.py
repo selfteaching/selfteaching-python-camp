@@ -49,3 +49,7 @@ text = '''
 
 from mymodule import stats_word #导入stats_word模块
 print(stats_word.stats_text(text)) #调用stats_word模块中的函数stats_text(),把text参数传递进去
+try : 
+    print('合并词频统计结果： ', stats_word.stats_text(text))
+except ValueError as a :
+    print(a)
