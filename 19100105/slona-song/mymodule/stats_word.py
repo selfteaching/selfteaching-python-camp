@@ -9,7 +9,8 @@ def annotation(string) -> '''This is a Word frequency searcher''':     #用文�
 #定义中文检查器，同d6                      
 def stats_text_cn(checkstr):
     try:
-        raise ValueError(checkstr)
+        if type(checkstr) != str:
+            raise ValueError(checkstr)
     except ValueError as error:
         print(type(error))
         print("This data is not a string!")
@@ -27,7 +28,8 @@ def stats_text_cn(checkstr):
 #定义英文检查器，增加了查找英文字符的功能
 def stats_text_en(checkstr):
     try:
-        raise ValueError(checkstr)
+        if type(checkstr) != str:
+            raise ValueError(checkstr)
     except ValueError as error:
         print(type(error))
         print("This data is not a string!")
@@ -52,16 +54,17 @@ def stats_text_en(checkstr):
         print("executing finally stats_text_en!")
 
 #定义stats_text函数
-def stats_text(str):
+def stats_text(string):
     try:
-        raise ValueError(str)
+        if type(string) != str:
+            raise ValueError(string)
     except ValueError as error:
-         print(type(error))
+         print(type(error)) 
          print("This data is not a string!")
     else:
-        stats_text_cn(str)          #导入stats_text_cn函数
-        stats_text_en(str)          #导入stats_text_en函数
-        annotation(str)             #加入注释功能
+        stats_text_cn(string)          #导入stats_text_cn函数
+        stats_text_en(string)          #导入stats_text_en函数
+        annotation(string)             #加入注释功能
     finally:
         print("executing finally stats_text!")
     

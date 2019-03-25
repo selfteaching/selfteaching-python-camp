@@ -1,12 +1,21 @@
 
 #通过stats_word导入stats_text模块
 import mymodule.stats_word
-try:
-    mymodule.stats_word
-except Exception as exc:
-    print(type(exc))
-    print("Unexpect Error:")
-    raise
+
+def tryexc(string):
+    try:
+        if isinstance(string,str):
+            mymodule.stats_word.stats_text_cn(string)
+        else:
+            raise ValueError(string)
+    except ValueError as exc:
+        print(type(exc))
+        print("This data is not a string!")
+        raise
+    finally:
+        print("executing finally main!")
+
+
 
 text = '''
 愚公移山
@@ -59,8 +68,7 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 #运行导入的函数
 #mymodule.stats_word.stats_text(text)
 
-a=5
-mymodule.stats_word.stats_text_cn(a)
+b=5
+#tryexc(b)
 
-b='slona-song'
-mymodule.stats_word.stats_text_en(b)
+tryexc(text)
