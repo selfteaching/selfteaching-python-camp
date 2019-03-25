@@ -2,7 +2,7 @@
 
 # 教练
 
-[@realcaiying](https://github.com/realcaiying)
+
 
 # 学员
 
