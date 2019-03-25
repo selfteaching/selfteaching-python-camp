@@ -1,5 +1,5 @@
 
-import stats_word
+from mymodule import stats_word
 text = '''
 愚公移山
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他和家人往來極為不便。
@@ -36,4 +36,10 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-stats_word.stats_text(text)
+
+testerr1={}
+
+try:
+    stats_word.stats_text(testerr1)
+except ValueError as r:
+    print(r)
