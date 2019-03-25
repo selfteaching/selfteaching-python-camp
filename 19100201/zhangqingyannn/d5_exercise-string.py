@@ -34,9 +34,9 @@ for i in text:
 print(temp2)
 
 #大写字母转换成小写，小写字母转换成大写
-#temp3=.join(temp2)
-#temp3=temp3.swapcase()
-#print(temp2)
+temp3=",".join(temp2)
+temp3=temp3.swapcase()
+print(temp3)
 
 #将所有单词按a...z的升序排列
 temp2.sort()
