@@ -46,13 +46,14 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
-
+text_en = 1
 
 import collections
 import re
 
 def stats_text_en(text_en):
-    
+    if not isinstance(text_en,str):
+        raise ValueError('不是字符串类型(string)!')
     result = re.sub("[^A-Za-z]", " ", text_en.strip())
     newList = result.split( )
     # i=0
@@ -66,7 +67,8 @@ def stats_text_en(text_en):
 
 
 def stats_text_cn(text_cn):
-  
+    if not isinstance(text_cn,str):
+        raise ValueError('不是字符串类型(string)!')
     result1 = re.findall(u'[\u4e00-\u9fff]+',text_cn)
     newString = ''.join(result1)
 
@@ -88,5 +90,7 @@ def stats_text_cn(text_cn):
     print('中文汉字字频统计结果： ',dict(newWords))
 
 def stats_text(text):
+    if not isinstance(text,str):
+        raise ValueError('不是字符串类型(string)!')
     stats_text_en(text)
     stats_text_cn(text)
