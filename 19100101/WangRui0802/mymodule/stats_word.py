@@ -32,6 +32,11 @@ dict4 = {}
 
 """创建一个名为stats_text_en的函数，它的功能是为统计英文词频"""
 def stats_text_en(text):
+    '''参数类型检查（必须为字符串类型）'''
+    while not isinstance(text,str):
+        raise ValueError("你输入的内容不是字符串.")
+    else:
+        pass
     import re
     '''只保留英文'''
     text = re.sub("[^A-Za-z]", " ", text.strip())
@@ -54,11 +59,10 @@ def stats_text_en(text):
 #打印统计英文词频的结果
 print("统计英文词频的结果为:")
 print(stats_text_en(text))
-str = ''
+#str = ''
 
 
 '''6.2创建一个名为stats_text_cn的函数，并用它实现统计汉字词频的功能'''
-
 def histogram(s, old_d):
     d = old_d
     for c in s:
@@ -66,6 +70,11 @@ def histogram(s, old_d):
     return d
 """创建一个名为stats_text_cn的函数，它的功能是为统计中文词频"""
 def stats_text_cn(text):
+    '''参数类型检查（必须为字符串类型）'''
+    while not isinstance(text,str):
+        raise ValueError("你输入的内容不是字符串.")
+    else:
+        pass
     import re
     """去掉text中的英文和数字"""
     text = re.sub("[A-Za-z0-9]", "", text)
@@ -94,10 +103,19 @@ def stats_text_cn(text):
 print("统计中文词频的结果为:")
 print(stats_text_cn(text))
 
-def stats_text(text_bn):
+def stats_text1(text_bn):
     '''调用stats_text_en和stats_text_cn函数
     输出合并词频统计结果'''
     str1 = {}
     str1["en"] = stats_text_en(text_bn)
     str1["cn"] = stats_text_cn(text_bn)
     return str1
+
+    
+def stats_text(text):
+    '''参数类型检查（必须为字符串类型）'''
+    while not isinstance(text,str):
+        raise ValueError("你输入的内容不是字符串.")
+    else:
+        pass
+    return (stats_text_en(text),stats_text_cn(text)) 
