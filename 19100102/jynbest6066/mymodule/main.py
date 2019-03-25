@@ -1,4 +1,6 @@
-template = '''
+template = int(2)
+#template = 
+'''
 愚公移山
 
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他和家人往來極為不便。
@@ -50,5 +52,10 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 '''导入stats_word模块'''
 import stats_word
 
-'''调用stats_word模块中的stats_text函数'''
-print(stats_word.stats_text(template))
+'''try…except捕获异常'''
+try:
+    '''调用stats_word模块中的stats_text函数'''
+    print(stats_word.stats_text(template))
+except ValueError:
+    print(ValueError, '：你输入的参数类型不是string！')
+
