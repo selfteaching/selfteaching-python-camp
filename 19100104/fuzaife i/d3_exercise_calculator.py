@@ -1,14 +1,14 @@
-def add(x, y):  #加法运算
-    return x + y
+def add(num_a, y):  #加法运算
+    return num_a + y
 
-def subtract(x, y):   #减法运算
-    return x - y
+def subtract(num_a, y):   #减法运算
+    return num_a - y
 
-def multiply(x, y):   #乘法运算
-    return x * y
+def multiply(num_a, y):   #乘法运算
+    return num_a * y
 
-def divide(x, y):  #除法运算
-    return x / y
+def divide(num_a, y):  #除法运算
+    return num_a / y
 
 #用户输入
 print('选择运算：')
@@ -19,20 +19,21 @@ print('4、相除')
 
 choice = input('输入你的选择（1/2/3/4):')
 
-x = int(input('输入第一个数字：'))
-y = int(input('输入第二个数字：'))
+num_a = float(input('输入第一个数字：'))
+y = float(input('输入第二个数字：'))
 
 if choice == '1':
-    print(x, '+', y, '=', add(x, y) )
+    print(num_a, '+', y, '=', add(num_a, y) )
 
 elif choice == '2':
-    print(x, '-', y, '=', subtract(x, y))
+    print(num_a, '-', y, '=', subtract(num_a, y))
 
 elif choice == '3':
-    print(x, '*', y,'=', multiply(x, y) )
+    print(num_a, '*', y,'=', multiply(num_a, y) )
 
 elif choice == '4':
-    print(x, '/', y, '=', divide(x, y))
+    print(num_a, '/', y, '=', divide(num_a, y))
 
 else :
     print('非法输入')
+ 
