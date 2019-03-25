@@ -33,4 +33,7 @@ text = '''
     '''
 
 # 运行导入的函数
-stats_text(text)
+try:
+    stats_text(text)
+except ValueError as ve:
+    print(ve)

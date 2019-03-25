@@ -27,10 +27,10 @@ def list_dict(l):
     b = True  # 是否是英文
     for word in l:
         for char in word:
-            if (char >= '\u0041' and char <= '\u005a') or (char >= '\u0061' and char <= '\u007a'): # 字符是英文
+            if ('\u0041' <= char <= '\u005a') or ('\u0061' <= char <= '\u007a'):  # 字符是英文
                 b = True
                 break
-            else: #存在一个字符非英文 所以整个词非英文单词
+            else:  # 存在一个字符非英文 所以整个词非英文单词
                 b = False
                 break
         if (b):
@@ -42,11 +42,14 @@ def list_dict(l):
 
 
 def stats_text_en(s):
-    s = cut_clean(s)  # 切分字符串并清洗标点符号
-    s_dict = list_dict(s)  # 将tempiate转化为字典并统计词频
-    # 对字典按照value值排序
-    s_s_dict = sorted(s_dict.items(), key=lambda item: item[1], reverse=True)
-    print(s_s_dict)
+    if isinstance(s, str):
+        s = cut_clean(s)  # 切分字符串并清洗标点符号
+        s_dict = list_dict(s)  # 将tempiate转化为字典并统计词频
+        # 对字典按照value值排序
+        s_s_dict = sorted(s_dict.items(), key=lambda item: item[1], reverse=True)
+        print(s_s_dict)
+    else:
+        raise ValueError("is not str")
     return s_s_dict
 
 
@@ -65,10 +68,13 @@ def cut_count_cn(c, regex):  # 取出所有中文 是一个列表
 
 
 def stats_text_cn(s):  # 定义检索中文函数
-    regex = re.compile("(?x)(?: [\w -]+ | [\x80 -\xff]{3} )")
-    words = cut_count_cn(s, regex)
-    s_s_dict = sorted(words.items(), key=lambda item: item[1], reverse=True)
-    print(s_s_dict)
+    if isinstance(s, str):
+        regex = re.compile("(?x)(?: [\w -]+ | [\x80 -\xff]{3} )")
+        words = cut_count_cn(s, regex)
+        s_s_dict = sorted(words.items(), key=lambda item: item[1], reverse=True)
+        print(s_s_dict)
+    else:
+        raise ValueError("is not str")
     return s_s_dict
 
 
