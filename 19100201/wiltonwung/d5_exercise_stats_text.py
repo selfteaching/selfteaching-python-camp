@@ -23,7 +23,7 @@ Namespaces are one honking great idea -- let's do more of those!'''
 b=a.split(" ")
 c={}
 for i in b:  
-    count=text.count(i)
+    count=b.count(i)
     r1={i:count}
     c.update(r1)
 c1=sorted(c.items(),key=lambda x:x[1],reverse=True)
