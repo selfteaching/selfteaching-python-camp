@@ -47,3 +47,10 @@ def stats_text_cn(text):
 def stats_text(text):
     return (stats_text_en(text),stats_text_cn(text))
     
+def stats_text(text):
+    '''使用isinstance函数验证输入的参数类型是否为str'''
+    if isinstance(text, str) != True: 
+        '''用raise语句来引发异常'''
+        raise ValueError
+    else: 
+        return (stats_text_en(text),stats_text_cn(text))

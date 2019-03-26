@@ -24,7 +24,7 @@ def sort_en_word(text):
 #统计字符串样本中英文单词出现的次数
     text_en = "".join(i for i in text if ord(i) < 256)     #分离出文本中的英文
     text = text_en
-    for i in '*,，。.-!':
+    for i in '*,，。.-!、？！“”""?「」':
         text = text.replace(i,'')#去掉标点等符号
     text = text.lower()#将所有大写变成小写，以便后面单词计数
     textlist = text.split()#将text的字符串以空格为分隔符分割成字符串并赋值
@@ -34,12 +34,12 @@ def sort_en_word(text):
         if i not in word_dict:
             word_dict[i] = 1
         else:
-            word_dict[i] +=1
+            word_dict[i] += 1
     
-    sort_word = sorted(word_dict.items(),key=lambda item:item[1],reverse=True)#按单词出现次数降序排序
+    sort_en_word = sorted(word_dict.items(),key=lambda item:item[1],reverse=True)#按单词出现次数降序排序
     
-    print(sort_word)
-    return(sort_word)
+    print('sort_en_word => ', sort_en_word)
+    return(sort_en_word)
     
 sort_en_word(text)
 '''

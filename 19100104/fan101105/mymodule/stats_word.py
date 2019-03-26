@@ -22,16 +22,19 @@ Namespaces are one honking great idea -- let's do more of those!
 '''
 '''处理英文文本,按照单词出现次数,输出从大到小排序结果'''
 def stats_txt_en(text):#处理英文文本,按照单词出现次数,输出从大到小排序结果
-    text=text.replace(',',' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('*',' ') #替换所有标点符号为空格
-    text=text.lower()  #统一成小写
-    text=text.split()  #切割字符串
-    dicta={}
-    for i in text:
-        count=text.count(i)
-        x1={i:count}
-        dicta.update(x1)
-    dictb=sorted(dicta.items(),key=lambda x:x[1],reverse=True) #按照单词出现次数，从大到小排序
-    print(dictb)
+    if type(text) == str:#添加字符串类型检查
+        text=text.replace(',',' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('*',' ') #替换所有标点符号为空格
+        text=text.lower()  #统一成小写
+        text=text.split()  #切割字符串
+        dicta={}
+        for i in text:
+            count=text.count(i)
+            x1={i:count}
+            dicta.update(x1)
+        dictb=sorted(dicta.items(),key=lambda x:x[1],reverse=True) #按照单词出现次数，从大到小排序
+        print(dictb)
+    else:
+        raise ValueError('不是字符串，请重新输入！')
 
 stats_txt_en(text)
 
@@ -69,26 +72,33 @@ text1 = '''
 
 '''处理文本,按照汉字出现次数,输出从大到小排序结果'''
 def stats_txt_cn(text1):#处理中文文本
-    word_lst = []
-    word_dict = {}
-    exclude_str = "，。！？、（）【】<>《》=：+-*—“”…" 
-    # 添加每一个字到列表中
-    for line in text1:
-        for char in line:
-            word_lst.append(char)
-    # 用字典统计每个字出现的个数       
-    for char in word_lst:
-        if char not in exclude_str:
-            if char.strip() not in word_dict: # strip去除各种空白
-                word_dict[char] = 1
-            else :
-                word_dict[char] += 1
-    lstWords = sorted(word_dict.items(), key=lambda x:x[1],  reverse=True) 
-    print(lstWords)
+    if type(text1) == str:#添加字符串类型检查
+        word_lst = []
+        word_dict = {}
+        exclude_str = "，。！？、（）【】<>《》=：+-*—“”…" 
+        # 添加每一个字到列表中
+        for line in text1:
+            for char in line:
+                word_lst.append(char)
+        # 用字典统计每个字出现的个数       
+        for char in word_lst:
+            if char not in exclude_str:
+                if char.strip() not in word_dict: # strip去除各种空白
+                    word_dict[char] = 1
+                else :
+                    word_dict[char] += 1
+        lstWords = sorted(word_dict.items(), key=lambda x:x[1],  reverse=True) 
+        print(lstWords)
+
+    else:
+        raise ValueError('不是字符串，请重新输入！')    
 stats_txt_cn(text1)
 '''英汉合并词频统计'''
 
 def stats_text(text):
-    print(stats_txt_en(text))
-    print(stats_txt_cn(text))
+    if type(text) == str:#添加字符串类型检查
+        print(stats_txt_en(text))
+        print(stats_txt_cn(text))
+    else:
+        raise ValueError('不是字符串，请重新输入！') 
 stats_text(text)
