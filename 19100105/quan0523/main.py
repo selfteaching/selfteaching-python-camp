@@ -67,7 +67,19 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 #mymodule.stats_word.stats_text(text)     # 运行函数内容
 # 或者不import，直接 from mymodule import stats_word
 
-a=1234567890
+#a=1234567890
 #tryexc(a)
 
-tryexc(text)
+#tryexc(text)
+
+
+import json
+
+data=[]
+f=open('tang300.json','r',encoding='utf-8')
+for line in f:
+    data.append(line)
+json_str = json.dumps(data,indent=5,ensure_ascii=False)
+print(type(json_str))
+
+tryexc(json_str)

@@ -1,18 +1,29 @@
+from collections import Counter
+
 def stats_text_cn(checkcn):    # 定义检索中文字符
     try:
         if not isinstance(checkcn,str):
             raise ValueError(checkcn)
     except ValueError as err:
-            print('调用stats_text_cn函数，参数类型错误',type(err))
+        print('调用stats_text_cn函数，参数类型错误',type(err))
     else:
         countcn={}    # 初始化一个词典
         """Count the chinese in the text"""    # 注释
+        count = 100
+
         for i in checkcn:
             if u'\u4e00' <= i <= u'\u9fff':    # 中文字符的正则表达式
                 countcn[i] = checkcn.count(i)
-        countcn = sorted(countcn.items(), key=lambda item:item[1], reverse=True)
+    #   countcn = sorted(countcn.items(), key=lambda item:item[1], reverse=True)
+        countcn = collections.Counter(countcn).most_common(count)
+    #   c = Counter()
+    #   for cn in countcn:
+    #       c[cn] = c[cn] + 1
+
         print(countcn)
         return countcn
+    finally:
+        print('executing finally main')
 
 def stats_text_en(checken):    # 定义检索英文字符（在D5的作业基础上添加检查英文字符功能）
     try:
@@ -23,6 +34,8 @@ def stats_text_en(checken):    # 定义检索英文字符（在D5的作业基础
     else:
         counten={}    # 新字典
         entext=" "    # 空的字符串
+        count = 100
+
         checken=checken.replace(',',' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('*',' ')
     
         for i in checken:
@@ -33,9 +46,17 @@ def stats_text_en(checken):    # 定义检索英文字符（在D5的作业基础
     
         for i in entext:
             counten[i]=entext.count(i)    # 检索出来的内容放进新字典
-        counten=sorted(counten.items(),key=lambda item:item[1],reverse=True)    # 按值排序
+    #   counten=sorted(counten.items(),key=lambda item:item[1],reverse=True)    # 按值排序
+        counten = collections.Counter(counten).most_common(count)
+    #    e = Counter()
+    #    for en in counten:
+    #        e[en] = e[en] + 1
+
         print(counten)
         return counten
+    finally:
+        print('executing finally main')
+
 
 def stats_text(check):   # 定义函数
     try:
@@ -46,3 +67,5 @@ def stats_text(check):   # 定义函数
     else:
         print(stats_text_cn(check))
         print(stats_text_en(check))
+    finally:
+        print("executing finally stats_text!") 
