@@ -36,6 +36,7 @@ stats_text_en(text)
 
 def stats_text_cn(text):#设定函数
     A= []
+    c = { }
     for i in text:
         i.strip( '",",，,！,。,? ,“,—' )
         A.append(i)#转变形式
