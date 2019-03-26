@@ -6,21 +6,17 @@ def stats_text_en(text):
     en_pattern = re.compile(r'[a-zA-Z]+[\'\-]?[a-zA-Z]+')
     list1 = re.findall(en_pattern, text)
     
-    #print(list)
-    for i in list1:
-        ''' 统计次数 '''
-        num = list1.count(i)
-        '''使用setdefault给list中的词按次序添加键，并设定值为num'''
-        dict1.setdefault(i,num)
-        '''按照每个词的num作为key值排序'''
-        tup1 = sorted(dict1.items(),key = lambda items:items[1],reverse = True)
+    import collections
+    '''调用collections的Counter函数'''
 
-    dict2 = {}
-
-    '''遍历tup1'''
-    for i in tup1:
-        dict2[i[0]] = dict1[i[0]]
-    return dict2
+    #cnt = collections.Counter()
+    #for word in list1:
+        #cnt[word] += 1
+    '''添加一个int类型变量count'''
+    count = int(100)
+    list2 = collections.Counter(list1).most_common(count)
+    
+    return list2
 
 
 def stats_text_cn(text):
@@ -30,20 +26,23 @@ def stats_text_cn(text):
     cn_pattern = re.compile(r'[\u4e00-\u9fa5]')
     list1 = re.findall(cn_pattern, text)
     
-    #print(list)
-    for i in list1:
-        num = list1.count(i)
-        dict1.setdefault(i,num)
-        tup1 = sorted(dict1.items(),key = lambda items:items[1],reverse = True)
+    import collections
+    '''调用collections的Counter函数'''
+    #cnt = collections.Counter()
+    #for word in list1:
+        #cnt[word] += 1
 
-    dict2 = {}
-
-    '''遍历tup1'''
-    for i in tup1:
-        dict2[i[0]] = dict1[i[0]]
-    return dict2
-
-'''定义stats_text函数'''
-def stats_text(text):
-    return (stats_text_en(text),stats_text_cn(text))
+    '''添加一个int类型变量count'''
+    count = int(100)
+    list2 = collections.Counter(list1).most_common(count)
     
+    return list2
+
+
+def stats_text(text):
+    '''使用isinstance函数验证输入的参数类型是否为str'''
+    if isinstance(text, str) != True: 
+        '''用raise语句来引发异常'''
+        raise ValueError
+    else: 
+        return (stats_text_en(text),stats_text_cn(text))

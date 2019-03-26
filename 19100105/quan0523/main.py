@@ -1,5 +1,20 @@
 import mymodule.stats_word    # 导入函数模块
 
+def tryexc(string):
+    try:
+        if isinstance(string,str):
+            mymodule.stats_word.stats_text(string)
+        else:
+            raise ValueError(string)
+    except ValueError as exc:
+        print(type(exc))
+        print('This data is not a string')
+        raise
+    finally:
+        print('executing finally main')
+
+
+
 text = '''
 愚公移山
 
@@ -49,6 +64,10 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
-mymodule.stats_word.stats_text(text)     # 运行函数内容
+#mymodule.stats_word.stats_text(text)     # 运行函数内容
+# 或者不import，直接 from mymodule import stats_word
 
-    # 或者不import，直接 from mymodule import stats_word
+a=1234567890
+#tryexc(a)
+
+tryexc(text)
