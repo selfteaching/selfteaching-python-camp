@@ -47,7 +47,7 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
-with open('tang300.json','r') as f:
+with open('tang300.json','r',encoding='UTF-8') as f:
     data = f.read()
 
 from mymodule import stats_word #导入stats_word模块
