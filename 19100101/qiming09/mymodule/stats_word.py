@@ -1,10 +1,11 @@
-# this is d8 excercise for errors and exceptions
-# date : 2019.3.25
+# this is d9 excercise for standard library
+# date : 2019.3.26
 # author by : qiming
 
 import collections
 import re
 
+count = int(100)
 def stats_text_en(en) :
     ''' 1. 英文词频统计。
         2. 参数类型检查，不为字符串抛出异常。
@@ -12,7 +13,7 @@ def stats_text_en(en) :
     if type(en) == str : 
             text_en = re.sub("[^A-Za-z]", " ", en.strip())
             enList = text_en.split( )
-            return collections.Counter(enList)
+            return collections.Counter(enList).most_common(count)
     else : 
             raise ValueError ('type of argumengt is not str')
 
@@ -23,7 +24,7 @@ def stats_text_cn(cn) :
     if type(cn) == str : 
             cnList = re.findall(u'[\u4e00-\u9fff]+', cn.strip())
             cnString = ''.join(cnList)
-            return collections.Counter(cnString)
+            return collections.Counter(cnString).most_common(count)
     else :
             raise ValueError ('type of argumengt is not str')
 
@@ -35,3 +36,6 @@ def stats_text(text_en_cn) :
             return (stats_text_en(text_en_cn)+stats_text_cn(text_en_cn))
     else :
             raise ValueError ('type of argumengt is not str')
+
+
+
