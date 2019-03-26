@@ -46,5 +46,9 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
+wei = [1,2,3]
 from mymodule import stats_word #导入stats_word模块
-print(stats_word.stats_text(text))#调用stats_word模块中的函数stats_text(),把text参数传递进去
+try:
+    print(stats_word.stats_text(wei))#调用stats_word模块中的函数stats_text(),把text参数传递进去
+except ValueError as e:
+    print (e)

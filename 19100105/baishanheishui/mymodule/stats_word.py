@@ -14,6 +14,14 @@ def my_notes():
 
 #统计英文词频的函数
 def stats_text_en(c):  
+   try:
+      if not isinstance(c,str):
+         raise ValueError(c)
+   except ValueError as err:
+         print('调用stats_text_en函数，参数类型错误',type(err))
+         
+   else:   
+      
     c=c.replace(',',' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('*',' ')#将非英文字符替换为空格
              
     t=""               #新建一个空字符串
@@ -37,6 +45,14 @@ def stats_text_en(c):
 
 #统计中文字频的函数
 def stats_text_cn(t):   
+   try:
+      if not isinstance(t,str):
+         raise ValueError(t)
+   except ValueError as err:
+         print('调用stats_text_cn函数，参数类型错误',type(err))
+         
+   else:   
+     
      word_lst = []
      word_dict = {}
      exclude_str = "，。！？、（）【】<>《》=：+-*—“”…"
@@ -57,8 +73,15 @@ def stats_text_cn(t):
 #stats_text_cn(text)
 
 def stats_text(t):
-   print(stats_text_cn(t))
-   print(stats_text_en(t))
-   print(my_notes.__doc__)
+   try:
+      if not isinstance(t,str):
+         raise ValueError(t)
+   except ValueError as err:
+         print('调用stats_text函数，参数类型错误',type(err))
+         
+   else:
+      print(stats_text_cn(t))
+      print(stats_text_en(t))
+      print(my_notes.__doc__)
 
 

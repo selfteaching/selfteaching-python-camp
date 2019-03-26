@@ -1,116 +1,68 @@
-#字符串示例
-template = '''
-The Zen of Python, by Tim Peters
-美丽 is better than 丑陋.
-清楚 is better than 含糊.
-简单 is better than 复杂.
-复杂 is better than 难懂.
-单一 is better than 嵌套.
-稀疏 is better than 稠密.
-可读性计数.
-Special cases aren't special enough to 打破规则.
-即使练习会使得不再纯粹.
-但错误不应该用沉默来掩盖.
-Unless explicitly silenced.
-面对起义，拒绝猜的诱惑.
-有且只有一个办法.
-Although that way may not be obvious at first unless you're Dutch.
-尝试总比从未试过要强.
-Although never is often better than *right* now.
-如果执行很难被解释，那将是一个很糟的想法.
-如果执行很容易解释，这会是一个好点子.
-Namespaces are one honking great idea -- 让我们继续为之努力!
-'''
-
-#判断一个字符串是否是英文字符串的函数
-def judge_pure_english(keyword):
-        return all(ord(c) < 128 for c in keyword)
-
-#清理字符串中的非中文
-def is_ustr(in_str):
-    out_str=''
-    for i in range(len(in_str)):
-        if is_uchar(in_str[i]):
-            out_str=out_str+in_str[i]
-        else:
-            out_str=out_str+' '
-    return out_str
-
-def is_uchar(uchar):
-    """判断一个unicode是否是汉字"""
-    if uchar >= u'\u4e00' and uchar<=u'\u9fa5':
-            return True
-    """判断一个unicode是否是数字"""
-    if uchar >= u'\u0030' and uchar<=u'\u0039':
-            return False        
-    """判断一个unicode是否是英文字母"""
-    if (uchar >= u'\u0041' and uchar<=u'\u005a') or (uchar >= u'\u0061' and uchar<=u'\u007a'):
-            return False
-    if uchar in ('-',',','，','。','.','>','?'):
-            return False
-    return False
-
-
-
-#创建一个名为stats_text_en的函数，封装day5中任务2的代码到刚这个函数下，同时用文档字符串为stats_text_en添加注释说明
-def stats_text_en(text):
-    ''' 
-    以字典形式返回字符串中英文单词的出现频率
-    :param text:string
-    :return dict:英文单词词频统计结果
-    '''
-    # 在这里写具体操作
-    mydict={}
-    mylist=[]
-    mylist=text.split(" ")
-    for mylinum in mylist:
-        if judge_pure_english(mylinum) and mylinum != "":
-            if mylinum in mydict:
-                mydict[mylinum]=int(mydict[mylinum])+1
-            else:
-                mydict[mylinum]=1
-    #mydict=dict(sorted(stats_text_en(template).items(), key=lambda d: d[1],reverse=True))  #排序后返回
-    return mydict
-#print(sorted(stats_text_en(template).items(), key=lambda d: d[1],reverse=True))
-
-#创建一个名为stats_text_cn的函数，该函数的功能是实现统计每个中文汉字出现的次数，同时用文档字符串添加注释说明
-def stats_text_cn(text):
-    ''' 
-    以字典形式返回字符串中文汉字的出现频率
-    :param text:string
-    :return dict:中文汉字词频统计结果
-    '''
-    # 在这里写具体操作
-    mydict={}
-    text=is_ustr(text).replace(" ","")
-    for mylinum in text:
-        if mylinum != "":
-            if mylinum in mydict:
-                mydict[mylinum]=int(mydict[mylinum])+1
-            else:
-                mydict[mylinum]=1
+#-*- coding:utf-8 -*-
     
-    return mydict
-#print(sorted(stats_text_cn(template).items(), key=lambda d: d[1],reverse=True))
-
-#分别调用stats_text_en和stats_text_cn,输出合并词频统计结果
-def stats_text(text):
-    '''
-    统计一段字符串中中文和英文的词频
-    :param text:string
-    :return dict:中文和英文单词词频统计结果
-    '''
-    #对字符串做清洗操作，清洗掉换行、逗号，点，叹号，星号和破折号
-    text=text.replace("\n"," ").replace(","," ").replace("."," ").replace("*"," ").replace("--"," ")
-    
-    return dict(stats_text_en(text),**stats_text_cn(text))
+#定义注释函数
+def annotation(string) -> '''This is a Word frequency searcher''':     #用文档字符串进行注释
+    print("Annotation:",annotation.__annotations__) 
 
 
-def main():
-    mdict={}
-    mdict=stats_text(template)
-    print(mdict)
+#定义中文检查器，同d6                      
+def stats_text_cn(checkstr):
+    try:
+        if type(checkstr) != str:
+            raise ValueError(checkstr)
+    except ValueError as error:
+        print(type(error))
+        print("This data is not a string!")
+    else:
+        cndict={}
+        for i in checkstr:
+            if u'\u4e00' <= i <= u'\u9fff':
+                cndict[i] = checkstr.count(i)
+        cndict=sorted(cndict.items(),key=lambda item:item[1],reverse=True)
+        print(cndict)
+        return cndict
+    finally:
+        print("executing finally stats_text_cn!")
 
+#定义英文检查器，增加了查找英文字符的功能
+def stats_text_en(checkstr):
+    try:
+        if type(checkstr) != str:
+            raise ValueError(checkstr)
+    except ValueError as error:
+        print(type(error))
+        print("This data is not a string!")
+    else:
+        endict={}               #新建一个字典
+        entext=""               #新建一个空字符串
+        checkstr=checkstr.replace(',',' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('*',' ')  #去标点
 
-if __name__ == '__main__':
-    main()
+        #遍历原始字符串
+        for i in checkstr: 
+            if i.isascii():         #去掉中文或者说非英文字符
+                entext=entext+i     #将英文字符放入新建的字符串中
+
+        entext=entext.split( )      #分隔字符串
+
+        for i in entext:            #遍历新字符串
+            endict[i]=entext.count(i)        #创建字典
+        endict=sorted(endict.items(),key=lambda item:item[1],reverse=True) #按照值排序，从小到大
+        print(endict)
+        return endict
+    finally:
+        print("executing finally stats_text_en!")
+
+#定义stats_text函数
+def stats_text(string):
+    try:
+        if type(string) != str:
+            raise ValueError(string)
+    except ValueError as error:
+         print(type(error)) 
+         print("This data is not a string!")
+    else:
+        stats_text_cn(string)          #导入stats_text_cn函数
+        stats_text_en(string)          #导入stats_text_en函数
+        annotation(string)             #加入注释功能
+    finally:
+        print("executing finally stats_text!")

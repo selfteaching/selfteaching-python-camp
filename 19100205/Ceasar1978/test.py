@@ -1,29 +1,47 @@
-# 定义函数
-def add(x,y):return x+y
-def abstract (x,y):return x-y
-def multiply (x,y):return x*y
-def divide (x,y):return x/y
+text = '''
+The Zen of Python, by Tim Peters
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambxiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+'''
 
-# 用户输入
-print("请输入您要进行的计算（1/2/3/4）：")
-print ("1：加法")
-print("2：减法")
-print ("3：乘法")
-print("4：除法")
+text = text.replace("better","worse")
+print(text)
 
+list_text = text.split()
+list_text1 = []
+for i in list_text:
+    if "ea" not in i:
+        list_text1.append(i)
+text = " ".join(list_text1)
+print(text)
 
-choice = input("请输入您要进行的计算（1/2/3/4）：")
-num1 = int(input("请输入第一个数字："))
-num2 = int(input("请输入第二个数字："))
+text = text.swapcase()
+print(text)
 
-if choice == '1':
-    print(num1,"+",num2,"=",add(num1,num2))
-elif choice == '2':
-    print(num1,"-",num2,"=",abstract(num1,num2))
-elif choice == '3':
-    print(num1,"*",num2,"=",multiply(num1,num2))
-elif choice == '4':
-    print(num1,"/",num2,"=",divide(num1,num2))
-else:
-    print("输入错误，请重新输入：")
-    
+text = text.replace(",","")
+text = text.replace("--","")
+text = text.replace("!","")
+text = text.replace("*","")
+text = text.replace(".","")
+
+list_text = text.split()
+list_text.sort()
+print(list_text)
+
