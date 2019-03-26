@@ -28,7 +28,6 @@ def stats_text_cn(text,count):
     return collections.Counter(rep).most_common(count)   
 
 #定义stats_word函数，分别调用stats_text_en,stats_text_cn,输出合并词频统计结果
-
 def stats_text(text_bn,count):
     '''1、调用stats_text_en和stats_text_cn函数
     输出合并词频统计结果
