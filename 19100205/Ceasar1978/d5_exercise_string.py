@@ -1,4 +1,3 @@
-# 用worse替换better
 text = '''
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
@@ -21,7 +20,7 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-text = text.replace('better', 'worse')
+text = text.replace('better', 'worse') # 用worse替换better
 print(text)
 
 # 删除包含ea的单词
@@ -29,14 +28,14 @@ list_text = text.split () # 将字符串转换为列表
 list_text1 = []
 for i in list_text:
     if 'ea' not in i:
-        list_text1.append(i) # 此循环用if条件擅除包含ea的单词
+        list_text1.append(i) # 此循环用if条件删除包含ea的单词
 text = " ".join(list_text1) #将列表转换为字符串
 print(text)
-
+print("")
 # 大小写翻转
 text = text.swapcase()
 print(text)
-
+print("")
 # 单词按升序排列
 text = text.replace('.', '')
 text = text.replace('!', '')
