@@ -7,7 +7,7 @@ It's a common misconception that historically strong profit growth translates di
 习近平指出，国际形势发生了很大变化，但中法关系始终保持高水平健康稳定发展。总统先生就任以来，两国关系在不到两年时间里又迈上了新台阶，取得很多新成果。今年是一个具有特殊纪念意义的年份，既是中法建交55周年和中国留法勤工俭学运动100周年，也是新中国成立70周年。知古可以鉴今，为了更好前行。当今世界正经历百年未有之大变局，人类处在何去何从的十字路口，中国、法国、欧洲也都处于自身发展关键阶段。中方愿同法方一道，传承历史，开创未来，使紧密持久的中法全面战略伙伴关系继续走在时代前列，共同为建设一个持久和平、普遍安全、共同繁荣、开放包容、清洁美丽的世界作出更多历史性贡献。
 '''
 
-#判断是否包含英文
+#判断英文
 def stats_text_en(checkstr):
 	endic = {}
 	for ch in checkstr:
@@ -15,7 +15,7 @@ def stats_text_en(checkstr):
 			endic[ch] = checkstr.count(ch)
 	return endic
 
-#判断是否包含中文
+#判断中文
 def stats_text_cn(checkstr): 
 	cndic = {}
 	for i in checkstr:
