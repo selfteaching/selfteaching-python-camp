@@ -44,29 +44,45 @@ text1 = '''
 '''
 
 '''处理文本,按照汉字出现次数,输出从大到小排序结果'''
+import re
+def stats_txt_cn(text1):
+    ''' 统计中文字出现频率 '''
+    count=100
+    if type(text1) == str:
+        txtlist = re.findall(u'[\u4e00-\u9fff]+', text1.strip())  # 提取中文
+        text1 = ''.join(txtlist) 
+        return collections.Counter(text1).most_common(count)
+        #为中文字计数，返回中文字及所计数
+    else:
+        raise ValueError("不是字符串，请重新输入！")
+stats_txt_cn(text1)
+'''
+以下为第9天一直没搞通的程序，思路有问题，改思路，不用去除的方法了。
 def stats_txt_cn(text1):#处理中文文本
     if type(text1) == str:#添加字符串类型检查
         word_lst = []
         word_dict = {}
         count=100
-        exclude_str = "，。！？、?（）【】<>《》=：+-*—“”…" 
+        p =  re.compile(r'[\n|「」\·~\！\@#\￥\%\……\&*\（\）\——-+\=\【\】{}\、|\；\‘\’\：\“\”\《\》\？\，\。\、`~ !\@#\$\%\^\&*()_+-\=[]{}\|\;\'\'\:\"\"\,.\/\<>\?a-zA-Z0-9 ]')
+        text1 = re.sub(p, '', text1)
         # 添加每一个字到列表中
         for line in text1:
             for char in line:
                 word_lst.append(char)
         # 用字典统计每个字出现的个数       
         for char in word_lst:
-            if char not in exclude_str:
-                if char.strip() not in word_dict: # strip去除各种空白
-                    word_dict[char] = 1
-                else :
-                    word_dict[char] += 1
+            if char.strip() not in word_dict: # strip去除各种空白
+                word_dict[char] = 1
+            else :
+                word_dict[char] += 1
         lstWords = collections.Counter(word_dict).most_common(count) #按照单词出现次数，从大到小排序
         print(lstWords)
 
     else:
         raise ValueError('不是字符串，请重新输入！')    
 stats_txt_cn(text1)
+
+'''
 '''英汉合并词频统计'''
 
 def stats_text(text):
