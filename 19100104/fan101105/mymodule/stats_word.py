@@ -21,18 +21,18 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 '''处理英文文本,按照单词出现次数,输出从大到小排序结果'''
+import collections
 def stats_txt_en(text):#处理英文文本,按照单词出现次数,输出从大到小排序结果
+    dicta={}
+    count=100
     if type(text) == str:#添加字符串类型检查
         text=text.replace(',',' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('*',' ') #替换所有标点符号为空格
         text=text.lower()  #统一成小写
         text=text.split()  #切割字符串
-        dicta={}
         for i in text:
-            count=text.count(i)
-            x1={i:count}
-            dicta.update(x1)
-        dictb=sorted(dicta.items(),key=lambda x:x[1],reverse=True) #按照单词出现次数，从大到小排序
-        print(dictb)
+            dicta[i]=text.count(i)
+        dicta=collections.Counter(dicta).most_common(count) #按照单词出现次数，从大到小排序
+        print(dicta)
     else:
         raise ValueError('不是字符串，请重新输入！')
 
@@ -75,6 +75,7 @@ def stats_txt_cn(text1):#处理中文文本
     if type(text1) == str:#添加字符串类型检查
         word_lst = []
         word_dict = {}
+        count=100
         exclude_str = "，。！？、（）【】<>《》=：+-*—“”…" 
         # 添加每一个字到列表中
         for line in text1:
@@ -87,7 +88,7 @@ def stats_txt_cn(text1):#处理中文文本
                     word_dict[char] = 1
                 else :
                     word_dict[char] += 1
-        lstWords = sorted(word_dict.items(), key=lambda x:x[1],  reverse=True) 
+        lstWords = collections.Counter(word_dict).most_common(count) #按照单词出现次数，从大到小排序
         print(lstWords)
 
     else:
