@@ -53,6 +53,6 @@ t.closed
 
 from mymodule import stats_word #导入stats_word模块
 try:
-    print(‘Top100汉字字频统计结果：’， stats_word.stats_text_cn(read_file, 100)) 
+    print('Top100汉字字频统计结果:'， stats_word.stats_text_cn(read_file, 100)) 
 except ValueError as a :
     print(a)
