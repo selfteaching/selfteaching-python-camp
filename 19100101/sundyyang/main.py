@@ -72,5 +72,3 @@ try:
     print("全部结果为:",stats_word.stats_text(chao))
 except ValueError as err:
     print(err)
-
-
