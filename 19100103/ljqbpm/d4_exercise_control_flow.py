@@ -1,4 +1,4 @@
-#ÓÃforºÍwhileÑ­»··Ö±ğ´òÓ¡¾Å¾Å³Ë·¨±í
+#ä½¿ç”¨forã€whileæ‰“å°ä¹ä¹ä¹˜æ³•è¡¨
 
 def multiply_for(n):
     for i in range(1,n+1):

@@ -1,4 +1,26 @@
-python exercise notes
+2019.3.26
+1. learn to use standard library.
+2. use collections.Counter(a).most_common(b) to stats text.
+3. learn to import files and read it.
+
+2019.3.25
+1. learn concept of errors and exceptions.
+2. use try…except to deal with exceptions.
+
+2019.3.24
+1. use module to use funtions in different files.
+
+2019.3.23
+1. try to define functions.
+2. use list, dict, string conversition to stats text.
+
+2019.3.22
+1. learn data structures like list,string and dictionaries. 
+2. learn to use different methods of data structures, like list.sort(),list.reverse(),str.strip(),str.split() and so on.
+3. use bin(),oct(),hex() to converse from decimal to binary,octal and hexadecimal.
+
+2019.3.22
+too tired to write down something, update later...
 
 2019.3.21
 1. learn to use for…in and while statments to make flow control.
