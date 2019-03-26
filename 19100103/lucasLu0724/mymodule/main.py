@@ -1,4 +1,6 @@
 import stats_word as sw
+import json
+import sys
 # sw.test_import("ff")
 
 text = '''
@@ -105,8 +107,11 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two
 mighty gods to carry the mountains away.
 '''
 
+if __name__ == '__main__':
+    try:
+        sw.main(text,1)
+    except ValueError:
+        print("捕捉到了异常了")
 
-try:
-    sw.stats_text(text)
-except ValueError:
-    print("捕捉到了异常了")    
+
+
