@@ -1,5 +1,7 @@
-
 import mymodule.stats_word
+import json
+
+
 
 text = '''
 愚公移山
@@ -50,5 +52,30 @@ When the guardian gods of the mountains saw how
 determined Yugong and his crew were, they were struck with fear and reported the incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
+text1=1234567890
+text2='愚公移山移山是不會明白的愚公移山愚公移山愚公愚公愚愚愚'
+text3='How The Foolish Old Man Moved Mountains Yugong was a ninety year old man who lived Yugong Yugong'
 
-mymodule.stats_word.stats_text(text)
+def test(t):
+    try:
+     
+        mymodule.stats_word.stats_text_cn(t)
+        #mymodule.stats_word.stats_text_en(t)
+        #mymodule.stats_word.stats_text(t)
+
+    except ValueError as err:
+        print("输入类型错误",type(err))
+    else:
+        #mymodule.stats_word.stats_text(t)
+        print('主函数调用正常')
+    finally:
+        print('无论主函数调用正常与否,进行清理')
+
+data=[]
+f=open("tang300.json",'r',encoding='utf-8')
+for line in f: #设置文件对象并读取每一行文件
+    data.append(line)  #将每一行文件加入到list中
+json_str = json.dumps(data,indent=5,ensure_ascii=False)
+print(type(json_str))
+test(json_str)
+f.close()
