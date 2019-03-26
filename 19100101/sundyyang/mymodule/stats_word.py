@@ -25,7 +25,7 @@ Namespaces are one honking great idea -- let's do more of those!
 Python是一种计算机程序设计语言。是一种动态的、面向对象的脚本语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。
 '''
 
-import collections
+from collections import Counter
 import re
 
 def stats_text_en(string_en):
@@ -34,6 +34,11 @@ def stats_text_en(string_en):
         result = re.sub("[^A-Za-z]", " ", string_en.strip())
         newList = result.split( )
 
+        count = int(8)  # 第9天作业，定义count类型
+        newList = Counter(newList)  # 第9天作业，通过Counter来输出词频
+        print (newList.most_common(count))
+
+        '''
         for i in range(0,len(newList)): 
             newList[i]=newList[i].strip('*-,.?!')
             if newList[i]==' ': 
@@ -41,10 +46,11 @@ def stats_text_en(string_en):
             else:
                 i=i+1
         return('英文单词词频统计结果： ',collections.Counter(newList),'\n')
+        '''
 
-# 第8天，为函数添加参数类型检查
+    # 第8天，为函数添加参数类型检查
     else:
-        raise ValueError('非字符串，请检查重试')
+        raise ValueError('非字符串，请检查重试')  
 
 
 ''' 
@@ -61,6 +67,11 @@ def stats_text_cn(string_cn):
         result1 = re.findall(u'[\u4e00-\u9fff]+', string_cn)
         newString = ''.join(result1)
 
+        count = int(7)  # 第9天作业，定义count类型
+        newString = Counter(newString)  # 第9天，通过Counter来输出词频
+        print (newString.most_common(count))
+
+        '''
         def stats(orgString, newDict) :
             d = newDict
             for m in orgString :
@@ -77,8 +88,9 @@ def stats_text_cn(string_cn):
             words = stats(new_list[n],words)
         newWords = sorted(words.items(), key=lambda item: item[1], reverse=True) 
         return('中文汉字字频统计结果： ',dict(newWords))
+        '''
 
-# 第8天，为函数添加参数类型检查
+    # 第8天，为函数添加参数类型检查
     else:
         raise ValueError('非字符串，请检查重试')
 

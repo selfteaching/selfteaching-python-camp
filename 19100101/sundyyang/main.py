@@ -58,8 +58,19 @@ mighty gods to carry the mountains away.
 chao = {}
 
 from mymodule import stats_word
+from collections import Counter
+import os
+
+# 第9天，读取文件并排序
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'tang300.json')) as nine :
+    read_data = nine.read()
+    nine.closed
+    read = Counter(stats_word.stats_text(read_data))
+    print(read.most_common(100))
 
 try:
     print("全部结果为:",stats_word.stats_text(chao))
 except ValueError as err:
     print(err)
+
+
