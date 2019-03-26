@@ -30,3 +30,4 @@ elif choice == '4':
     print(number1,"/" ,number2,"=",divide(number1,number2) )
 else:
     print('非法输入')      #第一次操作，编程bug不断，哈哈，精进，加油
+    #难道用中文名提交，有冲突吗？
