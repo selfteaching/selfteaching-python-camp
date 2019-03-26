@@ -47,9 +47,12 @@ text = '''
 	Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 	'''
 
+with open('tang300.json') as t:
+	read_file = t.read()
+t.closed
+
 from mymodule import stats_word #导入stats_word模块
-print(stats_word.stats_text(text)) #调用stats_word模块中的函数stats_text(),把text参数传递进去
-try : 
-    print('合并词频统计结果： ', stats_word.stats_text(text))
+try:
+    print('Top100汉字字频统计结果:'， stats_word.stats_text_cn(read_file, 100)) 
 except ValueError as a :
     print(a)
