@@ -21,14 +21,26 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-
+import string
 #将better替换成worse
 replace_text = text.replace('better','worse')
 print(replace_text)
 
 #删除带有“ea”的单词（以下操作需要改进）
-del_ea = replace_text.replace('ea','')
-print(del_ea)
+split_text = text.split()
+print(split_text)
+
+except_text = ""
+for words in split_text:
+	if "ea" in words:
+		continue
+	else:
+		except_text = except_text + " " + words
+
+print(except_text)
+
+
+
 
 #转换大小写
 zhdxx_text = text.swapcase()
