@@ -73,3 +73,4 @@ def stats_text_cn(text):                             # 定义一个名为stats_t
 #打印统计中文词频的结果
 print("统计中文词频的结果为:")
 print(stats_text_cn(text))
+
