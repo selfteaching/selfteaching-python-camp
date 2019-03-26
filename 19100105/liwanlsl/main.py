@@ -51,12 +51,14 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 '''
 text1 = ['This is not Valid Character! 这不是一个有效字符']
 
-import json
-
-with open('tang300.json') as t:
-     tang = t.read()
-
 from mymodule import stats_word
+
+
+with open('tang300.json','r', encoding='UTF-8') as t :
+    tang = t.read()
+t.closed
+
+
 try :
 
   print("英文、汉字词频统计：",stats_word.stats_text(tang))
