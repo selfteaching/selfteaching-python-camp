@@ -49,4 +49,22 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 
 import stats_word
 
-stats_word.stats_text(text)
+#测试输入变量是否为字符串，是则返回True，否则返回False
+def Error_Test(test):
+    try:
+        stats_word.stats_text_en(test,print_text=False)
+    except ValueError as VE:
+        print('Error=>',VE)
+        return False
+    else:
+        return True
+
+def main():
+    a=123
+    #if Error_Test(text):
+    #   stats_word.stats_text_en(text,print_text=True)
+    if Error_Test(a):
+        stats_word.stats_text_en(text,print_text=True)
+
+if __name__=="__main__":
+     main()

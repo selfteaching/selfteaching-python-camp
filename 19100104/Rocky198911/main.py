@@ -1,3 +1,11 @@
+from mymodule import stats_word as sw
+
+test = 3.1415926  # 用 try except 捕获异常并执行
+try:
+    sw.stats_text(test)
+except ValueError:
+    print("input is not string, you may check again!")
+         
 text = '''
 愚公移山
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他和家人往來極為不便。
@@ -29,6 +37,8 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
+sw.stats_text(text)
 
-from mymodule import stats_word
-print('合并词频统计结果： ', stats_word.stats_text(text))
+#sw.stats_text_cn(1) #测试触发异常
+#sw.stats_text_en(1) #测试触发异常
+#sw.stats_text(1)    #测试触发异常

@@ -52,6 +52,10 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two
 mighty gods to carry the mountains away.
 '''
 
-
-from mymodule import stats_word   #导入stats_word模块
-print(stats_word.stats_text(text))   #调用stats_word模块中的stats_text函数，统计textcn中的词频
+"""导入stats_word模块"""
+from mymodule import stats_word   
+text = 1234444
+try:
+    print(stats_word.stats_text(text))  
+except Exception as e:
+    print(e)

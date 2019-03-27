@@ -1,4 +1,11 @@
 from mymodule import stats_word as sw
+
+test = 3.1415926  # 用 try except 捕获异常并执行
+try:
+    sw.stats_text(test,100)
+except ValueError:
+    print("input is not string, you may check again!")
+         
 text = '''
 愚公移山
 
@@ -48,4 +55,9 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
-sw.stats_text(text)
+sw.stats_text(text,100)
+
+#sw.stats_text_cn(1) #测试触发异常
+#sw.stats_text_en(1) #测试触发异常
+#sw.stats_text(1)    #测试触发异常
+

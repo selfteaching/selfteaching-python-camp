@@ -7,6 +7,7 @@ This is Cat.
 *Never give up, just tried to google what other people built.*
 *Exploring what's within the builder's mind, it was hard but fun.*
 **I love this toy.**
+
 - [ ] Stitch Calculator for my Max. LOVE YA!
 
 # Day4 notes:

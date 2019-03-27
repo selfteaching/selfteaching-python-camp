@@ -20,55 +20,66 @@ Although never is often better than *right* now.
 如果执行很容易解释，这会是一个好点子.
 Namespaces are one honking great idea -- 让我们继续为之努力!
 '''
+from collections import Counter
 
 
-def stats_text_en(text):
-    #封装统计英文词频的函数
-    import sys
-    sys.path.append(r'D:\我的文档\Documents\GitHub\selfteaching-python-camp\19100103\hono355')
-    import d5_exercise_stats_text
-    result = d5_exercise_stats_text.sort_en_word(text)
+
+def test(text):
+    if not isinstance(text, str):
+        raise ValueError('The type of text is not string')
+
+def test(count):
+    if not isinstance(count, int):
+        raise TypeError('The type of count is not int')
+
+def stats_text_en(text, count):
+    #统计英文词频的函数
+    word_en = "".join(i for i in text if ord(i) < 256)    #分离出文本中的英文
+    for i in '*,，。.-!、？！“”""?「」':
+        word_en = word_en.replace(i,'')    #去掉标点等符号
+    word_en = word_en.lower()    #将所有大写变成小写，以便后面单词计数
+    word_en_list = word_en.split()    #将text的字符串以空格为分隔符分割成字符串并赋值
+    word_en_counter = Counter(word_en_list).most_common(count)    #用Counter计数排序，返回指定个数频率最高的元素及计数
+    result = word_en_counter
+    print('stats_text_en =>', result)
     return result
     
 
-def stats_text_cn(text):
-    #封装统计中文词频的函数
-    text_cn = "".join(i for i in text if ord(i) >= 256)    #分离出文本中的中文
-    text = text_cn
-    for i in '*,，。.-!':
-        text = text.replace(i,'')#去掉标点等符号
+def stats_text_cn(text, count):
+    #统计中文词频的函数
+    word_cn = "".join(i for i in text if ord(i) >= 256)    #分离出文本中的中文
+    for i in '*,，。.-!、？！“”""?「」:：':
+        word_cn = word_cn.replace(i,'')    #去掉标点等符号
 
-    textlist = []
-    for i in text:
-        textlist.append(i)#将汉字一个一个分开
-
-    word_dict = {}
-    #统计各个汉字出现的次数
-    for j in textlist:
-        if j not in word_dict:
-            word_dict[j] = 1
-        else:
-            word_dict[j] +=1
-    
-    sort_word = sorted(word_dict.items(),key=lambda item:item[1],reverse=True)#按汉字出现次数降序排序
-    print(sort_word)
-    
-    result = sort_word
-    print(result)
+    word_cn_list = []
+    for i in word_cn:
+        word_cn_list.append(i)    #将汉字一个一个分开
+    word_cn_counter = Counter(word_cn_list).most_common(count)    #用Counter计数排序，返回指定个数频率最高的元素及计数
+    result = word_cn_counter
+    print('stats_text_cn => ', result)
     return result
 
 
-def stats_text(text):
-    result = stats_text_en(text) + stats_text_cn(text)
+def stats_text(text, count):
+    #调用stats_text_en与stats_text_cn函数，输出合并词频统计结果
+    result = stats_text_en(text, count) + stats_text_cn(text, count)
+    print('stats_text => ', result)
     return result
-    print(result)
-    
+
+
+
+
+
+   
 def main():
-    stats_text_en(template)
-    stats_text_cn(template)
-    stats_text(template)
+    stats_text_en(template, None)
+    stats_text_cn(template, None)
+    stats_text(template, None)
+    
 
 if __name__ == '__main__':
     main()
+
+
 
 
