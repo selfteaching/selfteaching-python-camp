@@ -1,9 +1,7 @@
 
-seq4 = [1, 2, 3]
-seq5 = []
-for i in range(len(seq4)):
-    seq5.append(str(seq4[i]))
-s6 = ''.join(seq5)
-print (s6)
-s7 = ''.join(str(i) for i in seq5)
-print (s7)
+d1={1:[1,11,111],3:[5,33,333]}
+d2={3:[3,33,333],4:[4,44,444]}
+d ={}
+d.update(d1)
+d.update(d2)
+print(d)
