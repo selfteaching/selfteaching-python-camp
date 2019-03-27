@@ -1,5 +1,6 @@
 import collections  #集合 模块：该模块实现了专门的容器数据类型，提供了Python的通用内置容器，dict，list，set和tuple的替代方法。
 import re           #重新  模块：提供与Perl中类似的正则表达式匹配操作。 它支持8位和Unicode字符串; 模式和正在处理的字符串都可以包含空字节和US ASCII范围之外的字符。
+import jieba
 
 def stats_text_en(en) :
     ''' 英文词频统计'''
@@ -12,7 +13,16 @@ def stats_text_cn(cn) :
     ''' 汉字字频统计 '''
     cnList = re.findall(u'[\u4e00-\u9fa5]+', cn.strip())
     cnString = ''.join(cnList)
-    return collections.Counter(cnString).most_common(100)
+    
+    segList = jieba.cut(cnString,cut_all=False)
+    SHList = []
+    for i in segList :
+          if len(i) >= 2 :
+               SHList.append(i)
+          else :
+               pass       
+
+    return collections.Counter(SHList).most_common(20)
 
 def stats_text(text):
     ''' 合并英汉词频统计 '''
