@@ -1,3 +1,9 @@
+def stats_text_en() ：
+    """Count the english words in the text"""  #使用文档字符串说明
+    import d5_exercise_stats_text  #封装day5任务2的代码
+
+
+
 text='''《道德经》全文
 01.道可道，非常道。名可名，非常名。无名天地之始。有名万物之母。故常无欲以观其妙。常有欲以观其徼。此两者同出而异名，同谓之玄。玄之又玄，众妙之门。
 02.天下皆知美之为美，斯恶矣；皆知善之为善，斯不善已。故有无相生，难易相成，长短相形，高下相倾，音声相和，前後相随。是以圣人处无为之事，行不言之教。万物作焉而不辞。生而不有，为而不恃，功成而弗居。夫唯弗居，是以不去。
@@ -84,9 +90,8 @@ text='''《道德经》全文
 def stats_text_cn(text):  # 统计中文词频
     """Count the chinese words in the text """  # 使用文档字符串说明
     countcn={}
-    for ch in text:
-        if u'\u4e00' <= ch <= u'\u9fff':
-            countcn[ch] = text.count(ch)
+    for i in text:
+        if u'\u4e00' <= i <= u'\u9fff':
+            countcn[i] = text.count(i)
     countcn = sorted(countcn.items(), key=lambda item: item[1], reverse=True)  #按出现数字从大到小排列
     return countcn
-    print(countcn)
