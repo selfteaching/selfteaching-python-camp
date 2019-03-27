@@ -1,3 +1,4 @@
+
 # this is d10 excercise for 3rd-party library
 # date : 2019.3.27
 # author by : qiming
@@ -47,3 +48,6 @@ def stats_text(text_en_cn,count_en_cn) :
             return (stats_text_en(text_en_cn,count_en_cn)+stats_text_cn(text_en_cn,count_en_cn))
     else :
             raise ValueError ('type of argumengt is not str')
+
+
+

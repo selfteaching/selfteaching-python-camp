@@ -17,7 +17,7 @@ str5 = int(str4)#将结果转换成int类型
 
 
 str_2 = bin(str5)#转换为二进制
-str_8 = int(str4,8)#转换为八进制
+str_8 = int(str4,8)#转换为八制
 str_16 = int(str4,16)#转换为十六进制
 print(str_2)
 print(str_8)
