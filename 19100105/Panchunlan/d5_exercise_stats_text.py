@@ -30,7 +30,6 @@ for i in range(0,len(list1)):
         list1[i].remove(' ')
     else:
         i=i+1
-# 使用dict统计字符串样本中各个英文单词出现的次数
-# 按照出现次数从大到小排列，示例 {'is': 10, ‘better’ : 9, …… }
+
 import collections
 print(collections.Counter(list1))
