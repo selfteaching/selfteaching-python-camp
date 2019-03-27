@@ -1,24 +1,30 @@
-
-
-from IPython.core.interactiveshell import InteractiveShell
-InteractiveShell.ast_node_interactivity = "all"
-
-
-def del_word(words,word):
+def cut_clean(s):
+    #切分字符串
+    s=s.split()
+    #清洗标点符号
     i=0
-    while i<len(words):
-        if word in words[i]:
-            del words[i]
+    while i<len(s):
+        s[i]=s[i].strip('*-.')
+        if s[i]=='': #清洗完成之后若为空元素‘’，则删除元素
+            s.remove('')
         else:
             i=i+1
-    return words
+    return s
 
-def change_word(words,word1,word2):
-    for i in range(0, len(words)):
-        if("better" == words[i]){
-            words[i] = "worse"
-        }
-    return words
+def del_word(s,w):
+    i=0
+    while i<len(s):
+        if w in s[i]:
+            del s[i]
+        else:
+            i=i+1
+    return s
+
+def change_word(s,w1,w2):
+    for i in range(len(s)):
+        if s[i]==w1:
+            s[i]=w2
+    return s
 
 def case_switch(s):
     for i in range(len(s)):
@@ -54,4 +60,4 @@ text=del_word(text,'ea') #将字符串样本text里英文单词中包含ea的英
 text=change_word(text,'better','worse') #将better全部替换成worse
 text=case_switch(text) #大写字母转成小写，小写字母转成大写
 text.sort() #将所有单词按a...z升序排列
-print("处理完结果："，text) #打印结果
+print(text) #打印结果

@@ -1,4 +1,3 @@
- 
 text = '''
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
@@ -21,6 +20,11 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
+#清除texe里的标点符号
+symbol = ",.!-*"
+for str in symbol:
+    text = text.replace(str,'')
+print(text)
 #将字符串样本text里英文单词中包含ea的英文单词剔除
 symbol = ",.!-*"
 for str in symbol:

@@ -29,5 +29,5 @@ for i in text:
     count=text.count(i)
     x1={i:count}
     dicta.update(x1)
-dictb=sorted(dicta.items(),key=lambda x:x[1],reverse=True) #按照单词出现次数，从大到小排序
+dictb=sorted(dicta.items(),key=lambda x:x[1],reverse=True)
 print(dictb)
