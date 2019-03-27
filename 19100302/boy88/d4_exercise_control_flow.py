@@ -24,3 +24,4 @@ while i < 10:
 print("---"* 20)
 print("this is a new test")
 print("this is a new test")
+print("this is a new test3")
