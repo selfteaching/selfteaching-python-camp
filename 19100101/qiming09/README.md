@@ -1,3 +1,12 @@
+2019.3.26
+1. learn to use standard library.
+2. use collections.Counter(a).most_common(b) to stats text.
+3. learn to import files and read it.
+
+2019.3.25
+1. learn concept of errors and exceptions.
+2. use try…except to deal with exceptions.
+
 2019.3.24
 1. use module to use funtions in different files.
 
