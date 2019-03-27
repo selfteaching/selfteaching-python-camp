@@ -18,5 +18,10 @@
 
 [@qiming09](https://github.com/qiming09)
 
+[@lidong2119](https://github.com/lidong2119)
+
+[@shawnlth](https://github.com/shawnlth)
+
 [@sundyyang](https://github.com/sundyyang)
 
+[@echojce](https://github.com/echojce)
