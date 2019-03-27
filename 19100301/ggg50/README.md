@@ -75,8 +75,49 @@ JS 是 ".slice(1,2)"
 
 今天时间安排不当，来不及进一步学习，只能先完成一个简单版的作业 —— 可满足运算需求，没有报错功能
 
+<hr>
+
+Day 4
+2019.3.27
+
+姓名：谢嘉锋
+所属班级：003期1班
+学习用时：4h +
+
+收获总结：
+
+英文文档看的我一脸懵逼，换到中文版，结果是另一种懵逼……
+
+到底什么是”流程控制“呢？
+不知道我的理解对不对
+一、
+Wiki 上的定义是：
+“In computer science, control flow is the order in which individual statements, instructions or function calls of an imperative program are excuted or evaluated.”
+
+我的理解，control flow 是指，在 imperative program 中每个单独的 statement、instructions 或者 function calls（函数调用）被执行被评估的顺序。
+
+二、control flow可以分为四种：
+1.按顺序运行不同的statement（不需要条件）；
+2.按照条件执行 statement，条件自己定：
+“符合什么条件就做什么”，
+或者“已经不符合条件就结束手头正在做的 ……”
+......
+3.暂时插入执行一个写在别的地方的 statement；
+4.停止程序
+
+三、另，有没有 control flow 可以用来区别 imperative programming language 和 declarative programming language.
+
+imperative programming 所要实现的是，指导 computer 怎么运作来达到目的，所以它需要一个具体的流程；
+
+而在 declarative programming 中，wiki 中说，它要实现的是：
+ “What the program must accomplish in terms of the problem domain”
+rather then
+“How to accomplish it as a sequence of the program language primitives”
+
+我的理解，它更关注的是，它可以做什么，而不是要如何做。
+比如，regular expressions(正则表达式)就是属于 declarative languages 。
+所以它不需要 control flow 。
 
 
 
-
-
+<hr>
