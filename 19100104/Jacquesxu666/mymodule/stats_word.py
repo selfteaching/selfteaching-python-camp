@@ -43,5 +43,5 @@ def stats_text(text,count):  # 合并中英文词频统计
         a = stats_text_en(text,count)
         b = stats_text_cn(text,count)
         c = a+b
-        print(c)
+        return c
 
