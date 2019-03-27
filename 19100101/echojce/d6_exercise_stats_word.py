@@ -1,7 +1,3 @@
-# this is d6 excercise for defining functions
-# date : 2019.3.23
-# author by : qiming
-
 # 示例字符串
 string1 =  '''
 The Zen of Python, by Tim Peters
@@ -40,7 +36,9 @@ def stats_text_en(string_en):
     第二步：清理*-等标点符号。
     第三步：使用collections库中的Counter函数进行词频统计并输出统计结果。
     '''
-    result = re.sub("[^A-Za-z]", " ", string_en.strip())
+    print("处理前的原始字符串\n\n",string_en)
+    result = re.sub("[^A-Za-z]", " ", string_en.strip())#把非A-Z和a-z的字符串全部去除掉
+    print("处理后的结果\n\n",result)
     newList = result.split( )
     i=0
     for i in range(0,len(newList)):
