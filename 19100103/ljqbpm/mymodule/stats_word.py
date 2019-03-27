@@ -170,7 +170,7 @@ def main():
         text_all='' #初始化contents的容器
         for i in range(len(text)): #往容器里填contents
             text_all+=text[i]['contents'] #得到一个由contents组成的字符串
-        stats_text_cn(text_all, count=100, print_text=True)
+        stats_text_cn(text_all, count=20, print_text=True)
         #调用函数统计并打印100个字频最高的字，修改count的值可以修改打印的字数
     
 
