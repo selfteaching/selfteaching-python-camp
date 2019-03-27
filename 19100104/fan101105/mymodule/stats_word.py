@@ -45,17 +45,28 @@ text1 = '''
 
 '''处理文本,按照汉字出现次数,输出从大到小排序结果'''
 import re
+import jieba
 def stats_txt_cn(text1):
-    ''' 统计中文字出现频率 '''
+    ''' day10 使用jieba第三方库统计长度大于等于2的中文词汇出现频率 '''
+    count=20
+    if type(text1) == str:
+        txtlist = re.findall(u'[\u4e00-\u9fff]+', text1.strip())  # 提取中文
+        text2 = ''.join(txtlist) 
+        txtlist1 = [ i for i in jieba.cut_for_search(text2) if len(i) >= 2]
+        return collections.Counter(txtlist1).most_common(count)#为中文字计数，返回中文字及所计数
+    else:
+        raise ValueError("不是字符串，请重新输入！")
+stats_txt_cn(text1)
+
+'''
+day9 作业
     count=100
     if type(text1) == str:
         txtlist = re.findall(u'[\u4e00-\u9fff]+', text1.strip())  # 提取中文
         text1 = ''.join(txtlist) 
         return collections.Counter(text1).most_common(count)
         #为中文字计数，返回中文字及所计数
-    else:
-        raise ValueError("不是字符串，请重新输入！")
-stats_txt_cn(text1)
+'''
 '''
 以下为第9天一直没搞通的程序，思路有问题，改思路，不用去除的方法了。
 def stats_txt_cn(text1):#处理中文文本
