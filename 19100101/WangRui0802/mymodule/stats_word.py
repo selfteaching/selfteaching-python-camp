@@ -28,29 +28,29 @@ Python是一种计算机程序设计语言。是一种动态的、面向对象�
 import collections
 import re
     
-def stats_text_en(en,count):
+def stats_text_en(text_en,count):
     ''' 1. 英文词频统计。
         2. 参数类型检查，不为字符串抛出异常。
     '''
-    if type(en) == str: 
-            text_en = re.sub("[^A-Za-z]", " ", en.strip())
-            enList = text_en.split( )
+    if type(text_en) == str: 
+            entext = re.sub("[^A-Za-z]", " ", text_en.strip())
+            enList = entext.split( )
             return collections.Counter(enList).most_common(count)
     else:
         
-            raise ValueError('type of argumengt is not str')
+            raise ValueError('it is not str')
     
-def stats_text_cn(cn,count):
+def stats_text_cn(text_cn,count):
     ''' 1. 汉字字频统计 
         2. 参数类型检查，不为字符串抛出异常。
     '''
-    if type(cn) == str : 
-            cnList = re.findall(u'[\u4e00-\u9fff]+', cn.strip())
-            cnString = ''.join(cnList)
-            return collections.Counter(cnString).most_common(count)
+    if type(text_cn) == str : 
+            cntext = re.findall(u'[\u4e00-\u9fff]+', text_cn.strip())
+            newString = ''.join(cntext)
+            return collections.Counter(newString).most_common(count)
     else:
         
-            raise ValueError ('type of argumengt is not str')
+            raise ValueError ('it is not str')
     
 def stats_text(text_en_cn,count_en_cn) :
     ''' 1. 合并英汉词频统计 
@@ -60,5 +60,5 @@ def stats_text(text_en_cn,count_en_cn) :
             return (stats_text_en(text_en_cn,count_en_cn)+stats_text_cn(text_en_cn,count_en_cn))
     else:
         
-            raise ValueError ('type of argumengt is not str')
+            raise ValueError ('it is not str')
     
