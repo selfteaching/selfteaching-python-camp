@@ -1,5 +1,6 @@
 # 封装d5的代码
 import re
+from collections import Counter
 
 
 def clean_ip_list(words):  # 清理掉空格 标点符号
@@ -41,16 +42,18 @@ def list_dict(l):
     return cadiz
 
 
-def stats_text_en(s):
+def stats_text_en(s, count):
     if isinstance(s, str):
         s = cut_clean(s)  # 切分字符串并清洗标点符号
         s_dict = list_dict(s)  # 将tempiate转化为字典并统计词频
-        # 对字典按照value值排序
-        s_s_dict = sorted(s_dict.items(), key=lambda item: item[1], reverse=True)
-        print(s_s_dict)
+        # 用Counter对数组按照value值排序
+        c_dict = Counter(s_dict)
+        # 找出频率最多的前count名
+        c_dict = c_dict.most_common(count)
+        print(c_dict)
     else:
         raise ValueError("is not str")
-    return s_s_dict
+    return c_dict
 
 
 def cut_count_cn(c, regex):  # 取出所有中文 是一个列表
@@ -67,18 +70,21 @@ def cut_count_cn(c, regex):  # 取出所有中文 是一个列表
     return cadiz
 
 
-def stats_text_cn(s):  # 定义检索中文函数
+def stats_text_cn(s, count):  # 定义检索中文函数
     if isinstance(s, str):
         regex = re.compile("(?x)(?: [\w -]+ | [\x80 -\xff]{3} )")
         words = cut_count_cn(s, regex)
-        s_s_dict = sorted(words.items(), key=lambda item: item[1], reverse=True)
-        print(s_s_dict)
+        # 用Counter对数组按照value值排序
+        c_dict = Counter(words)
+        # 找出频率最多的前count名
+        c_dict = c_dict.most_common(count)
+        print(c_dict)
     else:
         raise ValueError("is not str")
-    return s_s_dict
+    return c_dict
 
 
 # 定义stats_text函数
-def stats_text(s):
-    stats_text_cn(s)  # 导入stats_text_cn函数
-    stats_text_en(s)  # 导入stats_text_en函数
+def stats_text(s, count):
+    stats_text_cn(s, count)  # 导入stats_text_cn函数
+    stats_text_en(s, count)  # 导入stats_text_en函数

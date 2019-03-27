@@ -44,11 +44,12 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two
 mighty gods to carry the mountains away.
 '''
 
-text = []
+with open('tang300.json') as f:
+    read_file = f.read()
+f.closed
 
 from mymodule import stats_word
-
 try:
-    print('中文汉字和英文单词频率统计结果：',stats_word.stats_text(text))
-except ValueError as lidong:
-    print(lidong)
+    print('汉字字频最高的前100字统计结果：',stats_word.stats_text_cn(read_file,100))
+except ValueError as e:
+    print(e)
