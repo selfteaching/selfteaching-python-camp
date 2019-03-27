@@ -21,21 +21,21 @@ Although never is often better than *right* now.
 Namespaces are one honking great idea -- 让我们继续为之努力!
 '''
 
-Template_en = "".join(i for i in template if ord(i) < 256)     #分离出文本中的英文
-Template_cn = "".join(i for i in template if ord(i) >= 256)    #分离出文本中的中文
 
 def stats_text_en(text):
     #封装统计英文词频的函数
     import d5_exercise_stats_text
     result = d5_exercise_stats_text.sort_en_word(text)
     return result
-
+   
 
 
 
 def stats_text_cn(text):
     #封装统计中文词频的函数
-    for i in '*,，。.-!':
+    text_cn = "".join(i for i in text if ord(i) >= 256)    #分离出文本中的中文
+    text = text_cn
+    for i in '*,，。.-!、？！“”""?「」':
         text = text.replace(i,'')#去掉标点等符号
 
     textlist = []
@@ -48,19 +48,17 @@ def stats_text_cn(text):
         if j not in word_dict:
             word_dict[j] = 1
         else:
-            word_dict[j] +=1
+            word_dict[j] += 1
     
-    sort_word = sorted(word_dict.items(),key=lambda item:item[1],reverse=True)#按汉字出现次数降序排序
-    print(sort_word)
-    
-    result = sort_word
+    sort_cn_word = sorted(word_dict.items(),key=lambda item:item[1],reverse=True)#按汉字出现次数降序排序
+    result = sort_cn_word
+  
+    print('sort_cn_word => ', result)
     return result
-    print(result)
-
 
 def main():
-    stats_text_en(Template_en)
-    stats_text_cn(Template_cn)
+    stats_text_en(template)
+    stats_text_cn(template)
 
 
 if __name__ == '__main__':
