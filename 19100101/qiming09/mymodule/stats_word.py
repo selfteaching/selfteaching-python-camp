@@ -25,16 +25,16 @@ def stats_text_cn(cn,count) :
         5. 参数类型检查，不为字符串抛出异常。
     '''
     if type(cn) == str : 
-            segList = jieba.cut(cn,cut_all=False)
-            segString = '/'.join(segList)
-            cnList = re.findall(u'[\u4e00-\u9fff]+', segString.strip())
+            cnList = re.findall(u'[\u4e00-\u9fff]+', cn.strip())
+            cnString = ''.join(cnList)
+            segList = jieba.cut(cnString,cut_all=False)
             cnnewList = []
-            for i in cnList :
+            for i in segList :
                     if len(i) >= 2 :
                             cnnewList.append(i)
                     else :
                             pass                
-            countList = collections.Counter(cnnewList).most_common(count)        
+            countList = collections.Counter(cnnewList).most_common(count)
             return countList
     else :
             raise ValueError ('type of argumengt is not str')
