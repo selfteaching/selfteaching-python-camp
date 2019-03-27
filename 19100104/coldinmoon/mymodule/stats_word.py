@@ -1,38 +1,34 @@
 #1.封装统计英文词频的函数
 #2.封装统计中文词频的函数
 #Date:3/23/2019
+#1.使用标准库中的Counter完善stats_word中的，中英文词频统计的排序功能，使函数能够按照词频的次序有序输出
+#2.分别给两个函数添加一个int变量count，用于限制输出元素的个数
+#Date:3/26/2019
 
-dict1 = {}
-dict2 = {}
-dict3 = {}
-dict4 = {}
+import re
+import collections
 
-
-def stats_text_en(text):   #创建一个名为stats_text_en的函数
+def stats_text_en(text,n):   #创建一个名为stats_text_en的函数
         """统计英文词频的函数"""
         if isinstance(text,str):
-            import re
+            counten={}
             text = re.sub("[^A-Za-z]", " ", text.strip())   #只保留英文
-            list1 = re.split(r"\W+",text)   #将字符串text转换为列表list1,只保留单词为list1中的元素
-            while '' in list1:   #删除list1中为空的列表元素
-                    list1.remove('')
-                    for i in list1:   
-                            dict1.setdefault(i,list1.count(i))  #将列表中的单词及单词的出现次数，分别赋值给dict1的键和值
-                            tup1 = sorted(dict1.items(),key = lambda items:items[1],reverse = True)   #将dict1按照value值从大到小排列，并将结果赋给元组tup1
-                    for tup1 in tup1:   
-                            dict2[tup1[0]] = dict1[tup1[0]]  
-            return dict2
+            counten = re.split(r"\W+",text)   #将字符串text转换为列表counten,只保留单词counten中的元素
+            while '' in counten:   #删除list1中为空的列表元素
+                    counten.remove('')
+            s=collections.Counter(counten)      #使用标准库中的Counter完善词频统计排序功能
+            return s.most_common(n)     #添加一个int变量count，用于限制输出元素的个数
         else:ValueError('Input should be string')
 
-def stats_text_cn(text):
+def stats_text_cn(text,n):
     """统计中文词频的函数""" #使用文档字符串添加注释说明
     if isinstance(text,str):
          countcn={}
          for i in text:
                  if u'\u4e00'<= i <= u'\u9fff':
                          countcn[i]=text.count(i)
-                         countcn=sorted(countcn.items(),key=lambda item:item[1],reverse=True)
-                         return countcn
+         s=collections.Counter(countcn) #使用标准库中的Counter完善词频统计排序功能
+         return s.most_common(n)        #添加一个int变量count，用于限制输出元素的个数
     else:ValueError('Input should be string')
     
 
@@ -40,8 +36,8 @@ def stats_text_cn(text):
 #2.为stats_text添加注释说明
 #Date:3/24/2019
 
-def stats_text(text):
+def stats_text(text,n):
         """调用统计英文词频和中文词频的函数，合并词频统计结果"""
         if isinstance(text,str):
-                return stats_text_en(text),stats_text_cn(text)
+                return stats_text_en(text,n),stats_text_cn(text,n)
         else:ValueError('Input should be string')
