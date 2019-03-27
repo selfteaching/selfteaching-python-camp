@@ -1,5 +1,21 @@
 import mymodule.stats_word    # 导入函数模块
 
+def tryexc(string):
+    try:
+        if isinstance(string,str):
+            #mymodule.stats_word.stats_text(string)
+            mymodule.stats_word.stats_text_cn(string)
+        else:
+            raise ValueError(string)
+    except ValueError as exc:
+        print(type(exc))
+        print('This data is not a string')
+        raise
+    finally:
+        print('executing finally main')
+
+
+
 text = '''
 愚公移山
 
@@ -49,6 +65,28 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
-mymodule.stats_word.stats_text(text)     # 运行函数内容
+#mymodule.stats_word.stats_text(text)     # 运行函数内容
+# 或者不import，直接 from mymodule import stats_word
 
-    # 或者不import，直接 from mymodule import stats_word
+#a=1234567890
+#tryexc(a)
+
+#tryexc(text)
+
+
+import json
+
+#data=[]
+#f=open('tang300.json','r',encoding='utf-8')
+#for line in f:
+#    data.append(line)
+#json_str = json.dumps(data,indent=5,ensure_ascii=False)
+#print(type(json_str))
+#tryexc(json_str)
+
+# 思路一样更为简洁
+with open('tang300.json','r',encoding='utf-8')as json_file:
+    tang_dict=json.load(json_file)
+
+tang_str=json.dumps(tang_dict,ensure_ascii=False)
+tryexc(tang_str)

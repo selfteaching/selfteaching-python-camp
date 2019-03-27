@@ -2,6 +2,12 @@
 
 import stats_word
 
+import typing
+import sys
+import json
+import os
+import re,argparse,collections
+
 text = '''
 愚公移山
 
@@ -52,14 +58,22 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 '''
 
 def main():  
-    test = 1111111   
-    try:
-        stats_word.stats_text(test)
-    except ValueError as error :
-        print('输入值：',test)
-        print('错误信息：',error)
-        return False
-    finally:
-        print('请再输入！')
+    #test = 1111111   
+    # try:
+    #     stats_word.stats_text(test)
+    # except ValueError as error :
+    #     print('输入值：',test)
+    #     print('错误信息：',error)
+    #     return False
+    # finally:
+    #     print('请再输入！')
+    print('p',os.getcwd())
+    
+    #获取tang300.json的路径
+    tangfile = os.getcwd()+'\\' + 'tang300.json' 
+    #读取文件
+    words = re.findall(r'\w+', open(tangfile,'r',encoding='UTF-8').read().lower())
+    print(collections.Counter(words).most_common(100))
+
 if __name__ == '__main__':
     main()
