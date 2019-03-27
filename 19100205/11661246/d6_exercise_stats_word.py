@@ -15,7 +15,7 @@ a = 'Please enter the English word text'
 print(stats_text_en(a))
 
 #统计参数中每个中文字出现的次数，按中文出现的次数降序排列数组
-def stats_text_en(text):  # 统计英文词频
+def stats_text_cn(text):  # 统计中文词频
     text = text.replace('。', '')
     text = text.replace('！', '')
     text = text.replace('：', '')
@@ -30,5 +30,5 @@ def stats_text_en(text):  # 统计英文词频
     m=collections.Counter(list_text)
     return (m)
 a = '键入文本：投资一下子就跟消费打通了，它们是一回事儿，只不过是人们为了追求最大的收益，在时间上做一个平衡而已。'
-print(stats_text_en(a))
+print(stats_text_cn(a))
 

@@ -1,4 +1,6 @@
 import collections
+
+import jieba
 #-*- coding:utf-8 -*-
 # -*- coding:gbk -*-
     
@@ -17,13 +19,25 @@ def stats_text_cn(checkstr):
         print("This data is not a string!")
     else:
         cndict={}
-        count = 100
-        # dict_text = []
-        # init(dict_text)
-        # splitstr = spl(checkstr,dict_text)
+        cnstr=""
+        count = 20
+
         for i in checkstr:
             if u'\u4e00' <= i <= u'\u9fff':
-                cndict[i] = checkstr.count(i)
+                cnstr=cnstr+i 
+
+        seg_list=jieba.cut(cnstr,cut_all=False,HMM=False)
+
+        string = "/".join(seg_list)
+        string = string.split("/")
+        
+
+        for i in string:
+            if len(i) >= 2:
+                cndict[i] = string.count(i)
+
+            
+                
     #    cndict=sorted(cndict.items(),key=lambda item:item[1],reverse=True)
         cndict = collections.Counter(cndict).most_common(count)
 
@@ -33,48 +47,6 @@ def stats_text_cn(checkstr):
     finally:
         print("executing finally stats_text_cn!")
 
-# import re
-
-# def init(dic):
-    
-#     with open("dictionary.txt",'rb') as test:
-#         test = str(test)
-#         text=re.findall(r'[【](.*?)[】]',test)
-
-#         for i in text :
-#             temp = i.split( )
-#             dic.append(temp(0))
-
-            
-
-# def if_contain(words,dic):
-#     flag = False
-#     for d in dic:
-#         if d == words:
-#             flag = True
-#             break
-#     return flag
-
-
-# def spl(string,dic):
-#     result = ''
-#     words = []
-#     while len(string) > 0:
-#         except_flag = False
-#         for i in range(len(string),0,-1):
-#             temp = string[:i]
-#             flag = if_contain(temp,dic)
-#             if flag:
-#                 words.append(temp)
-#                 string = string[:i]
-#                 except_flag = True
-#                 break
-#         if not except_flag:
-#             words.append(string)
-#     for w in words:
-#         result += (w + '/')
-#     return result
-                
 
 
 #定义英文检查器，增加了查找英文字符的功能
@@ -122,6 +94,10 @@ def stats_text(string):
         annotation(string)             #加入注释功能
     finally:
         print("executing finally stats_text!")
-    
+
+
+
+ 
+
     
 

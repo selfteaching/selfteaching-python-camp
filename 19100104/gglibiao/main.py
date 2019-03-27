@@ -42,3 +42,5 @@ sw.stats_text(text)
 #sw.stats_text_cn(1) #测试触发异常
 #sw.stats_text_en(1) #测试触发异常
 #sw.stats_text(1)    #测试触发异常
+
+
