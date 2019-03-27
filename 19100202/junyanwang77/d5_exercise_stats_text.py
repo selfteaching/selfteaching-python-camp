@@ -4,7 +4,6 @@ InteractiveShell.ast_node_interactivity = "all"
 # 原文件
 text = '''
 The Zen of Python, by Tim Peters
-
 Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
