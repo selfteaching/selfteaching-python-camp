@@ -1,8 +1,10 @@
 # 这是一个单独统计英文单词和单独统计中文单字以及统计中文字和英文词词频（字频）
 
+
 import re
 import collections
 import jieba
+
 
 count = int()
 
