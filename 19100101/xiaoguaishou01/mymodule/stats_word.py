@@ -31,7 +31,6 @@ def stats_text_cn(text,count):
         if len(i) >= 2: #判断如果大于等于2的字符串就加进d数组
             d.append(i) 
     return collections.Counter(d).most_common(count)
-#print(stats_text_cn(text,3))   
 
 
 #定义stats_word函数，分别调用stats_text_en,stats_text_cn,输出合并词频统计结果
