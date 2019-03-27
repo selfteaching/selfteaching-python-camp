@@ -7,7 +7,7 @@ elif b=="-"：
     print(a-c)   
 elif b=="*":
     print(a*c) 
-elifj b=="/":
+elif b=="/":
     print(a/c) 
 else:
     print("输入错误，请重新输入")      
