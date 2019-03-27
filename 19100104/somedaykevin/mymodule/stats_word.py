@@ -1,68 +1,75 @@
-#-*- coding:utf-8 -*-
-    
-#定义注释函数
-def annotation(string) -> '''This is a Word frequency searcher''':     #用文档字符串进行注释
-    print("Annotation:",annotation.__annotations__) 
+import re
+from collections import Counter
 
-
-#定义中文检查器，同d6                      
-def stats_text_cn(checkstr):
-    try:
-        if type(checkstr) != str:
-            raise ValueError(checkstr)
-    except ValueError as error:
-        print(type(error))
-        print("This data is not a string!")
+def stats_text_en(text):
+    if isinstance(text, str):    
+        list1 = []    
+        text_list = re.split(r'[\s,.!\-*]', text)
+        for i in text_list:        
+            if not u'\u4e00' <= i <= u'\u9fff': 
+                list1.append(i)
+        return Counter(list1).most_common()    
     else:
-        cndict={}
-        for i in checkstr:
-            if u'\u4e00' <= i <= u'\u9fff':
-                cndict[i] = checkstr.count(i)
-        cndict=sorted(cndict.items(),key=lambda item:item[1],reverse=True)
-        print(cndict)
-        return cndict
-    finally:
-        print("executing finally stats_text_cn!")
+        raise ValueError("This is not a string!")
 
-#定义英文检查器，增加了查找英文字符的功能
-def stats_text_en(checkstr):
-    try:
-        if type(checkstr) != str:
-            raise ValueError(checkstr)
-    except ValueError as error:
-        print(type(error))
-        print("This data is not a string!")
+
+def stats_text_cn(checkstr, top_n=None):
+    if isinstance(checkstr, str):
+        cndic = {}
+        for i in checkstr:        
+            if u'\u4e00' <= i <= u'\u9fff':   
+                cndic[i] = checkstr.count(i)   
+        return Counter(cndic).most_common(top_n)
     else:
-        endict={}               #新建一个字典
-        entext=""               #新建一个空字符串
-        checkstr=checkstr.replace(',',' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('*',' ')  #去标点
+        raise ValueError("This is not a string!")
 
-        #遍历原始字符串
-        for i in checkstr: 
-            if i.isascii():         #去掉中文或者说非英文字符
-                entext=entext+i     #将英文字符放入新建的字符串中
 
-        entext=entext.split( )      #分隔字符串
-
-        for i in entext:            #遍历新字符串
-            endict[i]=entext.count(i)        #创建字典
-        endict=sorted(endict.items(),key=lambda item:item[1],reverse=True) #按照值排序，从小到大
-        print(endict)
-        return endict
-    finally:
-        print("executing finally stats_text_en!")
-
-#定义stats_text函数
-def stats_text(string):
-    try:
-        if type(string) != str:
-            raise ValueError(string)
-    except ValueError as error:
-         print(type(error)) 
-         print("This data is not a string!")
+def stats_text(text_an):
+    if isinstance(text_an, str):
+        str1 = {}
+        str1["en"] =stats_text_en(text_an)
+        print("""---以下是英文字符输出结果---""")
+        print(str1["en"])
+        str1["cn"] =stats_text_cn(text_an)
+        print("""---以下是中文字符输出结果---""")
+        print(str1["cn"])
+        return str1
     else:
-        stats_text_cn(string)          #导入stats_text_cn函数
-        stats_text_en(string)          #导入stats_text_en函数
-        annotation(string)             #加入注释功能
-    finally:
-        print("executing finally stats_text!")
+        raise ValueError("This is not a string!")
+
+
+
+text_an = '''
+The Zen of Python, by Tim Peters
+美丽 is better than 丑陋.
+清楚 is better than 含糊.
+简单 is better than 复杂.
+复杂 is better than 难懂.
+单一 is better than 嵌套.
+稀疏 is better than 稠密.
+可读性计数.
+Special cases aren't special enough to 打破规则.
+即使练习会使得不再纯粹.
+但错误不应该用沉默来掩盖.
+Unless explicitly silenced.
+面对起义，拒绝猜的诱惑.
+有且只有一个办法.
+Although that way may not be obvious at first unless you're Dutch.
+尝试总比从未试过要强.
+Although never is often better than *right* now.
+如果执行很难被解释，那将是一个很糟的想法.
+如果执行很容易解释，这会是一个好点子.
+Namespaces are one honking great idea -- 让我们继续为之努力!
+'''
+
+
+stats_text(text_an)
+
+
+with open("tang300.json", 'r', encoding='utf-8') as file_object:
+    contents = file_object.read()
+    # print(contents)
+
+result = stats_text_cn(contents, top_n=100)
+print("""---唐诗300首中词频最高的前100个字---""")
+print(result)
