@@ -6,22 +6,16 @@ for i in range(1,10):
     print('  ')
 #
 print('-----------------------------------------------')
-#
 
-#方法二:
-print(' 打印九九乘法表')
-
+print("this is a new test3")
 i = 1
 while i < 10:
+    if i % 2 == 0:
+        i += 1
+        continue
     j = 1
     while j < i+1:
-        print('%d X %d = %2d' %(i ,j ,i*j) ,end = '  ')
+        print(i,"*",j,"=",i*j," ",end="")
         j += 1
+    print("",end="\n")
     i += 1
-    print(' ')
-
-
-print("---"* 20)
-print("this is a new test")
-print("this is a new test")
-print("this is a new test3")
