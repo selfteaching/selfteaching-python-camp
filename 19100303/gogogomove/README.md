@@ -27,4 +27,8 @@ continuation-deep nested
 redo-NO  retry-/
 correctness facilities: variant-/ invariant-/
 
+#### ''' day4 more comments 
+  honestly i could not finish the tasks of day4 by myself without google or some one , even with the help needed, still very difficult for me to undertand the fundamentals very clearly,  guess the only reason is that i still can not distinguish all the concepts which read by myself, although i spend all the available time today for the studying, i guess i need to slow down little bit to repeat what have been learned in the past three days. 
+
+
 
