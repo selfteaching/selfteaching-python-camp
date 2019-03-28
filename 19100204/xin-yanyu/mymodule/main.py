@@ -1,13 +1,13 @@
-# 第七天作业2
-# 2019年3月27日
+# 第八天作业2
+# 2019年3月28日
 # 通过导入模块stats_word,调用stats_text,
 # 统计英文单词和中文出现次数
 # 打印结果
 
-
-
 # 调用stats_word模块
-import stats_word
+
+# 在调用stats_word的地方采用try……except 捕抓异常
+
 
 text ='''
 	愚公移山 
@@ -62,8 +62,39 @@ text ='''
 '''
 
 
+try :
+    import stats_word
+except :
+	print('stats_word.py模块不在当前目录,程序出错退出')
+	exit()
 
+#####################
+# 以下为测试程序
+#####################
+print('\n\n以下采用错误数据测试')
+text_num=123456789
 
+# 分别采用错误数据测试
+print('测试stats_text =========')
+print(stats_word.stats_text(text_num))
+print('测试stats_text_en =========')
+print(stats_word.stats_text_en(text_num))
+print('测试stats_text_cn =========')
+print(stats_word.stats_text_cn(text_num))
+
+print('\n\n以下采用正确数据测试')
+text_chr=' 严雨 and 风随心动 自学学习很有成就感 is very good'
+
+# 分别采用正确数据测试
+print('stats_text==========')
+print('测试stats_text =========')
+print(stats_word.stats_text(text_chr))
+print('测试stats_text_en =========')
+print(stats_word.stats_text_en(text_chr))
+print('测试stats_text_cn =========')
+print(stats_word.stats_text_cn(text_chr))
+
+#####################################
 print ('\n\n=======以下为英文单词和中文汉字出现次数的输出结果===================\n\n')
 word_num_all=stats_word.stats_text( text )
 print (word_num_all)
