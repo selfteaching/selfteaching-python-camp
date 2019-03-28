@@ -17,4 +17,4 @@ content = document('#js_content').text()
 
 yag = yagmail.SMTP(user=sender, password=password, host='smtp.163.com')
 
-yag.send(recipients, '19100104 Jacquesxu666', str(sw.stats_text(content, 100)))
+yag.send(recipients, '19100102 WengYadong', str(sw.stats_text(content, 100)))
