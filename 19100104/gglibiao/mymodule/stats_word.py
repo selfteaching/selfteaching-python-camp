@@ -1,4 +1,3 @@
-
 import re
 from collections import Counter
 
@@ -29,10 +28,10 @@ def stats_text(text_an):
     if isinstance(text_an, str):
         str1 = {}
         str1["en"] =stats_text_en(text_an)
-        print("""---以下是英文字符输出结果---""")
+        print("""以下是英文字符输出结果""")
         print(str1["en"])
         str1["cn"] =stats_text_cn(text_an)
-        print("""---以下是中文字符输出结果---""")
+        print("""以下是中文字符输出结果""")
         print(str1["cn"])
         return str1
     else:
@@ -72,5 +71,5 @@ with open("tang300.json", 'r', encoding='utf-8') as file_object:
     # print(contents)
 
 result = stats_text_cn(contents, top_n=100)
-print("""---唐诗300首中词频最高的前100个字---""")
+print("""唐诗300首中词频最高的前100个字""")
 print(result)
