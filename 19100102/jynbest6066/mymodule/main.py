@@ -1,4 +1,4 @@
-template = int(2)
+#template = int(2)
 #template = 
 '''
 愚公移山
@@ -52,10 +52,22 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 '''导入stats_word模块'''
 import stats_word
 
+
+'''读取唐诗300首'''
+
+with open('tang300.json') as f:
+    template = f.read()
+f.closed
+
+
+'''使用','调用join函数根据"contents"组合一个新的string'''
+#return ', '.join(d['contents'] for d in list1)
+
 '''try…except捕获异常'''
 try:
     '''调用stats_word模块中的stats_text函数'''
     print(stats_word.stats_text(template))
+
 except ValueError:
     print(ValueError, '：你输入的参数类型不是string！')
 
