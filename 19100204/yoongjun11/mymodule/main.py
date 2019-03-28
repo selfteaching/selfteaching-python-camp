@@ -28,9 +28,12 @@ The wise old man was totally silenced.
 When the guardian gods of the mountains saw how determined Yugong and his crew were, they were struck with fear and reported the incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
-
-'''导入stats_word模块'''
-import Stats_word
-
-'''调用stats_word模块中的stats_text函数'''
-print(Stats_word.stats_text(text))
+import mymodule.stats_word
+text = input("请输入要统计词频的文本：")
+try:
+    if not isinstance(text,str):
+        raise ValueError()
+    
+except ValueError:
+    print('输入的不是文本格式，请重新输入：')
+print(mymodule.stats_word.stats_text(text))

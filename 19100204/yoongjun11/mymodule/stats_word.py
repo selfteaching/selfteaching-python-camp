@@ -2,6 +2,8 @@ text = '''
 愚公移山
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他和家人往來極為不便。
 一天，愚公召集家人說：「讓我們各盡其力，剷平二山，開條道路，直通豫州，你們認為怎樣？」
+大家都異口同聲贊成，只有他的妻子表示懷疑，並說：「你連開鑿一個小丘的力量都沒有，怎可能剷平太行、王屋二山呢？況且，鑿出的土石又丟到哪裏去呢？」
+大家都熱烈地說：「把土石丟進渤海裏。」
 於是愚公就和兒孫，一起開挖土，把土石搬運到渤海去。
 愚公的鄰居是個寡婦，有個兒子八歲也興致勃勃地走來幫忙。
 寒來暑往，他們要一年才能往返渤海一次。
@@ -27,61 +29,55 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
-dict1 = {}
-dict2 = {}
-dict3 = {}
-dict4 = {}
-  
-def stats_text_en(text):                           # 定义一个名为stats_text_en的函数
-    import re 
-    text = re.sub("[^A-Za-z]", " ", text.strip())  # 使用正则表达式"[a-zA-Z]+"，将非英文字母替换成空字符
-    list1 = re.split(r"\W+",text)                  # 将字符串text转换为列表list1,只保留单词为list1中的元素
-    while '' in list1:                             # 删除list1中为空的列表元素
-        list1.remove('')
-    for i in list1:                                # i属于list1中的元素，开始循环
-        dict1.setdefault(i,list1.count(i))         # 将列表中的单词及单词的出现次数，分别赋值给dict1的键和值
-    # 将dict1按照value值倒序排列，并将结果赋给元组tup1
-    tup1 = sorted(dict1.items(),key = lambda items:items[1],reverse = True)   
-    for tup1 in tup1:   
-            dict2[tup1[0]] = dict1[tup1[0]]  
-    return dict2
+# 函数1：统计输入文本中英文单词的词频：
+def stats_text_en(text):
+    if not isinstance(text,str):
+        raise ValueError('输入的不是文本格式，请重新输入：') # 第8天作业要求，添加参数类型检查
+    text = text.replace('.', '').replace('!', '').replace('--', '').replace('*', '').replace(',', '').replace('(', '').replace(')', '').replace(';', '').replace(':', '').replace('\'', '').replace('?', '').replace('_', '').replace('-', '').replace('/', '') .replace('[', '') .replace(']', '') .replace('\\', '') .replace('\"', '').replace('{', '').replace('}', '').replace('\t', '').replace('\n', '').replace('\r\n', '')    
+        
+    # 以上替换去除各种标点符号
+    list_text = text.split() # 将字符串转换为列表
 
-#打印统计英文词频的结果
-print("统计英文词频的结果为:")
-print(stats_text_en(text))
-str = ''
+    a = {}
+    for i in list_text:
+        a[i] = list_text.count(i)
+    a = sorted(a.items(),key = lambda x:x[1],reverse = True)
+    return a
 
-def feng_zhuang(s, old_d):                            # 封装函数
-    d = old_d
-    print(s,d)
-    for c in s:
-        d[c] = d.get(c, 0) + 1
-    return d
-    
 
-def stats_text_cn(text):                             # 定义一个名为stats_text_cn的函数
-    import re
-    text = re.sub("[A-Za-z0-9]", "", text)           # 使用正则表达式"[A-Za-z0-9]"，将非英文字母替换成空字符
-    list1 = re.split(r"\W+",text)                    # 将字符串text转换为列表list1,只保留单词为list1中的元素
-    while '' in list1:                               
-        list1.remove('')                             # 删除list1中为空的列表元素
-    dict3 = dict()                                   # 把dict3的行拆成字典
-    for i in range(len(list1)):
-        dict3 = feng_zhuang(list1[i], dict3)         # 调用函数，引用传递参数
 
-    # 将dict3按照value值倒序排列，并将结果赋给元组tup1
-    tup1 = sorted(dict3.items(),key = lambda items:items[1],reverse = True)  
-    for tup1 in tup1:   
-            dict4[tup1[0]] = dict3[tup1[0]]  
-    return dict4
 
-#打印统计中文词频的结果
-print("统计中文词频的结果为:")
-print(stats_text_cn(text))
+# 函数2：统计输入文本中中文字的词频：
+def stats_text_cn(text):  
+    if not isinstance(text,str):
+        raise ValueError('输入的不是文本格式，请重新输入：') # 第8天作业要求，添加参数类型检查
+    b = {}
+    for i in text:  # 这个循环有效，说明一串汉字也是一个字符串，每个汉字就是其中的一个元素，可以用for in 来遍历，其中i代表了每个汉字的unicode编码
+        if u'\u4e00' <= i <= u'\u9fff':     # 挑选出中文字
+            b[i] = text.count(i)      # 用.count()函数/方法来对每个元素（这里是汉字）进行计数，形成一个列表
+    b = sorted(b.items(), key=lambda x: x[1], reverse=True)  #按出现数字从大到小排列
+    return b
 
-# 调用函数，合并统计英汉词频
-def stats_text(tstats_text_en,stats_text_cn):
-    if type(text_en_cn) == text:
-        return (stats_text_en(text_en_cn,count_en_cn)+stats_text_cn(text_en_cn,count_en_cn))
-    else :
-        raise ValueError('it is not text')
+# 函数3：统计中英文混合词频：
+def stats_text(text):
+    '''函数说明：
+    本函数的功能是统计输入文本的汉字及英语单词词频，并以降序排列输出。'''
+    dic_1 = stats_text_cn(text) # 调用函数1统计中文字词频
+    if not isinstance(text,str):
+        raise ValueError('输入的不是文本格式，请重新输入：') # 第8天作业要求，添加参数类型检查
+    for i in text:
+        if u'\u4e00' <= i <= u'\u9fff':
+            text = text.replace(i,"") #删除所有中文字
+    text = text.replace('「', '').replace('」', '').replace('，', '').replace('。', '').replace('：', '').replace('？', '').replace('！', '')
+    # 以上一句删除所有中文标点
+    dic_2 = stats_text_en(text) # 调用2函数统计英文单词词频
+    dic_3 = {}
+    dic_3.update(dic_2)
+    dic_3.update(dic_1) # 将之前分别得到的两个中英文词频结果字典合并
+    dic_3 = sorted(dic_3.items(),key = lambda x:x[1],reverse = True) # 对合并后的字典进行排序，得出混合排序结果
+
+    return(dic_3)
+
+# print(stats_text(text))
+
+print(stats_text.__doc__)
