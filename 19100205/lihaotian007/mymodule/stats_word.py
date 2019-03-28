@@ -4,6 +4,17 @@
 def stats_text_en(list_a,dic_a) :
     """通过dictionary统计list_a中每个英文单词出现的次数，并返回该结果"""
 
+    # 参数类型异常检测
+    try :
+        if type(list_a) != type([]) or type(dic_a) != type({}):
+            raise ValueError()
+    except ValueError :
+        print('That was no valid list and dict')
+        return 
+    finally :
+        print('the function is cleaned')
+
+
     # 通过dictionaries 进行统计中文词频
     for i in range(len(list_a)) :
         if list_a[i] in dic_a :
@@ -15,6 +26,16 @@ def stats_text_en(list_a,dic_a) :
 
 def stats_text_cn(list_a,dic_a) :
     """通过dictionary统计list_a中每个中文单词出现的次数，并返回该结果"""
+
+    # 参数类型异常检测
+    try :
+        if type(list_a) != type([]) or type(dic_a) != type({}):
+            raise ValueError()
+    except ValueError :
+        print('That was no valid list and dict')
+        return 
+    finally :
+        print('the function is cleaned')
 
     # 通过dictionaries 进行统计英文词频
     for i in range(len(list_a)) :
@@ -30,6 +51,16 @@ def stats_text(text) :
     list_b = []
     dict_c = {}
     j = 0
+
+    # 参数类型异常检测
+    try :
+        if type(text) != type("") :
+            raise ValueError()
+    except ValueError :
+        print('That was no valid str')
+        return 
+    finally :
+        print('the function is cleaned')
 
     # 将text文件转为list结构
     for i in range(len(text)) :
@@ -60,3 +91,4 @@ def stats_text(text) :
 
     #排序输出
     return print('排序后：', sorted(dict_c.items(), key = lambda x:x[1], reverse = True), end = '\n\n')
+
