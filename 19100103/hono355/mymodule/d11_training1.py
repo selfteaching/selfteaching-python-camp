@@ -3,7 +3,6 @@ import jieba
 import pyquery
 import requests
 import yagmail
-
 import getpass
 
 
@@ -13,15 +12,15 @@ from pyquery import PyQuery
 document = PyQuery(r.text)
 content = document('#js_content').text()
 import stats_word1
-result = stats_word1.stats_text(content, 100)
-print(result)
+result = stats_word1.stats_text_cn(content, 100)
 result_str =  ' '.join([ str(i) for i in result ])
 
 sender = input('输入发件人邮箱:')
 password = getpass.getpass('输入发件人邮箱密码:')
 recipients = input('输入收件人邮箱:')
-yag = yagmail.SMTP()
-yag.send(to = '935279456@qq.com', subject ='python', contents = result_str)
+title = input('输入标题:')
+yag = yagmail.SMTP(sender,password,'smtp.126.com')
+yag.send(to = recipients, subject = title, contents = result_str)
 
 
 
