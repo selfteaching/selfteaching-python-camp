@@ -81,12 +81,19 @@ text='''《道德经》全文
 80.小国寡民。使有什伯之器而不用。使民重死而不远徙。虽有舟舆无所乘之。虽有甲兵无所陈之。使民复结绳而用之。甘其食、美其服、安其居、乐其俗。邻国相望，鸡犬之声相闻。民至老死不相往来。
 81.信言不美。美言不信。善者不辩。辩者不善。知者不博。博者不知。圣人不积。既以为人己愈有。既以与人己愈多。天之道利而不害。圣人之道为而不争。
 '''
-def stats_text_cn(text):  # 统计中文词频
-    """Count the chinese words in the text """  # 使用文档字符串说明
-    countcn={}
-    for ch in text:
-        if u'\u4e00' <= ch <= u'\u9fff':
-            countcn[ch] = text.count(ch)
-    countcn = sorted(countcn.items(), key=lambda item: item[1], reverse=True)  #按出现数字从大到小排列
-    return countcn
-    print(countcn)
+
+for i in '。,！,，、,《》,（,）,；,？,：':
+        text = text.replace(i,'')#去掉标点等符号
+        print(text)
+textlist = []
+for i in text:
+        textlist.append(i)#将汉字一个一个分开            
+word_dict = {}
+    #统计各个汉字出现的次数
+for j in textlist:
+        if j not in word_dict:
+            word_dict[j] = 1
+        else:
+            word_dict[j] +=1
+sort_word = sorted(word_dict.items(),key=lambda item:item[1],reverse=True)#按汉字出现次数降序排序
+print(sort_word)

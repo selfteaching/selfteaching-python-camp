@@ -1,4 +1,6 @@
 def Englishwords(text):
+    if not isinstance(text,str):
+        raise ValueError
     text=text.lower()
     for ch in '!"#$%&()*+,-./:;<=>?@[\\]^_‘{|}~':
         text=text.replace(ch," ")
@@ -13,6 +15,8 @@ def Englishwords(text):
         print("{0:<10}{1:>5}".format(word,count))
 
 def Chinesechar(text):
+    if not isinstance(text,str):
+        raise ValueError
     word_list=[]
     word_dict={}
     exstr="，。！？、（）【】<>《》=：+-*—“”…"
