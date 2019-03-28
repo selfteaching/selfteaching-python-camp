@@ -35,6 +35,8 @@ def stats_text_en(text):
     textlist = [] # 将字符串转换为列表 
     a = {} 
     for i in list_text: 
+        if not isinstance(i,String)
+        raise ValueError(错误参数)
         a[i] = list_text.count(i)
     a = sorted(a.items(),key = lambda x:x[1],reverse = True) 
     return a 
@@ -42,6 +44,8 @@ def stats_text_en(text):
 def stats_text_cn(text):   
     b = {}
     for i in text:  # 这个循环有效，说明一串汉字也是一个字符串，每个汉字就是其中的一个元素，可以用for in 来遍历，其中i代表了每个汉字的unicode编码 
+        if not isinstance(i,String)
+        raise ValueError(错误参数)
         if u'\u4e00' <= i <= u'\u9fff':     # 挑选出中文字 
             b[i] = text.count(i)      # 用.count()函数/方法来对每个元素（这里是汉字）进行计数，形成一个列表 
     b = sorted(b.items(), key=lambda x: x[1], reverse=True)  #按出现数字从大到小排列 
@@ -52,6 +56,8 @@ def stats_text(text):
     本函数的功能是统计输入文本的汉字及英语单词词频，并以降序排列输出。''' 
     dic_1 = stats_text_cn(text) # 调用函数1统计中文字词频 
     for i in text: 
+        if not isinstance(i,String)
+        raise ValueError(错误参数)
         if u'\u4e00' <= i <= u'\u9fff': 
             text = text.replace(i,"") #删除所有中文字 
     text = text.replace('「', '').replace('」', '').replace('，', '').replace('。', '').replace('：', '').replace('？', '').replace('！', '') 
