@@ -48,7 +48,7 @@ import re
 import jieba
 def stats_txt_cn(text1):
     ''' day10 使用jieba第三方库统计长度大于等于2的中文词汇出现频率 '''
-    count=20
+    count=100
     if type(text1) == str:
         txtlist = re.findall(u'[\u4e00-\u9fff]+', text1.strip())  # 提取中文
         text2 = ''.join(txtlist) 
