@@ -1,6 +1,6 @@
 #这是一个99乘法表，用for in和while做的
 
-for x in range(1,10):#规定x的范围
+for x in range(0,10):#规定x的范围
     for y in range(1,x+1):#规定每个循环里y等于1到x+1
         print("%s*%s=%s"%(x,y,x*y),end='  ')#定义输出格式和内容，并在每一个输出后加空格隔开
     print()#让每一个循环后自动换行

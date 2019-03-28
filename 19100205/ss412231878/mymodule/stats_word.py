@@ -1,4 +1,6 @@
 #用函数做词频统计
+#text = '''xx xxx xx xxx aa a aa a a a a a a xx xxx..;.;.;难难难男女就难就难仅仅难就难你a-zA-Z]+[\'\-]?[a-zA-Z'''
+
 
 #英文词频排序
 def stats_text_en(text1):
@@ -11,10 +13,10 @@ def stats_text_en(text1):
  #去掉中文字符   
     import re
     en_pattern = re.compile(r'[a-zA-Z]+[\'\-]?[a-zA-Z]+')
-    text = re.findall(en_pattern, text1)
+    text_en = re.findall(en_pattern, text1)
 
     # 如果字典里有该单词则词频+1，否则添加入字典
-    for word in text:
+    for word in text_en:
         if word in count.keys():
             count[word] = count[word] + 1
         else:
@@ -36,10 +38,10 @@ def stats_text_cn(text2):
  #去掉英文字符   
     import re
     cn_pattern = re.compile(r'[\u4e00-\u9fa5]')
-    text = re.findall(cn_pattern, text2)
+    text_cn = re.findall(cn_pattern, text2)
 
 #用for循环做字频统计    
-    for word in text:
+    for word in text_cn:
         if word in count.keys():
             count[word] = count[word] + 1
         else:
@@ -52,6 +54,10 @@ def stats_text_cn(text2):
 
 #定义stats_text函数，合并输出
 def stats_text(text):
-    return (stats_text_en(text),stats_text_cn(text))
+    #用isinstance（变量名，类型）判断字符串类型是否正确，如果不正确抛出ValueError
+    if isinstance(text,str) != True:
+        raise ValueError
+    else:
+        return (stats_text_en(text),stats_text_cn(text))
 
 #print ("单词出现频率排列如下：",stats_text(text))
