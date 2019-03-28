@@ -59,7 +59,7 @@ with open('mymodule/tang300.json') as f:
 #调用stats_word中的stats_text函数统计中英文词频
 mdict=[]
 try:
-    mdict=stats_word.stats_text(template1,1,100)
+    mdict=stats_word.stats_text_cn(template1,20)
 except:
     print("error:",sys.exc_info()[0])
 
