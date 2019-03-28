@@ -1,6 +1,5 @@
 
-
-import stats_word
+from mymodule import stats_word
 try:
     stats_word.stats_text(text)
 except ValueError as error:
