@@ -26,5 +26,5 @@ mystr = str(mydic)
 
 
 sendSmpt = yagmail.SMTP(user = input('请输入发件人邮箱:'),
-password=getpass.getpass('请输入发件人邮箱密码(可复制粘贴):'),host='smtp.163.com')  
+password=getpass.getpass('请输入发件人邮箱密码(可复制粘贴):'),host='smtp.qq.com')  
 sendSmpt.send(to = input('请输入收件人邮箱:'),subject="19100104 fuzaifei",contents=mystr)
