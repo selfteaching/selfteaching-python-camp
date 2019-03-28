@@ -64,3 +64,10 @@ def stats_text(text):
     return(dic_3) 
 # print(stats_text(text)) 
 print(stats_text.__doc__)  
+
+ 
+
+
+
+
+ 
