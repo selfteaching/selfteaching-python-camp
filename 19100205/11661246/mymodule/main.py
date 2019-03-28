@@ -33,4 +33,14 @@ Yugong uttered a sigh and said,”A biased person like you will never understand
 The wise old man was totally silenced. When the guardian gods of the mountains saw how determined Yugong and his crew were, they were struck with fear and reported the incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away. 
 '''
-stats_word.stats_text(text)
+b=int(123123213213213)
+try:
+    if type(b) != str:
+        raise ValueError()
+except ValueError:
+        print("输入的不是字符串类型")
+        
+a=int(input("输入字符"))
+stats_word.stats_text(a)
+
+

@@ -2,9 +2,8 @@
 
 def stats_text_en(list_a,dic_a) :
     """通过dictionary统计list_a中每个英文单词出现的次数，并返回该结果"""
-
     try:
-        if type(list_a) != str or type(dic_a) != str:
+        if type(list_a,dic_a) != str:
             raise ValueError()
     except ValueError:
             print("输入的不是字符串类型")
@@ -24,7 +23,7 @@ def stats_text_en(list_a,dic_a) :
 def stats_text_cn(list_a,dic_a) :
     """通过dictionary统计list_a中每个中文单词出现的次数，并返回该结果"""
     try:
-        if type(list_a) != str or type(dic_a) != str:
+        if type(list_a,dic_a) != str:
             raise ValueError()
     except ValueError:
             print("输入的不是字符串类型")
@@ -79,7 +78,7 @@ def stats_text(text) :
     print('列表：\n' 'list_a：', list_a,'\n\n' 'list_b：',list_b, end = '\n\n')
     
     #分别调用两个函数统计词频
-    stats_text_en(list_a,dict_c)
+    stats_text_cn(list_a,dict_c)
     stats_text_cn(list_b,dict_c)
 
     #排序输出
