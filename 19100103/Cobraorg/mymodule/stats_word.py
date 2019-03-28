@@ -2,6 +2,7 @@ import typing
 import os
 import sys
 import json
+import jieba
 
 template = '''
 The Zen of Python, by Tim Peters
@@ -124,6 +125,7 @@ def stats_text_cn(text,  count=10,print_text=False):
     if not isinstance(text,str):
         raise ValueError('It\'s not a string!')
     text = chinese_only(text)#只留下中文字符
+    text = [x for x in jieba.cut(text,cut_all=False) if len(x) >= 2] #利用结巴精确模式进行分词，输出长度大于2的中文
     if count<=0:
         text = list(text)#将中文字符转换为中文列表
         text_dict = list_to_dict_and_cal(text) #将text转化为字典并统计词频

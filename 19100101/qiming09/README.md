@@ -1,3 +1,7 @@
+2019.3.28
+1. learn to use 3rd-party library "requests","yagmail","pyquery".
+2. use "requests" to get information from a url, get the content, cut the words and email them.
+
 2019.3.27
 1. learn to use conda to install 3rd-party library "jieba".
 2. use "jieba" to cut string into words.
