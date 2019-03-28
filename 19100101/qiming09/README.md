@@ -1,3 +1,7 @@
+2019.3.27
+1. learn to use conda to install 3rd-party library "jieba".
+2. use "jieba" to cut string into words.
+
 2019.3.26
 1. learn to use standard library.
 2. use collections.Counter(a).most_common(b) to stats text.
