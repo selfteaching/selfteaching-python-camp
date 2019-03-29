@@ -53,7 +53,7 @@ def stats_text_en(text):
 
 print(stats_text_en(text_en))
 # [('is', 10), ('better', 8), ('than', 8), ('the', 6), ('to', 5)..
-
+print("\n\n")
 
 
 def stats_text_cn(text):
@@ -76,6 +76,7 @@ def stats_text_cn(text):
     return (sorted(sort_dict.items(), key=lambda x: x[1], reverse=True))
 
 print(stats_text_cn(text_cn))
+print("\n\n")
 # [('的', 9), ('译', 8), ('编', 7), ('用', 5), 
 # ('一', 4), ('往', 4), ('程', 4), ('在', 4), (
 # '码', 4), ('代', 4), ('序', 3), ('后', 3), ('
@@ -89,6 +90,8 @@ for x in stats_text_cn(text_cn):
         print(x, end=" ")
     else:
         print(x)
+print("\n\n")
+
 # ('的', 9) ('译', 8) ('编', 7) ('用', 5) ('码', 4)
 # ('代', 4) ('一', 4) ('在', 4) ('程', 4) ('往', 4)
 # ('器', 3) ('于', 3) ('种', 3) ('言', 3) ('后', 3)
@@ -104,8 +107,8 @@ for (x,y) in stats_text_cn(text_cn):
         print(x,":", y, "|")
 
     i = i + 1
-    
-# 代 : 4 | 程 : 4 | 往 : 4 | 一 : 4 | 码 : 4 |
-# 器 : 3 | 序 : 3 | 于 : 3 | 言 : 3 | 多 : 3 |
-# 种 : 3 | 后 : 3 | 技 : 2 | 机 : 2 | 这 : 2 |
-# 过 : 2 | 又 : 2 | 行 : 2 | 而 : 2 | 解 : 2 |
+print()
+# 的 : 9 | 译 : 8 | 编 : 7 | 用 : 5 | 代 : 4 |
+# 码 : 4 | 程 : 4 | 往 : 4 | 一 : 4 | 在 : 4 |
+# 后 : 3 | 器 : 3 | 序 : 3 | 多 : 3 | 种 : 3 |
+# 于 : 3 | 言 : 3 | 段 : 2 | 过 : 2 | 又 : 2 |
