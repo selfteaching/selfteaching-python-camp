@@ -1,4 +1,6 @@
-
+import re
+en_pattern = re.compile(r'[a-zA-Z]+[\'\-]?[a-zA-Z]+')
+cn_pattern = re.compile(r'[\u4e00-\u9fa5]')
 text = '''
 愚公穆山
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山亻占地廣闊，擋住去路，便他
@@ -62,63 +64,49 @@ Filled with admiration for Yugong, the Emperorof Heavens ordered two
 mighty gods to carry the mountains away.
 '''
 
-dict1 = {} #Decalre variable is blank 
-dict2 = {}
-dict3 = {}
-dict4 = {}
+def stats_text_en(text):
+    ''' 
+    以字典形式返回字符串中英文单词的出现频率
+    :param text:string
+    :return dict:英文单词词频统计结果
+    '''
+    # 在这里写具体操作
+    mydict={}
+    mylist=[]
+    try:
+        mylist=re.findall(en_pattern,text)
+    except ValueError:
+        print("stats_text_en(ValueError):please input string")
+    except TypeError:
+        print("stats_text_en(TypeError):please input string")
+    for mylinum in mylist:
+        if mylinum in mydict:
+            mydict[mylinum]=int(mydict[mylinum])+1
+        else:
+            mydict[mylinum]=1
+    return mydict
 
-def stats_text_en(text):  #define the function 
-    import re # reference:https://docs.python.org/3/library/re.html 
-    text = re.sub("[^A-Za-z]", " ", text.strip())  #only keep Eng, from the same reference 
-    list1 = re.split(r"\W+",text)   #text to list1 
-    
-    while '' in list1:   
-        list1.remove('')  #delete space 
-    
-    for i in list1:   #loop 
-        
-        dict1.setdefault(i,list1.count(i))  
-   
-    tup1 = sorted(dict1.items(),key = lambda items:items[1],reverse = True)   #Arrange 
-
-    for tup1 in tup1:   
-            dict2[tup1[0]] = dict1[tup1[0]]  
-    return dict2
-
-print("英文词频:") #printing funciton 
-print(stats_text_en(text))
-
-
-def histogram(s, old_d):
-    d = old_d
-    for c in s:
-        d[c] = d.get(c, 0) + 1
-    return d
-
-def stats_text_cn(text): #define a function to calcuate character frequencies 
-    import re
-    text = re.sub("[A-Za-z0-9]", "", text) #only keep chinese and numbers
-
-    list1 = re.split(r"\W+",text)   #use list 1 in the previous section 
-
-    while '' in list1:   
-        list1.remove('') #delete space 
-
-    dict3 = dict()        #use dict function
-    
-    for i in range(len(list1)):
-        dict3 = histogram(list1[i], dict3)
-
-    
-    tup1 = sorted(dict3.items(),key = lambda items:items[1],reverse = True)  
-
-    for tup1 in tup1:   
-            dict4[tup1[0]] = dict3[tup1[0]]  
-    return dict4
-
-print("中文词频:")
-print(stats_text_cn(text))
-
+def stats_text_cn(text):
+    ''' 
+    以字典形式返回字符串中文汉字的出现频率
+    :param text:string
+    :return dict:中文汉字词频统计结果
+    '''
+    # 在这里写具体操作
+    mydict={}
+    mylist=[]
+    try:
+        mylist=re.findall(cn_pattern,text)
+    except ValueError:
+        print("stats_text_cn(ValueError):please input string")
+    except TypeError:
+        print("stats_text_cn(TypeError):please input string")
+    for mylinum in mylist:
+        if mylinum in mydict:
+            mydict[mylinum]=int(mydict[mylinum])+1
+        else:
+            mydict[mylinum]=1
+    return mydict
 
 def stats_text(text):
     '''
@@ -126,5 +114,21 @@ def stats_text(text):
     :param text:string
     :return dict:中文和英文单词词频统计结果
     '''
-    return dict(stats_text_en(text),**stats_text_cn(text))
+    dicttmp = {}
+    try:
+        dicttmp = dict(stats_text_en(text),**stats_text_cn(text))
+    except ValueError:
+        print("stats_text(ValueError):please input string")
+    except TypeError:
+        print("stats_text(TypeError):please input string")
+    return dicttmp
 
+
+def main():
+    mdict={}
+    mdict=stats_text(text)
+    print(mdict)
+
+
+if __name__ == '__main__':
+    main()

@@ -2,6 +2,7 @@ import typing
 import os
 import sys
 import json
+import jieba
 
 template = '''
 The Zen of Python, by Tim Peters
@@ -28,6 +29,7 @@ Namespaces are one honking great idea -- 让我们继续为之努力!
 
 from IPython.core.interactiveshell import InteractiveShell
 InteractiveShell.ast_node_interactivity = "all"
+
 
 #将字符串s按照None的分隔切分为一个字符串组，并清洗字符串元素的标点符号
 def cut_and_clean(s):
@@ -123,7 +125,8 @@ def stats_text_cn(text, count=10, print_text=False):
 
     if not isinstance(text,str): #检查text是否为字符串类型
         raise ValueError('It\'s not a string!')
-    text = chinese_only(text) #只留下中文字符
+    #text = chinese_only(text) #只留下中文字符
+    text = [x for x in jieba.cut(text) if len(x) >= 2] #利用jieba库的cut函数来处理文本，输出长度大于等于2的中文
     if count<=0: #用老方法全部打印
         text = list(text) #将中文字符串转换为中文列表
         text_dict = list_to_dict_and_cal(text) #统计中文字频
@@ -167,5 +170,11 @@ def main():
         text_all='' #初始化contents的容器
         for i in range(len(text)): #往容器里填contents
             text_all+=text[i]['contents'] #得到一个由contents组成的字符串
-        stats_text_cn(text_all, count=100, print_text=True)
+        stats_text_cn(text_all, count=20, print_text=True)
         #调用函数统计并打印100个字频最高的字，修改count的值可以修改打印的字数
+    
+
+
+
+if __name__ == '__main__':
+    main()

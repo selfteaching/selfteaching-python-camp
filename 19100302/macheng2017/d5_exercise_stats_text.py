@@ -20,6 +20,7 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
+
 textList = text.split()
 for i in range(len(textList)):
     textList[i] = textList[i].strip(',*-.!')
