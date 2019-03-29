@@ -25,11 +25,11 @@ Namespaces are one honking great idea -- let's do more of those!
 # 二、统计字符串样本中英文单词出现的次数
 # 1、创建一个名为 d5_exercise_stats_text.py 的文件
 # 2、使用字典（dict）统计字符串样本 text 中各个英文单词出现的次数。
-symbol_deleting = [',','.','!','-','*']                  # 将非词类字符均替换为空格
+symbol_deleting = [',','.','!','-','*']  # 将非词类字符均替换为空格
 for x in symbol_deleting:
    text = text.replace(x,'')
-text = text.lower()                                      # 将所有单词改为小写
-text = text.split()                                      # 以空格为分隔符，分隔字符串text，使之成为列表text
+text = text.lower()                      # 将所有单词改为小写
+text = text.split()                      # 以空格为分隔符，分隔字符串text，使之成为列表text
 stats = {}
 for i in text:
    times = text.count(i)
