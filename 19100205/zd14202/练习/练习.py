@@ -64,3 +64,17 @@ def stats_text(text):
     return(dic_3) 
 # print(stats_text(text)) 
 print(stats_text.__doc__)  
+
+#第9天,读取文件并排序
+ch={}
+from mymodule import stats_wordfrom collections import Counterimport json
+
+with open(os. path.join(os.path.dirnam(os.path.abspath(__file__)), 'tang300.json'))as nine:
+    read_data=nine.read()
+    nine.closed
+    read=Counter(stats_word.stats_text(read_data))
+    print(read.most_common(100))
+try:
+    print("全部结果为:",stats_word.stats_text(ch))
+except valueError as err
+    print(err)
