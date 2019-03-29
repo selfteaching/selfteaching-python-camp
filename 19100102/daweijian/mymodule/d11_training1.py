@@ -35,7 +35,7 @@ password = getpass.getpass('输入发件人邮箱密码:')
 recipients = input('输入收件人邮箱:')
 
 try:
-    yag=yagmail.SMTP(sender,password,'smtp.mail.qq.com')
+    yag=yagmail.SMTP(sender,password,'smtp.qq.com')
     #yag.send('pythoncamp@163.com','subject',strResult)
     yag.send(recipients,'19100102 daweijian',strResult)
     print("已发送，请注意查收。")
