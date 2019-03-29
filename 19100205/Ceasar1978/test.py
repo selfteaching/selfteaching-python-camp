@@ -1,7 +1,7 @@
+import mymodule.stats_word
 
-d1={1:[1,11,111],3:[5,33,333]}
-d2={3:[3,33,333],4:[4,44,444]}
-d ={}
-d.update(d1)
-d.update(d2)
-print(d)
+with open('tang300.json','r',encoding='UTF-8') as f:
+    text = f.read()
+    
+    
+print(mymodule.stats_word.stats_text_cn(text))
