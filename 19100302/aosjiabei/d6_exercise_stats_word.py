@@ -7,13 +7,14 @@ His flower had told him that she was only one of her kind in all universe。 And
 What moves me so deeply， about this little prince who is sleeping here， is his loyalty to a flower – the image of a rose that shine through his whole being like the flame of a lamp， even when he is asleep…
 这个熟睡的小王子最叫我感动的地方是，他对一朵玫瑰的感情——甚至他睡着了，那朵玫瑰花的影子，仍像灯光一样照亮他的生命……
 中文字符测试：《》、「」【】#@%……&*
+英文字符测试：,./';[:"?>]
 '''
-import re
+import re#导入正则表达式模块
 def stats_text_en():
     global text #把text标记为全局变量
     found = {}#建立空的字典
     a= text.lower()
-    a=re.sub("[^\\u0061-\u007a]", " ", a)#小写字母unicode范围
+    a=re.sub("[^\\u0061-\u007a]", " ", a)#小写字母unicode范围，筛选英文
     a=a.split()#指定分隔符对字符串进行切片
     
     for i in a:
