@@ -1,3 +1,48 @@
+Day 6
+姓名：谢嘉锋
+所属班级：003期1班
+学习用时：4h +
+
+收获总结:
+1.这两天刻意让自己在完成了作业之后去翻别的同学做的作业，发现很多同学写得非常好，而且总是能够发现很多自己考虑得不够清楚的地方；
+比如，今天的作业中：
+1）在考虑符号的中文符号的清除过程中，“竟然”考虑漏了好多个，于是决定自己搞个像 atom 中的 snippet 之类的东西，直接把符号都收集全了。
+而却，用“—”“…”似乎比“——”“……”更好……
+2）除此之外，还要考虑中文文本中英文与数字，用正则表达式中的这个：[a-zA-Z0-9]
+3）还有一个有趣的东西，最终有把结果print出来，如果把 list 换成 dict 比 直接 print 一个 list 更美观......
+
+<hr>
+Day 5
+2019.3.27
+
+姓名：谢嘉锋
+所属班级：003期1班
+学习用时：4h +
+
+收获总结：
+一些一开始没有注意的地方
+1.sort英文单词的时候，应该提前把字母统一小写；
+2.大小写转换的时候，我是把list中的 string 逐个转换，而，本来可以在一开始的文本中就转换好的...
+3.对着一个 list 用 remove 的时候，要先 check 它里面到底有没有你要remove 的item 先，
+所以，今天的作业中，在除去文本中的空element ("")的时候，就是要先 while "" in list.
+
+一些思考：
+1.replace
+用 string 的 replace method 的话，似乎只能满足最基本的替换，所以 regex 的[\.\*]这样并列的功能它没有；
+应用regex 的 replace 步骤是：
+1)引入 re
+import re  
+2)调用 re的 compile method 设置 expression
+i = re.compile("[\.\-\*\!\,\']")
+3)替换 (用sub , 或者 subn)
+text_new = i.sub("OO", text)
+
+subn 与一样，替换，不过他还会换回一个替换的数量，返回的结构是：("text...", 30), 这个东西似乎是个结构稳定的 tuple
+
+
+
+
+<hr>
 
 Day 1
 2019.3.24
@@ -33,15 +78,15 @@ Day 1
 学习用时：5h +
 
 收获总结：
-这次习题，主要在第二个步骤上花了特别多时间看了好久，一直琢磨不透，究竟要怎么个配置法...... 
+这次习题，主要在第二个步骤上花了特别多时间看了好久，一直琢磨不透，究竟要怎么个配置法......
 后面好像有点明白了，在VS Code 里似乎要特别注意 environment，就是选择一个Interpreter， environment 分为三种：Global , Virtual , conda.
 
 Global, 是，我们跑到哪儿都可以用的，但是如果我们什么都在放到Global的话，就会很混乱，所以就有 Virtual;
 Virtual, 范围更小，似乎是局限于特定的文件里面；
-而 conda , 是专门配置给 python的 environment 
+而 conda , 是专门配置给 python的 environment
 
-所以第二个题目是为了让我们通过那个文档理解 VS Code 的environment 
-进而所需要的操作，“仅仅是”让我们去选择一个 conda environment，因为所谓的“语法检查、代码提示这些辅助开发功能”都是conda environment 自带的 …… 
+所以第二个题目是为了让我们通过那个文档理解 VS Code 的environment
+进而所需要的操作，“仅仅是”让我们去选择一个 conda environment，因为所谓的“语法检查、代码提示这些辅助开发功能”都是conda environment 自带的 ……
 
 <hr>
 
@@ -66,7 +111,7 @@ Day 3
 而且在 python 中，这个 index 可以是负数，即从最右边（第一个是-1）算起；
 
 2）slice 上
-JS 是 ".slice(1,2)" 
+JS 是 ".slice(1,2)"
 而 Python 表达一样的意思是[1,2]
 
 ......
@@ -118,7 +163,4 @@ rather then
 比如，regular expressions(正则表达式)就是属于 declarative languages 。
 所以它不需要 control flow 。
 
-
-
 <hr>
-
