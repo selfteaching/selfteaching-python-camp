@@ -1,24 +1,12 @@
-import mymodule.stats_word
-
-
-
-# encoding:utf-8
-
 text = '''
 
 愚公移山
 
-
-
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他和家人往來極為不便。
-
-
 
 一天，愚公召集家人說：「讓我們各盡其力，剷平二山，開條道路，直通豫州，你們認為怎樣？」
 
 大家都異口同聲贊成，只有他的妻子表示懷疑，並說：「你連開鑿一個小丘的力量都沒有，怎可能剷平太行、王屋二山呢？況且，鑿出的土石又丟到哪裏去呢？」
-
-
 
 大家都熱烈地說：「把土石丟進渤海裏。」
 
@@ -28,15 +16,9 @@ text = '''
 
 寒來暑往，他們要一年才能往返渤海一次。
 
-
-
 住在黃河河畔的智叟，看見他們這樣辛苦，取笑愚公說：「你不是很愚蠢嗎？你已一把年紀了，就是用盡你的氣力，也不能挖去山的一角呢？」
 
-
-
 愚公歎息道：「你有這樣的成見，是不會明白的。你比那寡婦的小兒子還不如呢！就算我死了，還有我的兒子，我的孫子，我的曾孫子，他們一直傳下去。而這二山是不會加大的，總有一天，我們會把它們剷平。」
-
-
 
 智叟聽了，無話可說：
 
@@ -44,86 +26,58 @@ text = '''
 
 How The Foolish Old Man Moved Mountains
 
-Yugong was a ninety-year-old man who lived at the north of two high
+Yugong was a ninety-year-old man who lived at the north of two high mountains, Mount Taixing and Mount Wangwu.
 
-mountains, Mount Taixing and Mount Wangwu.
+Stretching over a wide expanse of land, the mountains blocked yugong’s way making it inconvenient for him and his family to get around.
 
-新⽣⼤学 × 糖果 ⾃学Python⼊⻔训练营001期
-
-Stretching over a wide expanse of land, the mountains blocked
-
-yugong’s way making it inconvenient for him and his family to get
-
-around.
-
-One day yugong gathered his family together and said,”Let’s do our
-
-best to level these two mountains. We shall open a road that leads to
-
-Yuzhou. What do you think?”
+One day yugong gathered his family together and said,”Let’s do our best to level these two mountains. We shall open a road that leads to Yuzhou. What do you think?”
 
 All but his wife agreed with him.
 
-“You don’t have the strength to cut even a small mound,” muttered his
-
-wife. “How on earth do you suppose you can level Mount Taixin and
-
-Mount Wanwu? Moreover, where will all the earth and rubble go?”
+“You don’t have the strength to cut even a small mound,” muttered his wife. “How on earth do you suppose you can level Mount Taixin and Mount Wanwu? Moreover, where will all the earth and rubble go?”
 
 “Dump them into the Sea of Bohai!” said everyone.
 
-So Yugong, his sons, and his grandsons started to break up rocks and
+So Yugong, his sons, and his grandsons started to break up rocks and remove the earth. They transported the earth and rubble to the Sea of Bohai.
 
-remove the earth. They transported the earth and rubble to the Sea of
+Now Yugong’s neighbour was a widow who had an only child eight years old. Evening the young boy offered his help eagerly.
 
-Bohai.
+Summer went by and winter came. It took Yugong and his crew a full year to travel back and forth once.
 
-Now Yugong’s neighbour was a widow who had an only child eight years
+On the bank of the Yellow River dwelled an old man much respected for his wisdom. When he saw their back-breaking labour, he ridiculed Yugong saying,”Aren’t you foolish, my friend? You are very old now, and with whatever remains of your waning strength, you won’t be able to remove even a corner of the mountain.”
 
-old. Evening the young boy offered his help eagerly.
+Yugong uttered a sigh and said,”A biased person like you will never understand. You can’t even compare with the widow’s little boy!”
 
-Summer went by and winter came. It took Yugong and his crew a full
-
-year to travel back and forth once.
-
-On the bank of the Yellow River dwelled an old man much respected for
-
-his wisdom. When he saw their back-breaking labour, he ridiculed
-
-Yugong saying,”Aren’t you foolish, my friend? You are very old now,
-
-and with whatever remains of your waning strength, you won’t be able
-
-to remove even a corner of the mountain.”
-
-Yugong uttered a sigh and said,”A biased person like you will never
-
-understand. You can’t even compare with the widow’s little boy!”
-
-“Even if I were dead, there will still be my children, my
-
-grandchildren, my great grandchildren, my great great grandchildren.
-
-They descendants will go on forever. But these mountains will not
-
-grow any taler. We shall level them one day!” he declared with
-
-confidence.
+“Even if I were dead, there will still be my children, my grandchildren, my great grandchildren, my great great grandchildren. They descendants will go on forever. But these mountains will not grow any taler. We shall level them one day!” he declared with confidence.
 
 The wise old man was totally silenced.
 
-When the guardian gods of the mountains saw how determined Yugong and
+When the guardian gods of the mountains saw how determined Yugong and his crew were, they were struck with fear and reported the incident to the Emperor of Heavens.
 
-his crew were, they were struck with fear and reported the incident
-
-to the Emperor of Heavens.
-
-Filled with admiration for Yugong, the Emperor of Heavens ordered two
-
-mighty gods to carry the mountains away.
+Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 
 '''
 
 
 
-mymodule.stats_word.stats_text(text) 
+'''导入stats_word模块'''
+
+import stats_word
+
+
+
+'''调用stats_word模块中的stats_text函数'''
+
+print(stats_word.stats_text(text))
+
+try:    
+
+    import Stats_word #import 
+
+    print(Stats_word.stats_text(text)) #call function in Stats.word
+
+
+
+except:
+
+    print("Error")  #print error message 
