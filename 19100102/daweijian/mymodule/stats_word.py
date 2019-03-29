@@ -1,7 +1,7 @@
 # 封装d5的代码
 import re
 from collections import Counter
-
+import string
 import jieba
 
 
@@ -112,7 +112,7 @@ def stats_text_cn(s, count):  # 定义检索中文函数
         print(c_dict)
     else:
         raise ValueError("is not str")
-    # return c_dict
+    return c_dict
 
 
 # 定义stats_text函数
