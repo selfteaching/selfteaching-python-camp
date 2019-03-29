@@ -1,9 +1,18 @@
 
+import json
 from mymodule import stats_word
-text = (3,4,5,6)
-try:
-    stats_word.stats_text(text)
-except ValueError as error:
-    print(error)
-   
+with open('tang300.json') as text:
+    
 
+
+
+
+    #try:
+        #stats_word.stats_text(text)
+    #except ValueError as error:
+     #   print(error)
+  #  print(text)
+    a = text.read()
+
+
+    print(stats_word.stats_text_cn(a,100))
