@@ -1,5 +1,7 @@
-# 导入stats_word模块
+# _*_ coding:utf-8 _*_
 
-from mymodule import stats_word
+import stats_word as sw
+with open(r'//Users//apple//Documents//GitHub//selfteaching-python-camp//19100202//junyanwang77//mymodule_day9//tang300.json',encoding='UTF-8') as poem:
+    read_file = poem.read()
 
-print('合并词频统计结果： ', stats_word.stats_text(text))
+print ('唐诗中最多的100个字：',sw.stats_text_cn(read_file,100))

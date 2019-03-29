@@ -1,43 +1,53 @@
+'''调用collections的Counter函数'''
+import collections
+from os import path
+import json
+import re
+'''导入jieba'''
+import jieba
 
 def stats_text_en(text):
-    dict1 = {}
+    #dict1 = {}
     import re
     ''' 保留英文单字 '''
     en_pattern = re.compile(r'[a-zA-Z]+[\'\-]?[a-zA-Z]+')
     list1 = re.findall(en_pattern, text)
     
-    import collections
-    '''调用collections的Counter函数'''
-
-    #cnt = collections.Counter()
-    #for word in list1:
-        #cnt[word] += 1
-    '''添加一个int类型变量count'''
-    count = int(100)
-    list2 = collections.Counter(list1).most_common(count)
-    
-    return list2
-
+    return list1
 
 def stats_text_cn(text):
-    dict1 = {}
-    import re
+    #dict1 = {}
     ''' 保留中文单字 '''
     cn_pattern = re.compile(r'[\u4e00-\u9fa5]')
-    list1 = re.findall(cn_pattern, text)
+    return "".join(re.findall(cn_pattern, text))
     
-    import collections
     '''调用collections的Counter函数'''
     #cnt = collections.Counter()
     #for word in list1:
         #cnt[word] += 1
 
-    '''添加一个int类型变量count'''
-    count = int(100)
-    list2 = collections.Counter(list1).most_common(count)
-    
+
+def jiebacut(text):
+    list2=[]
+    seg_list = jieba.cut(text, cut_all=False)
+    for i in seg_list:
+        if len(i)>=2:
+            list2.append(i)
     return list2
 
+
+def cut_cnwords(text):
+    list2=[]
+    #non_word_char = '＂＃＄％＆＇（）＊＋，－／：；＜＝＞＠［＼］＾＿｀｛｜｝～｟｠｢｣､、〃》「」『』【】〔〕〖〗〘〙〚〛〜〝〞〟〰〾〿–—‘’‛“”„‟…‧﹏'
+    #non_word_char += string.punctuation + string.whitespace
+    #trans = str.maketrans({key: None for key in non_word_char})
+    #text = text.translate(trans)
+    seg_list = jieba.cut(text, cut_all=True)
+
+    for i in seg_list:
+        if len(i)>=2:
+            list2.append(i)
+    return list2
 
 def stats_text(text):
     '''使用isinstance函数验证输入的参数类型是否为str'''
@@ -45,4 +55,13 @@ def stats_text(text):
         '''用raise语句来引发异常'''
         raise ValueError
     else: 
-        return (stats_text_en(text),stats_text_cn(text))
+        return stats_text_en(text),stats_text_cn(text)
+
+def main(text):
+    '''提取所有英文单字'''
+    enwords = stats_text_en(text)
+    '''提取所有中文单字'''
+    cnwords = stats_text_cn(text)
+    '''分词'''
+    cutcnwords = cut_cnwords(cnwords)
+    return enwords+cutcnwords
