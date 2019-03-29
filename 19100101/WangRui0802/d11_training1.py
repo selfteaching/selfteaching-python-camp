@@ -1,24 +1,26 @@
 # Date:19/03/28
 
 import requests
-import yagmail
-import getpass
+# import yagmail
+# import getpass
 from pyquery import PyQuery
 from mymodule import stats_word
 
-sender = input('请输入发件人邮箱地址:')
-psw = input('请输入发件人邮箱登录密码:')
-recipient = input('请输入收件人邮箱地址:')
-smtp = 'smtp.qq.com'
+# sender = input('请输入发件人邮箱地址:')
+# psw = input('请输入发件人邮箱登录密码:')
+# recipient = input('请输入收件人邮箱地址:')
+# smtp = 'smtp.qq.com'
 
-response = requests.get('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
+def stats (url):
+    response = requests.get(url)
+    document = PyQuery (response.text)
+    content = document ('#js_content').text()
 
-document = PyQuery (response.text)
-content = document ('#js_content').text()
+    statList = stats_word.stats_text(content, 100)
+    statString = ''.join(str(i) for i in statList)
 
-statList = stats_word.stats_text(content, 100)
-statString = ''.join(str(i) for i in statList)
+    return statString
 
-yagmail.SMTP(sender,psw,smtp).send(recipient,'19100101 WangRui0802',statString)
+# yagmail.SMTP(sender,psw,smtp).send(recipient,'19100101 WangRui0802',statString)
 
 
