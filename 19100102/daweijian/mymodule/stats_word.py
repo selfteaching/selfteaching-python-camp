@@ -1,6 +1,8 @@
 # 封装d5的代码
 import re
 from collections import Counter
+import string
+import jieba
 
 
 def clean_ip_list(words):  # 清理掉空格 标点符号
@@ -34,7 +36,7 @@ def list_dict(l):
             else:  # 存在一个字符非英文 所以整个词非英文单词
                 b = False
                 break
-        if (b):
+        if b:
             if word in cadiz:
                 cadiz[word] += 1
             else:
@@ -70,10 +72,39 @@ def cut_count_cn(c, regex):  # 取出所有中文 是一个列表
     return cadiz
 
 
+def clean_not_cn(words):  # 去除非中文词语
+    i = 0
+    while i < len(words):
+        b = False  # 非中文词语
+        for char in words[i]:
+            if char <= '\u4e00' or char >= '\u9fff':  # 如果是中文
+                b = True
+                break
+        if b:
+            words.remove(words[i])
+        else:
+            i = i + 1
+    return words
+
+
+def clean_len_less_2(words):  # 去掉词语长度小于2的
+    i = 0
+    while i < len(words):
+        if len(words[i]) < 2:
+            words.remove(words[i])
+        else:
+            i = i + 1
+    return words
+
+
 def stats_text_cn(s, count):  # 定义检索中文函数
     if isinstance(s, str):
-        regex = re.compile("(?x)(?: [\w -]+ | [\x80 -\xff]{3} )")
-        words = cut_count_cn(s, regex)
+        # regex = re.compile("(?x)(?: [\w -]+ | [\x80 -\xff]{3} )")
+        words = jieba.lcut(s)
+        # 去除非中文词语
+        words = clean_not_cn(words)
+        # 去除词语长度小于2的
+        words = clean_len_less_2(words)
         # 用Counter对数组按照value值排序
         c_dict = Counter(words)
         # 找出频率最多的前count名
@@ -81,7 +112,7 @@ def stats_text_cn(s, count):  # 定义检索中文函数
         print(c_dict)
     else:
         raise ValueError("is not str")
-    return c_dict
+    # return c_dict
 
 
 # 定义stats_text函数

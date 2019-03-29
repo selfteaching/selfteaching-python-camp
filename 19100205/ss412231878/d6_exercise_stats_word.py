@@ -28,7 +28,7 @@ The measures were submitted amid concern the president might dismiss Mr Mueller,
 '''
 
 #英文词频排序
-def state_text_en(text1):
+def stats_text_en(text1):
     # 把字符串去掉转行、大写换小写、去掉单词两边字符
 #    for f in ', . \ : ; "':#未成功，尝试寻找更好的方式中
 #        text = text1.replace(f,'').lower().split(' ')
@@ -46,7 +46,7 @@ def state_text_en(text1):
     #按照词频从高到低排列
     count_list=sorted(count.items(),key=lambda a:a[1],reverse=True)
     return count_list
-print ("单词出现频率排列如下：",state_text_en(count_text1))
+print ("单词出现频率排列如下：",stats_text_en(count_text1))
 
 
 #中文文章
@@ -64,7 +64,7 @@ count_text2 ='''在东胜神州傲来国海滨的花果山顶有一块仙石。�
 '''
 
 #中文字频排序
-def state_text_cn(text2):
+def stats_text_cn(text2):
 
 #    for f in ',.-\n ':#该语句未成功,寻找更好的解决办法中
 #        text = text2.replace(f,'')
@@ -82,4 +82,4 @@ def state_text_cn(text2):
     count_list = sorted(count.items(),key=lambda a:a[1],reverse=True)
     return count_list
 #输出
-print ("字出现频率排列如下：",state_text_cn(count_text2))
+print ("字出现频率排列如下：",stats_text_cn(count_text2))

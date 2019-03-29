@@ -28,7 +28,7 @@ from collections import Counter               #引用 Counter
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf-8')
 
 
-def stats_text_en(stri):               #封装 d5_exercise_stats_text.py
+def stats_text_en(stri,count):               #封装 d5_exercise_stats_text.py
     '''【NOTE】：The "stats_text_en()" is importing output result of English words and occurrences): ''' 
     if type(stri) != str:
          raise ValueError("This is not string!")
@@ -42,7 +42,7 @@ def stats_text_en(stri):               #封装 d5_exercise_stats_text.py
     
     entext=entext.split( )      #分隔字符串
     cnt=Counter()
-    count=10
+
     for i in entext:  
      cnt[i]+=1
     print(stats_text_en. __doc__) 
@@ -57,7 +57,7 @@ def stats_text_en(stri):               #封装 d5_exercise_stats_text.py
  #   return endict         
 
 
-def stats_text_cn(stri):  
+def stats_text_cn(stri,count):  
     '''【注】:stats_text_cn()函数为每个汉字统计的次数如下： '''  #用文档字符串注释
     if type(stri) != str:
      raise ValueError("This is not string!")
@@ -68,7 +68,7 @@ def stats_text_cn(stri):
          entext2.append(i)
     
     cnt=Counter()
-    count=10
+   
     for i in entext2:  
         cnt[i]+=1  
     #dictionary=sorted(dictionary.items(),key=lambda item:item[1],reverse = True)      #按照单词出现次数，从大到小排序  
@@ -76,13 +76,6 @@ def stats_text_cn(stri):
     print(cnt.most_common(count)) 
     #print(dictionary)
    # return dictionary
-def main():                                              #输出文档字符串注释，注意：函数和__doc__之间不加()
-    stats_text_en(template)
-  
-    stats_text_cn(template)
-   
-if __name__ == '__main__':
-    main()
 
 #还有一种提取中文的方法如下：
 
@@ -96,7 +89,7 @@ if __name__ == '__main__':
 #    return resoult
 #stats_text_cn(str = "")
 
-def stats_text(stri):            #定义stats_text函数
+def stats_text(stri,count):            #定义stats_text函数
     if type(stri) != str:
      raise ValueError("This is not string!")
     '''注释:
@@ -106,7 +99,8 @@ def stats_text(stri):            #定义stats_text函数
     作用是分别统计了英文单词出现的次数，以及中文汉字出现的次数：
     '''
     print(stats_text.__doc__)     #输出注释，注意：__doc__中的下划线'__'需要键盘打两次'_'
-    stats_text_en(stri)          
-    stats_text_cn(stri)     
+    stats_text_en(stri,count)          
+    stats_text_cn(stri,count)   
+    return stats_text_cn(stri,count)+stats_text_en(stri,count)   #给函数一个return
    
     
