@@ -30,10 +30,8 @@ for x in symbol_deleting:
    text = text.replace(x,'')
 text = text.lower()                                      # 将所有单词改为小写
 text = text.split()                                      # 以空格为分隔符，分隔字符串text，使之成为列表text
-stats = {}
-for i in text:
-   times = text.count(i)
-   key_times = {i:times}
-   stats.update(key_times)
+stats = dict([(word,text.count(word)) for word in text]) # 使用list comprehension和dict()生成词典
 
 # 3、按照出现次数从大到小输出所有的单词及出现的次数
+stats = sorted(stats.items(),key=lambda item:item[1],reverse=1)
+print(stats)
