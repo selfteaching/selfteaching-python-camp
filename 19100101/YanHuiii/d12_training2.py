@@ -8,10 +8,16 @@ from wxpy import *
 bot = Bot()
 
 '''选取特定的对象小明'''
-object1 = bot.friends().search('小明')[0]
-'''接受好友发来的类型为分享的信息后，将分享网址中内容的词频统计前100个发给对方'''
-if object1.Message.type == 'Sharing':
-    url = Message.url
-    object1.sent(training1.stats_meg(url))
-else:
-    print("您的好友还没发给您关于分享类型的信息")
+object1 = bot.friends()
+
+
+
+@bot.register(object1)
+def SHARING_Msg (msg) :
+	if msg.type == 'Sharing' :
+	    url = msg.url
+	    object1.send(training1.stats_meg(url))
+	else :
+	    print("您的好友还没发给您关于分享类型的信息")
+
+embed()
