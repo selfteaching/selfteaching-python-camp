@@ -4,7 +4,7 @@ i=int(input("please,give me the first number:"))
 operator=input("enter the type of calculation， + or - or * or / :")
 j=int(input("please,give me th second number："))
 
-if operator!="+"or "-"or"*"or"/":
+if operator=="+"or operator== "-"or operator=="*"or operator=="/":
     if operator == "+":
         print(i+j)
     if operator == "-":
