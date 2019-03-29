@@ -11,7 +11,7 @@ content = document('#js_content').text()
 
 # 应用 stats_word 方法提取前100个词
 day11 = stats_word.stats_text_cn(content)
-content = day11.most_common(100)
+
 day11_1 = str(day11)
 # print(day11_1)
 
