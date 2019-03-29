@@ -69,10 +69,8 @@ def stats_text_cn(text:"中文段落")->list:
         raise ValueError("参数text必须是字符串类型,而它现在是一个%s类型" % type(text), )
     char_list=[]
     for c in text:
-        # 如果非汉字，即标点符号、特殊字符都不做统计
-        if c in ('“', '”', '。', '!', '？', '一', '，', '！'):
-            continue
-        else:
+        # 如果非汉字不做统计
+        if u'\u4e00' <= c <= u'\u9fff':
             count = text.count(c)
             char_list.append((c, count))
     # 方式一：使用set()去除重复元素，然后将set转list，再使用list的sort()方法进行排序
@@ -90,10 +88,8 @@ def stats_text_cn_v2(text:"中文段落", count:"限制输出元素个数,int类
         raise ValueError("参数text必须是字符串类型,而它现在是一个%s类型" % type(text), )
     char_list=[]
     for c in text:
-        # 如果非汉字，即标点符号、特殊字符都不做统计
-        if c in ('“','”','。','!','？','一','，','！',"\\","\n",":",' ','"',','):
-            continue
-        else:
+        # 如果非汉字不做统计
+        if u'\u4e00' <= c <= u'\u9fff':
             char_list.append(c)
     # 方式二：使用Counter类的most_common()方法进行排序
     return Counter(char_list).most_common(count)
