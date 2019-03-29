@@ -3,6 +3,15 @@
 def stats_text_en(list_a,dic_a) :
     """通过dictionary统计list_a中每个英文单词出现的次数，并返回该结果"""
 
+    try:
+        if type(list_a) != str or type(dic_a) != str:
+            raise ValueError()
+    except ValueError:
+            print("输入的不是字符串类型")
+            return
+    finally:
+            print("Hello world!")
+
     # 通过dictionaries 进行统计中文词频
     for i in range(len(list_a)) :
         if list_a[i] in dic_a :
@@ -14,6 +23,14 @@ def stats_text_en(list_a,dic_a) :
 
 def stats_text_cn(list_a,dic_a) :
     """通过dictionary统计list_a中每个中文单词出现的次数，并返回该结果"""
+    try:
+        if type(list_a) != str or type(dic_a) != str:
+            raise ValueError()
+    except ValueError:
+            print("输入的不是字符串类型")
+            return
+    finally:
+            print("Hello world!")
 
     # 通过dictionaries 进行统计英文词频
     for i in range(len(list_a)) :
@@ -29,7 +46,15 @@ def stats_text(text) :
     list_b = []
     dict_c = {}
     j = 0
-
+    try:
+        if type(text) != str:
+            raise ValueError()
+    except ValueError:
+            print("输入的不是字符串类型")
+            return
+    finally:
+            print("Hello world!")
+        
     # 将text文件转为list结构
     for i in range(len(text)) :
         if (text[i] >= '\u4e00') and (text[i] <= '\u9fa5') : #将中文单词放入list和dictionary
@@ -54,7 +79,7 @@ def stats_text(text) :
     print('列表：\n' 'list_a：', list_a,'\n\n' 'list_b：',list_b, end = '\n\n')
     
     #分别调用两个函数统计词频
-    stats_text_cn(list_a,dict_c)
+    stats_text_en(list_a,dict_c)
     stats_text_cn(list_b,dict_c)
 
     #排序输出
