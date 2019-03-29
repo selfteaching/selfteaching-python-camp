@@ -81,9 +81,15 @@ print(stats_text_cn(text_cn))
 # '码', 4), ('代', 4), ('序', 3), ('后', 3), ('
 # 多', 3), ('种', 3), ('器', 3), ('言', 3)...
 
-print(dict(stats_text_cn(text_cn)))
-# It seems dict look nicer ...
-# {'的': 9, '译': 8, '编': 7, '用': 5, '代': 4, 
-#  '往': 4, '在': 4, '码': 4, '一': 4, '程': 4, 
-#  '于': 3, '多': 3, '序': 3, '器': 3, '言': 3, 
-#  '后': 3, '种': 3 ......
+
+# addition
+# It seems chinese can print with a nicer neat...
+for x in stats_text_cn(text_cn):
+    if (stats_text_cn(text_cn).index(x) + 1 )% 5 != 0:
+        print(x, end=" ")
+    else:
+        print(x)
+# ('的', 9) ('译', 8) ('编', 7) ('用', 5) ('码', 4)
+# ('代', 4) ('一', 4) ('在', 4) ('程', 4) ('往', 4)
+# ('器', 3) ('于', 3) ('种', 3) ('言', 3) ('后', 3)
+# ......
