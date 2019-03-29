@@ -13,10 +13,10 @@ document = PyQuery(response.text)
 content = document('#js_content').text()
 
 # 应用 stats_word 方法提取前100个词
-day11 = stats_word.stats_text_cn(content)
-content = day11.most_common(100)
-day11_1 = str(day11)
-# print(day11_1)
+day11 = stats_word.stats_text(content)
+content1 = day11.most_common(100)
+day11_1 = str(content1)
+print(day11_1)
 
 # 设置邮箱
 user = input('请输入你的邮箱:') #邮箱账号
