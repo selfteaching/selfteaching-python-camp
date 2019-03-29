@@ -20,7 +20,8 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-textList = text.split(' ')
+
+textList = text.split()
 for i in range(len(textList)):
     textList[i] = textList[i].strip(',*-.!')
 newList = dict.fromkeys(textList, 0)
@@ -29,5 +30,5 @@ for i in range(len(textList)):
     if textList[i] in newList.keys():
         # print('---------------')
         newList[textList[i]] += 1
-sorted_x = sorted(newList.items(), key=lambda kv: kv[1])
+sorted_x = dict(sorted(newList.items(), key=lambda kv: kv[1], reverse=True))
 print(sorted_x)
