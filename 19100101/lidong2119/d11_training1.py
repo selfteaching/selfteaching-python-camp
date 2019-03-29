@@ -10,10 +10,15 @@ document = PyQuery(response.text)
 content = document('#js_content').text()
  
 sender = input('输入发件人邮箱地址：')
-password = getpass.getpass('输入发件人邮箱密码（可复制粘贴）：')
+password = input('输入发件人邮箱密码（可复制粘贴）：')
 recipient = input('输入收件人邮箱地址：')
 
+smtp = 'smtp.qq.com'
 
-yag = yagmail.SMTP(user=sender,password=password,host='smtp.qq.com')
-content = [stats_word.stats_text_cn(content,100)]
-yag.send(recipient,'lidong2119 d11',content)
+
+
+statList = [stats_word.stats_text_cn(content,100)]
+statString = ''.join(str(i) for i in statList)
+
+yag = yagmail.SMTP(sender,password,smtp)
+yag.send(recipient,'lidong2119 d11',statString)
