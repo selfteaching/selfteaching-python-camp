@@ -47,7 +47,7 @@ def reply_my_friend(msg):
         plt.show()
         
         my_friend.send()    # 结果发送给好友
-        my_friend.send_image('test.png')
+        my_friend.send_image('test.png')    # 发送图片结果
     else:
         pass
     
