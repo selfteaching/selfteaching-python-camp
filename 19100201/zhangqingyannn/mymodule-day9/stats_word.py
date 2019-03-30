@@ -94,7 +94,7 @@ def stats_text_cn(text,count=None):
     :param count:int 控制输出个数
     :return list:中文汉字词频统计结果（列表形式输出）
     '''
-    # 在这里写具体操作
+
     mydict=[]
     mylist=[]
     try:
@@ -108,8 +108,6 @@ def stats_text_cn(text,count=None):
 
     return mydict
 
-
-#创建一个名为stats_text的函数，该函数的功能是实现统计字符串中英文单词和中文汉字的词频
 def stats_text(text,rmodel,count=None):
     '''
     统计一段字符串中中文和英文的词频
