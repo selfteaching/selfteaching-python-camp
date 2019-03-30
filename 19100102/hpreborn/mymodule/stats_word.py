@@ -90,7 +90,8 @@ def stats_text_cn(text,count=None):
         mylist=jieba.lcut(text,cut_all=False)
         for mylistitem in mylist:
             #if is_all_chinese(mylistitem)==True and len(mylistitem)>=2:
-            mylisttemp.append(mylistitem)
+            if len(mylistitem)>=2:
+                mylisttemp.append(mylistitem)
 
     except ValueError:
         print("stats_text_cn(ValueError):please input string")
