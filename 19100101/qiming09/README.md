@@ -1,3 +1,11 @@
+2019.3.30
+1. learn to use 3rd-party library "matplotlib" to make charts.
+2. send image to wechat friend.
+
+2019.3.29
+1. learn to use 3rd-party libraby "wxpy".
+2. use "wxpy" to get others' message, analysis this message and reply the result.
+
 2019.3.28
 1. learn to use 3rd-party library "requests","yagmail","pyquery".
 2. use "requests" to get information from a url, get the content, cut the words and email them.
