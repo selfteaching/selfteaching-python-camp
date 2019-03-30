@@ -1,3 +1,8 @@
+
+#import stats_word  
+#import stats_text(text,count)  from stats_word
+
+
 text = '''
 愚公移山
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他和家人往來極為不便。
@@ -45,7 +50,24 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two
 mighty gods to carry the mountains away.
 '''
 
-import stats_word
 
-stats_word.stats_text(text)
+#print()
+#print(stats_text(text,2))
 
+
+#print(stats_word.stats_text(text,10))
+
+import json
+with open("tang300.json", 'r') as f:
+  temp = json.loads(f.read())
+  print(temp)
+
+
+
+
+import stats_word 
+print(stats_word.stats_text(temp,10)) 
+#f.closed
+
+
+#解读不成功
