@@ -12,7 +12,7 @@ def get_msg (msg) :
     if msg.type == 'Sharing' :
         target_url = msg.url
         stats_msg = d12_training1.stats(target_url)
-        msg.reply
+        msg.reply(stats_msg)
     else :
         pass
 embed()

@@ -29,51 +29,51 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
+text_en = 1
+
 import collections
 import re
+import jieba
 
 def stats_text_en(text_en):
-    
+    if not isinstance(text_en,str):
+        raise ValueError('不是字符串类型(string)!')
     result = re.sub("[^A-Za-z]", " ", text_en.strip())
     newList = result.split( )
-    
+    # i=0
     for i in range(0,len(newList)):
         newList[i]=newList[i].strip('*-,.?!')
         if newList[i]==' ': 
             newList[i].remove(' ')
         else:
             i=i+1
-    #print('英文单词词频统计结果： ',collections.Counter(newList),'\n')
+    print('英文单词词频统计结果： ',collections.Counter(newList).most_common(10) )
 
 
-def stats_text_cn(text_cn):
-  
+def stats_text_cn(text_cn, num):
+    if not isinstance(text_cn,str):
+        raise ValueError('不是字符串类型(string)!')
     result1 = re.findall(u'[\u4e00-\u9fff]+',text_cn)
     newString = ''.join(result1)
-
-    def stats(orgString, newDict) :
-        d = newDict
-        for m in orgString :
-            d[m] = d.get(m, 0) + 1
-        return d
-    
-    new_list = []
-    for char in newString :
-        cn = char.strip('-*、。，：？！……')
-        new_list.append(cn)
-    
-    words = dict()
-    for n in range(0,len(new_list)) :
-        words = stats(new_list[n],words)
-    newWords = sorted(words.items(), key=lambda item: item[1], reverse=True) 
-    #print('中文汉字字频统计结果： ',dict(newWords))
-
-
-
-
+    seg_list = jieba.cut(newString, cut_all=False)
+    # print(type(seg_list)) # 调试用
+    f = list(seg_list)
+    a = []
+    for i in range(len(f)):
+        if len(f[i]) > 1:
+            a.append(f[i])
+        else:
+            continue
+    result = collections.Counter(a).most_common(num)
+    return result
+    # print('中文汉字字频统计结果： ', result)
 
 def stats_text(text):
-    '''This function 'include stats_text_cn' and 'stats_text_cn' '''
-    stats_text_en
-    stats_text_cn
-    return
+    if not isinstance(text,str):
+        raise ValueError('不是字符串类型(string)!')
+    stats_text_en(text)
+    stats_text_cn(text)
+
+# 以下为调试函数用
+# stats_text_en(text)
+# stats_text_cn(text)
