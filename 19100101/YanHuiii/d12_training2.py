@@ -2,6 +2,7 @@
 将信息中的主要内容提取及获取词频反馈，并把结果发给好友的程序'''
 
 import training1
+import d13_training3
 from wxpy import *
 
 '''登录微信'''
@@ -13,7 +14,8 @@ object1 = bot.friends()
 def SHARING_Msg (msg) :
 	if msg.type == 'Sharing' :
 	    url = msg.url
-	    msg.reply(training1.stats_meg(url))
+		
+	    msg.reply(d13_training3.Horizontal_bar_chart(training1.stats_meg(url)))
 	else :
 	    print("您的好友还没发给您关于分享类型的信息")
 
