@@ -125,4 +125,4 @@ import jieba
 	from collections import Counter
 	kk=Counter(text_string_dict
 	return(kk.most_common(out_num))
-
+#10

@@ -13,3 +13,5 @@ str = json.dumps(temp,ensure_ascii=False)
 int_num=20
 print('词频文件tang300.json内容中词频前',int_num,' 的词和词频数为：')
 print(stats_word.stats_text(str,int_num))
+
+#10
