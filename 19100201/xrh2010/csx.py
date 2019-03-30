@@ -52,21 +52,25 @@ to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two
 mighty gods to carry the mountains away.
 '''
+import collections
+from collections import Counter
+count = int()
+
+import jieba
+seg_list = jieba.cut(text)  # 默认是精确模式
+#print(", ".join(seg_list))
+#print(collections.Counter(seg_list))
 
 import collections
 from collections import Counter
 count = int()
-def stats_text_en(text,count):
-    import re
-    text_en = re.sub("[^A-Za-z]", " ", text.strip())
-    list_en = text_en.split()
-    return collections.Counter(list_en)
 def stats_text_cn(text,count):
-    import re
-    text_cn = re.findall(u'[\u4e00-\u9fff]+', text.strip())
-    str_cn = ''.join(text_cn)
-    return collections.Counter(str_cn)
-def stats_text(text,count):
-    return collections.Counter(stats_text_en(text,count)+stats_text_cn(text,count)).most_common(count)  
+    import jieba
+    seg_list = jieba.cut(text)
 
-print(stats_text(text,2))
+    #import re
+    #text_cn = re.findall(u'[\u4e00-\u9fff]+', seg_list.strip())
+    #str_cn = ''.join(text_cn)
+    return collections.Counter(seg_list)
+
+print(stats_text_cn(text,20))
