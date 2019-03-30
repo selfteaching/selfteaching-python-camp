@@ -11,15 +11,15 @@ from mymodule import stats_word
 # recipient = input('请输入收件人邮箱地址:')
 # smtp = 'smtp.qq.com'
 
-def stats (url):
+def stats (url,num):
     response = requests.get(url)
     document = PyQuery (response.text)
     content = document ('#js_content').text()
 
-    statList = stats_word.stats_text(content, 100)
-    statString = ''.join(str(i) for i in statList)
-
-    return statString
+    statList = stats_word.stats_text(content,num)
+    #statString = ''.join(str(i) for i in statList)
+    statDict = dict(statList)
+    return statDict
 
 # yagmail.SMTP(sender,psw,smtp).send(recipient,'19100101 WangRui0802',statString)
 
