@@ -1,4 +1,6 @@
 # 通过stats_word导入stats_text模块
+import json
+
 from stats_word import stats_text
 
 text = '''
@@ -33,7 +35,16 @@ text = '''
     '''
 
 # 运行导入的函数
+from os import path
+
+print(__file__, __name__)
+
+fp = path.join(path.dirname(path.abspath(__file__)), 'tang300.json')
 try:
-    stats_text(text)
+    with open(fp, 'r', encoding='utf-8') as f:
+        d = json.load(f)
+        s = json.dumps(d, indent=2, ensure_ascii=False)
+        count = 10
+        stats_text(s, count)
 except ValueError as ve:
     print(ve)

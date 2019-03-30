@@ -51,18 +51,43 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 '''
 
 from mymodule.stats_word import stats_text
-a=stats_text(text)
+a=stats_text(text,None)
 print(a)
 
 #1.为stats_word.py的三个函数添加参数类型检查，不为字符串抛出ValueError错误，并包含完整的错误提示信息
 #2.在main.py中调用stats_word中的任何一个函数，参数传入非字符串，验证参数检查功能是否生效
 #3.在main.py中调用stats_word的地方加上try...except捕获异常，通过print打出方便自己调试的提示信息，让程序正常运行完毕
 
-from mymodule.stats_word import *
+from mymodule.stats_word import stats_text_cn
 
 text=12345678
 
 try:
-    stats_text_cn(text)
+    stats_text_cn(text,None)
 except ValueError:
     print('Input need to be strings')
+
+#读取本地文件，进行词频统计
+#1.下载唐诗三百首文件tang300.json存到main.py同级文件夹
+#2.读取文件中内容
+#3.统计文件中汉字的词频，输出词频最高的前100词
+#Date:3/26/2019
+
+from mymodule.stats_word import stats_text_cn
+
+with open('tang300.json','r',encoding='utf-8') as f:
+    contents=f.read()
+
+first100=stats_text_cn(contents,100)
+print(first100)
+
+#1.通过jieba精确分词后，输出tang300.json中词频前20的词和词频数（中文词只统计长度大于等于2的词）
+#Date:3/27/2019
+
+from mymodule.stats_word import stats_text_cn
+
+with open('tang300.json','r',encoding='utf-8') as f:
+    s=f.read()
+
+first20=stats_text_cn(s,20)
+print(first20)
