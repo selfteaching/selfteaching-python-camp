@@ -25,7 +25,7 @@ print (str)
 
 # 删除包含ea的单词
 list_str = str.split () # 将字符串转换为列表
-list_str1 = []
+list_str1 = [] 
 for i in list_str:
     if 'ea' not in i:
         list_str1.append(i) # 此循环用if条件删除包含ea的单词
