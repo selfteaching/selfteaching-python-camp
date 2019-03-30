@@ -20,3 +20,4 @@ def SHARING_Msg (msg) :
 	    print("您的好友还没发给您关于分享类型的信息")
 
 embed()
+

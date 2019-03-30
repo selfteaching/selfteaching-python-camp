@@ -40,12 +40,13 @@ def stats_text_cn(cn,count) :
     else :
             raise ValueError ('type of argumengt is not str')
 
-def stats_text(text_en_cn,count_en_cn) :
+def stats_text(text_en_cn,count) :
     ''' 1. 合并英汉词频统计：调用stats_text_en()和stats_text_cn()并合并其结果。
         2. 参数类型检查，不为字符串抛出异常。
     '''
     if type(text_en_cn) == str : 
-            return (stats_text_en(text_en_cn,count_en_cn)+stats_text_cn(text_en_cn,count_en_cn))
+            mergeCounter = stats_text_en(text_en_cn,count)+stats_text_cn(text_en_cn,count)
+            return mergeCounter
     else :
             raise ValueError ('type of argumengt is not str')
 

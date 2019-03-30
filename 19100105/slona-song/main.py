@@ -2,10 +2,10 @@
 #通过stats_word导入stats_text模块
 import mymodule.stats_word
 
-def tryexc(string):
+def tryexc(string,n):
     try:
         if isinstance(string,str):
-            mymodule.stats_word.stats_text_cn(string)
+            mymodule.stats_word.stats_text_cn(string,n)
 #            mymodule.stats_word.stats_text_en(string)
         else:
             raise ValueError(string)
@@ -84,6 +84,6 @@ tang_str=json.dumps(tang_dict,ensure_ascii=False)
 #with open('tang300.txt','w',encoding='utf-8') as tang_file:
 #    json.dump(tang_dict,tang_file,ensure_ascii=False)
     
-tryexc(tang_str)
+tryexc(tang_str,20)
 
 

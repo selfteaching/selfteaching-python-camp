@@ -2,6 +2,7 @@ import typing
 import os
 import sys
 import json
+import jieba
 
 template = '''
 The Zen of Python, by Tim Peters
@@ -138,7 +139,22 @@ def tangsi():
         
 
 
-if __name__ == '__main__':
-    # main(template,4)
-    tangsi()
+# if __name__ == '__main__':
+#     # main(template,4)
+#     tangsi()
 
+
+def use_jieba_calculate(template):
+    text =chinese_only(template)
+    seg_list = jieba.cut(text,cut_all=False)
+    str_list=[]
+    for item in seg_list:
+        if(len(item)>=2):
+            str_list.append(item)
+    text_dict = list_to_dict_and_cal(str_list)
+    text_dict = sorted(text_dict.items(),key=lambda item:item[1],reverse=True) #对字典按照value值排序
+    text_dict=typing.Counter(text_dict).most_common(20)
+    return text_dict
+
+
+print(use_jieba_calculate(template))
