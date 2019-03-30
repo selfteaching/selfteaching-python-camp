@@ -1,5 +1,6 @@
 # -*- encoding:utf-8 -*-
 import re
+import jieba
 from collections import Counter
 
 
@@ -34,20 +35,22 @@ def stats_text_cn(text):
 	else:
 		cn = re.compile(r'[^\u0061-\u007a,\u0020]')
 		cn = "".join(cn.findall(text.lower()))
-		count_cn = 100
+		count_cn = 20
 		# 考虑到中文字符串为空，输出结果
 		if cn == "":
 			return "There is not Chinese characters."
 		else: 
 		# remove Chinese characters
 			replace_text = cn.replace('--','').replace('，','').replace('。','').replace('*','').replace('！','').replace('”','').replace('“','').replace('「','').replace('」','').replace('？','').replace('\n','')
-			
+			words = [word for word in jieba.cut(text, cut_all=False) if len(word) >= 2]
 			cnt_cn = Counter()
-			for word in replace_text:
+			for word in words:
 				cnt_cn[word] += 1
 
 			return cnt_cn.most_common(count_cn)
 			# return sorted(frequency_cn.items(), key=lambda d: d[1], reverse=True)
+
+
 
 
 def stats_text(text):
