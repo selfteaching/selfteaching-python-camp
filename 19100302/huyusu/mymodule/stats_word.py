@@ -24,6 +24,8 @@ text ='''
 　　愚公移山比喻依靠大家、坚持不懈一定能取得成功。
 
 
+
+
 How The Foolish Old Man Moved Mountains
 Yugong was a ninety-year-old man who lived at the north of two high
 mountains, Mount Taixing and Mount Wangwu.
