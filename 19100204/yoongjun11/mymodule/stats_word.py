@@ -121,9 +121,8 @@ import jieba
 						text_string_dict.append(sss_cut)
 		#删除，找下一组词
 		sss = sss[num_beg+1:]
-	#排序排序
+	#排序排序排序
 	from collections import Counter
-	kk=Counter(text_string_dict)
-	# 按需要输出长度输出数据
+	kk=Counter(text_string_dict
 	return(kk.most_common(out_num))
 
