@@ -2,6 +2,7 @@
 
 import re
 import collections
+import jieba 
 
 count = int()
 
@@ -23,11 +24,14 @@ def stats_text_cn(text,count) :
     '''判断输入的是字符，执行以下语句'''
     if type(text) == str : 
         '''保留所有匹配的汉字Unicode码的字符'''
-        list_en = re.findall(u'[\u4e00-\u9fff]+', text.strip())
+        list_cn = re.findall(u'[\u4e00-\u9fff]+', text.strip())
         '''将list_en不用任何分隔符连接起来'''
-        str_cn = ''.join(list_en)
+        str_cn = ''.join(list_cn)
+        '''day_10作业：通过jieba的精确模式将字符串str_cn进行分词,只要前长度大于2的词'''
+        seg_list =[ x for x in jieba.cut_for_search(str_cn) if len(x) >= 2]
+
         '''利用colections中的Counter为list_cn中的每个出现的英文单词计数，返回前count个词频最高的词及出现的次数'''
-        return collections.Counter(str_cn).most_common(count)
+        return collections.Counter(seg_list).most_common(count)
     else :
 	    raise ValueError ('输入的类型不为字符串')
 

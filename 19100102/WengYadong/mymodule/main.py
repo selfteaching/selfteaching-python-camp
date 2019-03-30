@@ -1,5 +1,7 @@
-#导入stats_word
-import stats_word
+#通过stats_word导入stats_text模块
+from stats_word import stats_text
+
+
 
 text = '''
 愚公移山
@@ -31,5 +33,5 @@ The wise old man was totally silenced.
 When the guardian gods of the mountains saw how determined Yugong and his crew were, they were struck with fear and reported the incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
-#调用stats_word中的stats_text，且传值text
-print(stats_word.stats_text(text))
+#运行导入的函数
+stats_text(text)
