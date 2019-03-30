@@ -84,7 +84,7 @@ def show_plot(xs, ys):  # 显示柱状图
     ax.set_xlabel('出现次数', fontproperties=get_chinese_font())
     ax.set_title('文章前20名词频统计结果图', fontproperties=get_chinese_font())
     plt.savefig('char.png')
-    plt.show()
+# plt.show()
 
 
 def count_article(url, count):
