@@ -1,5 +1,5 @@
-# 第九天作业2
-# 2019年3月29日
+# 第10天作业2
+# 2019年3月30日
 # 完善词频统计的排序功能主程序
 # 通过导入模块stats_word,调用stats_text,
 # 下载唐诗300首文件tang300.json,存到main.py的同级文件夹下
@@ -23,8 +23,15 @@ with open('tang300.json','r', encoding='utf-8') as f:
 #将json格式转为字符串，注意编码问题
 str = json.dumps(temp,ensure_ascii=False) 
 
-print('统计唐诗300首文件内容中汉字的词频，词频最高的前100个汉字是： \n')
+
+
+
+#print('统计唐诗300首文件内容中汉字的词频，词频最高的前100个汉字是： \n')
 
 #调用stats_word模块中的stats_text函数，统计词频
-print(stats_word.stats_text(str,100))
+# int _num词频统计数
+int_num=20
+print('词频文件tang300.json内容中词频前',int_num,' 的词和词频数为：')
+print(stats_word.stats_text(str,int_num))
+
 
