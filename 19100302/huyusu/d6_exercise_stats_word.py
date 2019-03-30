@@ -65,7 +65,7 @@ def stats_text_cn():      # 定义检索英文函数
     # 提取中文字符串
     text = re.sub("[A-Za-z0-9\!\%\[\]\,\。]", "", text)
     text = text.replace("  ", '')  # 提取的中文字符串会算上空格，会被统计上，故移除空格
-    print(text)
+    #print(text)                   #感觉多余
 
     for i in text:
         if i in found:
