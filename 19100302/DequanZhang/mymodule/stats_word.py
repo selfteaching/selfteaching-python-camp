@@ -50,7 +50,7 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 # 定义stats_text_en()函数，统计英文词频
 text = text.replace("\n"," ").replace(","," ").replace("."," ").replace("*"," ").replace("--"," ")
 d = {}
-def stats_text_en():
+def stats_text_en(text):
     for x in text.split():
         if not x in d:
             d[x] =1
@@ -58,7 +58,7 @@ def stats_text_en():
             d[x]=d[x]+1
     return d
 
-stats_text_en()
+stats_text_en(text)
 
 d= (sorted(d.items(), key=lambda d: d[1],reverse=True)) 
 print(d)
@@ -67,20 +67,20 @@ print(d)
 
 #定义stats_text_cn函数，统计中文词频
 dic={}                        
-def stats_text_cn():    
+def stats_text_cn(text):    
     for i in text:
         if u'\u4e00' <= i <= u'\u9fff':
             dic[i] = text.count(i)
     return dic
 
-stats_text_cn()             
+stats_text_cn(text)             
 
 dic=sorted(dic.items(),key=lambda item:item[1],reverse = True)      
 print(dic)                            
 
 #定义stats_text函数，分别调用stats_text_en, stats_text_cn，输出合并词频统计
-def stats_text():
-    return dict(stats_text_en(),stats_text_cn())
+def stats_text(text):
+    return dict(stats_text_en(text),stats_text_cn(text))
 
 print(dict)
 
