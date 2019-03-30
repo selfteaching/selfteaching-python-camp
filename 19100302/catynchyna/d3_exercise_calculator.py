@@ -61,3 +61,8 @@ def again():
     # If user types N, byebye
     elif calc_again.upper() == "N":
         print("Ok, Have a nice day. Bye")
+
+welcome()
+calculate()
+again()
+# missed loopline need to be improved later. gogo cat!
