@@ -1,75 +1,50 @@
+#创建一个名为stats_text_en的函数
+#使用字典（dict）统计字符串样本text中各个英文单词出现的次数
+text ='''The Zen of Python, by Tim Peters
+Beautiful is better than ugly.
+Explicit is better than implicit.字符串类型为异常类型就抛出异常抛出我们只中每个英文单词出现的次数如果不是字符串类型为异常'''
 import re
-from collections import Counter
+import collections
+import jieba
+def stats_text_en(text,count):
+    '''1、使用字典（dict)统计text中每个英文单词出现的次数.
+    2、添加类型检查，如果不是字符串类型为异常
+    3、使用Counter对象统计'''
+    if type(text) != str:
+        raise ValueError ("This is not an str type")
+    elif type(count) != int:
+        raise ValueError ("This is not an int type")
 
-def stats_text_en(text):
-    if isinstance(text, str):    
-        list1 = []    
-        text_list = re.split(r'[\s,.!\-*]', text)
-        for i in text_list:        
-            if not u'\u4e00' <= i <= u'\u9fff': 
-                list1.append(i)
-        return Counter(list1).most_common()    
-    else:
-        raise ValueError("This is not a string!")
+    result = re.sub("[^A-Za-z]", " ", text.strip())
+    return collections.Counter(result.split()).most_common(count)
 
+def stats_text_cn(text,count):
+    '''1、统计每个中文汉字出现的次数
+    2、添加类型检查，如果不是字符串类型为异常
+    3、使用jieba精确模式对字符串进行分词
+    4、使用for循环加入判断条件判断字符串长度大于等于2的加入新列表'''
+    if type(text) != str: 
+        raise ValueError ("This is not an str type")
+    elif type(count) != int:
+        raise ValueError ("This is not an str type")
+    result = re.findall(u'[\u4e00-\u9fff]+', text)#\u是unincode编码，u4e00是十六进制表达值
+    seg_list = jieba.cut(' '.join(result))
+    d = []
+    for i in seg_list:
+        if len(i) >= 2:
+            d.append(i) 
+    return collections.Counter(d).most_common(count)
 
-def stats_text_cn(checkstr, top_n=None):
-    if isinstance(checkstr, str):
-        cndic = {}
-        for i in checkstr:        
-            if u'\u4e00' <= i <= u'\u9fff':   
-                cndic[i] = checkstr.count(i)   
-        return Counter(cndic).most_common(top_n)
-    else:
-        raise ValueError("This is not a string!")
-
-
-def stats_text(text_an):
-    if isinstance(text_an, str):
-        str1 = {}
-        str1["en"] =stats_text_en(text_an)
-        print("""以下是英文字符输出结果""")
-        print(str1["en"])
-        str1["cn"] =stats_text_cn(text_an)
-        print("""以下是中文字符输出结果""")
-        print(str1["cn"])
-        return str1
-    else:
-        raise ValueError("This is not a string!")
-
-
-
-text_an = '''
-The Zen of Python, by Tim Peters
-美丽 is better than 丑陋.
-清楚 is better than 含糊.
-简单 is better than 复杂.
-复杂 is better than 难懂.
-单一 is better than 嵌套.
-稀疏 is better than 稠密.
-可读性计数.
-Special cases aren't special enough to 打破规则.
-即使练习会使得不再纯粹.
-但错误不应该用沉默来掩盖.
-Unless explicitly silenced.
-面对起义，拒绝猜的诱惑.
-有且只有一个办法.
-Although that way may not be obvious at first unless you're Dutch.
-尝试总比从未试过要强.
-Although never is often better than *right* now.
-如果执行很难被解释，那将是一个很糟的想法.
-如果执行很容易解释，这会是一个好点子.
-Namespaces are one honking great idea -- 让我们继续为之努力!
-'''
-
-
-stats_text(text_an)
-
-
-with open("tang300.json", 'r', encoding='utf-8') as file_object:
-    contents = file_object.read()
-    # print(contents)
-
-result = stats_text_cn(contents, top_n=100)
-print("""唐诗300首中词频最高的前100个字""")
-print(result)
+#定义stats_word函数，分别调用stats_text_en,stats_text_cn,输出合并词频统计结果
+def stats_text(text_bn,count):
+    '''1、调用stats_text_en和stats_text_cn函数
+    输出合并词频统计结果
+    2、添加类型检查，如果不是字符串类型为异常'''
+    if type(text_bn) != str: 
+        raise ValueError ("This is not an str type")
+    elif type(count) != int:
+        raise ValueError ("This is not an int type")
+    str1 = {}
+    str1["en"] = stats_text_en(text_bn,count)
+    str1["cn"] = stats_text_cn(text_bn,count)
+    return str1 
