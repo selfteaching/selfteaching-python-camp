@@ -1,6 +1,5 @@
 
 
-from mymodule import stats_word
 
 text = '''
 愚公移山
@@ -50,5 +49,19 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
+text1 = ['This is not Valid Character! 这不是一个有效字符']
 
-print("英文、汉字词频统计：",stats_word.stats_text(text))
+from mymodule import d10_stats_word
+
+
+with open('tang300.json','r', encoding='UTF-8') as t :
+    tang = t.read()
+t.closed
+
+
+try :
+
+  print("英文、汉字词频统计：",d10_stats_word.stats_text(tang))
+
+except ValueError:
+  print('This is not Valid Character!')

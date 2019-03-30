@@ -1,6 +1,22 @@
-
+#-*- coding:utf-8 -*-
 #通过stats_word导入stats_text模块
 import mymodule.stats_word
+
+def tryexc(string,n):
+    try:
+        if isinstance(string,str):
+            mymodule.stats_word.stats_text_cn(string,n)
+#            mymodule.stats_word.stats_text_en(string)
+        else:
+            raise ValueError(string)
+    except ValueError as exc:
+        print(type(exc))
+        print("This data is not a string!")
+        raise
+    finally:
+        print("executing finally main!")
+
+
 
 text = '''
 愚公移山
@@ -51,4 +67,23 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 #运行导入的函数
-mymodule.stats_word.stats_text(text)
+#mymodule.stats_word.stats_text(text)
+
+#b=5
+#tryexc(b)
+
+#tryexc(text)
+
+import json
+with open('tang300.json','r',encoding='utf-8') as json_file:
+    tang_dict=json.load(json_file)
+
+
+tang_str=json.dumps(tang_dict,ensure_ascii=False)
+
+#with open('tang300.txt','w',encoding='utf-8') as tang_file:
+#    json.dump(tang_dict,tang_file,ensure_ascii=False)
+    
+tryexc(tang_str,20)
+
+

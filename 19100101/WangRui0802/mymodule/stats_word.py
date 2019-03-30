@@ -1,103 +1,46 @@
-# 一个中英混杂的文本
-text = '''
-The Zen of Python, by Tim Peters
+import collections
+import re
+import jieba
 
+def stats_text_en(en,count) :
+    ''' 1. 英文词频统计：使用正则表达式过滤英文字符，使用Counter统计并排序。
+        2. 参数类型检查，不为字符串抛出异常。
+    '''
+    if type(en) == str : 
+            text_en = re.sub("[^A-Za-z]", " ", en.strip())
+            enList = text_en.split( )
+            return collections.Counter(enList).most_common(count)
+    else : 
+            raise ValueError ('type of argumengt is not str')
 
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren't special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambxiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you're Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it's a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let's do more of those!
-Python是一种计算机程序设计语言。是一种动态的、面向对象的脚本语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。
-'''
-dict1 = {}
-dict2 = {}
-dict3 = {}
-dict4 = {}
+def stats_text_cn(cn,count) :
+    ''' 1. 使用jieba第三方库精确模式分词。
+        2. 使用正则表达式过滤汉字字符。
+        3. 使用for循环判断分词后词频列表元素长度大于等于2的生成新列表。
+        4. 使用标准库collections.Counter()统计词频并限制统计数量。 
+        5. 参数类型检查，不为字符串抛出异常。
+    '''
+    if type(cn) == str : 
+            cnList = re.findall(u'[\u4e00-\u9fff]+', cn.strip())
+            cnString = ''.join(cnList)
+            segList = jieba.cut(cnString,cut_all=False)
+            cnnewList = []
+            for i in segList :
+                    if len(i) >= 2 :
+                            cnnewList.append(i)
+                    else :
+                            pass                
+            countList = collections.Counter(cnnewList).most_common(count)
+            return countList
+    else :
+            raise ValueError ('type of argumengt is not str')
 
+def stats_text(text_en_cn,count_en_cn) :
+    ''' 1. 合并英汉词频统计：调用stats_text_en()和stats_text_cn()并合并其结果。
+        2. 参数类型检查，不为字符串抛出异常。
+    '''
+    if type(text_en_cn) == str : 
+            return (stats_text_en(text_en_cn,count_en_cn)+stats_text_cn(text_en_cn,count_en_cn))
+    else :
+            raise ValueError ('type of argumengt is not str')
 
-"""创建一个名为stats_text_en的函数，它的功能是为统计英文词频"""
-def stats_text_en(text):
-    import re
-    '''只保留英文'''
-    text = re.sub("[^A-Za-z]", " ", text.strip())
-    '''将字符串text转换为列表list1,只保留单词为list1中的元素'''
-    list1 = re.split(r"\W+",text)   
-    '''删除list1中为空的列表元素'''
-    while '' in list1:   
-        list1.remove('')
-    """i属于list1中的元素，开始循环"""
-    for i in list1:   
-        """将列表中的单词及单词的出现次数，分别赋值给dict1的键和值"""
-        dict1.setdefault(i,list1.count(i))  
-    """将dict1按照value值从大到小排列，并将结果赋给元组tup1"""
-    tup1 = sorted(dict1.items(),key = lambda items:items[1],reverse = True)   
-    """遍历元组tup1"""
-    for tup1 in tup1:   
-            dict2[tup1[0]] = dict1[tup1[0]]  
-    return dict2
-
-#打印统计英文词频的结果
-print("统计英文词频的结果为:")
-print(stats_text_en(text))
-str = ''
-
-
-'''6.2创建一个名为stats_text_cn的函数，并用它实现统计汉字词频的功能'''
-
-def histogram(s, old_d):
-    d = old_d
-    for c in s:
-        d[c] = d.get(c, 0) + 1
-    return d
-"""创建一个名为stats_text_cn的函数，它的功能是为统计中文词频"""
-def stats_text_cn(text):
-    import re
-    """去掉text中的英文和数字"""
-    text = re.sub("[A-Za-z0-9]", "", text)
-    '''将字符串text转换为列表list1,只保留单词为list1中的元素'''
-    list1 = re.split(r"\W+",text)   
-
-    '''删除list1中为空的列表元素'''
-    while '' in list1:   
-        list1.remove('')
-    
-    ''' 把dict3的行拆成单字，拆成字典格式的'''
-    dict3 = dict()
-    '''给dict3赋值'''
-    for i in range(len(list1)):
-        dict3 = histogram(list1[i], dict3)
-
-    """将dict3按照value值从大到小排列，并将结果赋给元组tup1"""
-    tup1 = sorted(dict3.items(),key = lambda items:items[1],reverse = True)  
-
-    """遍历元组tup1"""
-    for tup1 in tup1:   
-            dict4[tup1[0]] = dict3[tup1[0]]  
-    return dict4
-
-#打印统计中文词频的结果
-print("统计中文词频的结果为:")
-print(stats_text_cn(text))
-
-def stats_text(text_bn):
-    '''调用stats_text_en和stats_text_cn函数
-    输出合并词频统计结果'''
-    str1 = {}
-    str1["en"] = stats_text_en(text_bn)
-    str1["cn"] = stats_text_cn(text_bn)
-    return str1

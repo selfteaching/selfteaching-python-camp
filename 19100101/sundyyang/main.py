@@ -1,4 +1,4 @@
-text1 = '''
+yang = '''
 
 愚公移山
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，檔住去路，使他 和家人往來極為不便。
@@ -55,6 +55,24 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two
 mighty gods to carry the mountains away.
 '''
 
+chao = {}
 
 from mymodule import stats_word
-print("全部结果为:",stats_word.stats_text(text1))
+import os
+
+# 第9天，读取文件并排序
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'tang300.json')) as nine :
+    read_data = nine.read()
+    nine.closed
+
+    result = stats_word.stats_text_cn(read_data)
+    #print("yangchao\n",type (result))
+    print(result.most_common(20))
+
+try:
+    #print("全部结果为:",stats_word.stats_text(chao))
+    pass
+except ValueError as err:
+    print(err)
+
+

@@ -5,15 +5,18 @@ def stats_text_en(en) :
     ''' 英文词频统计'''
     text_en = re.sub("[^A-Za-z]", " ", en.strip())
     enList = text_en.split( )
-    return collections.Counter(enList)
+    return collections.Counter(enList).most_common(100)
 
     
 def stats_text_cn(cn) :
     ''' 汉字字频统计 '''
     cnList = re.findall(u'[\u4e00-\u9fa5]+', cn.strip())
     cnString = ''.join(cnList)
-    return collections.Counter(cnString)
+    return collections.Counter(cnString).most_common(100)
 
-def stats_text(text) :
+def stats_text(text):
     ''' 合并英汉词频统计 '''
-    return (stats_text_en(text),stats_text_cn(text))
+    if type(text) ==str:
+         return (stats_text_en(text),stats_text_cn(text))
+    else:
+         raise ValueError ('this is not Valid Character')
