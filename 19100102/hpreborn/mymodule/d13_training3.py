@@ -13,7 +13,7 @@ def getChineseFont():
 from wxpy import *
 bot=Bot()
 
-my_friend=bot.friends().search('cs',sex=FEMALE,city='黄山')[0]
+my_friend=bot.friends().search('hpcs',sex=FEMALE,city='黄山')[0]
 
 my_friend.send('我是你的朋友***。')
 
@@ -30,7 +30,7 @@ def print_others(msg):
         document=pyquery.PyQuery(r.text)
         content=document("#js_content").text()
         #调用stats_word中的stats_text_cn函数统计词频
-        mdict=stats_word.stats_text_cn(content,100)
+        mdict=stats_word.stats_text_cn(content,10)
         for temp in mdict:
             mdictW.append(temp[0])
             mdictN.append(temp[1])
@@ -43,7 +43,7 @@ def print_others(msg):
         performance=np.array(mdictN)
         ax.barh(y_pos,performance,align='center',color='green',ecolor='black')
         ax.set_yticks(y_pos)
-        ax.set_yticklabels(people)
+        ax.set_yticklabels(people,fontproperties=getChineseFont())
         ax.invert_yaxis()
         ax.set_xlabel('词频统计结果',fontproperties=getChineseFont())
         ax.set_title('词频统计结果',fontproperties=getChineseFont())
