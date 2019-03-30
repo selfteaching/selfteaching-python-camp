@@ -123,21 +123,20 @@ def stats_text_cn(y):
 #'''
 
 def stats_text(y):              #通过程序分析之后，关键点事需要用一个函数来识别中英文,教练提示后用正则
-    import re
-    z = {}
-    a = re.findall(r'[\u4e00-\u9fa5]',y)
-    #return y                                         
-    a = ''.join(a)
-    tt = dict(stats_text_cn(a))#调用一个函数之后必须要有个容器接收
-    z.update(tt)
+    import re        #导入正则表达式（我不知道这样表达对不对，这个东西还没有学过，先用了）
+    z = {}             #创建一个字典，用来接收中英文字典
+    a = re.findall(r'[\u4e00-\u9fa5]',y)     #只把中文找出来，具体意义还需要后期进行研磨                                        
+    pass
+    a = ''.join(a)     #找出来之后，为了调用上面的函数，再把它转变为字符串
+    tt = dict(stats_text_cn(a))#调用函数后生成列表，然后再把列表转变为字典
+    z.update(tt)               #利用update（）把字典加入到z字典中
     #return tt
-    b = re.findall(r'[a-zA-Z]+',y)
-    b = ' '.join(b)
-    tt1 = dict(stats_text_en(b))
-    #stats_text_cn()
-    z.update(tt1)
-    d = sorted(z.items(),key=lambda x:x[1],reverse=True)
-    return d
+    b = re.findall(r'[a-zA-Z]+',y)   #同理，只把英文单词找出来，切记一定要把表达式的 + ，加上，不然全部都变成字符
+    b = ' '.join(b)      #与中文同理
+    tt1 = dict(stats_text_en(b))    #与中文同理
+    z.update(tt1)    #与中文同理
+    d = sorted(z.items(),key=lambda x:x[1],reverse=True)  #再根据词频降序处理
+    return d        #必须要有个值返回，不然无法输出
     
                        
 
