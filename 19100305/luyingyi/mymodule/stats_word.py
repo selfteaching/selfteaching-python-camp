@@ -93,7 +93,7 @@ def stats_text_cn(text): #只针对汉字的函数
     stats_text(text)
 
 
-print(stats_text(text)) #打印合并词频结果
+#print(stats_text(text)) #打印合并词频结果
 
 
 
