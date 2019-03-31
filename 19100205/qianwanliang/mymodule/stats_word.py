@@ -33,6 +33,7 @@ text_en = 1
 
 import collections
 import re
+import jieba
 
 def stats_text_en(text_en):
     if not isinstance(text_en,str):
@@ -49,12 +50,13 @@ def stats_text_en(text_en):
     print('英文单词词频统计结果： ',collections.Counter(newList).most_common(10) )
 
 
-def stats_text_cn(text_cn):
+def stats_text_cn(text_cn, num):
     if not isinstance(text_cn,str):
         raise ValueError('不是字符串类型(string)!')
     result1 = re.findall(u'[\u4e00-\u9fff]+',text_cn)
     newString = ''.join(result1)
     seg_list = jieba.cut(newString, cut_all=False)
+    # print(type(seg_list)) # 调试用
     f = list(seg_list)
     a = []
     for i in range(len(f)):
@@ -62,7 +64,9 @@ def stats_text_cn(text_cn):
             a.append(f[i])
         else:
             continue
-    print('中文汉字字频统计结果： ', collections.Counter(a).most_common(20))
+    result = collections.Counter(a).most_common(num)
+    return result
+    # print('中文汉字字频统计结果： ', result)
 
 def stats_text(text):
     if not isinstance(text,str):
