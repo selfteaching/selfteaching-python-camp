@@ -1,9 +1,3 @@
-2019.3.31
-1. last day, time to say goodbye. even though our coah told us not program today. 
-    I still want to make a simple program that contains the past 13 days' notes.
-    and this is it:
-    
-
 2019.3.30
 1. learn to use 3rd-party library "matplotlib" to make charts.
 2. send image to wechat friend.
