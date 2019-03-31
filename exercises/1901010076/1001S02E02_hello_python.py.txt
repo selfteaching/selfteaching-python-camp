@@ -1,0 +1,5 @@
+# -*- coding； UTF-8 -*-
+
+dengchao=Hello World
+print "dengchao"
+print "你好，python 世界!"
