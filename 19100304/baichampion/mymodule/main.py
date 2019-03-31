@@ -47,5 +47,10 @@ When the guardian gods of the mountains saw how
 determined Yugong and his crew were, they were struck with fear and reported the incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
-champion = stats_word.stats_text(text)    #这个就是应用了函数调用方法在某个模块中调用某个函数
+test = 9999
+try:                                            #运用try...except...语句处理非字符串数据类型带来的错误
+    champion = stats_word.stats_text_en(test)    #这个就是应用了函数调用方法在某个模块中调用某个函数
+except TypeError as err:
+    print(err)
+
 print(champion)
