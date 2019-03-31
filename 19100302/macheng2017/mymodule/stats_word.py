@@ -30,61 +30,85 @@ Namespaces are one honking great idea -- let's do more of those!'''
 
 # 思路:
 # 1. 过滤所有的英文单词
-# 2. 过滤所有的符号 , - * !.
-# 3. 把剩下的中文拆分
+
+# 2. 过滤所有的符号 , - * !.等等 英文标点符号,中文标点符号
+# 3. 把剩下的中文拆分成数组
+# 4. 将数组分成两份,一份转为字典格式,并全部初始化值为0
+# 5. 遍历另一份数组,并比对字典中是否存在,若存在则+1
 
 
 def stats_text_cn(text):
-    strList = []
-    strDict = {}
-    text = re.sub(r'[a-zA-Z]+', '', text)
-    # text = re.sub('[\u0060|\u0021-\u002c|\u002e-\u002f|\u003a-\u003f|\u2200-\u22ff|\uFB00-\uFFFD|\u2E80-\u33FF]', '', text)
-    text = re.sub(
-        '[\s+\.\!\/_,$%^*(+\"\'\?]+|[+——！，。？、~@#￥%……&*（）“”‘’：《》「」-]+', '', text)
-    # text = re.sub('[\\n -]','',text)
-    for i in text:
-        strList.append(i)
-    strDict = dict.fromkeys(strList, 0)
-    for i in strList:
-        strDict[i] = strList.count(i)
-    # sorted_x = dict(sorted(strDict.items(), key=lambda kv: kv[1], reverse = True))
-    return strDict
+    try:
+        if type(text) != str:
+            raise ValueError('不能是非字符串类型')
+        strList = []
+        strDict = {}
+        text = re.sub(r'[a-zA-Z]+', '', text)
+        # text = re.sub('[\u0060|\u0021-\u002c|\u002e-\u002f|\u003a-\u003f|\u2200-\u22ff|\uFB00-\uFFFD|\u2E80-\u33FF]', '', text)
+        text = re.sub(
+            '[\s+\.\!\/_,$%^*(+\"\'\?]+|[+——！，。？、~@#￥%……&*（）“”‘’：《》「」-]+', '', text)
+        # text = re.sub('[\\n -]','',text)
+        for i in text:
+            strList.append(i)
+        strDict = dict.fromkeys(strList, 0)
+        for i in strList:
+            strDict[i] = strList.count(i)
+        # sorted_x = dict(sorted(strDict.items(), key=lambda kv: kv[1], reverse = True))
+        return strDict
+    except ValueError:
+        # print('')
+        raise
+
 
 # 思路:
 # 1. 过滤所有的中文单词
-# 2. 过滤所有的符号 , - * !.
-# 3. 把剩下的英文拆分
-
+# 2. 将英文转为小写
+# 2. 过滤所有的符号 , - * !.等等
+# 3. 把剩下的英文拆分成数组
+# 4. 将数组分成两份,一份转为字典格式,并全部初始化值为0
+# 5. 遍历另一份数组,并比对字典中是否存在,若存在则+1
 
 def stats_text_en(text):
+    try:
+        if type(text) != str:
+            raise ValueError('不能是非字符串类型')
+        strDict = {}
+        # text = re.sub(r'[a-zA-Z]+','',text)
+        text = ''.join(x for x in text if ord(x) < 256)
+        text = text.lower()
+        # text = re.sub('[\s+\.\!\/_,$%^*(+\"\']+|[+——！，。？、~@#￥%……&*（）“”‘’《》「」-]+', '',text)
+        strList = text.split()
+        for i in range(len(strList)):
+            strList[i] = strList[i].strip(',-*!.?')
+            # strList.append(i)
+        strDict = dict.fromkeys(strList, 0)
+        for i in strList:
+            strDict[i] = strList.count(i)
+        # sorted_x = dict(sorted(strDict.items(), key=lambda kv: kv[1], reverse = True))
+        return strDict
+    except ValueError:
+        raise
 
-    strDict = {}
-    # text = re.sub(r'[a-zA-Z]+','',text)
-    text = ''.join(x for x in text if ord(x) < 256)
-    text = text.lower()
-    # text = re.sub('[\s+\.\!\/_,$%^*(+\"\']+|[+——！，。？、~@#￥%……&*（）“”‘’《》「」-]+', '',text)
-    strList = text.split()
-    for i in range(len(strList)):
-        strList[i] = strList[i].strip(',-*!.?')
-        # strList.append(i)
-    strDict = dict.fromkeys(strList, 0)
-    for i in strList:
-        strDict[i] = strList.count(i)
-    # sorted_x = dict(sorted(strDict.items(), key=lambda kv: kv[1], reverse = True))
-    return strDict
+
 
 # stats_text_cn(text)
 # stats_text_en(text)
 
 
 def stats_text(text):
-    dictCn = stats_text_cn(text) 
-    dictEn = stats_text_en(text)
-    # print(dictCn)
-    # print(dictEn)
-    strList = {**dictCn, **dictEn}
-    sorted_x = dict(sorted(strList.items(), key=lambda kv: kv[1], reverse = True))
-    return sorted_x
 
+    try:
+        if type(text) != str:
+            raise ValueError('不能是非字符串类型')
+        dictCn = stats_text_cn(text)
+        dictEn = stats_text_en(text)
+        # print(dictCn)
+        # print(dictEn)
+        strList = {**dictCn, **dictEn}
+        sorted_x = dict(
+            sorted(strList.items(), key=lambda kv: kv[1], reverse=True))
+        return sorted_x
+    except ValueError:
+        raise
 
 # print(stats_text(text))
