@@ -20,5 +20,5 @@ contents = [string]
 
 yag = yagmail.SMTP(user = sender, password = password, host='smtp.163.com')
 
-yag.send(recipients, '19100101 jiap', contents)
+yag.send(recipients, '19100201 jiap', contents)
 print("Send successfully!")
