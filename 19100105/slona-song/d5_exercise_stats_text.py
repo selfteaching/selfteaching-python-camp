@@ -20,10 +20,12 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
+
 dictionary={} #创建一个字典
 
 text=text.replace(',',' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('*',' ')
 #将text中标点符号用空格替换
+
 mytext=text.split( ) #将text分隔成单词
 
 for i in mytext:                #遍历文本
