@@ -27,4 +27,3 @@ except ValueError:
     print('输入的不是文本格式，请重新输入：')   
     
 print(mymodule.stats_word.stats_text_cn(text))
-

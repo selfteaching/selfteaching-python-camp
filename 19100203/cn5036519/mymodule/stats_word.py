@@ -1,5 +1,6 @@
 from collections import Counter
 import json
+import jieba
 
 text1 = '''
 The Zen of Python, by Tim Peters
@@ -95,6 +96,22 @@ def stats_text_cn_v2(text:"中文段落", count:"限制输出元素个数,int类
     return Counter(char_list).most_common(count)
 # result = stats_text_cn_v2(text2, 10)
 # print(result)
+
+
+
+# stats_text_cn_v3()函数3.0版
+def stats_text_cn_v3(text:"中文段落", count:"限制输出元素个数,int类型")->list:
+    if not isinstance(text, str):
+        raise ValueError("参数text必须是字符串类型,而它现在是一个%s类型" % type(text), )
+    words_list = jieba.lcut(text)
+    char_list=[]
+    for words in words_list:
+        # 如果非汉字不做统计
+        if u'\u4e00' <= words <= u'\u9fff' and len(words) >= 2:
+            char_list.append(words)
+    return Counter(char_list).most_common(count)
+
+
 
 
 def stats_text(text1, text2)->list:

@@ -16,9 +16,9 @@ statList = d11_stats_word.stats_text(content)
 statString = ''.join(str(i) for i in statList)
 print(statString)
 
-sender = input('输入发件人邮箱:' '176665323@qq.com')
-password = getpass.getpass('输入发件人邮箱密码:' 'pwfpmmgsajmjbghg')
-recipients = input('输入收件人邮箱:' 'pythoncamp@163.com')
+sender = input('输入发件人邮箱:')
+password = getpass.getpass('输入发件人邮箱密码:')
+recipients = input('输入收件人邮箱:')
 smtp = 'smtp.qq.com'
 
 yagmail.SMTP(sender,password,smtp).send(recipients,'19100105 liwanlsl',statString)

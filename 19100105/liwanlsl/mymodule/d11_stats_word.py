@@ -15,14 +15,14 @@ def stats_text_cn(cn) :
     cnString = ''.join(cnList)
     
     segList = jieba.cut(cnString,cut_all=False)
-    SHList = []
+    SHList = {}
     for i in segList :
           if len(i) >= 2 :
-               SHList.append(i)
+               SHList[i] = cnString.count(i)
           else :
                pass       
 
-    return collections.Counter(SHList).most_common(100)
+    return collections.Counter(SHList).most_common(10)
 
 def stats_text(text):
     ''' 合并英汉词频统计 '''
