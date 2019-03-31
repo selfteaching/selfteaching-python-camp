@@ -147,3 +147,5 @@ def stats_text(text_en_cn) :
         pass
     except expression as identifier:
         pass
+
+        # 毫无头绪  打算从不会做的地方从新开始阅读资料开始做
