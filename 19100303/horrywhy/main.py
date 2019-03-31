@@ -57,3 +57,9 @@ chao = {}
 
 from mymodule import stats_word
 import os
+
+try:
+    #print("全部结果为:",stats_word.stats_text(chao))
+    pass
+except ValueError as err:
+    print(err)
