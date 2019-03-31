@@ -31,3 +31,11 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 
 from mymodule import stats_word
 print('合并词频统计结果： ', stats_word.stats_text(text))
+
+'''try…except捕获异常'''
+try:
+    '''调用stats_word模块中的stats_text函数'''
+    print(stats_word.stats_text(template))
+
+except ValueError:
+    print(ValueError, '：你输入的参数类型不是string！')
