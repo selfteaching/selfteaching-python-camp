@@ -1,7 +1,8 @@
 2019.3.31
-1. last day, time to say goodbye. even though our coah told us not program today. 
-    I still want to make a simple program that contains the past 13 days' notes.
-    and this is it:
+1. last day, time to say goodbye. even though we have no program task today. 
+   I still want to make a simple program that summarize the past 13 days' notes.
+   and this is it:
+   ![image](https://github.com/qiming09/selfteaching-python-camp/blob/master/19100101/qiming09/d14_training4/d14.png)
     
 
 2019.3.30
