@@ -14,5 +14,3 @@ content = document('#js_content').text()
 #my_stats = str(sw.stats_text(content, 100))
 
 
-#测试
-#111
