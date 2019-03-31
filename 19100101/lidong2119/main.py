@@ -50,6 +50,6 @@ f.closed
 
 from mymodule import stats_word
 try:
-    print('汉字字频最高的前100字统计结果：',stats_word.stats_text_cn(read_file,100))
-except ValueError as e:
-    print(e)
+    print('汉字字频最高的前20字统计结果：',stats_word.stats_text_cn(read_file,20))
+except ValueError as ve:
+    print(ve)

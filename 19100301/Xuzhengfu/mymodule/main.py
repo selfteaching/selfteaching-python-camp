@@ -77,7 +77,6 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two
 mighty gods to carry the mountains away.
 '''
 
-
 # 1、通过模块导入stats_word，调用stats_text统计字符串样本中中文汉字和英文单词出现的次数
 # 2、调用stats_word中的任何一个函数，参数传入非字符串，验证参数检查功能是否生效
 # 3、加上try…except捕获异常，通过print打出方便自己调试的提示信息，让程序正常运行完毕

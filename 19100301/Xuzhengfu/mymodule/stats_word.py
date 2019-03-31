@@ -20,7 +20,6 @@ def stats_text_en(string):
    else:
       raise ValueError(string)
 
-
 # 1.2 封装统计中文汉字字频的函数
 def stats_text_cn(string):
    """
@@ -60,7 +59,6 @@ def Reclassify_en(string):
 # 1.4 将统计中文字频和英文词频的函数封装为一个函数
 def stats_text(string):
    """
-      0/ check parameter type
       1/ Reclassify the string that mix Chinese characters and English words;
       2/ Counts the number of occurrences of each English word and each Chinese character in the parameter;
       3/ Returns an array in descending order of their frequency.
