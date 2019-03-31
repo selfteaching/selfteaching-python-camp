@@ -30,6 +30,7 @@ Namespaces are one honking great idea -- let's do more of those!'''
 
 # 思路:
 # 1. 过滤所有的英文单词
+
 # 2. 过滤所有的符号 , - * !.等等 英文标点符号,中文标点符号
 # 3. 把剩下的中文拆分成数组
 # 4. 将数组分成两份,一份转为字典格式,并全部初始化值为0
@@ -88,11 +89,14 @@ def stats_text_en(text):
     except ValueError:
         raise
 
+
+
 # stats_text_cn(text)
 # stats_text_en(text)
 
 
 def stats_text(text):
+
     try:
         if type(text) != str:
             raise ValueError('不能是非字符串类型')
@@ -106,6 +110,5 @@ def stats_text(text):
         return sorted_x
     except ValueError:
         raise
-
 
 # print(stats_text(text))

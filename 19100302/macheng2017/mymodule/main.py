@@ -59,10 +59,12 @@ to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two
 mighty gods to carry the mountains away.
 '''
+
 text1 = 23
 try:
     res = stats_text(text1)
     # print(res)
 except ValueError:
     raise 
+
 

@@ -1,9 +1,19 @@
-
+from mymodule import stats_word
+import requests
+from pyquery import PyQuery
+from wxpy import *
 import matplotlib.pyplot as plt
 import numpy as np 
 
-def fanggetu(top100):
-    # 随机数
+bot = Bot()
+myfriend1 = bot.friends().search('alan')[0]
+if myfriend1.Message.type == 'Sharing':
+    url = Message.url
+    response = requests.get(url)
+    document = PyQuery(response.text)
+    content = document('#js_content').text()
+    top100=str((stats_word.stats_txt_cn(content)))
+    
     np.random.seed(19680801)
     plt.rcdefaults()
     fig, ax = plt.subplots()
@@ -22,5 +32,5 @@ def fanggetu(top100):
     ax.set_xlabel('TOP100词频统计结果')
     ax.set_title('你分享的文章热词统计')
 
-    plt.show()
-
+    plt.savefig('cipin.png')
+    msg.reply_image('cipin.png')
