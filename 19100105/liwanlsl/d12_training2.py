@@ -2,8 +2,8 @@ from wxpy import *
 import d11_training1
 bot = Bot()
 
-my_friend = bot.friends().search('家')[0]
-my_friend.send('分享')
+my_friend = bot.friends().search('wan')[0]
+my_friend.send('发一个链接')
 
 @bot.register(my_friend)
 

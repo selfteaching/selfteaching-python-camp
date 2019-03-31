@@ -1,5 +1,6 @@
 import collections
 import re
+import jieba
 def stats_text_en(en,count):  
     '''英文词频统计'''
     '''参数类型检查；如果输入参数不为字符串则抛出ValueError'''
@@ -37,4 +38,4 @@ def stats_text(text_e_c,count_e_c):
     else:
          raise ValueError("输入的不是字符串")
         
-           
+          
