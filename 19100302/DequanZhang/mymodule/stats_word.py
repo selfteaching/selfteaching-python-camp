@@ -90,5 +90,3 @@ def stats_text(text):
 
 print(dict)
 
-
-

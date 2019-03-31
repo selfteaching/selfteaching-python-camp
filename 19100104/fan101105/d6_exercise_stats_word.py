@@ -84,7 +84,7 @@ def stats_txt_cn(text1):#处理中文文本
             else :
                 word_dict[char] += 1
     lstWords = sorted(word_dict.items(), key=lambda x:x[1],  reverse=True) 
-    print ('字符\t字频')
+    print ('字符\字频')
     print ('=============')
     print(lstWords)
 stats_txt_cn(text1)
