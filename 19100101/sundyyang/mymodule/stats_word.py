@@ -25,26 +25,35 @@ Namespaces are one honking great idea -- let's do more of those!
 Python是一种计算机程序设计语言。是一种动态的、面向对象的脚本语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。
 '''
 
-import collections
+from collections import Counter
 import re
+import jieba
 
-def stats_text_en(string_en):
+def stats_text_en(string_en,count=8):
+    '''
+    这是用于提取英文单词，并计算单词词频的函数
+    '''
     if type(string_en) == str:  # 第8天作业，为函数添加参数类型检查
 
         result = re.sub("[^A-Za-z]", " ", string_en.strip())
         newList = result.split( )
 
+        newList = Counter(newList)  # 第9天作业，通过Counter来输出词频
+        # print (newList.most_common(count))
+
+        '''
         for i in range(0,len(newList)): 
             newList[i]=newList[i].strip('*-,.?!')
             if newList[i]==' ': 
                 newList[i].remove(' ')
             else:
                 i=i+1
-        return('英文单词词频统计结果： ',collections.Counter(newList),'\n')
+        '''
+        return newList
 
-# 第8天，为函数添加参数类型检查
+    # 第8天，为函数添加参数类型检查
     else:
-        raise ValueError('非字符串，请检查重试')
+        raise ValueError('非字符串，请检查重试')  
 
 
 ''' 
@@ -55,12 +64,24 @@ def stats_text_en(string_en):
 第四步：统计函数在上一次统计结果基础上得出本次统计结果，赋值给newDict。
 第五步：new_list遍历结束，输出倒序排列的统计结果。
 '''
-def stats_text_cn(string_cn):
+def stats_text_cn(string_cn,count=8):
     if type(string_cn) == str:  # 第8天作业，为函数添加参数类型检查
 
         result1 = re.findall(u'[\u4e00-\u9fff]+', string_cn)
         newString = ''.join(result1)
 
+        result1 = jieba.cut(newString,cut_all=False)
+        # print("Default Mode: " + "/ ".join(result1))
+        result2 = []  
+        for i in result1:  
+            if len(i) >= 2:  # 当字符大于等于2删除
+                result2.append(i)
+            else:
+                pass
+        newString = Counter(result2)  # 第9天，通过Counter来输出词频
+        # print (newString.most_common(count))
+
+        '''
         def stats(orgString, newDict) :
             d = newDict
             for m in orgString :
@@ -77,20 +98,22 @@ def stats_text_cn(string_cn):
             words = stats(new_list[n],words)
         newWords = sorted(words.items(), key=lambda item: item[1], reverse=True) 
         return('中文汉字字频统计结果： ',dict(newWords))
+        '''
+        return newString
 
-# 第8天，为函数添加参数类型检查
+    # 第8天，为函数添加参数类型检查
     else:
         raise ValueError('非字符串，请检查重试')
 
 
 # 调用函数
-stats_text_en(string1)
-stats_text_cn(string1)
+#stats_text_en(string1)
+#stats_text_cn(string1)
     
 # 第7天作业
-def stats_text(all):
+def stats_text(all,count=100):
     if type(all) == str:  # 第8天作业，为函数添加参数类型检查
-        return (stats_text_en(all)+stats_text_cn(all))    # 用return语句返回
+        return stats_text_en(all,count)+stats_text_cn(all,count)    # 用return语句返回
 
 # 第8天作业，为函数添加参数类型检查
     else:

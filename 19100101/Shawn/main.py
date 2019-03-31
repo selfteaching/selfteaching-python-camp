@@ -35,6 +35,6 @@ t.closed
 
 from mymodule import stats_word
 try:
-    print('合并词频统计结果： ', stats_word.stats_text(read_file,100))
+    print('词频前20的词和词频数： ', stats_word.stats_text(read_file,20))
 except ValueError as ve:
     print(ve)

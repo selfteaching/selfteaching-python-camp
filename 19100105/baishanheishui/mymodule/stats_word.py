@@ -1,17 +1,18 @@
 #-*- coding:utf-8 -*-
 import io
 import sys
+import jieba
 from collections import Counter
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf-8')
 
 #文档字符串
-def my_notes():
-     """
+#def my_notes():
+     #"""
      
-     001 05   come on!
+     #001 05   come on!
 
-     """
-     pass
+     #"""
+     #pass
 
 #统计英文词频的函数
 def stats_text_en(c):  
@@ -50,7 +51,7 @@ def stats_text_en(c):
     #zidian1=sorted(zidian.items(),key=lambda x:x[1],reverse=True) #按照单词出现次数，从大到小排序
     #return zidian1
 
-
+text2='我开发积分上岛咖啡萨的中国人美国说法'
 #统计中文字频的函数
 def stats_text_cn(t):   
    try:
@@ -60,20 +61,40 @@ def stats_text_cn(t):
          print('调用stats_text_cn函数，参数类型错误',type(err))
          
    else:     
+     word_str=''
      word_lst = []
+     word_lst1 = []
      word_dict = {}
      exclude_str = "，。！？、（）【】<>《》=：+-*—“”…"
      cnt=Counter()
-     count=10
-     # 添加每一个字到列表中
+     count=20
+      # 添加每一个字到 新字符串中
      for i in t: 
         if u'\u4e00' <= i <= u'\u9fff':
-            word_lst.append(i)
-     # 用count统计每个字出现的个数，并排序
-     for i in word_lst:
-        if i not in exclude_str:
-            cnt[i] += 1     
+            word_str=word_str+i
+
+     #print(word_str) 
+     word_list=jieba.lcut(word_str, cut_all=False)     
+     #print(word_list) 
+     for i in word_list:
+         if len(i) >= 2:
+            word_dict[i] = word_list.count(i)
+
+     cnt = Counter(word_dict)
      print(cnt.most_common(count)) 
+
+
+
+     # 添加每一个字到列表中
+     #for i in t: 
+        #if u'\u4e00' <= i <= u'\u9fff':
+            #word_lst.append(i)
+     
+     # 用count统计每个字出现的个数，并排序
+     #for i in word_lst:
+     #   if i not in exclude_str:
+     #       cnt[i] += 1     
+     #print(cnt.most_common(count)) 
 
      # 用字典统计每个字出现的个数  
      #for i in word_lst:
@@ -85,17 +106,18 @@ def stats_text_cn(t):
      #word_dict = sorted(word_dict.items(), key=lambda x:x[1],  reverse=True) ##按照汉字出现次数，从大到小排序
      #return word_dict
  
+#stats_text_cn(text2)
 
-def stats_text(t):
-   try:
-      if not isinstance(t,str):
-         raise ValueError(t)
-   except ValueError as err:
-         print('调用stats_text函数，参数类型错误',type(err))
+#def stats_text(t):
+   #try:
+      #if not isinstance(t,str):
+         #raise ValueError(t)
+   #except ValueError as err:
+         #print('调用stats_text函数，参数类型错误',type(err))
          
-   else:
-      stats_text_cn(t)
-      stats_text_en(t)
-      print(my_notes.__doc__)
+   #else:
+      #stats_text_cn(t)
+      #stats_text_en(t)
+      #print(my_notes.__doc__)
 
 
