@@ -18,6 +18,5 @@ password = getpass.getpass('输入邮箱密码:')
 recipients = input('pythoncamp@163.com')
 
 import yagmail
-
 yag = yagmail.SMTP(user=sender,password=password,host='smtp.163.com')
 yag.send(recipient,'19100205 zd14202')
