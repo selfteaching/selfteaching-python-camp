@@ -28,10 +28,14 @@ dict3 = {}
 dict4 = {}
 
 def stats_text(text):  #设定合并词频函数
+    if not isinstance(text,str):
+        raise ValueError('输入参数不为字符串类型')
     return dict(stats_text_en(text),**stats_text_cn(text))
 
 
 def stats_text_en(text):  #设定函数
+    if not isinstance(text,str):
+        raise ValueError('输入参数不为字符串类型')
     import re  #引入系统函数
     
     text = re.sub("[^A-Za-z]", " ", text.strip()) #只留英语单词
@@ -65,7 +69,8 @@ def histogram(s, old_d): #设置一个更新数量的函数
     
 
 def stats_text_cn(text): #只针对汉字的函数
-    
+    if not isinstance(text,str):
+        raise ValueError('输入参数不为字符串类型')
     import re
     
     text = re.sub("[A-Za-z0-9]", "", text) #遴选出汉字
