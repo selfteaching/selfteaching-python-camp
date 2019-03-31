@@ -3,7 +3,6 @@
    I still want to make a simple program that summarize the past 13 days' notes.
    and this is it:
    ![image](https://github.com/qiming09/selfteaching-python-camp/blob/master/19100101/qiming09/d14_training4/d14.png)
-    
 
 2019.3.30
 1. learn to use 3rd-party library "matplotlib" to make charts.
