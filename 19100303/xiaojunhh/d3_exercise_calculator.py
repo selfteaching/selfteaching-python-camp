@@ -6,13 +6,13 @@ def add(x, y):
     return x + y
 
 def subtract(x, y):
-        """相减"""
+    """相减"""
 
     return x - y
 def multiply(x, y):
-"""相乘"""
+    """相乘"""
 
-return x * y
+    return x * y
 
 def divide(x, y):
     """相除"""
@@ -20,7 +20,7 @@ def divide(x, y):
     return x / y
     
 #输入
-print("选择云算")
+print("选择运算")
 print("1、相加")
 print("2、相减")
 print("3、相乘")
@@ -32,7 +32,7 @@ num1 = int(input("输入第一个数字:"))
 num2 = int(input("输入第二个数字："))
 
 if choice == '1':
-   print(num1,"+",num2,"=", add(num1,num2))
+    print(num1,"+",num2,"=", add(num1,num2))
 
 elif choice == '2':
     print(num1,"-", num2,"=", subtract(num2,num2))
@@ -40,7 +40,7 @@ elif choice == '2':
 elif choice == '3':
     print(num1,"*",num2,"=", multiply(num1,num2))
 
-   elif choice == '4':
+elif choice == '4':
     print(num1,"*",num2,"=", divide(num1,num2)) 
 else:
     print("非法输入")

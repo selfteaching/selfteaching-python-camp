@@ -1,5 +1,6 @@
 # this is the strings sample
 # copied from dingding 19100302 classmates group (thanks for coach and campmates)
+
 #text = '''
 #愚公移山
 
