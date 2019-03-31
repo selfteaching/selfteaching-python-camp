@@ -109,21 +109,33 @@ print(x)
 import collections
 import re
 
+# how to assign the variable a wrong type value to check? 
+
 def stats_text_en (en):
     ''' 英文词频统计'''
-    text_en = re.sub("[^A-Za-z]", " ", en.strip())
-    enList = text_en.split( )
-    return collections.Counter(enList)
+    if type(en) == str:
+        text_en = re.sub("[^A-Za-z]", " ", en.strip())
+        enList = text_en.split( )
+        return collections.Counter(enList)
+    else:
+        print("Inappropriate argument value (of correct type)")
 
 def stats_text_cn (cn):
     ''' 汉字字频统计 '''
-    cnList = re.findall(u'[\u4e00-\u9fff]+', cn.strip())
-    cnString = ''.join(cnList)
-    return collections.Counter(cnString)
+    if type(cn) == str:
+        cnList = re.findall(u'[\u4e00-\u9fff]+', cn.strip())
+        cnString = ''.join(cnList)
+        return collections.Counter(cnString)
+    else:
+        print("Inappropriate argument value (of correct type)")
 
 def stats_text(text_en_cn):
     ''' 合并英汉词频统计 ''' # whole text words frequence stats (en + cn) """?inside qualified comments?"""
-    return (stats_text_en(text_en_cn)+stats_text_cn(text_en_cn))
+    if type(text_en_cn) == str:
+        return (stats_text_en(text_en_cn)+stats_text_cn(text_en_cn))
+    else:
+        print("Inappropriate argument value (of correct type)")
 
 y = stats_text(text)
-print(y)
+if stats_text == "_main_" : # using this to solve my problem when imported in main?
+    print(y)  #without if statement above this .py file will print my function "stats_text" in d6's works
