@@ -22,7 +22,7 @@ def stats_text_cn(cn) :
           else :
                pass       
 
-    return collections.Counter(SHList).most_common(100)
+    return collections.Counter(SHList).most_common(20)
 
 def stats_text(text):
     ''' 合并英汉词频统计 '''
