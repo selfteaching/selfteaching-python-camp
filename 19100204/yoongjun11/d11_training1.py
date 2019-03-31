@@ -13,7 +13,6 @@ document = PyQuery(r.text)
 content = document('#js_content').text()
 #my_stats = str(sw.stats_text(content, 100))
 
-yag = yagmail.SMTP(user=sender1, password=password, host='smtp.163.com')
 
 #测试
 #111
