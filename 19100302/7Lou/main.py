@@ -54,5 +54,4 @@ try:
     stats_word.stats_text(123)
     
 except:
-    print('ValueError:输入的不是文本格式，请重新输入：')   
-
+    print('ValueError:输入的不是文本格式，请重新输入：')

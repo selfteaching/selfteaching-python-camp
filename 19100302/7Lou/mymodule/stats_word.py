@@ -14,6 +14,7 @@ def stats_text_en(text):
 
 
 #统计参数中每个汉字单词出现的次数，按字频降序排列数组
+
 def stats_text_cn(text):
     if  not isinstance(text,str):
         raise TypeError('输入的不是文本格式')
@@ -28,5 +29,5 @@ def stats_text(text):
     
         stats_text_cn(text)
         stats_text_en(text)
-            
+
 
