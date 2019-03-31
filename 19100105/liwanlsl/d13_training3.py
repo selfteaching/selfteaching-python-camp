@@ -41,14 +41,15 @@ def get_msg(msg):
       content = document ('#js_content').text() 
 
       statList = d11_stats_word.stats_text(content)
-      content1 = ''.join(str(i) for i in statList)
+      
+      print(statList)
 
       cipin_list=[]
       cihui_list=[]
-      for i in content1:
+      for i in statList:
           cihui_list.append(i[0])
           cipin_list.append(i[1])
-
+          print(cihui_list)
       matplt(cihui_list,cipin_list)
       my_friend.send_image('C:/Users/admin/frcy.png')
 
