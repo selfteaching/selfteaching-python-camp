@@ -1,5 +1,7 @@
-# -*- coding； UTF-8 -*-
+﻿print("Hello World")
 
-dengchao=Hello World
-print "dengchao"
-print "你好，python 世界!"
+print("你好，世界")
+
+dc = [Hello World]
+
+print("dc")
