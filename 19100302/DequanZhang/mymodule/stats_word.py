@@ -51,6 +51,8 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 text = text.replace("\n"," ").replace(","," ").replace("."," ").replace("*"," ").replace("--"," ")
 d = {}
 def stats_text_en(text):
+    if not isinstance(text,str):
+        raise ValueError('仅接受字符串类型参数，输入的不是字符串，请重新输入：')   #添加参数类型检查
     for x in text.split():
         if not x in d:
             d[x] =1
@@ -68,6 +70,8 @@ print(d)
 #定义stats_text_cn函数，统计中文词频
 dic={}                        
 def stats_text_cn(text):    
+    if not isinstance(text,str):
+        raise ValueError('仅接受字符串类型参数，输入的不是字符串，请重新输入：')   #添加参数类型检查
     for i in text:
         if u'\u4e00' <= i <= u'\u9fff':
             dic[i] = text.count(i)
@@ -80,10 +84,11 @@ print(dic)
 
 #定义stats_text函数，分别调用stats_text_en, stats_text_cn，输出合并词频统计
 def stats_text(text):
+    if not isinstance(text,str):
+        raise ValueError('仅接受字符串类型参数，输入的不是字符串，请重新输入：')   #添加参数类型检查
     return dict(stats_text_en(text),stats_text_cn(text))
 
 print(dict)
-
 
 
 
