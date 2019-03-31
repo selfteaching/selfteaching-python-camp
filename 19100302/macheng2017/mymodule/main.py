@@ -59,5 +59,10 @@ to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two
 mighty gods to carry the mountains away.
 '''
-res = stats_text(text)
-print(res)
+text1 = 23
+try:
+    res = stats_text(text1)
+    # print(res)
+except ValueError:
+    raise 
+
