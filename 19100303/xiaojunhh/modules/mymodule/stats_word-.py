@@ -143,3 +143,9 @@ def stats_text_cn(cn) :
 def stats_text(text_en_cn) :
     ''' 合并英汉词频统计 '''
     return (stats_text_en(text_en_cn)+stats_text_cn(text_en_cn))
+    try:
+        pass
+    except expression as identifier:
+        pass
+
+        # 毫无头绪  打算从不会做的地方从新开始阅读资料开始做
