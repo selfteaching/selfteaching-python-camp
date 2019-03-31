@@ -34,4 +34,4 @@ statString = ''.join(str(i) for i in statList)
 print(statString)
 
 #将统计结果发送到 
-yagmail.SMTP(sender,psw,smtp).send(recipient,'19100202 junyanwang77',statString)  
+yagmail.SMTP(sender,psw,smtp).send(recipient,'19100202 junyanwang77',statString)
