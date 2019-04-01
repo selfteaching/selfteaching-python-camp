@@ -70,7 +70,7 @@ def stats_text_en (text): #sort English words by the frequency.
 
 
 
-def stats_text_cn (text): #sort Chinese words by the frequency.
+def stats_text_cn (text): #sort Chinese words by the frequency. Only output the first 100!
     try:
         text_cn = ''
 
@@ -91,11 +91,14 @@ def stats_text_cn (text): #sort Chinese words by the frequency.
         for i in range(len(text_cn)):
             text_split.append(text_cn[i])
 
-
+    
         counter_cn = collections.Counter(text_split)
-        print("CN wrods frequency: ")
+        counter_cn = collections.Counter(counter_cn).most_common(100)
+
+
+        print("The most common 100 CN wrods: ")
         print(counter_cn)
-        return counter_cn
+
     
     except TypeError:
         print("Chinese sorting: TypeError catched!")
