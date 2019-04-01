@@ -22,7 +22,7 @@ def stats_text_en():
             found[i]+=1
         else:
             found[i]=0
-        found[i]+=1
+            found[i]+=1
     print('英文单词统计结果：',sorted(found.items(),key=lambda x:x[1],reverse=True))#词频降序
  
 stats_text_en()
