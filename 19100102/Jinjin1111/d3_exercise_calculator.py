@@ -6,6 +6,7 @@ def multiply(x,y):
     return x * y
 def divide(x,y):
     return x / y
+    
 print("选择运算方式:")
 print("1、相加")
 print("2、相减")
