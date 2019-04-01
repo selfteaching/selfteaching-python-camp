@@ -1,6 +1,8 @@
 # 一、将统计中文字频和英文词频的函数封装为一个模块
 # 1、添加一个名为 stats_text 的函数，实现功能：分别调用 stats_text_en, stats_text_cn，输出合并词频统计结果
 
+from collections import Counter                                                  # /// day9 ///
+
 # 1.1 封装统计英文单词词频的函数
 def stats_text_en(string):
    """
@@ -15,7 +17,10 @@ def stats_text_en(string):
       string = string.lower()
       string = string.split()
       stats = dict([(word,string.count(word)) for word in string])
-      stats = sorted(stats.items(),key=lambda item:item[1],reverse=1)
+      c = Counter(stats)                                                         # /// day9 ///
+      count = int(input("Input the number of output elements(English): "))       # /// day9 /// 添加int类型变量 count，用于限制输出元素的个数
+      stats = Counter(c).most_common(count)                                      # /// day9 ///
+   #  stats = sorted(stats.items(),key=lambda item:item[1],reverse=1)
       return stats
    else:
       raise ValueError(string)
@@ -28,12 +33,15 @@ def stats_text_cn(string):
       2/ Returns an array in descending order of character frequency.
    """
    if type(string) == str:
-      symbol_deleting_cn = ['~','！',"?","…",'，','。','：',"—","”","“"," ","「","」","\n"]
+      symbol_deleting_cn = ['~','！',"?","…",'，','。','：',"—","”","“"," ","「","」",'"',",","[","]","\n"]
       for x in symbol_deleting_cn:
          string = string.replace(x,'')
       string = [character for character in string]
       stats = dict([(character,string.count(character)) for character in string])
-      stats = sorted(stats.items(),key=lambda item:item[1],reverse=1)
+      c = Counter(stats)                                                         # /// day9 ///
+      count = 100                                                                # /// day9 /// 添加int类型变量 count，用于限制输出元素的个数
+      stats = Counter(c).most_common(count)                                      # /// day9 ///
+   #  stats = sorted(stats.items(),key=lambda item:item[1],reverse=1)
       return stats
    else:
       raise ValueError(string)      
