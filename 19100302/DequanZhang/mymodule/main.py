@@ -1,8 +1,13 @@
 
+from stats_word import stats_text   #调用函数
+text=124                #传入数字字符，验证参数检查功能是否生效
+try:
+    print(stats_text(text))
+except ValueError:
+    print('仅接受字符串参数，输入的不是字符串，请重新输入：')  
 
 
-import stats_word
-
+from stats_word import stats_text
 text = '''
 愚公移山
 
@@ -52,5 +57,8 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
-stats_text(text)
-print(stats_text(text))
+try:
+    print(stats_text(text))
+except ValueError:
+    print('仅接受字符串参数，输入的不是字符串，请重新输入：')  
+
