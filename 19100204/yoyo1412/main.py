@@ -29,4 +29,7 @@ The wise old man was totally silenced.
 When the guardian gods of the mountains saw how determined Yugong and his crew were, they were struck with fear and reported the incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
-stats_word.stats_text(text)
+try:
+  stats_word.stats_text(text)
+except ValueError:
+  print("输入无效，请输入一段字符串")
