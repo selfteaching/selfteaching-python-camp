@@ -76,8 +76,19 @@ to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two
 mighty gods to carry the mountains away.
 '''
+text_test = 67
 
 
-# 通过模块导入stats_word，调用stats_text统计字符串样本中中文汉字和英文单词出现的次数
+
+# 1、通过模块导入stats_word，调用stats_text统计字符串样本中中文汉字和英文单词出现的次数
+# 2、调用stats_word中的任何一个函数，参数传入非字符串，验证参数检查功能是否生效
+# 3、加上try…except捕获异常，通过print打出方便自己调试的提示信息，让程序正常运行完毕
+with open('/Users/xuzhengfu/Documents/GitHub/selfteaching-python-camp/19100301/Xuzhengfu/mymodule/tang300.json','r') as f:
+    read_data = f.read()
 import stats_word
-stats_word.stats_text(text)
+try:
+    stats = stats_word.stats_text_cn(read_data)
+except ValueError:
+    print("ValueError: You have an input that is not a string.")
+else:
+    print(stats)

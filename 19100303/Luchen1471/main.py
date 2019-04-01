@@ -1,4 +1,10 @@
-text =  ''' 
+# this is d6 excercise for modules
+# date : 2019.3.24
+# author by : qiming
+# modified by : Luchen
+# 确实还是别人的代码，上上次课的一个内容感觉不太熟悉，我的进度有点卡在统计字频这件事上，但是这两次的内容似乎不太复杂。
+
+text1 =  ''' 
 愚公移山
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，檔住去路，使他 和家人往來極為不便。
 一天，愚公召集家人說：「讓我們各盡其力，剷平二山，開條道路，直通豫州，你們認為怎 樣？」
@@ -29,6 +35,10 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
-
+text = 0
+#text = text1
 from mymodule import stats_word
-print('合并词频统计结果： ', stats_word.stats_text(text))
+try : 
+    print('合并词频统计结果： ', stats_word.stats_text(text))
+except ValueError as ve :
+    print(ve)

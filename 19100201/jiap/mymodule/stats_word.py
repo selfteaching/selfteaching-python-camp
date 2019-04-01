@@ -35,7 +35,7 @@ def stats_text_cn(text):
 	else:
 		cn = re.compile(r'[^\u0061-\u007a,\u0020]')
 		cn = "".join(cn.findall(text.lower()))
-		count_cn = 20
+		count_cn = 100
 		# 考虑到中文字符串为空，输出结果
 		if cn == "":
 			return "There is not Chinese characters."

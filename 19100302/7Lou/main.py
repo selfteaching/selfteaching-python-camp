@@ -66,7 +66,10 @@ sys.path.append('/Users/shining/Documents/GitHub/selfteaching-python-camp/191003
 
 from mymodule import stats_word 
 from collections import Counter
-with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tang300.json')) as f :
+import json
+
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tang300.json')) as f ：
+
     x = f.read()
     json.dump(x, f)
     x = json.load(f)
@@ -78,3 +81,4 @@ try:
     
 except :
     print('ValueError:输入的不是文本格式，请重新输入：'）
+
