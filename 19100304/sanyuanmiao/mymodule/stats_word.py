@@ -1,28 +1,79 @@
+import re
 import collections
-import re#导入正则表达式模块
 
+dict1 = {}
+dict2 = {}
+str1 = ''
+count = int()
+
+"""创建一个名为stats_text_en的函数，它的功能是为统计英文词频"""
 def stats_text_en(text):
-    i=int (input("英文词频最高的前i个词，请输入i："))
-    if not isinstance(text,str):#判断参数类型
-        raise ValueError("text非字符串参数")#抛出异常类型
-    a= text.lower()
-    a=re.sub("[^\\u0061-\u007a]", " ", a)#小写字母unicode范围，筛选英文
-    a=a.split()#指定分隔符对字符串进行切片
-    print(collections.Counter(a).most_common(i))
- 
-#统计中文词频
+    
+    '''只保留英文'''
+    text = re.sub("[^A-Za-z]", " ", text.strip())
+    '''将字符串text转换为列表list1,只保留单词为list1中的元素'''
+    list1 = re.split(r"\W+",text)   
+    '''删除list1中为空的列表元素'''
+    while '' in list1:   
+        list1.remove('')
+    
+    '''利用colections中的Counter为list1中的每个出现的英文单词计数，并以字典的形式返回'''
+    return collections.Counter(list1)
 
+
+'''创建一个名为stats_text_cn的函数，并用它实现统计汉字词频的功能'''
+
+
+"""创建一个名为stats_text_cn的函数，它的功能是为统计中文词频"""
 def stats_text_cn(text):
-    j=int (input("中文字频最高的前j个词，请输入j："))
-    if not isinstance(text,str):#判断参数类型
-        raise ValueError("text非字符串参数")#抛出异常类型
-    #提取中文字符串
-    text= re.sub("[^\u4e00-\u9fa5]", "", text)#中文汉字unicode范围
-    print(collections.Counter(text).most_common(j))
+    
+    """去掉text中的英文和数字"""
+    text = re.sub("[A-Za-z0-9]", "", text)
+    '''将字符串text转换为列表list1,只保留单词为list1中的元素'''
+    list1 = re.split(r"\W+",text)   
 
+    '''删除list1中为空的列表元素'''
+    while '' in list1:   
+        list1.remove('')
+    
+    str1 = ''.join(list1)
+    
+    return collections.Counter(str1)
 
-#调用stats_text_en , stats_text_cn 函数，合并统计结果
+#第九天的代码
+"""创建一个名为stats_text_count的函数，它的功能是为统计中文字和英文词频,并返回词频最高的前count个单词"""
 
-def stats_text(text):
-    stats_text_en(text)
-    stats_text_cn(text)
+def stats_text_count(text,count):
+    '''利用colections中的Counter为list1中的每个出现的英文单词计数，并利用collections.OrderedDict将stats_text_en(text)和stats_text_cn(text)的返回结果合二为一，返回前count个词频最高的词及出现的次数'''
+    return collections.OrderedDict(collections.Counter(stats_text_en(text)+stats_text_cn(text)).most_common(count))
+
+"""创建一个名为stats_text_en_count的函数，它的功能是为统计英文词频,并返回词频最高的前count个单词"""
+def stats_text_en_count(text,count):
+    
+    '''只保留英文'''
+    text = re.sub("[^A-Za-z]", " ", text.strip())
+    '''将字符串text转换为列表list1,只保留单词为list1中的元素'''
+    list1 = re.split(r"\W+",text)   
+    '''删除list1中为空的列表元素'''
+    while '' in list1:   
+        list1.remove('')
+    
+    '''利用colections中的Counter为list1中的每个出现的英文单词计数，返回前count个词频最高的词及出现的次数'''
+    return collections.Counter(list1).most_common(count)
+
+"""创建一个名为stats_text_cn_count的函数，它的功能是为统计中文字频,并打印字频最高的前count个单词"""
+def stats_text_cn_count(text,count):
+    
+    """去掉text中的英文和数字"""
+    text = re.sub("[A-Za-z0-9]", "", text)
+    '''将字符串text转换为列表list1,只保留单词为list1中的元素'''
+    list1 = re.split(r"\W+",text)   
+
+    '''删除list1中为空的列表元素'''
+    while '' in list1:   
+        list1.remove('')
+    
+    str1 = ''.join(list1)
+    
+    '''利用colections中的Counter为list1中的每个出现的英文单词计数，返回前count个字频最高的字及出现的次数'''
+    return collections.Counter(str1).most_common(count)
