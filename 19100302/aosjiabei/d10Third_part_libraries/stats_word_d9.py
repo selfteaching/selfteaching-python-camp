@@ -14,7 +14,7 @@ def stats_text_cn(text):
     found=[]
     for x in text:
         if len(x)>=2:
-            found.append(x)
+            found.append(x)#添加长度大于2的词
     print(collections.Counter(found).most_common(j))
 
 
