@@ -12,6 +12,7 @@ Day 8
 
 Day 7
 
+https://github.com/selfteaching/selfteaching-python-camp/issues/1568
 
 <hr>
 
