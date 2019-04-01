@@ -68,15 +68,17 @@ from mymodule import stats_word
 from collections import Counter
 import json
 
-with open('tang300.json') as f:
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tang300.json')) as f ：
+
     x = f.read()
     json.dump(x, f)
     x = json.load(f)
     read = Counter(stats_word.stats_text(x))
     print(read.most_common(100))
 
-'''try:
+try:
     stats_word.stats_text(text)
     
 except :
-    print('ValueError:输入的不是文本格式，请重新输入：'）'''
+    print('ValueError:输入的不是文本格式，请重新输入：'）
+
