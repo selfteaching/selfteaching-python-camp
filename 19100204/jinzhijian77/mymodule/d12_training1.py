@@ -1,5 +1,5 @@
 url = 'https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA'
-def stats_text_url(url):
+def stats(url):
     import requests
     from pyquery import PyQuery
     import stats_word
