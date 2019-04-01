@@ -109,33 +109,42 @@ print(x)
 import collections
 import re
 
-# how to assign the variable a wrong type value to check? 
+# how to assign the variable a wrong type value to check? day7
 
-def stats_text_en (en):
+
+count = 100 # must add this variable, otherwise it raised "TypeError:'>=' not supported between instances of 'list' and 'int'"
+
+def stats_text_en (en,count):
     ''' 英文词频统计'''
+
     if type(en) == str:
         text_en = re.sub("[^A-Za-z]", " ", en.strip())
         enList = text_en.split( )
-        return collections.Counter(enList)
+        #count <= len(enList) not useful?
+        return collections.Counter(enList).most_common([count]) # day9 using 1 counter objects supported method -most_common([n])
     else:
         print("Inappropriate argument value (of correct type)")
 
-def stats_text_cn (cn):
-    ''' 汉字字频统计 '''
+def stats_text_cn (cn,count):
+    ''' 汉字字频统计 
+     使用标准库collections.Counter()统计词频并限制统计数量。'''
+    
     if type(cn) == str:
         cnList = re.findall(u'[\u4e00-\u9fff]+', cn.strip())
         cnString = ''.join(cnList)
-        return collections.Counter(cnString)
+        #count <= len(cnString) not necessary?
+        return collections.Counter(cnString).most_common([count])# day9 most_common method used
     else:
         print("Inappropriate argument value (of correct type)")
 
-def stats_text(text_en_cn):
+def stats_text(text_en_cn,count_en_cn):
     ''' 合并英汉词频统计 ''' # whole text words frequence stats (en + cn) """?inside qualified comments?"""
     if type(text_en_cn) == str:
-        return (stats_text_en(text_en_cn)+stats_text_cn(text_en_cn))
+        return (stats_text_en(text_en_cn,count_en_cn)+stats_text_cn(text_en_cn,count_en_cn))
     else:
         print("Inappropriate argument value (of correct type)")
-
-y = stats_text(text)
-if stats_text == "_main_" : # using this to solve my problem when imported in main?
-    print(y)  #without if statement above this .py file will print my function "stats_text" in d6's works
+        
+#day7code:
+#y = stats_text(text)
+#if stats_text == "_main_" : # using this to solve my problem when imported in main?
+#    print(y)  #without if statement above this .py file will print my function "stats_text" in d6's works
