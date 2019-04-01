@@ -66,9 +66,7 @@ sys.path.append('/Users/shining/Documents/GitHub/selfteaching-python-camp/191003
 
 from mymodule import stats_word 
 from collections import Counter
-import json
-
-with open('tang300.json') as f:
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tang300.json')) as f :
     x = f.read()
     json.dump(x, f)
     x = json.load(f)
