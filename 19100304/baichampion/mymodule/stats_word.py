@@ -25,6 +25,11 @@ Namespaces are one honking great idea -- let's do more of those!
 '''
 
 def stats_text_en(y):
+    
+    if not isinstance(text,str): # 添加参数类型检查
+        raise ValueError('输入的不是文本格式，请重新输入：')
+
+    
     #n = []
     #for line in n:
         #line = line.strip()           #strip()这个函数去除一个字符串首尾的所有空白
@@ -93,6 +98,11 @@ character = '''
 '''
 
 def stats_text_cn(y):
+    
+    if not isinstance(text,str): #添加参数类型检查
+        raise ValueError('输入的不是文本格式，请重新输入：')
+
+    
     character_1 = []     #新建一个列表容器来接收筛选过后的中文字
     stat = {}            #新建一个字典来接收每个中文字出现的次数
     for line in y:
@@ -124,7 +134,12 @@ def stats_text_cn(y):
 
 def stats_text(y):              #通过程序分析之后，关键点事需要用一个函数来识别中英文,教练提示后用正则
     import re        #导入正则表达式（我不知道这样表达对不对，这个东西还没有学过，先用了）
-    z = {}             #创建一个字典，用来接收中英文字典
+    
+    if not isinstance(text,str): #添加参数类型检查
+        raise ValueError('输入的不是文本格式，请重新输入：')
+
+
+    z = {}             #创建一个字典，用来接收中英文字典    
     a = re.findall(r'[\u4e00-\u9fa5]',y)     #只把中文找出来，具体意义还需要后期进行研磨                                        
     pass
     a = ''.join(a)     #找出来之后，为了调用上面的函数，再把它转变为字符串

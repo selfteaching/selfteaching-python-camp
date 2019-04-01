@@ -34,6 +34,8 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 text = text.replace("\n"," ").replace(","," ").replace("."," ").replace("*"," ").replace("--"," ")
 d = {}
 def stats_text_en():
+    if not isinstance(text,str):
+        raise ValueError('Non-Strin words are not accepted here, pls re-input:')   #参数类型检查
     for x in text.split():
         if not x in d:
             d[x] =1
@@ -50,7 +52,9 @@ print(d)
 
 ## DEFINE THE FUNCTION of stats_text_cn() to count the times of chinese words appeared for.
 dic={}                        
-def stats_text_cn():    
+def stats_text_cn():
+    if not isinstance(text,str):
+        raise ValueError('Non-Strin words are not accepted here, pls re-input:')   #参数类型检查    
     for i in text:
         if u'\u4e00' <= i <= u'\u9fff':
             dic[i] = text.count(i)
@@ -63,6 +67,8 @@ print(dic)
 
 #DEFINE stats_text function，RESPECTIVELY CALL stats_text_en, stats_text_cn，OUTPUT a combined result of both english and chinese words. 
 def stats_text():
+    if not isinstance(text,str):
+        raise ValueError('Non-Strin words are not accepted here, pls re-input:')   #参数类型检查
     return dict(stats_text_en(),stats_text_cn())
 
 print(dict)
