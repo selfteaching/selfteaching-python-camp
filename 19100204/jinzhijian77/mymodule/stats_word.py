@@ -51,6 +51,7 @@ Python是一种计算机程序设计语言。是一种动态的、面向对象�
 
 import re
 import collections
+import jieba
 
 dict1 = {}
 str1 = ''
@@ -75,7 +76,7 @@ def stats_text_en(text,count):  #define the function
         list1.remove('')  #delete space 
     return collections.Counter(list1).most_common(count)
 
-print(stats_text_en(text,count))
+
 
 
 
@@ -85,7 +86,7 @@ def stats_text_cn(text,count): #define a function to calcuate character frequenc
 
 
 
-    text = re.sub("[A-Za-z0-9]", "", text) #only keep chinese and numbers
+    text = re.sub("[A-Za-z]", "", text) #only keep chinese and numbers
 
 
 
@@ -97,13 +98,15 @@ def stats_text_cn(text,count): #define a function to calcuate character frequenc
 
         list1.remove('') #delete space 
     str1 = ''.join(list1)
-    return collections.Counter(str1).most_common(count)
 
-print(stats_text_cn(text,count))
+    seg_list =[ x for x in jieba.cut(str1,cut_all=False) if len(x) >= 2]
+
+    return collections.Counter(seg_list).most_common(count)
+
+
 
 def stats_text(text,count):
 
     return collections.OrderedDict(collections.Counter(stats_text_en(text,count)+stats_text_cn(text,count)))
 
 
-print(stats_text(text,count))

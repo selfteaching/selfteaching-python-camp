@@ -71,6 +71,26 @@ def stats_text(text):
 # print(stats_text(text)) 
 print(stats_text.__doc__)  
 
+ch={}
+from mymodule import stats_wordfrom collections import Counterimport json
+
+with open(os. path.join(os.path.dirnam(os.path.abspath(__file__)), 'tang300.json'))as nine:
+    read_data=nine.read()
+    nine.closed
+    read=Counter(stats_word.stats_text(read_data))
+    print(read.most_common(100))
+try:
+    print("全部结果为:",stats_word.stats_text(ch))
+except valueError as err
+    print(err)
+
+import re
+cn = re.compile(r'[\u4e00-\u9fa5]')
+text_cn = re.findall(cn, text)
+text_cut = ''.join(text_cn)
+cut_list = jieba.lcut(text_cut,cut_all=False)
+count_list = Counter(cut_list).most_common(20)
+
  
 
 
