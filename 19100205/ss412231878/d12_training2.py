@@ -1,15 +1,23 @@
-#用来获取微信的分享类消息并返回一个网址给好友
-
-#导入模块
 from wxpy import *
+from pyquery import PyQuery
+import requests
+from mymodule import stats_word
 
-#回复消息
-def reply_stats():
+def main():
     bot = Bot()
+    my_friend = bot.friends()
 
-    @bot.register(msg_types=TEXT)
+    @bot.register(msg_types=SHARING)
     def reply_my_friend(msg):
-        h = "hello!"
-        return h
+        wechat = requests.get(msg.url)
+        document = PyQuery(wechat.text)
+        content = document('#js_content').text()
+        wx = stats_word.stats_text(content)
+        wechat_word = ''.join(str(i) for i in wx)
+               
+        return wechat_word
 
     embed()
+
+if __name__=='__main__':
+    main()
