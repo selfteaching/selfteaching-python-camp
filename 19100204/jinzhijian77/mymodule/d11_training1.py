@@ -4,8 +4,8 @@ import getpass
 sender = input('输入发件人邮箱：')
 password = getpass.getpass('输入发件人邮箱密码：')
 recipients = input('输入收件人邮箱：')
-
-response = requests.get('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
+url = 'https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA'
+response = requests.get(url)
 document = PyQuery(response.text)
 content = document('#js_content').text()
 
