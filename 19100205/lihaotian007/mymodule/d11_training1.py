@@ -20,8 +20,8 @@ print(a)
 import getpass
 import yagmail
 sender = input('输入发件人邮箱：')
-password = getpass.getpass('输入发件人邮箱密码：')
+password = getpass.getpass('输入发件人密码：')
 recipients = input('输入收件人邮箱：')
-yagmail.register(sender, password)
+# yagmail.register(sender, password)
 yagmail = yagmail.SMTP(sender, password, host='smtp.163.com')
 yagmail.send(recipients,'19100205 lihaotian007', a)
