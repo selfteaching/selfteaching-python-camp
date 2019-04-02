@@ -9,7 +9,7 @@ del cal():
     elif op == '*'
         print "result: ",numA*numB
     elif op == '/'
-        print "result: ",numA/numB 
+        print "result: ",numA/numB   
     else:
         print "Unknown opertor ",opcal()
 
