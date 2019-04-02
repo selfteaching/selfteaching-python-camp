@@ -67,6 +67,8 @@ mighty gods to carry the mountains away.
 
 '''
 
+import collections
+
 a = text.lower()
 a = a.split()  # 指定分隔符对字符串进行切片
 a.pop()  # 删除list中的中文元素
@@ -76,6 +78,10 @@ found = {}  # 初始化一个词典
 def stats_text_en():      # 定义检索中文函数
     """统计参数中每个英文单词出现的次数"""  # 注释
     global text  # 把text标记为全局变量
+
+    if not isinstance(text, str):
+        raise ValueError('不是字符串类型(string)!')
+
     for i in a:
         if i in found:
             found[i] += 1
@@ -84,8 +90,8 @@ def stats_text_en():      # 定义检索中文函数
         found[i] += 1
 
 
-
-    print('英文单词词频：', sorted(found.items(), key=lambda x: x[1], reverse=True))  # 词频降序
+    print('英文单词词频： ', collections.Counter(found).most_common(1))
+    #print('英文单词词频：', sorted(found.items(), key=lambda x: x[1], reverse=True))  # 词频降序
 
 
 stats_text_en()    # 调用函数
@@ -99,6 +105,10 @@ import re
 def stats_text_cn():      # 定义检索英文函数
     """统计参数中每个中文单词出现的次数"""  # 注释
     global text  # 把text标记为全局变量
+
+    if not isinstance(text, str):
+        raise ValueError('不是字符串类型(string)!')
+
     found = {}      # 初始化一个词典
 
     # 提取中文字符串
@@ -114,7 +124,8 @@ def stats_text_cn():      # 定义检索英文函数
             found[i] += 1
 
 
-    print('中文汉字字频： ', sorted(found.items(), key=lambda x: x[1], reverse=True))
+    print('中文单词词频： ', collections.Counter(found).most_common(100))
+    #print('中文汉字字频： ', sorted(found.items(), key=lambda x: x[1], reverse=True))
 
 stats_text_cn()   # 调用函数
 
