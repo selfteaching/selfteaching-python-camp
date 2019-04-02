@@ -5,17 +5,25 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as mpl
-
+import random as rd
 
 
 #生成图片
-def counter_stats(x,y):
+def counter_stats(list_a):
+    word = []
+    number = []
+    for i in list_a:
+        word.append(i[0])
+        number.append(i[1]) 
+    #print (word)
+    #print(number)
+
     plt.rcdefaults()
     fig,ax = plt.subplots()
 
-    counter = x
+    counter = word
     y_counter = np.arange(len(counter))
-    counter_number = np.array(y)
+    counter_number = np.array(number)
 
     mpl.rcParams['font.sans-serif'] = ['SimHei']   #设置简黑字体
     mpl.rcParams['axes.unicode_minus'] = False
@@ -26,8 +34,11 @@ def counter_stats(x,y):
     ax.set_xlabel('Counter')
     ax.set_title('Counter_stats_word')
 
-    plt.show()
-    return plt.savefig('counter_stats.jpg')
+    #plt.show()
+    path = 'C:\\Users\\33\\' + str(rd.randint(1,100)) + '.png'
+    print(path)
+    plt.savefig(path)
+    return path
 
 #word = ['吴千语', '出演', '施伯雄', '自己', '新闻', '恋情', '希望', '时候', '黄百鸣', '喜剧电影']
 #number = [24, 7, 6, 5, 5, 4, 4, 4, 4, 4]
