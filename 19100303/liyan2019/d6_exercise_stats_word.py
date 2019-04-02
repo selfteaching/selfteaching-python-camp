@@ -2,7 +2,14 @@
 
 def stats_text_en(text):
     """count english words in the text"""
-import d5_exercise_stats_text
+    result=text.replace(',',' ').replace('.','').replace('!','').replace('*',' ').replace('-','').replace('?','')
+    result1=result.split()
+    wordcount={}
+    for i in result1:             
+        wordcount=result1.count(i)
+    wordcount=sorted(wordcount.items(),key=lambda x:x[1],reverse=True)
+    return wordcount
+
 
 
 
@@ -11,7 +18,7 @@ def stats_text_cn(text):
     wordcount={}
     for i in text:
         if  u'\u4e00' <= i <= u'\u9fff':
-            wordcount[i]=text.count(i)
+            wordcount[i]=text.count(i) # [i]表示按单个字，对应英文是单个字母
     wordcount=sorted(wordcount.items(),key=lambda x:x[1],reverse=True)
     return wordcount
 
