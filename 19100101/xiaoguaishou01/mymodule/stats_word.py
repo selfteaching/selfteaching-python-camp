@@ -28,10 +28,10 @@ def stats_text_cn(text,count):
     elif type(count) != int:
         raise ValueError ("This is not an str type")
     result = re.findall(u'[\u4e00-\u9fff]+', text)#\u是unincode编码，u4e00是十六进制表达值
-    seg_list = jieba.cut(' '.join(result))#使用jieba精确模式对字符串进行分词
+    seg_list = jieba.cut(' '.join(result))
     d = []
-    for i in seg_list: #使用for循环
-        if len(i) >= 2: #判断如果大于等于2的字符串就加进d数组
+    for i in seg_list:
+        if len(i) >= 2:
             d.append(i) 
     return collections.Counter(d).most_common(count)
 
