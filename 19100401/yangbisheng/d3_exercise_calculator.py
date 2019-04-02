@@ -5,18 +5,14 @@ Created on Tue Apr  2 19:23:18 2019
 
 @author: yangbisheng
 """
-def cal():
-    numA = float(raw_input('Please enter a number: '))
-    op = raw_input('Please enter a operator: ')
-    numB = float(raw_input('Please enter another number: '))
-    if op == '+':
-        print "result: ",numA+numB
-    elif op == '-':
-        print "result: ",numA-numB
-    elif op == '*':
-        print "result: ",numA*numB
-    elif op == '/':
-        print "result: ",numA/numB
-    else:
-        print "Unknown operator ",op
-cal()
+a=float((input("请输入第一个数字："))
+b=input()
+c=float(input("请输入第二个数字"))
+if b=="+"
+print(a+c)
+elif b=="-"
+print(a-c)
+elif b=="*"
+print(a*c)
+elif b=="/":
+    print(a/c)
