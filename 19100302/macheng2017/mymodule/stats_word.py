@@ -50,6 +50,7 @@ def stats_text_cn(text, limit):
         strList = []
         text = re.sub(r'[a-zA-Z]+', '', text)
         text = re.sub(
+
             '[\s+\.\!\/_,$%^*(+\"\'\?]+|[+——！，。？、~@#￥%……&*（）“”‘’：《》［ ］「」-]+', '', text)
         strList = jieba.cut(text, cut_all=False)
         pair_list = []
@@ -59,6 +60,7 @@ def stats_text_cn(text, limit):
                 
         # print('strList', ','.join(strList))
         cnt = Counter(pair_list)
+
         return dict(cnt.most_common(limit))
     except ValueError:
 
@@ -86,6 +88,7 @@ def stats_text_en(text, limit):
         text = ''.join(x for x in text if ord(x) < 256)
         text = text.lower()
         # text = re.sub('[\s+\.\!\/_,$%^*(+\"\' ]+|[+——！，。？、~@#￥%……&*（）“”‘’《》［ ］「」-]+', '',text)
+
         strList = text.split()
         for i in range(len(strList)):
             strList[i] = strList[i].strip(',-*!.?')
@@ -94,7 +97,9 @@ def stats_text_en(text, limit):
         cnt = Counter(strList)
         # for i in strList:
         #     cnt[i] += 1
+
         # strDict[i] = strList.count(i)
+
         # sorted_x = dict(sorted(strDict.items(), key=lambda kv: kv[1], reverse = True))
         return dict(cnt.most_common(limit))
     except ValueError:
@@ -103,7 +108,6 @@ def stats_text_en(text, limit):
 
 # print(stats_text_cn(text, 0))
 # print(stats_text_en(text,0))
-
 
 def stats_text(text, limit):
 
