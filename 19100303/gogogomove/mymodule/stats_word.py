@@ -64,6 +64,30 @@ stats_text_cn()
 
 dic=sorted(dic.items(),key=lambda item:item[1],reverse = True)      
 print(dic)                            
+import collections
+from collections import Counter
+import re
+
+#定义英文词频统计
+def stats_text_en(text,count=None):
+    if type(text) == str : 
+            text = re.sub("[^A-Za-z]", " ", text.strip())
+            text = text.split( )
+            return collections.Counter(text).most_common(count)
+    else : 
+            raise ValueError ('Non-Strin words are not accepted here, pls re-input:')
+
+print(stats_text_en(text))
+
+#定义中文词频统计
+def stats_text_cn(text,count=None):
+    if type(text) == str : 
+            text = re.findall(u'[\u4e00-\u9fff]+', text.strip())
+            text = ''.join(text)
+            return collections.Counter(text).most_common(count)
+    else:
+            raise ValueError ('Non-Strin words are not accepted here, pls re-input:')
+print(stats_text_cn(text))     
 
 #DEFINE stats_text function，RESPECTIVELY CALL stats_text_en, stats_text_cn，OUTPUT a combined result of both english and chinese words. 
 def stats_text():
@@ -72,3 +96,10 @@ def stats_text():
     return dict(stats_text_en(),stats_text_cn())
 
 print(dict)
+    
+#定义合并统计
+    if type(text) == str :   
+            return (stats_text_en(text),stats_text_cn(text))
+    else:
+            raise ValueError ('Non-Strin words are not accepted here, pls re-input:')
+print(stats_text(text)) 
