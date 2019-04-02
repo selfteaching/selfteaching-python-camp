@@ -15,6 +15,11 @@ def stats_text_cn(text):
     wordcount=sorted(wordcount.items(),key=lambda x:x[1],reverse=True)
     return wordcount
 
+text='''
+python作业完成作业作业'''
+print(stats_text_cn(text))
 
-
+text='''
+python is interesting and learning is iinteresting too.'''
+print(stats_text_en(text))
     ###如何查看函数执行结果呢？？
