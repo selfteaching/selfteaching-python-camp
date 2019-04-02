@@ -1,5 +1,7 @@
 import re
 import collections
+import jieba
+import string
 
 #英文和中文字符匹配规则
 en_pattern = re.compile(r'[a-zA-Z]+[\'\-]?[a-zA-Z]+')
@@ -28,6 +30,13 @@ Although never is often better than *right* now.
 如果执行很容易解释，这会是一个好点子.
 Namespaces are one honking great idea -- 让我们继续为之努力!
 '''
+
+#检验是否全是中文字符
+def is_all_chinese(strs):
+    for _char in strs:
+        if not '\u4e00' <= _char <= '\u9fa5':
+            return False
+    return True
 
 #创建一个名为stats_text_en的函数，封装day5中任务2的代码到刚这个函数下，同时用文档字符串为stats_text_en添加注释说明
 def stats_text_en(text,count=None):
@@ -69,8 +78,21 @@ def stats_text_cn(text,count=None):
     # 在这里写具体操作
     mydict=[]
     mylist=[]
+    mylisttemp=[]
     try:
-        mylist=re.findall(cn_pattern,text)
+        #mylist=re.findall(cn_pattern,text)
+
+        non_word_char = '＂＃＄％＆＇（）＊＋，－／：；＜＝＞＠［＼］＾＿｀｛｜｝～｟｠｢｣､、〃》「」『』【】〔〕〖〗〘〙〚〛〜〝〞〟〰〾〿–—‘’‛“”„‟…‧﹏。？'
+        non_word_char += string.punctuation + string.whitespace
+        trans = str.maketrans({key: None for key in non_word_char})
+        text = text.translate(trans)
+
+        mylist=jieba.lcut(text,cut_all=False)
+        for mylistitem in mylist:
+            #if is_all_chinese(mylistitem)==True and len(mylistitem)>=2:
+            if len(mylistitem)>=2:
+                mylisttemp.append(mylistitem)
+
     except ValueError:
         print("stats_text_cn(ValueError):please input string")
     except TypeError:
@@ -82,7 +104,7 @@ def stats_text_cn(text,count=None):
     #     else:
     #         mydict[mylinum]=1
     #实现英文单词词频统计的模块（new），用python自带的Counter函数
-    mydict=collections.Counter(mylist).most_common(count)
+    mydict=collections.Counter(mylisttemp).most_common(count)
 
     return mydict
 #print(sorted(stats_text_cn(template).items(), key=lambda d: d[1],reverse=True))
@@ -117,7 +139,7 @@ def stats_text(text,rmodel,count=None):
 
 def main():
     mdict=[]
-    mdict=stats_text(template,1,10)
+    mdict=stats_text_cn(template,10)
     print(mdict)
 
 
