@@ -1,11 +1,9 @@
-from stats_word import stats_text_cn   #调用函数
+import os
+import json
 
-with open('tang300.json','r',encoding='UTF-8') as f:
-    text = f.read()
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tang300.json'))  as f:
+    read_data = f.read()
 
-    try:
-        print("词频Top100:" stats_text_cn(text,100))
-    except ValueError as Error:
-        print('仅接受字符串类型参数，输入的不是字符串，请重新输入：')  
+from stats_word import stats_text_cn 
 
-
+print('词频统计Top20',stats_text_cn(read_data,20))
