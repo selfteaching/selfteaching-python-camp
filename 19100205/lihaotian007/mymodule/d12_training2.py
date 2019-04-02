@@ -6,7 +6,7 @@ import d13_training3 as dt
 
 bot = Bot() #初始化 / 登录
 
-@bot.register([Groups,Friend], SHARING, except_self = False)
+@bot.register([Group,Friend], SHARING, except_self = False)
 def word_frequency(meg) :
 
     response = requests.get(meg.url) #请求连接，并读取内容
