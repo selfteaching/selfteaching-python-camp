@@ -3,7 +3,6 @@ import stats_word
 
 text1 = 1
 
-
 while True:
     try:
         stats_word.stats_text(text1)
