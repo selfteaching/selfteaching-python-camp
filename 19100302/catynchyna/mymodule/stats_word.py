@@ -180,3 +180,4 @@ def stats_text(text_en_cn,count_en_cn):
 
 
 #day10 finally I got what I did --bug here collections.Counter(cnString).most_common([count])-list vs int~!!!
+

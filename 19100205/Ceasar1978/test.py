@@ -1,3 +1,4 @@
+
 import requests
 response = requests.get('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA') 
 # 以上通过requests请求文章链接，获取网页内容
@@ -20,14 +21,39 @@ try:
 except ValueError:
     print('输入的不是文本格式，请重新输入：')   
 dic = mymodule.stats_word.stats_text_cn(content) # 调用函数进行分词并统计词频
-str_1 = str(dic) # 将词频统计结果（字典形式）转换成字符串
+dic=dict(dic)
+print(type(dic))
 
 
-import getpass
-sender = input('请输入发件人邮箱:')
-password = getpass.getpass('请输入发件人密码:')
-recipients = input('请输入收件人邮箱:') # 调用getpass避免显示自己的邮箱和密码
 
-import yagmail
-yag=yagmail.SMTP(sender, password, host='smtp.qq.com')
-yag.send(recipients,'19100205 Ceaar1978', str_1) # 调用yagmail库发送邮件
+
+import matplotlib.pyplot
+import numpy
+
+# Fixing random state for reproducibility
+numpy.random.seed(19680801)
+
+
+matplotlib.pyplot.rcdefaults()
+fig, ax = matplotlib.pyplot.subplots()
+
+# Example data
+word = []
+frequency = []
+for i in dic:
+    word.append(i)
+    frequency.append(dic[i])
+
+y_pos = numpy.arange(len(word))
+
+error = numpy.random.rand(len(word))
+
+ax.barh(y_pos, frequency, xerr=error, align='center',
+        color='green', ecolor='black')
+ax.set_yticks(y_pos)
+ax.set_yticklabels(word)
+ax.invert_yaxis()  # labels read top-to-bottom
+ax.set_xlabel('词语出现次数')
+ax.set_title('你刚才所发文章的词频统计')
+
+matplotlib.pyplot.show()

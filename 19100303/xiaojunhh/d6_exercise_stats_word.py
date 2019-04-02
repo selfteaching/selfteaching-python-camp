@@ -70,6 +70,6 @@ def stats_textt_cn(textt_cn):
     print('中文汉字字频统计结果： ',dict(newWords))
 
 # 调用函数
-stats_textt_en(textt)
-stats_textt_cn(textt)
+    stats_textt_en(textt)
+    stats_textt_cn(textt)
 

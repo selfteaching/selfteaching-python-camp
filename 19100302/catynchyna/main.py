@@ -64,7 +64,6 @@ import json
 with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tang300.json')) as f:
     #''' day9 1. 导入json文件并读取文件内容'''
     '''Day10 top20词频统计：'''
-
     read_file = f.read()
 #if used f= open() ,then f.closed required, with here thus no f.closed
 
