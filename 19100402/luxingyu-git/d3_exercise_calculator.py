@@ -1,0 +1,11 @@
+number1 = input("Enter a number1:")
+number2 = input("Enter a number2:")
+add = float(number1)+float(number2)
+subtract = float(number1)-float(number2)
+multiply = float(number1)*float(number2)
+divide = float(number1)/float(number2)
+
+print(number1,"+",number2,"=",add)
+print(number1,"-",number2,"=",subtract)
+print(number1,"*",number2,"=",multiply)
+print(number1,"/",number2,"=",divide)
