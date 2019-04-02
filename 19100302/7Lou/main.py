@@ -1,11 +1,11 @@
 import sys
-sys.path.append('/Users/shining/Documents/GitHub/selfteaching-python-camp/19100302/7Lou/mymodule/')
-import stats_word
 
+sys.path.append('/Users/shining/Documents/GitHub/selfteaching-python-camp/19100302/7Lou/mymodule/')
+from mymodule import stats_word 
 text = '''
 愚公移山
 
-太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他和家人往來極為不便。
+太行，王屋二山的北面，住了一個九十歲的老翁，叫愚公.二山佔地廣闊，擋住去路，使他和家人往來極為不便。
 
 一天，愚公召集家人說：「讓我們各盡其力，剷平二山，開條道路，直通豫州，你們認為怎樣？」
 大家都異口同聲贊成，只有他的妻子表示懷疑，並說：「你連開鑿一個小丘的力量都沒有，怎可能剷平太行、王屋二山呢？況且，鑿出的土石又丟到哪裏去呢？」
@@ -50,5 +50,35 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
-stats_word.stats_text(text)
+
+
+try:
+    stats_word.stats_text(text)
+    
+except ValueError:
+    print('ValueError:输入的不是文本格式，请重新输入：')
+
+
+#第九天作业 参考？？？混乱
+import sys
+
+sys.path.append('/Users/shining/Documents/GitHub/selfteaching-python-camp/19100302/7Lou/mymodule/')
+
+from mymodule import stats_word 
+from collections import Counter
+import json
+
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tang300.json')) as f ：
+
+    x = f.read()
+    json.dump(x, f)
+    x = json.load(f)
+    read = Counter(stats_word.stats_text(x))
+    print(read.most_common(100))
+
+try:
+    stats_word.stats_text(text)
+    
+except :
+    print('ValueError:输入的不是文本格式，请重新输入：'）
 
