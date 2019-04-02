@@ -6,6 +6,7 @@ import requests
 from pyquery import PyQuery
 import matplotlib.pyplot as plt
 import numpy as np
+from pylab import mpl
 
 #统计图表
 def stats_plt(a):
@@ -62,12 +63,12 @@ def print_others(msg):
     #统计内容的前100词频
     statlist = mymodule.stats_word.stats_text_cn(content,6)
     statString = "".join(str(i) for i in statlist)
-    a=stats_plt(statString)
-    msg.reply_image(a)r
-    #return stats_plt(statString)
+    stats_plt(statString)
+    msg.reply_image(statString)
+    #return statString
 
     #print(statlist) 节点测试
-embed()# 进入 Python 命令行、让程序保持运行
+embed()# 进入 Python 命令行、让程序保持行
 
 
 

@@ -1,73 +1,77 @@
-# 导入模块
-import matplotlib.pyplot as plt
-import numpy as np
-from wxpy import * 
-import requests
-from pyquery import PyQuery
-import matplotlib.pyplot as plt
-import numpy as np
-
-#统计图表
-def stats_plt(a):
-    
-    np.random.seed(19680801) # Fixing random state for reproducibility
-
-
-    plt.rcdefaults()
-    fig, ax = plt.subplots()
-
-     # Example data
-    people = (a)
-    y_pos = np.arange(len(a)) #Y轴数据名称
-    performance = 3 + 10 * np.random.rand(len(a)) #Y轴数据
-    error = np.random.rand(len(a)) 
-    plt.rcParams['font.sans-serif']=['SimHei'] #用来正常现实中文标签
-
-    ax.barh(y_pos, performance, xerr=error, align='center',
-        color='red', ecolor='yellow') #数据加载方式
-    ax.set_yticks(y_pos)
-    ax.set_yticklabels(a) #设置Y轴名称
-    ax.invert_yaxis()  # labels read top-to-bottom 反转Y轴方向
-    ax.set_xlabel('Performance') 
-    ax.set_title('speak in public')#标题
-
-
-    plt.show()
-    return plt.show
-
-
-# 初始化机器人，扫码登陆
-
+from wxpy import *
 bot = Bot()
 
-# 搜索名称含有 " " 的好友
+
 my_friend = bot.friends()
 
-# 发送文本给好友
-#my_friend.send('Hello WeChat!')
 
-# 发送图片
-#my_friend.send_image('my_picture.jpg')
+@bot.register(my_friend,SHARING)
+def auto_reply(msg):
 
-#
-@bot.register([Groups,Friend], SHARING, except_self = False)
-#def word_frequency(meg) :
-def print_others(msg):
-    print(msg)
-    response = requests.get(msg.url) #提取公众号伪代码
+    text = msg.url
+    print(text)
+
+    import requests
+    response = requests.get(text) 
+    # 以上通过requests请求文章链接，获取网页内容
+
+
+    from pyquery import PyQuery
     document = PyQuery(response.text)
-    content = document('#js_content').text() #把抓取的内容写成可视的文字
-    #print(content) 节点测试
-    import  mymodule.stats_word
-    #统计内容的前100词频
-    statlist = mymodule.stats_word.stats_text_cn(content,6)
-    statString = "".join(str(i) for i in statlist)
-    a=stats_plt(statString)
-    msg.reply_image(a)
-    #return return '收到消息: {} ({})'.format(msg.text, msg.type)stats_plt(statString)
+    content = document('#js_content').text() # 将网页内容提取为一个字符串文本作为输入
 
-    #print(statlist) 节点测试
-embed()# 进入 Python 命令行、让程序保持运行
+    print(content)
+
+
+    import mymodule.stats_word
+
+
+    try:
+        if not isinstance(content,str):
+            raise ValueError()
+        
+    except ValueError:
+        print('输入的不是文本格式，请重新输入：')   
+    dic = mymodule.stats_word.stats_text_cn(content,5) # 调用函数进行分词并统计词频
+    
+    dic = dict(dic)
+    from pylab import mpl  
+
+    mpl.rcParams['font.sans-serif'] = ['SimHei'] 
+    import matplotlib.pyplot
+    import numpy
+    #matplotlib.pyplot.rcParams['font.sans-serif']=['SimHei']
+    #matplotlib.pyplot.rcParams['axes.unicode_minus'] = False
+    
+    # Fixing random state for reproducibility
+    numpy.random.seed(19680801)
+
+
+    matplotlib.pyplot.rcdefaults()
+    fig, ax = matplotlib.pyplot.subplots()
+
+    # Example data
+    word = []
+    frequency = []
+    for i in dic:
+        word.append(i)
+        frequency.append(dic[i])
+
+    y_pos = numpy.arange(len(word))
+
+    error = numpy.random.rand(len(word))
+
+    ax.barh(y_pos, frequency, xerr=error, align='center',
+            color='green', ecolor='black')
+    ax.set_yticks(y_pos)
+    ax.set_yticklabels(word)
+    ax.invert_yaxis()  # labels read top-to-bottom
+    ax.set_xlabel('词语出现次数')
+    ax.set_title('words_frequency')
+
+    matplotlib.pyplot.savefig('words_frequency.png')
+    msg.reply_image('words_frequency.png')
+embed()
 
 
 
