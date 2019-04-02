@@ -59,16 +59,20 @@ except TypeError as err:
 print(champion)
 '''
 
-'''
-with open('tan300.json') as f:
-    read_data = stats_word.stats_text_cn(f)
-print(read_data)
+
+with open('tang300.json') as f:                #在正式把程序加进来之前，在一个新的文件里面先试运行了今天作业需要实现的功能。                                                                
+    read_data = f.read()                       #然后不断的调整with open这个操作，最后面终于发现了在运用这个方法时出现的一
+                                               #个很大的漏洞就是没有加入 reda（）这个函数，而是直接使用了，怪不得总是没办法
+                                               #打开成功。
+
 '''
 import os
 fn = os.path.join(os.path.dirname(os.path.abspath('__file__')), 'tang300.json')
 f = open(fn,'r')
 data = f.read()
 #以上是用了绝对路劲，不知道为什么文件在同级目录下都不能打开
-eee = stats_word.stats_text_cn(data)     #调用的这个函数，在里面写了一个语句“您想统计前多少个词频最高词：”
+'''
+
+eee = stats_word.stats_text_cn(read_data)     #调用的这个函数，在里面写了一个语句“您想统计前多少个词频最高词：”
                                         #所以在打印输出时可以根据你的需求输出。
 print(eee)
