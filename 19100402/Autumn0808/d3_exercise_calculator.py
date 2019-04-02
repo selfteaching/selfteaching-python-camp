@@ -1,4 +1,5 @@
-#定义函数
+#两个数的四则运算
+# 定义函数
 def add(x,y):
     return x+y
 
@@ -15,7 +16,7 @@ def div(x,y):
 print("请选择：加、减、乘、除")
 
 #进行运算
-choice = input("加/减/乘/除")
+choice = input("加/减/乘/除：")
 a = int(input("输入第一个数字："))
 b = int(input("输入第二个数字："))
 
@@ -29,10 +30,15 @@ elif choice == "乘":
     print(mul(a,b))
 
 elif choice == "除":
-    print(div(a,b))
+    if b != 0:
+        print(div(a,b))
+    else:
+        print("无效输入")
 
 else:
     print("无效输入")
+
+
 
 
 
