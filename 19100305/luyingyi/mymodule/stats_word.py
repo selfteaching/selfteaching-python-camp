@@ -32,9 +32,17 @@ def stats_text_en(text,count):
     return collections.Counter(list_en)
 def stats_text_cn(text,count):
     import re
+    import jieba
     text_cn = re.findall(u'[\u4e00-\u9fff]+', text.strip())
     str_cn = ''.join(text_cn)
-    return collections.Counter(str_cn)
+    seg_list=jieba.cut(str_cn)
+    jielist=[]
+    for i in seg_list:
+        if len(i)>=2:
+            jielist.append(i)
+        else:
+            pass
+    return collections.Counter(jielist).most_common(count)
 def stats_text(text,count):
     return collections.Counter(stats_text_en(text,count)+stats_text_cn(text,count)).most_common(count)
 
