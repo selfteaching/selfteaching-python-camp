@@ -1,7 +1,3 @@
-# this is d5 excercise_3 for array
-# date : 2019.3.22
-# author by : qiming
-
 # 定义原始数组
 arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 # 将数组反转
@@ -21,5 +17,3 @@ print('十进制整数为: ',int1)
 print('转换成二进制为: ',bin(int1))
 print('转换成八进制为: ',oct(int1))
 print('转换成十六进制为: ',hex(int1))
-
-
