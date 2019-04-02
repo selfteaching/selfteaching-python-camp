@@ -24,7 +24,7 @@ elif sys.argv[2] == 'cheng':
         print(' =', ans)
 elif sys.argv[2] == 'chuyi':
         if float(sys.argv[3]) == 0.0:
-                print("Cannot divide a number by zero (even your PE teacher taught you math)")
+                print("Cannot divide a number by zero (even your PE teacher taught you maths)")
         else:
                 print(sys.argv[1], '/', sys.argv[3],end='')
                 ans=float(sys.argv[1])/float(sys.argv[3])
