@@ -1,52 +1,79 @@
-def stats_text_en(string):
-   """
-      1/ Counts the number of occurrences of each word in the parameter;
-      2/ Returns an array in descending order of word frequency.
-   """
-   symbol_deleting_en = [',','.','!','-','*']
-   for x in symbol_deleting_en:
-      string = string.replace(x,'')
-   string = string.lower()
-   string = string.split()
-   stats = dict([(word,string.count(word)) for word in string])
-   stats = sorted(stats.items(),key=lambda item:item[1],reverse=1)
-   return stats
+import re
+import collections
 
-# 1.2 封装统计中文汉字字频的函数
-def stats_text_cn(string):
-   """
-      1/ Counts the number of occurrences of each character in the parameter;
-      2/ Returns an array in descending order of character frequency.
-   """
-   symbol_deleting_cn = ['~','！',"?","…",'，','。','：',"—","”","“"," ","「","」","\n"]
-   for x in symbol_deleting_cn:
-      string = string.replace(x,'')
-   string = [character for character in string]
-   stats = dict([(character,string.count(character)) for character in string])
-   stats = sorted(stats.items(),key=lambda item:item[1],reverse=1)
-   return stats
+dict1 = {}
+dict2 = {}
+str1 = ''
+count = int()
 
-# 1.3 对中英文混杂的字符串进行再分类
-def Reclassify_cn(string):
-   """ Pick out Chinese characters in the string ”text“. """
-   string_cn = string[:string.find("How")]
-   return string_cn
-
-def Reclassify_en(string):
-   """ Pick out English words in the string ”text“. """
-   string_en = string[string.find("How"):]
-   return string_en
+"""创建一个名为stats_text_en的函数，它的功能是为统计英文词频"""
+def stats_text_en(text):
+    
+    '''只保留英文'''
+    text = re.sub("[^A-Za-z]", " ", text.strip())
+    '''将字符串text转换为列表list1,只保留单词为list1中的元素'''
+    list1 = re.split(r"\W+",text)   
+    '''删除list1中为空的列表元素'''
+    while '' in list1:   
+        list1.remove('')
+    
+    '''利用colections中的Counter为list1中的每个出现的英文单词计数，并以字典的形式返回'''
+    return collections.Counter(list1)
 
 
-# 1.4 将统计中文字频和英文词频的函数封装为一个函数
-def stats_text(string):
-   """
-      1/ Reclassify the string that mix Chinese characters and English words;
-      2/ Counts the number of occurrences of each English word and each Chinese character in the parameter;
-      3/ Returns an array in descending order of their frequency.
-   """
-   string_cn = Reclassify_cn(string)
-   string_en = Reclassify_en(string)
-   result_cn = stats_text_cn(string_cn)
-   result_en = stats_text_en(string_en)
-   print(result_en,"\n","\n","\n",result_cn)
+'''创建一个名为stats_text_cn的函数，并用它实现统计汉字词频的功能'''
+
+
+"""创建一个名为stats_text_cn的函数，它的功能是为统计中文词频"""
+def stats_text_cn(text):
+    
+    """去掉text中的英文和数字"""
+    text = re.sub("[A-Za-z0-9]", "", text)
+    '''将字符串text转换为列表list1,只保留单词为list1中的元素'''
+    list1 = re.split(r"\W+",text)   
+
+    '''删除list1中为空的列表元素'''
+    while '' in list1:   
+        list1.remove('')
+    
+    str1 = ''.join(list1)
+    
+    return collections.Counter(str1)
+
+#第九天的代码
+"""创建一个名为stats_text_count的函数，它的功能是为统计中文字和英文词频,并返回词频最高的前count个单词"""
+
+def stats_text_count(text,count):
+    '''利用colections中的Counter为list1中的每个出现的英文单词计数，并利用collections.OrderedDict将stats_text_en(text)和stats_text_cn(text)的返回结果合二为一，返回前count个词频最高的词及出现的次数'''
+    return collections.OrderedDict(collections.Counter(stats_text_en(text)+stats_text_cn(text)).most_common(count))
+
+"""创建一个名为stats_text_en_count的函数，它的功能是为统计英文词频,并返回词频最高的前count个单词"""
+def stats_text_en_count(text,count):
+    
+    '''只保留英文'''
+    text = re.sub("[^A-Za-z]", " ", text.strip())
+    '''将字符串text转换为列表list1,只保留单词为list1中的元素'''
+    list1 = re.split(r"\W+",text)   
+    '''删除list1中为空的列表元素'''
+    while '' in list1:   
+        list1.remove('')
+    
+    '''利用colections中的Counter为list1中的每个出现的英文单词计数，返回前count个词频最高的词及出现的次数'''
+    return collections.Counter(list1).most_common(count)
+
+"""创建一个名为stats_text_cn_count的函数，它的功能是为统计中文字频,并打印字频最高的前count个单词"""
+def stats_text_cn_count(text,count):
+    
+    """去掉text中的英文和数字"""
+    text = re.sub("[A-Za-z0-9]", "", text)
+    '''将字符串text转换为列表list1,只保留单词为list1中的元素'''
+    list1 = re.split(r"\W+",text)   
+
+    '''删除list1中为空的列表元素'''
+    while '' in list1:   
+        list1.remove('')
+    
+    str1 = ''.join(list1)
+    
+    '''利用colections中的Counter为list1中的每个出现的英文单词计数，返回前count个字频最高的字及出现的次数'''
+    return collections.Counter(str1).most_common(count)
