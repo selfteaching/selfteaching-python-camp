@@ -1,4 +1,4 @@
-﻿# 这是邓超抄写的第一个简单程序
+# 这是邓超抄写的第一个简单程序
 # 可以运算加减乘除的简易计算器
 
 # 定义函数
@@ -7,24 +7,20 @@ def add(x, y):
 
     return x + y
 
-
 def subtract(x, y):
     """相减"""
 
     return x - y
-
 
 def multiply(x, y):
     """相乘"""
 
     return x * y
 
-
 def divide(x, y):
     """相除"""
 
     return x / y
-
 
 # 用户输入
 print("选择运算，")
@@ -51,3 +47,4 @@ elif choice == '4':
     print(num1, "/", num2, "=", divide(num1,num2))
 else:
     print("输入不正确")
+    
