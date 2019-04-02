@@ -17,4 +17,18 @@ while row <= 9:
 
     words = ['cat', 'window', 'defenestrate']
     for w in words:
-    print (w, len(w))
+        print(w, len(w))
+
+x = 1
+y = 1
+while(x<10):
+    while(x%2 !=0):
+        while(y <=x):
+            print(x,"*",y,"=",x*y,"\t",end="")
+            y=y+1
+        else:
+            print(end="\n")
+        break
+    x=x+1
+    y=1
+   
