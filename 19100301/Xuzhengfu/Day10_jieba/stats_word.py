@@ -2,6 +2,7 @@
 # 1、添加一个名为 stats_text 的函数，实现功能：分别调用 stats_text_en, stats_text_cn，输出合并词频统计结果
 
 from collections import Counter                                                  # /// day9 ///
+import jieba
 
 # 1.1 封装统计英文单词词频的函数
 def stats_text_en(string,count):                                                 # /// day9 /// 添加int类型变量 count，用于限制输出元素的个数
@@ -35,11 +36,10 @@ def stats_text_cn(string,count):                                                
       symbol_deleting_cn = ['~','！',"?","…",'，','。','：',"—","”","“"," ","「","」",'"',",","[","]","\n"]
       for x in symbol_deleting_cn:
          string = string.replace(x,'')
-      string = [character for character in string]
-      stats = dict([(character,string.count(character)) for character in string])
-      c = Counter(stats)                                                         # /// day9 ///
-      stats = c.most_common(count)                                               # /// day9 ///
-   #  stats = sorted(stats.items(),key=lambda item:item[1],reverse=1)
+      seg_list = jieba.lcut(string)                                                      # /// day10 /// 直接返回分词完毕的列表seg_list
+      seg_dic = dict([(word,seg_list.count(word)) for word in seg_list if len(word)>=2]) # /// day10 /// 遍历seg_list，生成词典seg_dic，该词典的”key“长度均 >=2
+      c = Counter(seg_dic)                                                               # /// day10 /// 创建计数器 c
+      stats = c.most_common(count)                                               # /// day9 ///  返回一个列表stats，该列表包含了count个最常见元素和它们对应的值
       return stats
    else:
       raise ValueError(string)      

@@ -90,7 +90,7 @@ import stats_word
 with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'tang300.json')) as f:
     read_data = f.read()
 try:
-    stats = stats_word.stats_text_cn(read_data)
+    stats = stats_word.stats_text_cn(read_data,100)
 except ValueError:
     print("ValueError: You have an input that is not a string.")
 else:
