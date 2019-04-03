@@ -1,79 +1,49 @@
-from wxpy import *
-bot = Bot()
+import matplotlib.pyplot as plt
+import numpy as np
+import random as rd
 
-
-my_friend = bot.friends()
-
-
-@bot.register(my_friend,SHARING)
-def auto_reply(msg):
-
-    text = msg.url
-    print(text)
-
-    import requests
-    response = requests.get(text) 
-    # 以上通过requests请求文章链接，获取网页内容
-
-
-    from pyquery import PyQuery
-    document = PyQuery(response.text)
-    content = document('#js_content').text() # 将网页内容提取为一个字符串文本作为输入
-
-    print(content)
-
-
-    import mymodule.stats_word
-
-
-    try:
-        if not isinstance(content,str):
-            raise ValueError()
+def map_making(list_a) :
+        """函数对导入的list结构处理，生成词频直方图，并保存到本地，返回保存的连接
         
-    except ValueError:
-        print('输入的不是文本格式，请重新输入：')   
-    dic = mymodule.stats_word.stats_text_cn(content,5) # 调用函数进行分词并统计词频
-    
-    dic = dict(dic)
-    from pylab import mpl  
+        注意保存图片的地址连接可能需要修改
+        """
+        
+        word = []
+        number = []
+        path = ''
+        np.random.seed(19680801)
+        plt.rcdefaults()
+        fig, ax = plt.subplots()
 
-    mpl.rcParams['font.sans-serif'] = ['SimHei'] 
-    import matplotlib.pyplot
-    import numpy
-    #matplotlib.pyplot.rcParams['font.sans-serif']=['SimHei']
-    #matplotlib.pyplot.rcParams['axes.unicode_minus'] = False
-    
-    # Fixing random state for reproducibility
-    numpy.random.seed(19680801)
+        # 将导入的list拆分为两个list结构
+        for i in range(len(list_a)) :
+                word.append(list_a[i][0])
+        for i in range(len(list_a)) :
+                        number.append(list_a[i][1])
 
+        # 定义图表数据
+        word_map = np.array(word)
+        y_pos = np.arange(len(word))
+        number_map = np.array(number)
+        error = np.random.rand(len(word))
 
-    matplotlib.pyplot.rcdefaults()
-    fig, ax = matplotlib.pyplot.subplots()
+        plt.rcParams['font.sans-serif']=['SimHei'] # 用来正常显示中文标签
 
-    # Example data
-    word = []
-    frequency = []
-    for i in dic:
-        word.append(i)
-        frequency.append(dic[i])
+        # 生成图表
+        ax.barh(y_pos, number_map, xerr=error, align='center',
+                color='green', ecolor='black') 
+        ax.set_yticks(y_pos)
+        ax.set_yticklabels(word)
+        ax.invert_yaxis()  
+        ax.set_xlabel('number_map')
+        ax.set_title('The word frequency statistics of this article')
 
-    y_pos = numpy.arange(len(word))
+        # 将图表保存到本地
+        path = 'C:\\Users\\Administrator\\Documents\\' + str(rd.randint(1,100)) + '.png'
+        print(path)
+        plt.savefig(path)
 
-    error = numpy.random.rand(len(word))
+        return path
 
-    ax.barh(y_pos, frequency, xerr=error, align='center',
-            color='green', ecolor='black')
-    ax.set_yticks(y_pos)
-    ax.set_yticklabels(word)
-    ax.invert_yaxis()  # labels read top-to-bottom
-    ax.set_xlabel('词语出现次数')
-    ax.set_title('words_frequency')
-
-    matplotlib.pyplot.savefig('words_frequency.png')
-    msg.reply_image('words_frequency.png')
-embed()
-
-
-
-
-    
+# list_b = [('李',1),('浩',2),('天',3)]
+# map_making(list_b)

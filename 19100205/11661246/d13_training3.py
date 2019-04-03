@@ -65,7 +65,7 @@ def print_others(msg):
     statString = "".join(str(i) for i in statlist)
     stats_plt(statString)
     msg.reply_image(statString)
-    #return statString
+    #return statString 测试
 
     #print(statlist) 节点测试
 embed()# 进入 Python 命令行、让程序保持行
