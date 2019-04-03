@@ -1,4 +1,5 @@
- 
+import re 
+
 text = '''
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
@@ -27,12 +28,20 @@ replacedText = text.replace("better", "worse")
 
 splitReplacedText = replacedText.split()
 removedEaText = []
+
 for i in splitReplacedText:
-	letters=range(ord('A'),ord('z'))
-	if ord(i[0]) not in range(ord('A'),ord('z')):
-		print("Not a word: %s"%(i))
-		
-	if ord(i[len(i)-1]) not in range(ord('A'),ord('z')):
-		print("Has dangle: %s"%(i))
-		i.strip(i[len(i)-1])
-		print("No dangle: %s"%(i))
+	i=re.sub(r'[^a-zA-Z\']',"",i)
+	#print(i)
+	if 'ea' not in i:
+		if i == '':
+			continue
+		else:
+			removedEaText.append(i)
+
+print(removedEaText)
+
+swappedCaseText = []
+for i in removedEaText:
+	swappedCaseText.append(i.swapcase())
+
+print(swappedCaseText)
