@@ -1,4 +1,4 @@
-day1打开
+day1
 昨天安装好了GitHub Desktop，Anaconda，VSC,
 用Anaconda Prompt拉起来Jupyter lab但还并不知道干嘛用。
 本来想用Jupyter notebook获得更好阅读体验，结果Win系统卡在了用toc插件将 ipynb 文件中的标题转换成目录这步。
