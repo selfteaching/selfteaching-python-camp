@@ -1,3 +1,5 @@
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
 for i in range (1,10):
     for j in range (1,i+1):
         print("{}*{} = {:<4}".format(i,j,i*j),end = " ")
@@ -12,3 +14,20 @@ while row <= 9:
         col += 2
     print()     # 内层循环每循环一次都强制换行，开始下一行的输出
     row += 2
+
+    words = ['cat', 'window', 'defenestrate']
+    for w in words:
+        print(w, len(w))
+
+x = 1
+y = 1
+while(x<10):
+    while(x%2 !=0):
+        while(y <=x):
+            print(x,"*",y,"=",x*y,"\t",end="")
+            y=y+1
+        else:
+            print(end="\n")
+        break
+    x=x+1
+    y=1
