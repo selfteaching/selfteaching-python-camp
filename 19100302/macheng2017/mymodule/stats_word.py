@@ -1,4 +1,5 @@
 from collections import Counter
+import jieba
 import re
 text = '''刚搬到一座陌生的城市周围都是陌生的口音感觉自己是个「外乡人」；上大学住宿舍住不习惯开始想家；过年时回老家，一大家子围坐在一起聊得起劲，你却觉得自己格格不入没什么好说的......说到底，归属感就是个人与外界环境接触时，产生的认同和熟悉的安全感。马斯洛需求层次理论把归属感列在了第三层次，仅次于生理需求和安全需求，是人作为一个具有社会属性的动物基本的情感需求。
 
@@ -47,24 +48,22 @@ def stats_text_cn(text, limit):
         elif limit == 0:
             limit = None
         strList = []
-        # strDict = {}
-        text = re.sub(r'[a-zA-Z]+', '', text)
-        # text = re.sub('[\u0060|\u0021-\u002c|\u002e-\u002f|\u003a-\u003f|\u2200-\u22ff|\uFB00-\uFFFD|\u2E80-\u33FF]', '', text)
+        text = re.sub(r'[a-zA-Z]+|[0-9]+', '', text)
         text = re.sub(
-            '[\s+\.\!\/_,$%^*(+\"\'\?]+|[+——！，。？、~@#￥%……&*（）“”‘’：《》「」-]+', '', text)
-        # text = re.sub('[\\n -]','',text)
-        for i in text:
-            strList.append(i)
-        # strDict = dict.fromkeys(strList, 0)
-        cnt = Counter(strList)
-        # for i in strList:
-            # strDict[i] = strList.count(i)
-            # cnt[i] += 1
-        # sorted_x = dict(sorted(strDict.items(), key=lambda kv: kv[1], reverse = True))
-        # return strDict
+
+            '[\s+\.\!\/_,$%^*(+\"\'\?]+|[+——！，。？、~@#￥%……&*（）“”‘’：《》［ ］「」-]+', '', text)
+        strList = jieba.cut(text, cut_all=False)
+        pair_list = []
+        for item in strList:
+            if len(item)>=2:
+                pair_list.append(item)
+                
+        # print('strList', ','.join(strList))
+        cnt = Counter(pair_list)
+
         return dict(cnt.most_common(limit))
     except ValueError:
-        # print('')
+
         raise
 
 
@@ -88,7 +87,8 @@ def stats_text_en(text, limit):
         # text = re.sub(r'[a-zA-Z]+','',text)
         text = ''.join(x for x in text if ord(x) < 256)
         text = text.lower()
-        # text = re.sub('[\s+\.\!\/_,$%^*(+\"\' ]+|[+——！，。？、~@#￥%……&*（）“”‘’《》「」-]+', '',text)
+        # text = re.sub('[\s+\.\!\/_,$%^*(+\"\' ]+|[+——！，。？、~@#￥%……&*（）“”‘’《》［ ］「」-]+', '',text)
+
         strList = text.split()
         for i in range(len(strList)):
             strList[i] = strList[i].strip(',-*!.?')
@@ -97,7 +97,9 @@ def stats_text_en(text, limit):
         cnt = Counter(strList)
         # for i in strList:
         #     cnt[i] += 1
-            # strDict[i] = strList.count(i)
+
+        # strDict[i] = strList.count(i)
+
         # sorted_x = dict(sorted(strDict.items(), key=lambda kv: kv[1], reverse = True))
         return dict(cnt.most_common(limit))
     except ValueError:
@@ -106,7 +108,6 @@ def stats_text_en(text, limit):
 
 # print(stats_text_cn(text, 0))
 # print(stats_text_en(text,0))
-
 
 def stats_text(text, limit):
 
