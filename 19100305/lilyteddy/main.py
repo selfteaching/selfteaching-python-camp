@@ -1,4 +1,4 @@
-from mymodule import stats_word  #导入模块
+from mymodule import stats_word #导入模块
 
 text =  ''' 
 愚公移山
