@@ -36,7 +36,7 @@ def stats_text_en(string):
 
 # 这是一个封装统计中文汉字字频的函数，并按字频降序排列数组
 
-def stats_text_cn(string):
+def stats_text_cn(string,count):
     if type(string) == str:                             #检查输入值是否为字符串类型
         import re                                       #导入正则表达式模块
         import collections
@@ -44,12 +44,13 @@ def stats_text_cn(string):
         result_cn_interpunction = re.sub('[^\u4e00-\u9fa5]','',string)                      #提取中文字符串
         string = string.replace(' ','').replace('\n','')#删除空元素与换行元素
         list1 = jieba.lcut(string,cut_all=False)
-        for i in seg_list:
+        for i in list1:
             if len(i)>=2:
                 list1.append(i)
             else:
                 pass
-        return result = collections.Counter(list1).most_common(20)                     #使用 counter 函数统计元素出现次数；使用 most_common 函数使结果按照频率最高的100个元素和其计数输出为列表                 
+        result = collections.Counter(list1).most_common(count)        
+        return result                                   #使用 counter 函数统计元素出现次数；使用 most_common 函数使结果按照频率最高的100个元素和其计数输出为列表                 
     else:                                               #若输入值不是字符串类型
         raise ValueError('输入值不是字符串')
 
