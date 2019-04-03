@@ -87,7 +87,7 @@ def stats_text_en(string_en):
             newList[i].remove(' ')
         else:
             i=i+1
-    # print('英文单词词频统计结果： ',collections.Counter(newList),'\n')
+    print('英文单词词频统计结果： ',collections.Counter(newList),'\n')
 
 
 def stats_text_cn(string_cn):
@@ -127,14 +127,15 @@ stats_text_en(string1)
 import collections
 import re
 
-def stats_text_en(en) :
+
+def stats_text1_en(en) :
     ''' 英文词频统计'''
     text_en = re.sub("[^A-Za-z]", " ", en.strip())
     enList = text_en.split( )
     return collections.Counter(enList)
 
-    
-def stats_text_cn(cn) :
+        
+def stats_text1_cn(cn) :
     ''' 汉字字频统计 '''
     cnList = re.findall(u'[\u4e00-\u9fff]+', cn.strip())
     cnString = ''.join(cnList)
@@ -143,9 +144,5 @@ def stats_text_cn(cn) :
 def stats_text(text_en_cn) :
     ''' 合并英汉词频统计 '''
     return (stats_text_en(text_en_cn)+stats_text_cn(text_en_cn))
-    try:
-        pass
-    except expression as identifier:
-        pass
 
-        # 毫无头绪  打算从不会做的地方从新开始阅读资料开始做
+
