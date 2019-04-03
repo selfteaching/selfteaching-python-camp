@@ -1,4 +1,6 @@
 from mymodule import stats_word #导入模块
+import json
+import io
 
 text =  ''' 
 愚公移山
@@ -48,10 +50,18 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
-#在模块里调用指定函数（第三个合并的），参数是上头text文章。
-print('合并词频统计结果： ', stats_word.stats_text(text))
+# #在模块里调用指定函数（第三个合并的），参数是上头text文章。
+# print('合并词频统计结果： ', stats_word.stats_text(text))
 
-try:
-    stats_word.stats_text_en(123)
-except ValueError:
-    print('VALUEERROR')
+# try:
+#     stats_word.stats_text_en(123)
+# except ValueError:
+#     print('VALUEERROR')
+
+
+
+# f=open("tang300.json",encoding='utf-8')
+with open('tang300.json') as f:
+    readdata = f.read()
+f.closed
+print(stats_word.stats_text_cn(readdata,100))
