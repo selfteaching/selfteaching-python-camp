@@ -38,10 +38,16 @@ for i in splitReplacedText:
 		else:
 			removedEaText.append(i)
 
+print('\n\n')
 print(removedEaText)
 
 swappedCaseText = []
 for i in removedEaText:
 	swappedCaseText.append(i.swapcase())
 
+print('\n\n')
 print(swappedCaseText)
+
+print('\n\n')
+print(sorted(swappedCaseText))
+
