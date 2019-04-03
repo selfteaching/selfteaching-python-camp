@@ -21,5 +21,3 @@
 
 
 [《自学 Python 入门训练营》报名入口](https://h5.youzan.com/v2/goods/2fo1zmvtzgvec)
-
-ssd
