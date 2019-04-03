@@ -65,3 +65,8 @@ with open('tang300.json') as f:
     readdata = f.read()
 f.closed
 print(stats_word.stats_text_cn(readdata,100))
+
+with open('tang300.json') as f:
+    readdata = f.read()
+f.closed
+print(stats_word.stats_text_cn_jieba(readdata,20))
