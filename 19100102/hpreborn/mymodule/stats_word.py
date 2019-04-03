@@ -1,6 +1,7 @@
 import re
 import collections
 import jieba
+import string
 
 #英文和中文字符匹配规则
 en_pattern = re.compile(r'[a-zA-Z]+[\'\-]?[a-zA-Z]+')
@@ -80,9 +81,16 @@ def stats_text_cn(text,count=None):
     mylisttemp=[]
     try:
         #mylist=re.findall(cn_pattern,text)
+
+        non_word_char = '＂＃＄％＆＇（）＊＋，－／：；＜＝＞＠［＼］＾＿｀｛｜｝～｟｠｢｣､、〃》「」『』【】〔〕〖〗〘〙〚〛〜〝〞〟〰〾〿–—‘’‛“”„‟…‧﹏。？'
+        non_word_char += string.punctuation + string.whitespace
+        trans = str.maketrans({key: None for key in non_word_char})
+        text = text.translate(trans)
+
         mylist=jieba.lcut(text,cut_all=False)
         for mylistitem in mylist:
-            if is_all_chinese(mylistitem)==True and len(mylistitem)>=2:
+            #if is_all_chinese(mylistitem)==True and len(mylistitem)>=2:
+            if len(mylistitem)>=2:
                 mylisttemp.append(mylistitem)
 
     except ValueError:

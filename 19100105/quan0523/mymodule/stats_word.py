@@ -47,7 +47,7 @@ def stats_text_en(checken):    # 定义检索英文字符（在D5的作业基础
     else:
         counten={}    # 新字典
         entext=" "    # 空的字符串
-        count = 100
+        count = 20
 
         checken=checken.replace(',',' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('*',' ')
     

@@ -42,6 +42,6 @@ def stats_text(text_e_c, count_e_c):
     ''' 合并英汉词频统计 '''
     '''参数类型检查,如果输入参数不为字符串则抛出ve'''
     if type(text_e_c) == str:
-        return (stats_text_en(text_e_c, count_e_c)+stats_text_cn(text_en_cn, count_e_c))
+        return (stats_text_en(text_e_c, count_e_c)+stats_text_cn(text_e_c, count_e_c))
     else:
         raise ValueError("输入不为字符串")

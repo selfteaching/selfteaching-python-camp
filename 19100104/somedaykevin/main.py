@@ -1,22 +1,11 @@
+from mymodule import stats_word as sw
 
-#通过stats_word导入stats_text模块
-import mymodule.stats_word
-
-def tryexc(string):
-    try:
-        if isinstance(string,str):
-            mymodule.stats_word.stats_text_cn(string)
-        else:
-            raise ValueError(string)
-    except ValueError as exc:
-        print(type(exc))
-        print("This data is not a string!")
-        raise
-    finally:
-        print("executing finally main!")
-
-
-
+test = 3.1415926  # 用 try except 捕获异常并执行
+try:
+    sw.stats_text(test,100)
+except ValueError:
+    print("input is not string, you may check again!")
+         
 text = '''
 愚公移山
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他和家人往來極為不便。
@@ -47,10 +36,9 @@ The wise old man was totally silenced.
 When the guardian gods of the mountains saw how determined Yugong and his crew were, they were struck with fear and reported the incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
-#运行导入的函数
-#mymodule.stats_word.stats_text(text)
 
-b=5
-#tryexc(b)
+sw.stats_text(text,100)
 
-tryexc(text)
+#sw.stats_text_cn(1) #测试触发异常
+#sw.stats_text_en(1) #测试触发异常
+#sw.stats_text(1)    #测试触发异常
