@@ -1,5 +1,6 @@
 import stats_word
 import re
+import jieba
 
 text = 5
 
@@ -35,8 +36,15 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
+with open('C:\\Users\\flami\\Documents\\GitHub\\selfteaching-python-camp\\19100303\\lunbixiaozi\\mymodule\\tang300.json', encoding='UTF-8', newline='') as f:
+    read_data = f.read()
+    f.closed
+
+
+# print(type(read_data))
+
 try:
-    stats_word.stats_text(text)
+    stats_word.stats_text_cn(read_data)
 except:
     print("Main program parameter type error: TypeError catched!")
 

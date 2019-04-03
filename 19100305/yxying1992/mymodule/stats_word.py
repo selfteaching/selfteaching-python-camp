@@ -4,7 +4,7 @@
     import jieba
     if not isinstance(text, str):  # 如果不是字符串类型触发异常
         raise ValueError("input data is not string type")
-    text = [x for x in jieba.cut_for_search(text) if len(x) >= 2]  #使用精确模式分词
+    text = [x for x in jieba.cut(text) if len(x) >= 2]  #使用精确模式分词
     countcn = {}
     count = int(count)
     for i in text:
