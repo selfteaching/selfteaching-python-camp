@@ -118,11 +118,11 @@ d.update(d1)前面不能加 d=，经测试，如果两个字典中有相同的�
 姓名：张凯山
 学习时间：5小时
 班级编号：19100205
-
+今天作业是以图形化输出昨天的作业。一开始被counter函数的输出格式搞得有点糊涂，其实这个输出是二维list，而非字典。后来又卡在了如何将输出图片发送给好友上，提出issue后有高手指点，又参照了徐悦学长的作业，最终解决了。最后的问题是输出图片中的中文字都呈现方框，查了说是字体缺失。同班李浩天同学指出了方法,解决问题。
 今日心得：
 1、dic = collections.Counter(text_list1).most_common(100)这个函数的输出格式是二维列表（也就是说每一个元素也是一个包含两个元素的子列表），而非字典！如果要转换成字典，用dic=dict(list)函数。
 2、根据wxpy库的特点，return只能将字符串自动发送到微信好友，今天作业要求是返回图片，所以要用到
     matplotlib.pyplot.savefig('words_frequency.png')
     msg.reply_image('words_frequency.png')
  先把结果保存为图片格式，再将图片发送。
- 3、
+ 3、plt.rcParams['font.sans-serif'] = ['SimHei'] ，这一步是为了添加字体，否则汉字会显示为方框

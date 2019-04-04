@@ -6,6 +6,7 @@ from collections import Counter
 
 from wxpy import *
 import numpy as np
+import matplotlib
 
 bot = Bot(console_qr=True,cache_path=True)
 my_friend = bot.friends() 

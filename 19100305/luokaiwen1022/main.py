@@ -9,6 +9,6 @@ from mymodule import stats_word
     2. 调用stats_word.py中的stats_text_cn(),传入读取文件结果和输出限制参数。
 '''
 try : 
-    print('Top100中文词频统计结果： ', stats_word.stats_text_cn(read_file,100))
+    print('Top20中文词频统计结果： ', stats_word.stats_text_cn(read_file,20))
 except ValueError as ve :
     print(ve)
