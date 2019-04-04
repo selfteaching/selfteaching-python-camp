@@ -1,11 +1,9 @@
-a=float(input("请输入第一个数字："))
-b=input("请输入运算符号：")
-c=float(input("请输入第二个数字："))
-if b=="+":
-    print(a+c)
-elif b=="-":
-    print(a-c)
-elif b=="*":
-    print(a*c)
-elif b=="/":
-    print(a/c)
+print(end='\n')
+n = 1
+while n <= 9 : 
+    if (n % 2 !=0):
+        i = 1
+        while i <= n :
+            if (i % 2 !=0 ):
+                print ("%d * %d = %d" %(n,i,n*i),end='\t')
+    

@@ -21,3 +21,15 @@ for x in range(1,10):
             else:
                 print(str(x)+"*"+str(y)+"="+str(x*y),end="\t")
 
+#作业2使用while循环
+m = 1
+while m <= 9:
+    n = 1
+    while n <= m:
+        print(str(m)+"*"+str(n)+"="+str(m*n),end="\t")
+        n = n + 1
+    m = m + 2
+
+
+
+

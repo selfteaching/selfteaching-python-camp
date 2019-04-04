@@ -1,3 +1,6 @@
+#2019.04.03
+#与main函数协同更改
+
 '''调用collections的Counter函数'''
 import collections
 from os import path
@@ -20,6 +23,12 @@ def stats_text_cn(text):
     ''' 保留中文单字 '''
     cn_pattern = re.compile(r'[\u4e00-\u9fa5]')
     return "".join(re.findall(cn_pattern, text))
+    
+    #'''调用collections的Counter函数'''
+    #cnt = collections.Counter()
+    #for word in list1:
+        #cnt[word] += 1
+
 
 def jiebacut(text):
     list2=[]
