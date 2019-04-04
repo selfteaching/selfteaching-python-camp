@@ -1,3 +1,9 @@
+
+D3
+学习了python的数值类型和基本的计算，学会使用python的输入功能。
+过程中遇到的问题：开始不知道input进来的是str类型，导致计算时总是报错。
+数字和字符比较简单，后面的列表和字典的处理比较复杂要好好记一记
+
 D2
 安装了anaconda navigator,这个软件集成了vscode和jupyter等软件；
 使用vscode写了输出“hello world”的python文件；

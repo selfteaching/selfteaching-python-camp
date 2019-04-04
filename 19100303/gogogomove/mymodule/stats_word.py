@@ -48,6 +48,8 @@ stats_text_en()
 d= (sorted(d.items(), key=lambda d: d[1],reverse=True)) 
 print(d)
 
+import re
+import jieba  # import jieba as requested
 
 
 ## DEFINE THE FUNCTION of stats_text_cn() to count the times of chinese words appeared for.
@@ -64,6 +66,38 @@ stats_text_cn()
 
 dic=sorted(dic.items(),key=lambda item:item[1],reverse = True)      
 print(dic)                            
+import collections
+from collections import Counter
+import re
+
+#定义英文词频统计
+def stats_text_en(text,count=None):
+    if type(text) == str : 
+            text = re.sub("[^A-Za-z]", " ", text.strip())
+            text = text.split( )
+            return collections.Counter(text).most_common(count)
+    else : 
+            raise ValueError ('Non-Strin words are not accepted here, pls re-input:')
+
+print(stats_text_en(text))
+
+#定义中文词频统计
+def stats_text_cn(text,count=None):
+    if type(text) == str : 
+            text = re.findall(u'[\u4e00-\u9fff]+', text.strip())
+            text = ''.join(text)
+            return collections.Counter(text).most_common(count)
+            text = ''.join(text)
+            text = jieba.cut(text, cut_all=False) # jieba精确模式as instructed on GitHub of jieba
+            print("Default Mode: " + "/ ".join(text))              
+            text1 = []
+            for i in text:
+            if len(i) >= 2:
+            text1.append(i)    
+            return collections.Counter(text1).most_common(count)
+    else:
+            raise ValueError ('Non-Strin words are not accepted here, pls re-input:')
+print(stats_text_cn(text))     
 
 #DEFINE stats_text function，RESPECTIVELY CALL stats_text_en, stats_text_cn，OUTPUT a combined result of both english and chinese words. 
 def stats_text():
@@ -72,3 +106,30 @@ def stats_text():
     return dict(stats_text_en(),stats_text_cn())
 
 print(dict)
+    
+#定义合并统计
+    if type(text) == str :   
+            return (stats_text_en(text),stats_text_cn(text))
+    else:
+            raise ValueError ('Non-Strin words are not accepted here, pls re-input:')
+print(stats_text(text)) 
+
+
+
+from stats_word import stats_text_cn   
+import os
+import json
+
+with open('tang300.json','r',encoding='UTF-8') as f:
+    text = f.read()
+
+    try:
+        print("词频Top100:" stats_text_cn(text,100))
+    except ValueError as Error:
+        print('Non-Strin words are not accepted here, pls re-input:')  
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tang300.json'))  as f:
+    read_data = f.read()
+
+from stats_word import stats_text_cn 
+
+print('词频统计Top20',stats_text_cn(read_data,20))

@@ -67,6 +67,8 @@ mighty gods to carry the mountains away.
 
 '''
 
+import collections
+
 a = text.lower()
 a = a.split()  # 指定分隔符对字符串进行切片
 a.pop()  # 删除list中的中文元素
@@ -88,8 +90,8 @@ def stats_text_en():      # 定义检索中文函数
         found[i] += 1
 
 
-
-    print('英文单词词频：', sorted(found.items(), key=lambda x: x[1], reverse=True))  # 词频降序
+    print('英文单词词频： ', collections.Counter(found).most_common(1))
+    #print('英文单词词频：', sorted(found.items(), key=lambda x: x[1], reverse=True))  # 词频降序
 
 
 stats_text_en()    # 调用函数
@@ -122,7 +124,8 @@ def stats_text_cn():      # 定义检索英文函数
             found[i] += 1
 
 
-    print('中文汉字字频： ', sorted(found.items(), key=lambda x: x[1], reverse=True))
+    print('中文单词词频： ', collections.Counter(found).most_common(100))
+    #print('中文汉字字频： ', sorted(found.items(), key=lambda x: x[1], reverse=True))
 
 stats_text_cn()   # 调用函数
 
