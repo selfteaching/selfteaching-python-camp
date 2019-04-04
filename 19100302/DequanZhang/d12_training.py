@@ -9,7 +9,7 @@ from wxpy import *
 bot = Bot()
 myfriend = bot.friends()
 
-@bot.register(myfriend, msg_types=SHARING)  #消息为SHARING类型，获取消息的网页链接msg.url，自动返回词频统计结果
+@bot.register(myfriend, msg_types=SHARING)  #消息为SHARING类型时，获取消息的网页链接msg.url，自动返回词频统计结果
 def reply_my_friend(msg):
     response = requests.get(msg.url)    
     document = PyQuery(response.text)
