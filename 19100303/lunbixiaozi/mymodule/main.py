@@ -1,5 +1,6 @@
 import stats_word
 import re
+import jieba
 
 text = 5
 

@@ -1,11 +1,18 @@
-number1 = input("Enter a number1:")
-number2 = input("Enter a number2:")
-add = float(number1)+float(number2)
-subtract = float(number1)-float(number2)
-multiply = float(number1)*float(number2)
-divide = float(number1)/float(number2)
+while True:
+    number1 = input("Enter a number1:\n")
+    number2 = input("Enter a number2:\n")
+    operator = input("Please choose: + or - or * or /\n")
+    if operator=="/" and number2 == "0":
+            print("number2 can NOT be 0")
+    else:
+        break
 
-print(number1,"+",number2,"=",add)
-print(number1,"-",number2,"=",subtract)
-print(number1,"*",number2,"=",multiply)
-print(number1,"/",number2,"=",divide)
+if operator=="+":
+    print("Answer:\n",number1,"+",number2,"=",float(number1)+float(number2))
+if operator=="-":
+    print("Answer:\n",number1,"-",number2,"=",float(number1)-float(number2))
+if operator=="*":
+    print("Answer:\n",number1,"*",number2,"=",float(number1)*float(number2))
+
+if operator=="/":
+    print("Answer:\n",number1,"/",number2,"=",float(number1)/float(number2))

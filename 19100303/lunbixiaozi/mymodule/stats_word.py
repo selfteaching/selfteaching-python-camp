@@ -1,6 +1,8 @@
 #-*- coding: UTF-8 -*- 
 import collections
 import os
+import jieba
+import chardet
 
 #text = 
 '''
@@ -65,39 +67,35 @@ def stats_text_en (text): #sort English words by the frequency.
         print("English sorting: TypeError catched!")
         
 
-    
-
-
-
-
-def stats_text_cn (text): #sort Chinese words by the frequency. Only output the first 100!
+def stats_text_cn (text, max_counts): #sort Chinese words by the frequency. Only output the first 100!
     try:
         text_cn = ''
 
         for ch in text:
             if u'\u4e00' <= ch <= u'\u9fff': #only fetch the Chinese characthers
                 text_cn = text_cn + ch
+        #text_cn = text_cn.encode("utf-8")
+        
+        text_jieba = " ".join(jieba.cut(text_cn, cut_all=True))
 
+        text_jieba_split = text_jieba.split()
+       
 
-        # text = text.replace('：', '')
-        # text = text.replace('，', '')
-        # text = text.replace('\n', '')
-        #text = text.replace('*', '')
-        #print ('first char:')
-        #print (text[0])
+# ''' previous homework without jieba:
+#         text_split = []
 
-        text_split = []
-
-        for i in range(len(text_cn)):
-            text_split.append(text_cn[i])
+#         for i in range(len(text_cn)):
+#             text_split.append(text_cn[i])
+#'''
 
     
-        counter_cn = collections.Counter(text_split)
-        counter_cn = collections.Counter(counter_cn).most_common(100)
+        counter_cn = collections.Counter(text_jieba_split)
+        counter_cn = collections.Counter(counter_cn).most_common(max_counts)
 
 
-        print("The most common 100 CN wrods: ")
+        print("The most common " + str(max_counts)+ " CN wrods: ")
         print(counter_cn)
+        return counter_cn
 
     
     except TypeError:
@@ -108,7 +106,7 @@ def stats_text_cn (text): #sort Chinese words by the frequency. Only output the 
 def stats_text (text): #call the functions above
 
     try:        
-        stats_text_cn (text)
+        stats_text_cn (text, 20)
         stats_text_en (text)
     except TypeError:
         print("Text sorting: TypeError catched!")

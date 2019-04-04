@@ -64,7 +64,8 @@ mighty gods to carry the mountains away.
 # text1 = 23
 text1 = decoding_json('tang300.json')
 try:
-    res = stats_text(text1,100)
+    res = stats_text(text1,20)
+
     print(res)
 except ValueError:
     raise 

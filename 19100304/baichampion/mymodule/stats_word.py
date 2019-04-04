@@ -124,14 +124,24 @@ def stats_text_en(y):
 def stats_text_cn(y):
     import re                                     #9day
     import collections
-    words = re.findall(r'[\u4e00-\u9fa5]',y)    #打开文件的格式(r''.open('').read()lower.这个不适合用在这里)
+    import jieba
+    words = ''.join(re.findall(r'[\u4e00-\u9fa5]',y))    #打开文件的格式(r''.open('').read()lower.这个不适合用在这里)
                                                    #这个例子只是直接省略了后面的lower
                                                    #再次使用正则表达式，通过google知道，
                                                    #原来正则表达式并不是python的一部分。
                                                    #正则表达式是用于处理字符串的强大工具
                                                    #现在比较深刻的理解了正则表达式的强大
+                                                   ##10day+：将提取出来的文字列表，转换成
+                                                   #字符串文本
+    
+    words1 = jieba.cut(words)                      ##10day+jieba组件默认精确模式分词函数
+    c = collections.Counter()                      #新建一个接收计数器的容器
+    for x in words1:                               #设定每个元素都在文档列表里
+        if len(x) > 1:                             #当统计长度大于2的元素时，装进计数器容器
+            c[x] += 1                              #不断叠加，直到遍历完整个文档。
+
     count = int(input("您想统计前多少个词频最高词："))   #强制转换数据类型为整形
-    list1 = collections.Counter(words).most_common(count)   #调用最常见函数
+    list1 = c.most_common(count)   #调用最常见函数
     return list1
 
 
