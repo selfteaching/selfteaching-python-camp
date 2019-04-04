@@ -1,5 +1,6 @@
 import collections
 import re
+import jieba
 
 def stats_text_en(en,count):
     '''1.英文词频统计
@@ -19,7 +20,15 @@ def stats_text_cn(cn,count):
     if type(cn) == str:
         cnList = re.findall(u'[\u4e00-\u9fff]+',cn.strip())
         cnString = ''.join(cnList)
-        return collections.Counter(cnString).most_common(count)
+        segList = jieba.cut(cnString,cut_all=False)
+        cnnewList = []
+        for i in segList:
+            if len(i) >= 2:
+                cnnewList.append(i)
+            else:
+                pass
+        countList = collections.Counter(cnnewList).most_common
+        return countList
 
     else :
         raise ValueError('输入内容不是字符串')
