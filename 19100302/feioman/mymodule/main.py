@@ -1,177 +1,40 @@
-import typing
-import os
-import sys
-import json
-import jieba
-
-template = '''
-The Zen of Python, by Tim Peters
-美丽 is better than 丑陋.
-清楚 is better than 含糊.
-简单 is better than 复杂.
-复杂 is better than 难懂.
-单一 is better than 嵌套.
-稀疏 is better than 稠密.
-可读性计数.
-Special cases aren't special enough to 打破规则.
-即使练习会使得不再纯粹.
-但错误不应该用沉默来掩盖.
-Unless explicitly silenced.
-面对起义，拒绝猜的诱惑.
-有且只有一个办法.
-Although that way may not be obvious at first unless you're Dutch.
-尝试总比从未试过要强.
-Although never is often better than *right* now.
-如果执行很难被解释，那将是一个很糟的想法.
-如果执行很容易解释，这会是一个好点子.
-Namespaces are one honking great idea -- 让我们继续为之努力!
+text =  ''' 
+愚公移山
+太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，檔住去路，使他 和家人往來極為不便。
+一天，愚公召集家人說：「讓我們各盡其力，剷平二山，開條道路，直通豫州，你們認為怎 樣？」
+大家都異口同聲贊成，只有他的妻子表示懷疑，並說：「你連開鏊一個小丘的力量都沒有，怎 可能剷平太行、王屋二山昵？況且，鏊出的土石又丟到哪裏去昵？」
+大家都熱烈地說：「把土石丟進渤海裏。」
+於是愚公就和兒孫，一起開挖土，把土石搬運到渤海去。
+愚公的鄰居是個寡婦，有個兒子八歲也興致勃勃地走來幫忙。
+寒來暑往，他們要一年才能往返渤海一次。
+住在黃河河畔的智叟，看見他們這樣辛苦，取笑愚公說：「你不是很愚蠢嗎？你已一把年紀 了，就是用盡你的氣力，也不能挖去山的一角昵？」
+愚公歎息道：「你有這樣的成見，是不會明白的。你比那寡婦的小兒子還不如昵！就算我死 了，還有我的兒子，我的孫子，我的曾孫子，他們一直傳下去。而這二山是不會加大的，總有 一天，我們會把它們剷平。」
+智叟聽了，無話可說：
+二山的守護神被愚公的堅毅精神嚇倒，便把此事奏知天帝。天帝佩服愚公的精神，就命兩位大 力神揹走二山。
+How The Foolish Old Man Moved Mountains
+Yugong was a ninety-year-old man who lived at the north of two high mountains, Mount Taixing and Mount Wangwu.
+Stretching over a wide expanse of land, the mountains blocked yugong's way making it inconvenient for him and his family to get around.
+One day yugong gathered his family together and said,’’Let's do our best to level these two mountains. We shall open a road that leads to Yuzhou. What do you think?"
+All but his wife agreed with him.
+"You don't have the strength to cut even a small mound,” muttered his wife. "How on earth do you suppose you can level Mount Taixin and Mount Wanwu? Moreover, where will all the earth and rubble go?"
+"Dump them into the Sea of Bohaii" said everyone.
+So Yugong, his sons, and his grandsons started to break up rocks and remove the earth. They transported the earth and rubble to the Sea of Bohai.
+Now Yugong's neighbour was a widow who had an only child eight years old. Evening the young boy offered his help eagerly.
+Summer went by and winter came. It took Yugong and his crew a full year to travel back and forth once.
+On the bank of the Yellow River dwelled an old man much respected for his wisdom. When he saw their back-breaking labour, he ridiculed Yugong sayingr"Aren't you foolish, my friend? You are very old now, and with whatever remains of your waning strength, you won't be able to remove even a corner of the mountain."
+Yugong uttered a sigh and said,〃A biased person like you will never understand. You can't even compare with the widow's little boyl"
+"Even if I were dead, there will still be my children, my grandchildren, my great grandchildren, my great great grandchildren. They descendants will go on forever. But these mountains will not grow any taler. We shall level them one day!” he declared with confidence.
+The wise old man was totally silenced.
+When the guardian gods of the mountains saw how determined Yugong and his crew were, they were struck with fear and reported the incident to the Emperor of Heavens.
+Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
-from IPython.core.interactiveshell import InteractiveShell
-InteractiveShell.ast_node_interactivity = "all"
+with open('tang300.json') as t:
+    read_file = t.read()
+t.closed
 
-#将字符串s按照None的分隔切分为一个字符串组，并清洗字符串元素的标点符号
-def cut_and_clean(s):
-    #切分字符串
-    s=s.split()
-    #清洗标点符号
-    i=0
-    while i<len(s):
-        s[i]=s[i].strip('*-.')
-        if s[i]=='': #清洗完成之后若为空元素‘’，则删除元素
-            s.remove('')
-        else:
-            i=i+1
-    return s
-
-#除去非英文字符串
-#可能的BUG是：英文和中文连在一起，则不被收录
-def english_only(str_list):
-    en_list = []
-    i=0
-    for i in range(len(str_list)): #确认是英文单词之后填补en_list
-        for j in range(len(str_list[i])): #确认每个字符都是英文
-            if not ( str_list[i][j]<'z' and str_list[i][j]>'a' ) or ( str_list[i][j]<'Z' and str_list[i][j]>'A' ):
-                j=-1
-                break
-        if j!=-1:
-            en_list += [str_list[i]] #如果所有字符都是英文，则填补列表
-    return en_list
-
-#除去非中文字符串
-def chinese_only(string):
-    chinese_str=''
-    for i in range(len(string)):
-        #可能的BUG是：超出了基本汉字集的汉字（如汉字补充、汉字偏旁部首等）不会被收录
-        if ord(string[i])>19968 and ord(string[i])<40869: #基本汉字的unicode编码范围
-            chinese_str += string[i]
-    return chinese_str
-            
-
-#把list转化为dict并统计词频
-def list_to_dict_and_cal(aList):
-    aDict={}
-    for i in range(len(aList)): #把list转化dict
-        aDict[aList[i]]=0
-    for i in range(len(aList)): #统计词频
-        aDict[aList[i]]=aDict[aList[i]]+1
-    return aDict
-
-def stats_text_en(text, count=10, print_text=False):
-    """统计英文单词词频并按词频从高到低排序
-    
-    Parameter:
-    text -- 即将被处理的文本，必须为字符串
-    Keyword Argument:
-    print_text -- 选择是否打印结果，默认为False不打印结果
-    count -- 输出元素的个数，默认为10个。若count<=0则全部打印。必须为int类型。
-    Return Value:
-    返回一个字典，key为单词字符串，value为词频
-    Potential Bug:
-    若英文字符和中文字符连在一起，则不被字典收录
-    """
-    if not isinstance(count,int):#检查count是否为int类型
-        raise TypeError('count should be int!')
-
-    if not isinstance(text,str):
-        raise ValueError('It\'s not a string!')
-    text = cut_and_clean(text) #切分字符串并清洗标点符号
-    text = english_only(text) #除去非英文字符串
-    if count<=0:
-        text_dict = list_to_dict_and_cal(text) #将text转化为字典并统计词频
-        text_dict = sorted(text_dict.items(),key=lambda item:item[1],reverse=True) #对字典按照value值排序
-    else:#利用typing里的Counter处理文本
-        text_dict = typing.Counter(text).most_common(count)
-    if print_text: #如果要求打印，则打印结果
-        print(text_dict)
-    return text_dict
-
-def stats_text_cn(text,  count=10,print_text=False):
-    """统计中文字字频并按字频从高到低排序
-    
-    Parameter:
-    text -- 即将被处理的文本，必须为字符串
-    Keyword Argument:
-    print_text -- 选择是否打印结果，默认为False不打印结果
-    count -- 输出元素的个数，默认为10个。若count<=0则全部打印。必须为int类型。
-    Return Value:
-    返回一个字典，key为汉字字符，value为字频
-    Potential Bug:
-    超出了基本汉字集的汉字（如汉字补充、汉字偏旁部首等）不会被字典收录
-    """
-    if not isinstance(count,int):#检查count是否为int类型
-        raise TypeError('count should be int!')
-        
-    if not isinstance(text,str):
-        raise ValueError('It\'s not a string!')
-    text = chinese_only(text)#只留下中文字符
-    text = [x for x in jieba.cut(text,cut_all=False) if len(x) >= 2] #利用结巴精确模式进行分词，输出长度大于2的中文
-    if count<=0:
-        text = list(text)#将中文字符转换为中文列表
-        text_dict = list_to_dict_and_cal(text) #将text转化为字典并统计词频
-        text_dict = sorted(text_dict.items(),key=lambda item:item[1],reverse=True) #对字典按照value值排序
-    else:#利用typing里的Counter处理文本
-        text_dict = typing.Counter(text).most_common(count)
-    if print_text: #如果要求打印，则打印结果
-        print(text_dict)
-    return text_dict
-
-def stats_text(text, count=10,en_first=True):
-    """统计中英文词频并按词频从高到低排序之后输出
-    Parementer:
-    text -- 即将被处理的文本，必须为字符串
-    Keyword Argument:
-    en_first -- 选择是否将英文子典排列在前面，默认为True将英文字典排列在前
-    count -- 输出元素的个数，默认为10个。若count<=0则全部打印。必须为int类型。
-    Return Value:
-    没有返回值
-    Potential Bugs:
-    1.超出了基本汉字集的汉字
-    2.若中英文字符连在一起，则不被字典收录
-    """
-    if not isinstance(text,str):
-        raise ValueError('It\'s not a string!')
-    if en_first:
-        print(stats_text_en(text) + stats_text_cn(text))
-    else:
-        print(stats_text_cn(text) + stats_text_en(text))
-
-def main():
-    stats_text_en(template, print_text=True)
-    stats_text_cn(template, print_text=True)
-    stats_text(template,count=0)
-
-    location = sys.argv[0] #获取main.py的路径
-    location = location.rstrip('stats_word.py') + "tang300.json"#获取tang300.joson的路径
-
-    with open(location,'r',encoding='UTF-8') as tang_text:#读取文件
-        text = json.load(tang_text)#json转码
-        text_all=''#初始化contents的容器
-        for i in range(len(text)):#往容器里填contents
-            text_all+=text[i]['contents']#得到一个由contents组成的字符串
-        stats_text_cn(text_all,count=100,print_text=True)
-        #调用函数统计并打印100个字频最高的字，修改count的值可以修改打印的字数
-
-
-if __name__ == '__main__':
-    main()
+from mymodule import stats_word
+try:
+    print('词频前20的词和词频数： ', stats_word.stats_text(read_file,20))
+except ValueError as ve:
+    print(ve)
