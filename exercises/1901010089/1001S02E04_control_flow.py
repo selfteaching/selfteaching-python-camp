@@ -5,7 +5,7 @@
 for i in range(1, 10):
     for j in range(1, i+1):
         print("{}*{}={}".format(i,j,i*j),end = " ")
-    print()
+    print( )
 
 # 2 ：用while打印九九表，并用条件判断把偶数行除掉
 i = 1
@@ -16,5 +16,6 @@ while i <10:
             break
         print('{}*{}={}'.format(i,j,i*j),end = " ")
         j += 1
-    print()
+    print( )
     i += 1
+
