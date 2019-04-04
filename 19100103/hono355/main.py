@@ -29,5 +29,29 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
+
+
+text1 = [1,2,3,4,5,6,7,8,9]
+
+
 from mymodule import stats_word
-print(stats_word.stats_text(text))
+
+def typecheck(text):   
+    try:
+        if not isinstance(text, str):
+            raise ValueError('Type Error')
+    except ValueError as VError:
+        print('error =>', VError)
+
+
+
+def main():
+    try:
+        print(stats_word.stats_text_en(text1))    #参数传入非字符串，验证参数检查功能是否生效
+    except Exception as e:
+        print('main error=> ', e)
+
+
+if __name__ == "__main__":
+    typecheck(text1)
+    main()
