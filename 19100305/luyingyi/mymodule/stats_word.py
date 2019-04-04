@@ -29,7 +29,7 @@ def stats_text_en(text,count):
     import re
     text_en = re.sub("[^A-Za-z]", " ", text.strip())
     list_en = text_en.split()
-    return collections.Counter(list_en)
+    return collections.Counter(list_en).most_common(count)
 def stats_text_cn(text,count):
     import re
     import jieba
@@ -41,8 +41,8 @@ def stats_text_cn(text,count):
         if len(i)>=2:
             jielist.append(i)
         else:
-            pass
-    return collections.Counter(jielist).most_common(count)
+            
+           return collections.Counter(jielist).most_common(count)
 def stats_text(text,count):
     return collections.Counter(stats_text_en(text,count)+stats_text_cn(text,count)).most_common(count)
 

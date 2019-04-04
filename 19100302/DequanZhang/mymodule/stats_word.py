@@ -50,6 +50,8 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 import collections
 from collections import Counter
 import re
+import jieba
+
 
 #定义英文词频
 def stats_text_en(text,count=None):
@@ -60,17 +62,22 @@ def stats_text_en(text,count=None):
     else : 
             raise ValueError ('仅接受字符串类型参数，输入的不是字符串，请重新输入：')
 
-print(stats_text_en(text))
+
 
 #定义中文词频统计
 def stats_text_cn(text,count=None):
     if type(text) == str : 
             text = re.findall(u'[\u4e00-\u9fff]+', text.strip())
-            text = ''.join(text)
-            return collections.Counter(text).most_common(count)
+            text = "".join(text)
+            text = jieba.lcut(text,cut_all=False)    #jieba精确分词模式，遇到问题，通过看issue#1273解决
+            text1 = []
+            for i in text:
+                if len(i) >= 2:
+                    text1.append(i)    
+            return collections.Counter(text1).most_common(count)
     else:
-            raise ValueError ('仅接受字符串类型参数，输入的不是字符串，请重新输入：')
-print(stats_text_cn(text))     
+        raise ValueError ('仅接受字符串类型参数，输入的不是字符串，请重新输入：')
+    
 
 #定义合并统计
 def stats_text(text):
@@ -78,5 +85,5 @@ def stats_text(text):
             return (stats_text_en(text),stats_text_cn(text))
     else:
             raise ValueError ('仅接受字符串类型参数，输入的不是字符串，请重新输入：')
-print(stats_text(text))   
+  
 

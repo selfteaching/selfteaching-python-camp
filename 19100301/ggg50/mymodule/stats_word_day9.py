@@ -17,13 +17,9 @@ def stats_text_en(text, counter):
     # don't forgeting the "\n", Otherwise it will bring some awkawk words
     i = re.compile("[^a-z \n]")
     text_en = i.sub("", text_p).split()
-
-    # creating dictionary
-    sort_list = [(x, text_en.count(x)) for x in set(text_en)]
-    sort_dict = dict(sort_list)
     
     # using Sounter to create a dictionary sorted by frequency
-    sort_en = Counter(sort_dict).most_common(counter)
+    sort_en = Counter(text_en).most_common(counter)
 
     # printing english
     i = 1
@@ -48,13 +44,9 @@ def stats_text_cn(text, counter):
 
     # only chinese left and change into a list.
     list_cn = [i for i in text if u'\u4e00' <= i <= u'\u9fa5']
-
-    # creating dictionary
-    sort_list = [(x, list_cn.count(x)) for x in set(list_cn)]
-    sort_dict = dict(sort_list) 
     
     # using Sounter to create a dictionary sorted by frequency
-    sort_cn = Counter(sort_dict).most_common(counter)
+    sort_cn = Counter(list_cn).most_common(counter)
 
     # printing chinese
     print("Chinese:", end="\n\n")

@@ -1,4 +1,4 @@
-import stats_word #导入模块
+import stats_word  #导入模块
 
 text =  ''' 
 愚公移山
@@ -51,4 +51,7 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 #在模块里调用指定函数（第三个合并的），参数是上头text文章。
 print('合并词频统计结果： ', stats_word.stats_text(text))
 
-print(stats_word.stats_text_en(123))
+try:
+    stats_word.stats_text_en(123)
+except ValueError:
+    print('VALUEERROR')
