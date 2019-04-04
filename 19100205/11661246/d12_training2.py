@@ -3,23 +3,14 @@ import requests
 from pyquery import PyQuery
 
 # 初始化机器人，扫码登陆
-
 bot = Bot()
-
-# 搜索名称含有 "  " 的好友
-#my_friend = bot.friends().search('杨文涛')[0]
-
-    # 发送文本给好友
-#my_friend.send('Hello WeChat!')
-
-# 发送图片
-#my_friend.send_image('my_picture.jpg')
-
+# 搜索名称含有 " " 的好友
+my_friend = bot.friends()
 #打印来自其他好友、群聊和公众号的消息
-@bot.register()
+@bot.register([Groups,Friend], SHARING, except_self = False)
 def print_others(msg):
     if msg.type == SHARING :
-        
+        print(msg)
         response = requests.get(msg.url) #提取公众号伪代码
         document = PyQuery(response.text)
         content = document('#js_content').text() #把抓取的内容写成可视的文字
@@ -27,10 +18,8 @@ def print_others(msg):
         statlist = mymodule.stats_word.stats_text_cn(content,100)#统计内容的前100词频
         statString = "".join(str(i) for i in statlist)
 
-        msg.reply_my_friend(statString)
-# 进入 Python 命令行、让程序保持运行
-
-embed()
+        return statString
+embed()# 进入 Python 命令行、让程序保持运行
 
 
 #链接邮箱服务器

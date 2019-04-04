@@ -1,15 +1,11 @@
 #定义函数
 def add(x,y):
-    """相加"""
     return x+y
 def subtract(x,y):
-    """相减"""
     return x-y
 def multiply(x,y):
-    """相乘"""
     return x*y
 def divide(x,y):
-    """相除"""
     return x/y
 #用户选择和输入
 print("选择运算：")

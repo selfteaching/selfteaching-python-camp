@@ -13,7 +13,6 @@
 # Q:合用时，英文单个字母与中文单句也进行了统计。
 
 import sys                                  #导入模块sys
-sys.path.append(r'D:/My Documents/GitHub/selfteaching-python-camp/19100304/excaliburyy/mymodule/stats_word.py')      #确定解释器的模块搜索路径至mymodule文件夹
 from stats_word import stats_text           #导入模块 stats_word 中的函数 stats_text
 
 # 直接从pdf文档复制中文文字会出现乱码，解决方法暂时有两个：
@@ -77,13 +76,18 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 # 2.调用 stats_word 的地方加上 try...except 捕获异常，通过 print 打出方便自己调试的提示信息，让程序正常运行完毕。(day8)
 
 try:
-    stats_word.stats_text(text)
+    stats_text(text)
 except ValueError:
     print(ValueError)
 
-text2 = open('tang300','r')
-stats_word.stats_text(text2)
-text2.close()
+
+import os
+from stats_word import stats_text_cn
+
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'tang300.json')) as text2:
+    text3 = text2.read()
+    text4 = stats_word.stats_text_cn(text3,100)
+    text2.close()
 
                  
 
