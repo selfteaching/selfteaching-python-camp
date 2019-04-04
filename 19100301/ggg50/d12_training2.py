@@ -22,14 +22,12 @@ def sort_text(url):
     return stats_word_day10.stats_text_cn(r_content, 100)
 
 bot = Bot()
+my_friend = bot.friends()
 
-@bot.register()
+# auto reply SHARING message.
+@bot.register(my_friend, SHARING)
 def print_others(msg):
-    # if the message type is "Sharing", assigning the message sender property to my_friend, 
-    # and then senting the sorted dict to "my_friend"
-    if msg.type == "Sharing":
-        my_friend = msg.sender
-        my_friend.send(sort_text(msg.url))
+    return str(sort_text(msg.url))
 
 embed()
 
