@@ -103,7 +103,7 @@ def stats_text(text,rmodel,count):
 
 def main():
     mdict=[]
-    mdict=stats_text(text,1,10)
+    mdict=stats_text(text,1,30)
     print(mdict)
 
 if __name__=='__main__':
