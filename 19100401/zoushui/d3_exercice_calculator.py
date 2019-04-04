@@ -30,5 +30,4 @@ if __name__ == '__main__':
   elif choise == '4':
      print(num1,"/",num2,"=", divide(num1,num2))
   else:
-     print("你输入的有误，请重新输入")
-     
+     print("你输入的有误，请重新输入")  
