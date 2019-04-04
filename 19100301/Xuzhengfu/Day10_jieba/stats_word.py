@@ -50,10 +50,10 @@ def stats_text(string,count):
       3/ Returns an array in descending order of their frequency.
    """
    if type(string) == str:
-      result_cn = stats_text_cn(string,count)
-      result_en = stats_text_en(string,count)
-      result_dict = {**result_cn, **result_en}
-      stats = sorted(result_dict.items(), key=lambda item: item[1], reverse=True)
-      return stats
+      string_cn = Reclassify_cn(string)
+      string_en = Reclassify_en(string)
+      result_cn = stats_text_cn(string_cn,count)
+      result_en = stats_text_en(string_en,count)
+      print(result_en,"\n","\n","\n",result_cn)
    else:
       raise ValueError(string)

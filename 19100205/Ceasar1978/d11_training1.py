@@ -21,6 +21,7 @@ except ValueError:
     print('输入的不是文本格式，请重新输入：')   
 dic = mymodule.stats_word.stats_text_cn(content) # 调用函数进行分词并统计词频
 str_1 = str(dic) # 将词频统计结果（字典形式）转换成字符串
+print(str_1)
 
 
 import getpass
