@@ -12,9 +12,11 @@ import json
 
 # print(r.encoding)
 text = request('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
-res = stats_text_cn(text,100)
+
+res = stats_text_cn(text,0)
 res =json.dumps(res,ensure_ascii=False)
 send_email(res)
+
 print(res)
 # print(r.text)
 
