@@ -27,11 +27,3 @@ def reply_my_friend(msg):
 embed()
 
 
-
-
-
-
-
-
-
-
