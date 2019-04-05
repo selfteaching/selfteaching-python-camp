@@ -15,4 +15,3 @@ print(number)
 print(bin(number))#转换成二进制并输出
 print(oct(number))#转换成八进制并输出
 print(hex(number))#转换成十六进制并输出
-
