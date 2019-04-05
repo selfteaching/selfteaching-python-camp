@@ -22,7 +22,6 @@ def stats_text_en(text):
 
 stats_text_en( "The Zen of Python, by Tim Peters Beautiful is better than ugly. Explicit is better than implicit. Simple is better than complex. Complex is better than complicated. Flat is better than nested. Sparse is better than dense. Readability counts. Special cases aren't special enough to break the rules. Although practicality beats purity. Errors should never pass silently. Unless explicitly silenced. In the face of ambxiguity, refuse the temptation to guess. There should be one-- and preferably only one --obvious way to do it. Although that way may not be obvious at first unless you're Dutch. Now is better than never. Although never is often better than *right* now. If the implementation is hard to explain, it's a bad idea. If the implementation is easy to explain, it may be a good idea. Namespaces are one honking great idea -- let's do more of those! ")
 
-
 def stats_text_cn(a):
     #统计参数中每个中文汉字出现的次数，最后返回一个按字频降序排列的数组
     dict1 = {}
@@ -32,7 +31,6 @@ def stats_text_cn(a):
     dict1 = sorted(dict1.items(),key=lambda item:item[1],reverse=True)  #创建数组，并降序排列
     dict1 = dict(dict1)#转化为字典
     return dict1                      
-    print(dict1)            
-    
+    print(dict1)               
 a='morining我的个to省啊mingh妈the妈啊，你usa的良心komi大大的花了啊,很ah好,我爱ao you are my borther你time，你是我的nkkal爱人啊'
 stats_text_cn(a)
