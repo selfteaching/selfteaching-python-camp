@@ -48,7 +48,7 @@ def stats_text_cn(text, limit):
         elif limit == 0:
             limit = None
         strList = []
-        text = re.sub(r'[a-zA-Z]+', '', text)
+        text = re.sub(r'[a-zA-Z]+|[0-9]+', '', text)
         text = re.sub(
 
             '[\s+\.\!\/_,$%^*(+\"\'\?]+|[+——！，。？、~@#￥%……&*（）“”‘’：《》［ ］「」-]+', '', text)
