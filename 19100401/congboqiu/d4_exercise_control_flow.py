@@ -9,8 +9,8 @@ i=0
 j=0
 while i<9:
     i+=1
-    if i%2==0:#i为偶数是不执行后续循环代码
-        continue
+    if i%2==0:
+        continue#i为偶数是不执行后续循环代码
     while j<9:
         j+=1
         print(i,"*",j,"=",i*j,"\t",end="")
