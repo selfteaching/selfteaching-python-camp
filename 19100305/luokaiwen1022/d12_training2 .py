@@ -15,7 +15,6 @@ bot = Bot() # 初始化机器人，扫码登陆
 def print_others(msg):
     if msg.type =='Sharing':
         response = requests.get(msg.url)    # 请求获得内容
-        
         document = PyQuery(response.text)    # 解析提出内容
         content = document('#js_content').text()
         statList = stats_word.stats_text(content,100)
