@@ -62,15 +62,19 @@ import json
 
 # with open("tang300.json","r+") as f: my thoughts not working
 with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tang300.json')) as f:
-    ''' day9 1. 导入json文件并读取文件内容'''
+    #''' day9 1. 导入json文件并读取文件内容'''
+    '''Day10 top20词频统计：'''
     read_file = f.read()
 #if used f= open() ,then f.closed required, with here thus no f.closed
 
 from mymodule import stats_word # @wangrui thoughts copied and revised a little
 ''' 1. 捕获传入非字符串参数异常。
     2. day9调用stats_word.py中的stats_text_cn(),传入读取文件结果和输出限制参数。
+    3. day10使用jieba精准分词后统计。
 '''
 try:
-    print('Day9top100词频统计结果： ', stats_word.stats_text_cn(read_file,100))
+    #print('Day9top100词频统计结果： ', stats_word.stats_text_cn(read_file,100))
+    print('Day10 top100词频统计结果： ', stats_word.stats_text_cn(read_file,20))
 except ValueError:
     print('Inappropriate argument value (of correct type)')
+    
