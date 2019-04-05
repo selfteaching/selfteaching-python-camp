@@ -20,6 +20,8 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
+
+text0=text0.replace(',','').replace('.','').replace('--','').replace('!','').replace('*','')
 text=text0.split(" ")
 def stats_text_en(text):   #英文词频统计
     b={}
@@ -40,7 +42,7 @@ text1='''中国位于东亚，
 炎黄子孙或中华民族。
 '''
 
-
+text1=text1.replace('，','').replace('、','').replace('。','')
 def stats_text_cn(text):     #中文词频统计
     c={}
     for i in text1:
