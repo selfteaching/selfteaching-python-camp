@@ -1,17 +1,5 @@
 # 定义一个函数，以text作为参数，统计text中英文单词频次并返回按词频降序排列的数组
 
-def stats_text_en(text):
-    """count english words in the text"""
-    result=text.replace(',',' ').replace('.','').replace('!','').replace('*',' ').replace('-','').replace('?','')
-    result1=result.split()
-    wordcount={}
-    for i in result1:             
-        wordcount=result1.count(i)
-    wordcount=sorted(wordcount.items(),key=lambda x:x[1],reverse=True)
-    return wordcount
-
-
-
 
 def stats_text_cn(text):
     """count chinese words in text"""
@@ -22,11 +10,21 @@ def stats_text_cn(text):
     wordcount=sorted(wordcount.items(),key=lambda x:x[1],reverse=True)
     return wordcount
 
-text='''
-python作业完成作业作业'''
-print(stats_text_cn(text))
 
-text='''
-python is interesting and learning is iinteresting too.'''
-print(stats_text_en(text))
-    ###如何查看函数执行结果呢？？
+def stats_text_en(text):
+    """count english words in the text"""
+    # replace useless characters
+    replace_text=text.replace(',',' ').replace('.','').replace('!','').replace('*',' ').replace('-','').replace('?','')
+    # split the text to words(列表)
+    split_text=replace_text.split()
+    wordcount={}
+    for i in split_text:
+        if i not in wordcount:
+            # if word is not in split_text, creat a new key and let counts be 1
+            wordcount[i]=1
+        else:
+            # if words is in split_text, let counts added 1
+            wordcount[i]+=1
+    # 上述if……else，与“wordcount=split_text.count(i)” 有什么区别？                
+    wordcount=sorted(wordcount.items(),key=lambda x:x[1],reverse=True)
+    return wordcount

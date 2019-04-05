@@ -67,12 +67,7 @@ def stats_text_en (text): #sort English words by the frequency.
         print("English sorting: TypeError catched!")
         
 
-    
-
-
-
-
-def stats_text_cn (text): #sort Chinese words by the frequency. Only output the first 100!
+def stats_text_cn (text, max_counts): #sort Chinese words by the frequency. Only output the first 100!
     try:
         text_cn = ''
 
@@ -95,11 +90,12 @@ def stats_text_cn (text): #sort Chinese words by the frequency. Only output the 
 
     
         counter_cn = collections.Counter(text_jieba_split)
-        counter_cn = collections.Counter(counter_cn).most_common(20)
+        counter_cn = collections.Counter(counter_cn).most_common(max_counts)
 
 
-        print("The most common 200 CN wrods: ")
+        print("The most common " + str(max_counts)+ " CN wrods: ")
         print(counter_cn)
+        return counter_cn
 
     
     except TypeError:
@@ -110,7 +106,7 @@ def stats_text_cn (text): #sort Chinese words by the frequency. Only output the 
 def stats_text (text): #call the functions above
 
     try:        
-        stats_text_cn (text)
+        stats_text_cn (text, 20)
         stats_text_en (text)
     except TypeError:
         print("Text sorting: TypeError catched!")

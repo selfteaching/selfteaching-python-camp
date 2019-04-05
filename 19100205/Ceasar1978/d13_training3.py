@@ -33,7 +33,7 @@ def auto_reply(msg):
     
     dic = dict(dic) # counter函数输出的结果是一个二维list，而非字典，此步操作将二维list转换为字典。
 
-    
+    # 以下是通过matplotlib和numpy库将词频分析结果进行图形化
     import matplotlib.pyplot as plt
     import numpy as ny
     
