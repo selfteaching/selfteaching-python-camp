@@ -11,6 +11,6 @@ def stats_text_cn(s):
     countcn={}
     for i in s :
         if u'\u4e00'<= u'\u9fff':
-            countcn[i]=s,count(i)
+            countcn[i]=s.count(i)
     result=sorted(countcn.items(),key=lambda item:item[1],reverse=True)
     return result        
