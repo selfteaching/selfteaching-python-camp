@@ -34,7 +34,7 @@ def stats_text_cn(cn): #还没找到方法限制y为int,这次把20这个参数�
                     #if len(i) >= 3:
                         #cnList1.append(i)
             #cnString = ''.join(cnList)
-            return collections.Counter(cnList).most_common(100)
+            return collections.Counter(cnList).most_common(10)
     else :
             raise ValueError ('type of argumengt is not str')
 
