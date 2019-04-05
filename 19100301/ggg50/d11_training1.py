@@ -9,7 +9,6 @@ response = requests.get("https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA")
 document = PyQuery(response.text)
 r_content = document('#js_content').text()
 
-print(r_content)
 # input text and define output word numbers
 send_content = stats_word_day10.stats_text_cn(r_content, 100)
 
