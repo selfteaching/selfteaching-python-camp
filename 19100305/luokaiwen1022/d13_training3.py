@@ -25,7 +25,7 @@ def stats(url, num):
         print('error ==>', e)
 
 '''定义chartImg'''
-cnfont = fm.FontProperties(fname=r"C:\Windows\Fonts\simsunb.ttf")
+cnfont = fm.FontProperties(fname=r"C:\Windows\Fonts\msyh.ttc")
 # 定义绘制图标函数并保存为图片
 def chartImg(data={}) :
     group_x = list(data.values())
