@@ -1,5 +1,14 @@
-# 示例字符串
-string1 =  '''
+import re
+import collections
+import jieba
+import string
+
+#英文和中文字符匹配规则
+en_pattern = re.compile(r'[a-zA-Z]+[\'\-]?[a-zA-Z]+')
+cn_pattern = re.compile(r'[\u4e00-\u9fa5]')
+
+#字符串示例
+template =  '''
 
 愚公移山
 
@@ -50,59 +59,119 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 Python是一种计算机程序设计语言。是一种动态的、面向对象的脚本语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。
 '''
 
-import collections
-import re
 
-def stats_text_en(string_en):
-    ''' 统计英文词频
+#检验是否全是中文字符
+def is_all_chinese(strs):
+    for _char in strs:
+        if not '\u4e00' <= _char <= '\u9fa5':
+            return False
+    return True
 
-    第一步：过滤英文字符，并将string拆分为list。
-    第二步：清理*-等标点符号。
-    第三步：使用collections库中的Counter函数进行词频统计并输出统计结果。
+#创建一个名为stats_text_en的函数，封装day5中任务2的代码到刚这个函数下，同时用文档字符串为stats_text_en添加注释说明
+def stats_text_en(text,count=None):
+    ''' 
+    以字典形式返回字符串中英文单词的出现频率
+    :param text:string 输入的字符串
+    :param count:int 控制输出个数
+    :return list:英文单词词频统计结果(列表形式输出)
     '''
-    print("处理前的原始字符串\n\n",string_en)
-    result = re.sub("[^A-Za-z]", " ", string_en.strip())#把非A-Z和a-z的字符串全部去除掉
-    print("处理后的结果\n\n",result)
-    newList = result.split( )
-    i=0
-    for i in range(0,len(newList)):
-        newList[i]=newList[i].strip('*-,.?!')
-        if newList[i]==' ': 
-            newList[i].remove(' ')
+    # 在这里写具体操作
+    mydict=[]
+    mylist=[]
+    try:
+        mylist=re.findall(en_pattern,text)
+    except ValueError:
+        print("stats_text_en(ValueError):please input string")
+    except TypeError:
+        print("stats_text_en(TypeError):please input string")
+    # #实现英文单词词频统计的模块（old）
+    # for mylinum in mylist:
+    #     if mylinum in mydict:
+    #         mydict[mylinum]=int(mydict[mylinum])+1
+    #     else:
+    #         mydict[mylinum]=1
+    #实现英文单词词频统计的模块（new），用python自带的Counter函数
+    mydict=collections.Counter(mylist).most_common(count)
+
+    return mydict
+#print(sorted(stats_text_en(template).items(), key=lambda d: d[1],reverse=True))
+
+#创建一个名为stats_text_cn的函数，该函数的功能是实现统计每个中文汉字出现的次数，同时用文档字符串添加注释说明
+def stats_text_cn(text,count=None):
+    ''' 
+    以字典形式返回字符串中文汉字的出现频率
+    :param text:string 输入的字符串
+    :param count:int 控制输出个数
+    :return list:中文汉字词频统计结果（列表形式输出）
+    '''
+    # 在这里写具体操作
+    mydict=[]
+    mylist=[]
+    mylisttemp=[]
+    try:
+        #mylist=re.findall(cn_pattern,text)
+
+        non_word_char = '＂＃＄％＆＇（）＊＋，－／：；＜＝＞＠［＼］＾＿｀｛｜｝～｟｠｢｣､、〃》「」『』【】〔〕〖〗〘〙〚〛〜〝〞〟〰〾〿–—‘’‛“”„‟…‧﹏。？'
+        non_word_char += string.punctuation + string.whitespace
+        trans = str.maketrans({key: None for key in non_word_char})
+        text = text.translate(trans)
+
+        mylist=jieba.lcut(text,cut_all=False)
+        for mylistitem in mylist:
+            #if is_all_chinese(mylistitem)==True and len(mylistitem)>=2:
+            if len(mylistitem)>=2:
+                mylisttemp.append(mylistitem)
+
+    except ValueError:
+        print("stats_text_cn(ValueError):please input string")
+    except TypeError:
+        print("stats_text_cn(TypeError):please input string")
+    # #实现英文单词词频统计的模块（old）
+    # for mylinum in mylist:
+    #     if mylinum in mydict:
+    #         mydict[mylinum]=int(mydict[mylinum])+1
+    #     else:
+    #         mydict[mylinum]=1
+    #实现英文单词词频统计的模块（new），用python自带的Counter函数
+    mydict=collections.Counter(mylisttemp).most_common(count)
+
+    return mydict
+#print(sorted(stats_text_cn(template).items(), key=lambda d: d[1],reverse=True))
+
+#创建一个名为stats_text的函数，该函数的功能是实现统计字符串中英文单词和中文汉字的词频
+def stats_text(text,rmodel,count=None):
+    '''
+    统计一段字符串中中文和英文的词频
+    :param text:string 输入的字符串
+    :param rmode:int 读取类型 1:中文 2:英文 0:中英混合
+    :param count:int 控制输出个数
+    :return list:中文和英文单词词频统计结果（列表形式输出）
+    '''
+    mylist_en=[]
+    mylist_en=re.findall(en_pattern,text)
+    mylist_cn=[]
+    mylist_cn=re.findall(cn_pattern,text)
+    dicttmp=[]
+    try:
+        if rmodel==1:
+            dicttmp=collections.Counter(mylist_cn).most_common(count)
+        elif rmodel==2:
+            dicttmp=collections.Counter(mylist_en).most_common(count)
         else:
-            i=i+1
-    print('英文单词词频统计结果： ',collections.Counter(newList),'\n')
+            dicttmp=collections.Counter(mylist_en+mylist_cn).most_common(count)
+    except ValueError:
+        print("stats_text(ValueError):please input string")
+    except TypeError:
+        print("stats_text(TypeError):please input string")
+    return dicttmp
 
 
-def stats_text_cn(string_cn):
-    ''' 统计中文汉字字频
+def main():
+    mdict=[]
+    mdict=stats_text_cn(template,10)
+    print(mdict)
 
-    第一步：过滤汉字字符，并定义频率统计函数 stats()。
-    第二步：清除文本中的标点字符,将非标点字符组成新列表 new_list。
-    第三步：遍历列表，将字符同上一次循环中频率统计结果作为形参传给统计函数stats()。
-    第四步：统计函数在上一次统计结果基础上得出本次统计结果，赋值给newDict。
-    第五步：new_list遍历结束，输出倒序排列的统计结果。
-    '''
-    result1 = re.findall(u'[\u4e00-\u9fff]+', string_cn)
-    newString = ''.join(result1)
 
-    def stats(orgString, newDict) :
-        d = newDict
-        for m in orgString :
-            d[m] = d.get(m, 0) + 1
-        return d
+if __name__ == '__main__':
+    main()
 
-    new_list = []
-    for char in newString :
-        cn = char.strip('-*、。，：？！……')
-        new_list.append(cn)
-
-    words = dict()
-    for n in range(0,len(new_list)) :
-        words = stats(new_list[n],words)
-    newWords = sorted(words.items(), key=lambda item: item[1], reverse=True) 
-    print('中文汉字字频统计结果： ',dict(newWords))
-
-# 调用函数
-stats_text_en(string1)
-stats_text_cn(string1)
