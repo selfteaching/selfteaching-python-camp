@@ -51,6 +51,7 @@ def stats_text_en(text):
             dict2[tup1[0]] = dict1[tup1[0]]  
     return dict2
 
+
 #打印统计英文词频的结果
 print("统计英文词频的结果为:")
 print(stats_text_en(text))
@@ -89,6 +90,7 @@ def stats_text_cn(text):
     for tup1 in tup1:   
             dict4[tup1[0]] = dict3[tup1[0]]  
     return dict4
+
 
 #打印统计中文词频的结果
 print("统计中文词频的结果为:")
