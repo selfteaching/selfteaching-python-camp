@@ -43,3 +43,21 @@ def stats_text_cn(text):
             countcn[i]=text.count(i)+1
     return countcn
 print(sorted(stats_text_cn(text).items(),key=lambda item:item[1],reverse=True)) 
+
+###教练代码借鉴
+import collections
+import re
+
+def stats_text_en(text):
+    
+    result = re.sub("[^A-Za-z]", " ", text.strip())
+    newList = result.split()
+    print('英文单词词频统计结果： ',collections.Counter(newList),'\n')
+
+def stats_text_cn(text):
+    result1 = re.findall(u'[\u4e00-\u9fff]+', text)
+    newString = ''.join(result1)
+    print('汉字词频统计结果： ', collections.Counter(newString), '\n')
+    
+stats_text_en(text)
+stats_text_cn(text)
