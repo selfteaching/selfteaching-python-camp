@@ -43,13 +43,14 @@ To dicig an uncrossable river,
 掘了一条无法跨越的沟渠.
 For the one who loves you.
 '''
+import re
 fuhao= ",.!-*&" #去除字符串中所有除单词和汉字以外 的符号
 for str in fuhao:
     text = text.replace(str,'')
 print(text)
 #创建一个名为stats_text_en的函数
 #使用字典（dicict）统计字符串样本text中各个英文单词出现的次数
-import re
+
 def stats_text_en(text):
     '''统计单词次数.
     
@@ -71,7 +72,6 @@ print('**********************************************')
 print (sorted(frequency.items(), key=lambda frequency: frequency[1],reverse=True))
 
 #创建一个名为stats_text_cn的函数，功能：统计每个中文汉字出现的次数
-import re
 def stats_text_ch(text):
   '''统计汉字次数.
     
