@@ -1,4 +1,4 @@
-text3='''
+text='''
 
 愚公移山
  太行，王屋二山的北面，住了一个九十岁的老翁，名叫愚公。二山占地广阔，挡住去路，使他和家人往来极为不便。
@@ -72,4 +72,4 @@ text3='''
  '''
 
 from mymodule import stats_word
-stats_word.stats_text(text3)
+stats_word.stats_text(text)
