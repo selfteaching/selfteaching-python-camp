@@ -1,5 +1,5 @@
-text = '''
-The furthest dicistance in the worldic,
+'''text = '''
+'''The furthest dicistance in the worldic,
 世界上最遥远的距离,
 Is not between life andic diceath,
 不是生与死,
@@ -43,49 +43,55 @@ To dicig an uncrossable river,
 掘了一条无法跨越的沟渠.
 For the one who loves you.
 '''
-fuhao= ",.!-*&" #去除字符串中所有除单词和汉字以外 的符号
+import re
+'''fuhao= ",.!-*&" #去除字符串中所有除单词和汉字以外 的符号
 for str in fuhao:
     text = text.replace(str,'')
-print(text)
+print(text)'''
 #创建一个名为stats_text_en的函数
 #使用字典（dicict）统计字符串样本text中各个英文单词出现的次数
-import re
-def stats_text_en(text):
-    '''统计单词次数.
-    
-    使用字典（dict)统计text中每个英文单词出现的次数.'''
-    result = re.sub("[^A-Za-z]", " ", text.strip())
+
+def stats_text_en(en):
+    '''统计单词字频'''
+    result = re.sub("[^A-Za-z]", " ",en.strip())
     dic= {}    
     for x in result.split( ):
         if not x in dic:
             dic[x] = 1
         else:
             dic[x] = dic[x]+1
+    dic=sorted(dic.items(), key=lambda dic:dic[1],reverse=True)
     return dic
 
 #print(stats_text_en(text))
-frequency = stats_text_en(text)
+'''frequency = stats_text_en(text)
 print('**********************************************')
 print("按照出现次数从大到小输出所有的单词及出现的次数")
 print('**********************************************')
 print (sorted(frequency.items(), key=lambda frequency: frequency[1],reverse=True))
+'''
 
 #创建一个名为stats_text_cn的函数，功能：统计每个中文汉字出现的次数
-import re
-def stats_text_ch(text):
-  '''统计汉字次数.
-    
-    使用字典（dict)统计text中每个汉字出现的次数.'''
+def stats_text_ch(ch):
+  '''统计汉字字频 
+    '''
   dictionary={}  #引用一个空字典
-  for i in text:
+  for i in ch:
      if u'\u4e00' <= i <= u'\u9fa5':   #提取中文汉字   \u是unincode编码，u4e00是十六进制表达值
-         dictionary[i]=text.count(i)
+         dictionary[i]=ch.count(i)
+  dictionary=sorted(dictionary.items(), key=lambda dictionary:dictionary[1],reverse=True)
   return dictionary
 #print(stats_text_ch(text))
-frequency = stats_text_ch(text)
+'''frequency = stats_text_ch(text)
 print('**********************************************')
 print("按照出现次数从大到小输出所有的汉字及出现的次数")
 print('**********************************************')
-print (sorted(frequency.items(), key=lambda frequency: frequency[1],reverse=True))
-
+print (sorted(frequency.items(), key=lambda frequency: frequency[1],reverse=True))'''
+def stats_text(text):
+  "统计合并英汉字频"
+  return stats_text_en(text),stats_text_ch(text)
+#print('**********************************************')
+#print("按照出现次数从大到小输出所有的汉字及出现的次数")
+#print('**********************************************'
+#print (sorted(frequency.items(), key=lambda frequency: frequency[1],reverse=True))
 
