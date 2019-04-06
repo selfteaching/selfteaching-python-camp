@@ -1,7 +1,7 @@
 def stats_text_en(text):
     """统计输入文本中的英文字频，从大到小排序"""
     import re 
-    scope_en="[a-zA-Z]+" #定义英文单词
+    scope_en="[a-zA-Z]+" #提取英文单词
     list_en=re.findall(scope_en,text) #将提取的英文放入列表
     dic={}
     for it in list_en:
