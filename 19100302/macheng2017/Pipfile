@@ -10,5 +10,8 @@ requests = "*"
 yagmail = {extras = ["all"],version = "*"}
 jieba = "*"
 
+wxpy = "*"
+
+
 [requires]
 python_version = "3.7"
