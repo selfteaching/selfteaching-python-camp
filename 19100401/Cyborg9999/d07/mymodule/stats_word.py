@@ -1,55 +1,34 @@
 text = '''
-The furthest dicistance in the worldic,
-世界上最遥远的距离,
-Is not between life andic diceath,
-不是生与死,
-But when I standic in front of you,
-而是 我就站在你面前,
-Yet you dicon't know that I love you;
-你却不知道我爱你;
-***************************************
-***************************************
-The furthest dicistance in the worldic,
-世界上最遥远的距离,
-Is not when I standic in front of you,
-不是 我就站在你面前,
-Yet you can't see my love,
-你却不知道我爱你,
-But when undicoubtedicly knowing the love from both,
-而是 明明知道彼此相爱,
-Yet cannot be together;
-却不能在一起;
----------------------------------------
----------------------------------------
-The furthest dicistance in the worldic,
-世界上最遥远的距离,
-Is not being apart while being in love,
-不是 明明知道彼此相爱 却不能在一起,
-But when painly cannot resist the yearning,
-而是 明明无法抵挡这股思念,
-Yet pretendicing you have never been in my heart;
-却还得故意装作丝毫没有把你放在心里;
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-The furthest dicistance in the worldic,
-世界上最遥远的距离,
-Is not when painly cannot resist the yearning,
-不是 明明无法抵挡这股思念,
-yet pretendicing you have never been in my heart,
-却还得故意装作丝毫没有把你放在心里,
-but using one's indicifferent heart,
-而是 用自己冷漠的心对爱你的人,
-To dicig an uncrossable river,
-掘了一条无法跨越的沟渠.
-For the one who loves you.
+Alice was beginning to get very bored.She and her sister were sitting under the trees.
+Her sisterwas reading,but Alice had nothing to do.Once or twice she looked into her sister's book,
+but ithad no pictures or conversations in it.
+
+爱丽丝开始觉得有点无聊了。她和姐姐正坐在树下。姐姐在看书，而爱丽丝无事可做。
+她不时看看姐姐的书，里面既没有图画，也没有对话。
+
+And what is the use of a book,"thought Alice,"without pictures or conversations?
+一本书没有图画和对话有什么用呢？爱丽丝想。
+
+She tried to think of something to do,but it was a hot day and she felt very sleepy andstupid.
+She was still sitting and thinking when suddenly a White Rabbit with pink eyes ran pasther.
+
+她想找点什么事儿做做，可天气很热，她觉得又因又无聊。正坐在那儿想事，忽然，一只长着粉红眼睛的白兔跑过她身边。
+
+There was nothing really strange about seeing a rabbit.
+And Alice was not very surprised whenthe Rabbit said,Oh dear!Oh dear!I shall be late!
+Perhaps it was a little strange, Alice thoughtlater,but at the time she was not surprised.
+
+看到一只兔子真没有什么可奇怪的。兔子说话时爱丽丝居然也不觉得太奇怪。兔子说，噢，天哪！噢，天哪！我要迟到了！
+后来爱丽丝想起这事觉得有点儿奇怪，但当时她并不觉得有什么奇怪。
 '''
+import re
 fuhao= ",.!-*&" #去除字符串中所有除单词和汉字以外 的符号
 for str in fuhao:
     text = text.replace(str,'')
 print(text)
 #创建一个名为stats_text_en的函数
 #使用字典（dicict）统计字符串样本text中各个英文单词出现的次数
-import re
+
 def stats_text_en(text):
     '''统计单词次数.
     
@@ -71,7 +50,6 @@ print('**********************************************')
 print (sorted(frequency.items(), key=lambda frequency: frequency[1],reverse=True))
 
 #创建一个名为stats_text_cn的函数，功能：统计每个中文汉字出现的次数
-import re
 def stats_text_ch(text):
   '''统计汉字次数.
     
@@ -89,3 +67,13 @@ print('**********************************************')
 print (sorted(frequency.items(), key=lambda frequency: frequency[1],reverse=True))
 
 
+def stats_text(text):
+    return dict(stats_text_en(text),**stats_text_ch(text))
+
+def main():
+    mdict={}
+    mdict=stats_text(text)
+    print(mdict)
+
+if __name__=='__main__':
+    main()

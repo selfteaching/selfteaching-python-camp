@@ -1,7 +1,0 @@
-﻿print("Hello World")
-
-print("你好，世界")
-
-dc = [Hello World]
-
-print("dc")

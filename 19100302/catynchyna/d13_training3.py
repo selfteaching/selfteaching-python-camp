@@ -76,7 +76,7 @@ def main():
         wechat = requests.get(msg.url)
         document = PyQuery(wechat.text)
         content = document('#js_content').text()
-        result = sw.stats_text_cn(content,count=100)
+#        result = sw.stats_text_cn(content,count=100)
 #        wechat_word = ''.join(str(i)for i in result) # seems better str this type in case causing trouble in reading
 #        return
         list_a = sw.stats_text_cn(content,100)#接收发来的分享链接的文字，并处理成词频统计结果
