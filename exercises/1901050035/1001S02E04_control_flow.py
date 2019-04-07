@@ -19,16 +19,31 @@ for x in range(2,10,2):
     for m in range(1,x+1):
         print(f'{x} * {m} =',m*x,end='\t')
     print()
+    
+ # way 1 使用for...in循环打印出九九乘法表，把偶数列去掉
+print('**×打印九九乘法表,奇数列×**')
+for x in range(1,10):
+    for m in range(1,x+1,2):
+        print(f'{x} * {m} =',m*x,end='\t')
+    print()
+    
+ # way 1 使用for...in循环打印出九九乘法表，把偶数行和列去掉 
+print('**×打印九九乘法表,奇数行和列×**')
+for x in range(1,10,2):
+    for m in range(1,x+1,2):
+        print(f'{x} * {m} =',m*x,end='\t')
+    print()
+    
 
 #way 2 使用while循环打印九九乘法表并用条件判断把偶数行去掉
 print('+++ 打印九九乘法表,奇数行+++ ')
 
-n = 1 #定义变量i
+n = 1 #定义变量n
 while n < 10:  #判断条件
     if n % 2==0: #判断n是否是偶数，是偶数则加1
         n += 1
     m= 1  #定义变量j
-    while m < n+1:  #判断m小于i
+    while m < n+1:  #判断m小于n
         print(f'{n} * {m}= ',n*m,end="\t") #打印结果
         m+= 1
     n += 1
