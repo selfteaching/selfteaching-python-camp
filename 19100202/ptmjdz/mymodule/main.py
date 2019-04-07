@@ -1,5 +1,4 @@
-#需要处理的文字
-text = '''        
+text = '''
 愚公移山
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他和家人往來極為不便。
 一天，愚公召集家人說：「讓我們各盡其力，剷平二山，開條道路，直通豫州，你們認為怎樣？」
@@ -28,10 +27,26 @@ Yugong uttered a sigh and said,”A biased person like you will never understand
 The wise old man was totally silenced.
 When the guardian gods of the mountains saw how determined Yugong and his crew were, they were struck with fear and reported the incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
-'''  
+'''
 
-import stats_word                              #导入stats_word模块。。。/ 也可以用"from stats_word import stats_text"，通过直接导入stats_word模块中的函数stats_text，然后运行函数stats_text(text)   
-try : 
- stats_word.stats_text(text)
-except ValueError as error :
- print(error)
+import stats_word
+
+#测试输入变量是否为字符串，是则返回True，否则返回False
+def Error_Test(test):
+    try:
+        stats_word.stats_text_en(test,print_text=False)
+    except ValueError as VE:
+        print('Error =>',VE)
+        return False
+    else:
+        return True
+
+def main():
+    a=123
+    #if Error_Test(text):
+    #    stats_word.stats_text_en(text,print_text=True)
+    if Error_Test(a):
+        stats_word.stats_text_en(a,print_text=True)
+
+if __name__ == "__main__":
+    main()

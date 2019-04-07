@@ -1,6 +1,7 @@
 
 # 此文件用函数封装统计词频及排序的操作
 import collections as coll
+import jieba
 
 def stats_text_cn(text, common_t = None) :
     """通过counter统计text中每个中文单词出现的次数，并返回counter对象"""
@@ -12,13 +13,25 @@ def stats_text_cn(text, common_t = None) :
     except ValueError :
         return 
     finally :
-        print('the function is cleaned')
+        print()
 
+    # 通过jieba进行分词
+    seg_list = '/'.join(jieba.cut(text, cut_all = False))
+
+    # 通过counter进行统计中文词频
     counter_a = coll.Counter()
-    # 通过dictionaries 进行统计中文词频
-    for i in range(len(text)) :
-        if (text[i] >= '\u4e00') and (text[i] <= '\u9fa5') :
-            counter_a[text[i]] += 1
+    list_a = []
+    for i in range(len(seg_list)) :
+        if i == (len(seg_list)-1) :
+            list_a.append(seg_list[i])
+            counter_a["".join(list_a)] += 1
+        elif seg_list[i] != '/' :
+            if (seg_list[i] >= '\u4e00') and (seg_list[i] <= '\u9fa5') : #此判断主要为了避免出现分词后形成 "/天气good/ 的情况
+                list_a.append(seg_list[i])
+        else :
+            if len(list_a) != 0 :
+                counter_a["".join(list_a)] += 1
+                list_a = []
 
     print('中文排序后：', counter_a.most_common(common_t), end = '\n\n')
     return counter_a.most_common(common_t)
@@ -36,20 +49,27 @@ def stats_text_en(text, common_t = None) :
     except ValueError :
         return 
     finally :
-        print('the function is cleaned')
+        print()
 
+    # 通过jieba进行分词
+    seg_list = '/'.join(jieba.cut(text, cut_all = False))
+
+    # 通过counter进行统计英文词频
     counter_a = coll.Counter()
-    j = 0
-    # 通过dictionaries 进行统计英文词频
-    for i in range(len(text)) :
-        if (ord(text[i]) not in range(65,91)) and (ord(text[i]) not in range(97,123)) and (text[i] != "\'") and (text[i] != "_"):#将英文单词放入list和dictionary
-            if i == j :
-                j += 1
+    list_a = []
+    for i in range(len(seg_list)) :
+        if seg_list[i] != '/' :
+            if i == (len(seg_list)-1) : #当末尾是字母或'时，增加最后一个英文单词
+                list_a.append(seg_list[i])
+                counter_a["".join(list_a)] += 1
+            elif (ord(seg_list[i]) not in range(65,91)) and (ord(seg_list[i]) not in range(97,123)) and (seg_list[i] != "\'") and (seg_list[i] != "_"): #将英文单词放入list和dictionary
+                continue
             else :
-                counter_a[text[j:i]] += 1
-                j = i + 1
-        elif i == (len(text)-1) : #当末尾是字母或'时，增加最后一个英文单词
-            counter_a[text[j:i+1]] += 1
+                list_a.append(seg_list[i])
+        else :
+            if len(list_a) != 0 :
+                counter_a["".join(list_a)] += 1
+                list_a = []
     
     print('英文排序后：', counter_a.most_common(common_t), end = '\n\n')
     return counter_a.most_common(common_t)
@@ -80,6 +100,5 @@ def stats_text(text, common_t = None) :
             list_c.append(list_b[j])
             j += 1
 
-    return print("合并排序后：", list_c)
-
-stats_text("text，common_t = None 李浩天 哈哈哈哈")
+    print("合并排序后：", list_c,'\n')
+    return list_c

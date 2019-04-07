@@ -50,24 +50,26 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two
 mighty gods to carry the mountains away.
 '''
 
-
-#print()
-#print(stats_text(text,2))
-
-
-#print(stats_word.stats_text(text,10))
-
+import stats_word
 import json
-with open("tang300.json", 'r') as f:
-  temp = json.loads(f.read())
-  print(temp)
+
+with open('tang300.json') as f:
+	read_data = f.read()
+	d = json.loads(read_data)
+	# print(d[10]["contents"])
+	f.closed
+
+text = ""
+for aa in d:
+	text += aa['contents']
 
 
 
 
-import stats_word 
-print(stats_word.stats_text(temp,10)) 
-#f.closed
+if __name__ == "__main__":
+	try:
+		print(stats_word.stats_text_cn(text))
+	except ValueError as err:
+		print(err)
 
 
-#解读不成功
