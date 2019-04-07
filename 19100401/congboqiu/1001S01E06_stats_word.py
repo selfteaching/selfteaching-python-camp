@@ -29,6 +29,10 @@ Namespaces are one honking great idea -- let's do more of those!'''
 stats_text_en(text)
 dictionary1=sorted(dictionary.items(),key=lambda x:x[1],reverse=True)#sorted()排序;.items()遍历字典(键,值) 元组,
 print(dictionary1) #打印英文统计数组
+#打印统计英文词频的结果
+print("统计英文词频的结果为:")
+print(stats_text_en(text))
+
 
 #统计参数中每个中文汉字出现的次数，最后返回一个按字频降序排列的数组
 cndict = {}#定义一个空字典
@@ -64,3 +68,14 @@ stats_text_cn(text)  #调用检索中文频次的函数
 dic=sorted(cndict.items(),key=lambda item:item[1],reverse = True)#为了阅读方便，检索完毕后对字典进行按值从大到小排序
 print(dic)                            #打印汉字统计数组
         
+
+#打印统计中文词频的结果
+print("统计中文词频的结果为:")
+print(stats_text_cn(text))
+        
+# 合并英汉词频统计 
+def stats_text(text) :
+        if type(text) == str:
+                return stats_tex(stats_text_en(text)+stats_text_cn(text))
+        else :
+               raise ValueError('没有输入标准字符')
