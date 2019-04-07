@@ -10,7 +10,7 @@ for i in list1 :     #注意冒号。一定得写
 str1 = ''             #字符串一等于
 str1 = str1.join(list2)#拼接成字符串
 #print（str1)          #相当于把字符串都连在一块了
-str2 = str1[2:8]      #用字符串切片的方式，取出第三到第八个字符
+str2 = str1[2:8]      #用字符串切片的方式，取出第三到第八个字符.这里有一个bug.第一次输入为什么显示需要输入整型
 #print(str2)          
 list3 = list(str2)    #将数组继续弄成列表的形式
 list3 = list3.reverse   
