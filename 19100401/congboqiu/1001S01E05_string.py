@@ -45,5 +45,3 @@ print(temp2)
 #text1=text1.split()
 #text1.sort()#将所有单词按a...z的升序排列
 #print(text1)
-b=1
-print(b)
