@@ -1,23 +1,24 @@
-import matplotlib.pyplot as plt
-import numpy as np
+import re
+text_cn = """
+好好学习，天天向上。1234567，pony
+"""
+def stats_text_cn(text):
+    # remove chinese symbol and "\n" and " " and, don't forget english and number charactor... 
+    i = re.compile("[，；。—~ ？!‘’“”\nA-Za-z0-9]")
+    text_rm_symbol = i.sub("", text)
+ 
+    # split
+    text_to_list = []
+    for x in text_rm_symbol: 
+        text_to_list.append(x) 
+    while "" in text_to_list:
+        text_to_list.remove("")
+    # create dictionary
+    sort_list = [(x, text_to_list.count(x)) for x in set(text_to_list)]
+ 
+    sort_dict = dict(sort_list)
+    # output a dictionary sort by frequency 
+    return (sorted(sort_dict.items(), key=lambda x: x[1], reverse=True)) 
+print(stats_text_cn(text_cn))
 
-data = np.genfromtxt('life-expectancy-china-1960-2016.txt',
-                     delimiter=',',
-                     names=['x', 'y'])
-da1960  = data[0][1]
-da2016  = data[-1][1]
-increase = (da2016 - da1960) / da1960
-note = 'from {:.2f} in 1960 to {:.2f} in 2016, increased  {:.2%}'\
-    .format(da1960, da2016, increase)
-
-plt.figure(figsize=(10, 5))
-plt.plot(data['x'], data['y'])
-plt.ylabel('Life Expectancy from Birth')
-plt.tick_params(axis='x', rotation=70)
-plt.title('CHINA\n' + note)
-
-# plt.savefig('life-expectancy-china-1960-2016.png', transparent=True)
-plt.show()
-
-# data from:
-# https://databank.worldbank.org/data/reports.aspx?source=2&series=SP.DYN.LE00.IN
+print(dict(stats_text_cn(text_cn)))
