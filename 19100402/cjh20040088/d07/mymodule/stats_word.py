@@ -1,7 +1,7 @@
 text0='''
  How The Foolish Old Man Moved Mountains
  Yugong was a ninety-year-old man who lived at the north of two high
- moutains, Mount Taixing and Mount Wangwu.
+ mountains, Mount Taixing and Mount Wangwu.
  Stretching over a wide expanse of land, the mountains blocked
  yugong’s way making it inconvenient for him and his family to get
  around.
@@ -52,7 +52,8 @@ result=sorted(stats_text_en(text).items(),key=lambda x:x[1],reverse=True)
 print(result)
 
 
-text1='''愚公移山
+text1='''
+ 愚公移山
  太行，王屋二山的北面，住了一个九十岁的老翁，名叫愚公。二山占地广阔，挡住去路，使他和家人往来极为不便。
  一天，愚公召集家人说：「？让我们各尽其力，铲平二山，开条道路，直通豫州，你们认为怎样」
  大家都异口同声赞成，只有他的妻子表示怀疑，并说：「你连开凿一个小丘的力量都没有，怎可能铲平太行，王屋二山呢况且，凿出的土石又丢到哪里去呢？」
@@ -94,8 +95,5 @@ result1=sorted(stats_text_cn(text).items(),key=lambda x:x[1],reverse=True)
 print(result1)
 
 def stats_text(text):
-    stats_text_cn(text)
-    stats_text_en(text)
-    
-    
-    
+     stats_text_en(text)
+     stats_text_cn(text)

@@ -3,16 +3,21 @@ Beautiful is better than ugly. Explicit is better than implicit. Simple is bette
 #里面的text的行数似乎对于函数的运行也有影响
 
 #将字符串样本text里的 better 全部替换成 worse 
-text = text.replace('better', 'worse')  #str.replace(old, new[, count]).
+text = text.replace('better', 'worse')  #str.replace(old, new[, count]).式子里的小点，可以理解为操作符，从其他模块调用函数
 
 #将单词中包含 ea 的单词剔除 
-textlist1 = text.split()   #拆分字符串,split就是分裂的意思。弄成''的形式，这是要删除单词前需要的步骤
-str1 = []                  #赋予这个作用是什么？str是什么意思？str是文本序列类型，字符串中定义的常量
-str2 = 'ea'
-for i in textlist1: 
-    if str2 not in i: #注意带上冒号
-        str1.append(i) #里面的append函数还需要了解。str.append相当于定义字符串str1为附件函数。注意相对于上一行的位置
-                       ##append the object to the end of the list
+#不要用 list 作为变量，可以用以下变量名，如 list_text, list_1, my_list 等 
+textlist1 = text.split()   #通过 string 的 split() 将字符串切成数组
+
+str1 = []                  #表示定义一个列表，str是文本序列类型，字符串。列表推导用方括号（“[]”）括起来
+#在C语言中数组 int nums[]={1,2,3,4,5}C语言数组必须是什么类型就是什么类型，Python列表可以储存任何类型的数组
+
+str2 = 'ea'                  
+for i in textlist1:        #里面的i 不需要定义吗？
+    if str2 not in i:      #注意带上冒号
+        str1.append(i)    #str1.append表示添加i到原来列表str1的最后。注意相对于上一行的位置
+#列表的其他应用str1.insert(1,"e")  表示就是在列表str1第一个位置插入e
+# str1.pop表示从后往前删除，删除最后一个。根据栈的特点，先进后出，后进先出。str.remove(a)表示删除str1表中的a                    
 #print(textlist1)
 
 #将字母进行大小写翻转

@@ -1,6 +1,5 @@
 text='''
-
-愚公移山
+ 愚公移山
  太行，王屋二山的北面，住了一个九十岁的老翁，名叫愚公。二山占地广阔，挡住去路，使他和家人往来极为不便。
  一天，愚公召集家人说：「？让我们各尽其力，铲平二山，开条道路，直通豫州，你们认为怎样」
  大家都异口同声赞成，只有他的妻子表示怀疑，并说：「你连开凿一个小丘的力量都没有，怎可能铲平太行，王屋二山呢况且，凿出的土石又丢到哪里去呢？」
@@ -28,7 +27,6 @@ text='''
  聪明的老头完全沉默了。
  当山上的守护神看到了愚公和他的船员是多么坚定的时候，他们被恐惧所震惊并向天国皇帝报告了这一事件。
  为了钦佩愚公，天国皇帝命令两位强大的神将山脉带走。
- 
  How The Foolish Old Man Moved Mountains
  Yugong was a ninety-year-old man who lived at the north of two high
  mountains, Mount Taixing and Mount Wangwu.
@@ -68,8 +66,8 @@ text='''
  to the Emperor of Heavens.
  Filled with admiration for Yugong, the Emperor of Heavens ordered two
  mighty gods to carry the mountains away.
-
- '''
+'''
 
 from mymodule import stats_word
 stats_word.stats_text(text)
+

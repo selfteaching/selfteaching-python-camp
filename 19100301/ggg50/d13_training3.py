@@ -14,7 +14,7 @@ def sort_text(url):
     r_content = document('#js_content').text()
 
     # input text and define output word numbers
-    return stats_word_day10.stats_text_cn(r_content, 20)
+    return stats_word_day10.stats_text_cn(r_content, 100)
 
 def save_as_image(sorted_dict):
     plt.rcdefaults()
@@ -28,7 +28,7 @@ def save_as_image(sorted_dict):
     ax.set_yticklabels(words)
     ax.invert_yaxis()
     ax.set_xlabel('count')
-    ax.set_title('Top 10 words sorted by frequency')
+    ax.set_title('Top 100 words sorted by frequency')
     plt.savefig('result.png')
 
 
@@ -43,7 +43,7 @@ def print_others(msg):
     save_as_image(sorted_dict)
 
     print(msg.sender)
-    msg.sender.send_image('result.png')
+    msg.reply_image('result.png')
 
 embed()
 
