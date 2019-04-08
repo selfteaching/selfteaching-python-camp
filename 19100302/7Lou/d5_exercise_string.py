@@ -20,21 +20,17 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-str1=text.replace('better','worse')
-#print(str1)
-list1=str1.split()#转换为列表
-#print(list1)
-list2=[]
-for i in list1:#遍历列表
+text=text.replace('better','worse')
+text=text.split()#转换为列表
+
+l=[]
+for i in text:#遍历列表
         if 'ea' not in i: 
-                list2.append(i)#去除'ea'的列表
-                print(list2)
-list3=[]
-for i in list2:
-        if i.isupper():
-                list3.append(i.lower())
-        elif i.islower():
-                list3.append(i.upper())  #未完？？？
-list3.sort()
-print(list3)#a到z升序排列
+                l.append(i)#去除'ea'的列表
+text=" ".join(l)#将列表转换为字符串
+text=text.swapcase()#翻转大小写字母
+text=text.split()#转换为列表
+#print(sorted(text)) sort只用于列表；sorted可用于所有可迭代对象。
+text.sort()
+print(text)
 
