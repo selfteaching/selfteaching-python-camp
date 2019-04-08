@@ -22,7 +22,8 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea. 
 Namespaces are one honking great idea -- let's do more of those! 
 '''
-text1 = text.split()
+t1= text.replace('*',' ').replace('!',' ').replace('--',' ').replace(',',' ')
+text1 = t1.split()
 d = {}
 for i in text1:
     if i in d:

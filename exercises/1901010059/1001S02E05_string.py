@@ -23,14 +23,21 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those! 
 '''
 
-t1 = text.replace('better','worse')
+text_1 = text.replace('better','worse')
+t1 = text_1.replace('*',' ').replace('!',' ').replace('--',' ').replace(',',' ')
 t2 = t1.split()
+t3 = []
 for a in t2:
     if 'ea' not in a:
-        t3 = a.swapcase()
-        t4 = sorted(t3)
-        t5 = ''.join(t4)
-        print(t5,end=' ')
+        t3.append(a)
+t4 = []
+for i in t3:
+    i = i.swapcase()
+    t4.append(i)
+print(t4)
+t4.sort()
+print(t4)
+
         
 
        
