@@ -22,31 +22,14 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 
-list1=text.split()
-list2=[]
-list3=[]
-a=len(list1)
-while a>0:
-    for x in list1:
-        list2.append((list1.count(x)))
-        list3.append(x)
-        i= 0 
-        j= 1 
-        while i< len(list1):
-            j = i + 1
-        while j < len(list1):
-            if list1[i] == list1[j]:
-                del li[j]
-                continue
-                j = j + 1
-            i = i + 1
+text=text.replace("*","").replace(".","").replace("-","").replace("'","").replace("!","")#必须用双引号
+text=text.split()
+d={}
+for i in text:
+    if i in d:
+        d[i]+=1
+    else:
+        d[i]=1
 
-        
-            a=len(list1)
-    #list2.append((list1.count(i)))
+print(sorted(d.items(),key=lambda x:x[1],reverse=True))
 
-       # print(list2)
-        #print(list3)
-       # print(list1)
-dict1=dict(zip(list2,list3))
-print(dict1)
