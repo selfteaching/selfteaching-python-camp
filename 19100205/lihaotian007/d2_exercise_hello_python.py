@@ -73,6 +73,15 @@ with open('D:\\GitHub - Desktop\\selfteaching-python-camp\\19100205\\lihaotian00
     read_tang = op_tang.read()
     print(read_tang)
 op_tang.closed
-"""
+
 list_a = ['1','2','3']
 print('结果是：',str(list_a))
+"""
+
+# day 11 测试
+
+list_a = [(1,2),(2,3),(3,4)]
+print(len(list_a[1]))
+from itertools import chain
+b = list(chain.from_iterable(list_a))
+print(b)

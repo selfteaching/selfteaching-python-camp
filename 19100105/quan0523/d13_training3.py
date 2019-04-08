@@ -8,6 +8,7 @@ import numpy as np
 
 # 'https://segmentfault.com/a/1190000005144275'
 plt.rcParams['font.sans-serif']=['SimHei']   # 用来正常显示中文标签
+plt.rcParams['font.family']='sans-serif'
 plt.rcParams['axes.unicode_minus']=False   # 用来正常显示负号
 
 bot = Bot()
@@ -24,7 +25,7 @@ def reply_my_friend(msg):
         content = document('#js_content').text()
         #print(content)
         result = mymodule.stats_word.stats_text_cn(content)    # 导入公式处理结果
-        
+
         cizu=[]
         cipin=[]
         for x in result:
@@ -32,7 +33,7 @@ def reply_my_friend(msg):
             cipin.append(x[1])
 
         plt.rcdefaults()
-        fig, ax = plt.subplots()
+        fig,ax = plt.subplots()
         people = cizu
         y_pos = np.arange(len(people)) 
         performance = np.array(cipin)
@@ -41,13 +42,14 @@ def reply_my_friend(msg):
         ax.set_yticks(y_pos)
         ax.set_yticklabels(people)
         ax.invert_yaxis()  # labels read top-to-bottom
-        ax.set_xlabel('词频')
+        ax.set_xlabel('词汇')
+        ax.set_ylabel('词频')
         ax.set_title('词频统计结果')
         plt.savefig('C:/Users/admin/test.png')
-        plt.show()
+        # plt.show()  加入这串文档示范的代码会让图片无法发送，why？
         
-        my_friend.send()    # 结果发送给好友
-        my_friend.send_image('test.png')    # 发送图片结果
+        # my_friend.send(str(result))    # 文字结果发送给好友
+        my_friend.send_image('C:/Users/admin/test.png')    # 发送图片结果
     else:
         pass
     

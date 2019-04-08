@@ -1,4 +1,20 @@
-import stats_word
+if not isinstance(text,str):
+        raise ValueError('Non-Strin words are not accepted here, pls re-input:')   #Parameter type checking
+
+from stats_word import stats_text   
+text=88                # input the numbers, verify if the Parameter type checking works or not
+try:
+    print(stats_text(text))
+except ValueError:
+    print('Non-Strin words are not accepted here, pls re-input:')  
+with open('tang300.json','r',encoding='UTF-8') as f:
+    text = f.read()
+    try:
+        print("词频Top100:" stats_text_cn(text,100))
+    except ValueError as Error:
+        print('Non-Strin words are not accepted here, pls re-input:')  
+from stats_words import stats_word
+from wxpy import *
 
 text = '''
 愚公移山
@@ -32,3 +48,7 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 
 stats_text(text)
 print(stats_text(text))
+try:                         #capture the Exception, and print the prompt msg
+    print(stats_text(text))
+except ValueError:
+    print('Non-Strin words are not accepted here, pls re-input:')  
