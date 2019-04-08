@@ -14,7 +14,8 @@ elif z == '*':
     print(float(x)*float(y))
 elif z == '/':
     print(float(x)/float(y))
-elif z == '+' or '-' or '*' or '/':
+else:
+    z != '+' or '-' or '*' or '/'
     print('Error')
 
 
