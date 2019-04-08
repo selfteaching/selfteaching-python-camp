@@ -4,8 +4,8 @@ a.reverse()
 b = [str(i) for i in a]
 c =''.join(b)
 
-d = c[4:9]
-
+d = c[2:8]
+print(d)
 e = d[::-1]
 
 f = int(e)
