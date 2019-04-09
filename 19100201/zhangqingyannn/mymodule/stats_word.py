@@ -1,134 +1,45 @@
+import collections
 import re
-en_pattern = re.compile(r'[a-zA-Z]+[\'\-]?[a-zA-Z]+')
-cn_pattern = re.compile(r'[\u4e00-\u9fa5]')
-text = '''
-愚公穆山
-太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山亻占地廣闊，擋住去路，便他
-和家人往來極為不便。
-一天愚公召集家人説：
-「讓我們各盡其力，刳平二山，開修道路，直通豫州，你們認為怎
-大家都巽囗同聲成，只有他的妻了表示懷疑，説：「你連開鑿一個小丘的力量都有，怎
-可能刳平太行、王屋二山呢？况且，鑿出的土石又丢到裏去呢？」
-大家都熱烈地説：「把土朽去進渤海裏。」
-於是愚公就和兒孫，一起開挖土，把士朽運到渤海去。
-愚公的鄰居是個囂婦，有個兒子八歲也興致勃勃地走來幫忙。
-寒來暑往，他們要一年才能往返渤海一次。
-住在河河畔的智叟，看見他們這樣辛苦，取笑愚公説：
-了，就是用盡你的氣力，也不能挖去山的一角呢？」
-「你不是很愚蠢廢？你已一把年紀
-愚公歡息道：「你有這樣的成見，是不會明白的。你比那寡婦的小兒子還不如呢！就算我死
-了，還有我的兒子，我的孫子，我的曾孫子，他們一直傳下去。而這二山是不舊加人的，總有
-一天我們會把它們能平。」
-智叟聽了，無話可説：
-二山的守護神被愚公的堅毅精神嚇倒，便把此事奏知天帝。天帝佩服愚公的精神，就命兩位大
-力神褙走二山。
+import jieba
 
-How The Foolish Old Man Moved Mountains
-Yugong was a ninety-year-old man who lived at the north of two high
-mountains, Mount Taixing and Mount Wangwu.
-Stretching over a wide expanse of land, the mountains blocked
-yugong’s way making it inconvenient for him and his family to get
-around.
-One day yugong gathered his family together and said,”Let’s do our
-best to level these two mountains. We shall open a road that leads to
-Yuzhou. What do you think?”
-All but his wife agreed with him.
-“You don’t have the strength to cut even a small mound,” muttered his
-wife. “How on earth do you suppose you can level Mount Taixin and
-Mount Wanwu? Moreover, where will all the earth and rubble go?”
-“Dump them into the Sea of Bohai!” said everyone.
-So Yugong, his sons, and his grandsons started to break up rocks and
-remove the earth. They transported the earth and rubble to the Sea of
-Bohai.
-Now Yugong’s neighbour was a widow who had an only child eight years
-old. Evening the young boy offered his help eagerly.
-Summer went by and winter came. It took Yugong and his crew a full
-year to travel back and forth once.
-On the bank of the Yellow River dwelled an old man much respected for
-his wisdom. When he saw their back-breaking labour, he ridiculed
-Yugong saying,”Aren’t you foolish, my friend? You are very old now,
-and with whatever remains of your waning strength, you won’t be able
-to remove even a corner of the mountain.”
-Yugong uttered a sigh and said,”A biased person like you will never
-understand. You can’t even compare with the widow’s little boy!”
-“Even if I were dead, there will still be my children, my
-grandchildren, my great grandchildren, my great great grandchildren.
-They descendants will go on forever. But these mountains will not
-grow any taler. We shall level them one day!” he declared with
-confidence.
-The wise old man was totally silenced.
-When the guardian gods of the mountains saw how determined Yugong and
-his crew were, they were struck with fear and reported the incident
-to the Emperor of Heavens.
-Filled with admiration for Yugong, the Emperorof Heavens ordered two
-mighty gods to carry the mountains away.
-'''
-
-def stats_text_en(text):
-    ''' 
-    以字典形式返回字符串中英文单词的出现频率
-    :param text:string
-    :return dict:英文单词词频统计结果
+def stats_text_en(en,count) :
+    ''' 1. 英文词频统计：使用正则表达式过滤英文字符，使用Counter统计并排序。
+        2. 参数类型检查，不为字符串抛出异常。
     '''
-    # 在这里写具体操作
-    mydict={}
-    mylist=[]
-    try:
-        mylist=re.findall(en_pattern,text)
-    except ValueError:
-        print("stats_text_en(ValueError):please input string")
-    except TypeError:
-        print("stats_text_en(TypeError):please input string")
-    for mylinum in mylist:
-        if mylinum in mydict:
-            mydict[mylinum]=int(mydict[mylinum])+1
-        else:
-            mydict[mylinum]=1
-    return mydict
+    if type(en) == str : 
+            text_en = re.sub("[^A-Za-z]", " ", en.strip())
+            enList = text_en.split( )
+            return collections.Counter(enList).most_common(count)
+    else : 
+            raise ValueError ('type of argumengt is not str')
 
-def stats_text_cn(text):
-    ''' 
-    以字典形式返回字符串中文汉字的出现频率
-    :param text:string
-    :return dict:中文汉字词频统计结果
+def stats_text_cn(cn,count) :
+    ''' 1. 使用jieba第三方库精确模式分词。
+        2. 使用正则表达式过滤汉字字符。
+        3. 使用for循环判断分词后词频列表元素长度大于等于2的生成新列表。
+        4. 使用标准库collections.Counter()统计词频并限制统计数量。 
+        5. 参数类型检查，不为字符串抛出异常。
     '''
-    # 在这里写具体操作
-    mydict={}
-    mylist=[]
-    try:
-        mylist=re.findall(cn_pattern,text)
-    except ValueError:
-        print("stats_text_cn(ValueError):please input string")
-    except TypeError:
-        print("stats_text_cn(TypeError):please input string")
-    for mylinum in mylist:
-        if mylinum in mydict:
-            mydict[mylinum]=int(mydict[mylinum])+1
-        else:
-            mydict[mylinum]=1
-    return mydict
+    if type(cn) == str : 
+            cnList = re.findall(u'[\u4e00-\u9fff]+', cn.strip())
+            cnString = ''.join(cnList)
+            segList = jieba.cut(cnString,cut_all=False)
+            cnnewList = []
+            for i in segList :
+                    if len(i) >= 2 :
+                            cnnewList.append(i)
+                    else :
+                            pass                
+            countList = collections.Counter(cnnewList).most_common(count)
+            return countList
+    else :
+            raise ValueError ('type of argumengt is not str')
 
-def stats_text(text):
+def stats_text(text_en_cn,count_en_cn) :
+    ''' 1. 合并英汉词频统计：调用stats_text_en()和stats_text_cn()并合并其结果。
+        2. 参数类型检查，不为字符串抛出异常。
     '''
-    统计一段字符串中中文和英文的词频
-    :param text:string
-    :return dict:中文和英文单词词频统计结果
-    '''
-    dicttmp = {}
-    try:
-        dicttmp = dict(stats_text_en(text),**stats_text_cn(text))
-    except ValueError:
-        print("stats_text(ValueError):please input string")
-    except TypeError:
-        print("stats_text(TypeError):please input string")
-    return dicttmp
-
-
-def main():
-    mdict={}
-    mdict=stats_text(text)
-    print(mdict)
-
-
-if __name__ == '__main__':
-    main()
+    if type(text_en_cn) == str : 
+            return (stats_text_en(text_en_cn,count_en_cn)+stats_text_cn(text_en_cn,count_en_cn))
+    else :
+            raise ValueError ('type of argumengt is not str')

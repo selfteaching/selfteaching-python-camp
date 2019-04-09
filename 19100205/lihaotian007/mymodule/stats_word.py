@@ -100,4 +100,5 @@ def stats_text(text, common_t = None) :
             list_c.append(list_b[j])
             j += 1
 
-    return print("合并排序后：", list_c)
+    print("合并排序后：", list_c,'\n')
+    return list_c

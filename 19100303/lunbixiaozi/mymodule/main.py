@@ -1,7 +1,10 @@
 import stats_word
 import re
+import jieba
 
-text = '''
+text = 5
+
+'''
 愚公移山
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他和家人往來極為不便。
 一天，愚公召集家人說：「讓我們各盡其力，剷平二山，開條道路，直通豫州，你們認為怎樣？」
@@ -33,6 +36,17 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
+with open('C:\\Users\\flami\\Documents\\GitHub\\selfteaching-python-camp\\19100303\\lunbixiaozi\\mymodule\\tang300.json', encoding='UTF-8', newline='') as f:
+    read_data = f.read()
+    f.closed
 
-stats_word.stats_text(text)
+
+# print(type(read_data))
+
+try:
+    stats_word.stats_text_cn(read_data)
+except:
+    print("Main program parameter type error: TypeError catched!")
+
+    
 

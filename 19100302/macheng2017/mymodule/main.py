@@ -1,4 +1,5 @@
 from stats_word import stats_text
+from utils import decoding_json
 
 text = '''
 愚公移山
@@ -59,5 +60,14 @@ to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two
 mighty gods to carry the mountains away.
 '''
-res = stats_text(text)
-print(res)
+
+# text1 = 23
+text1 = decoding_json('tang300.json')
+try:
+    res = stats_text(text1,20)
+
+    print(res)
+except ValueError:
+    raise 
+
+
