@@ -61,7 +61,12 @@ def stats_text_en(t_en): # 定义函数
     c = sorted(b.items(),key=lambda x:x[1],reverse=True) 
     print('英文单词统计频率如下： \n',c) # 这里print()函数缩进就是封装进我定义的函数里面去了
 
-
+# 给自己的中文排序函数写个说明
+# 1.去标点符号
+# 2.定义字典e{}
+# 3.用.count（）把中文字符串的字和字频统计出来然后加入字典e
+# 4.定义一个参数f，用sorted()函数对f进行排序
+# 5.print缩进函数里面就是函数的一个输出参数了
 def status_text_cn(t_cn):
     d = t_cn.replace(',','').replace('-',' ').replace('.','').replace(':','').replace(';','').replace('"','').replace('!','').replace('?','').replace('、','').replace('，','').replace('。','').replace('“','').replace('”','').replace('：','').replace('；','').replace('\n','').replace('！','').replace('？','').replace('/','').replace('*',' ').replace(' ','')
     d = re.sub("[A-Za-z0-9]", "",d) #借用了这个正则表达式，这里删除了英文单词，因为没有加上^
