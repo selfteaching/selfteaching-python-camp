@@ -57,7 +57,7 @@ def stats_text_cn (text:'输入的文本') -> list:
     text_list2=sorted(text_dict.items(),key=lambda item:item[1],reverse=True)
     print(text_list2) 
 
-print('输入英文词频')
+print('输出英文词频')
 stats_text_en(text)
-print('输入中文词频')
+print('输出中文词频')
 stats_text_cn(text2)
