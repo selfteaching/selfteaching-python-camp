@@ -16,19 +16,30 @@ text='''The Zen of python, by Tim Peters
 	If the implementation is hard to explain,it's a bad idea
 	If the implementation is easy to explain,it's may be a good idea.
 	Namespaces are one honking great idea --let's do more of those!'''
-print(text.replace('better','worse'))
 
-my_list=text.split()
-str1="ea"
-str2=[]
-for i in my_list:
-    if i.find(str1)<0:
-        str2.append(i)
-print(str2)
+text2=(text.replace('better','worse'))
+print(text2)
 
-text=text.swapcase()
-print(text)
+#找到ea，并删除对应单词
+text3=text2.split()
+character='ea'
+text4=[]
+for i in text3:
+	if i.find(character)==-1:
+		text4.append(i)
+print(text4)
 
-my_list_1=text.split()
-my_list_1.sort()
-print(my_list_1)
+#将s中的大写写字母翻转
+text_string=' '.join(text4)
+text_string=text_string.swapcase()
+print(text_string)
+
+#将第四步所有单词排序
+text_string = text_string.lower()
+text_list_final = text_string.split()
+print(sorted(text_list_final))
+
+
+
+
+
