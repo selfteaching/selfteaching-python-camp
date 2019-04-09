@@ -22,8 +22,10 @@ def stats_text_ch(ch):
     cnt=Counter()
     for i in ch:
       if u'\u4e00' <= i <= u'\u9fa5':   #提取中文汉字   \u是unincode编码，u4e00是十六进制表达值
-          cnt[i]+=1
-    return cnt.most_common(100)
+        cnt[i]+=1
+  return cnt.most_common(100)
+        
+  
 def stats_text(text):
   "统计合并英汉字频"
   if type(text)!=type("hello world"):#测试传入参数是否为字符串
