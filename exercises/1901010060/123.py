@@ -1,5 +1,5 @@
-
-    def add(string):                     #加
+'''
+def add(string):                     #加
     total = 0
     numbers = []
     numbers += string.split("+")
@@ -51,4 +51,17 @@ if __name__ =="__main__":
         division(string)
     else:
         print("The string you input is error.")
+        '''
 
+x = int(input("Please enter an integer: "))
+
+if x < 0:
+     x = 0
+     print('Negative changed to zero')
+elif x == 0:
+     print('Zero')
+
+elif x == 1:
+     print('Single')
+else:
+     print('More')

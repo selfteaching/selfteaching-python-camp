@@ -14,6 +14,7 @@ with open('tang300.json','r',encoding='UTF-8') as f:
     except ValueError as Error:
         print('Non-Strin words are not accepted here, pls re-input:')  
 from stats_words import stats_word
+from wxpy import *
 
 text = '''
 愚公移山
