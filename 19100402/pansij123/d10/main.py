@@ -11,8 +11,8 @@ for i in t:
 	it+=i['contents']
 
 try:
-	s = st(it,101)
-	print(s[1:100])
+	s = st(it,21)
+	print(s[1:21])
 
 except TypeError:
 	print("\nFrom main.py:\tInput should be string if you see an error above")
