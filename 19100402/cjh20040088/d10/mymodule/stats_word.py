@@ -1,7 +1,7 @@
 import jieba
 import collections
+import re
 def stats_text_en(txt,count):
-    import re
     if type(txt)==str:
         txt=re.sub('[^A-Za-z]','',txt)
         txt=txt.lower()
@@ -11,7 +11,6 @@ def stats_text_en(txt,count):
         raise ValueError
 
 def stats_text_cn(txt,count):
-    import re
     if type(txt)==str:
         txt=re.sub('[^\u4e00-\u9fa5]','',txt)
         txt=txt.strip()
