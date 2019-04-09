@@ -1,78 +1,31 @@
+
 import re
+import jieba
+from collections import Counter
+counter=20
+def stats_text_cn(text, counter):
 
-text_en = '''
-The Zen of Python, by Tim Peters
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren't special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambxiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you're Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it's a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let's do more of those!
-'''
+    if not isinstance(text, str):
+        raise ValueError("I can only handle a string type text")
 
-text_cn = """
-虽然大多数的语言既可被编译又可被解译，但大多数仅在一种情况下能够
-良好运行。在一些编程系124324统中，程序——要经过几个阶段的编译，一般而言，
-后阶段的编译往往fsdf更接~近机器语言。这种wsdfs常用的使用技巧最早在年代末用
-于，编译程序先编译一个叫做“代码”的转换程序，然后再使用虚拟器转
-行于机器上的真实代码。这种成功的技巧之后又用于和二进制码，
-在很多时候，中间过渡的代码往往是解译，而不是编译的
-"""
+    # only chinese left and change into a list.
+    text_cn = ""
+    for t in text:
+        if ord(t) > 256:#ASCII编码，去除英文及符号
+            text_cn = text_cn + t
+        else:
+            text_cn = text_cn + "，"
+    list_cn_word = ([x for x in jieba.cut(text_cn, cut_all=False) if len(x) >= 2])
 
-def stats_text_en(text):
-    # change "\n" into " ", then change all charactor into lowercase
-    # and remove symbol
-    t = text.replace("\n", " ").strip().lower()
-    i = re.compile("[\.\-\*\!\,\']")
-    text_rm_symbol = i.sub("", t)
+    # using Sounter to create a dictionary sorted by frequency
+    sort_cn = Counter(list_cn_word).most_common(counter)
+    return sort_cn
+text='''今日安装并使用 jieba 第三方库，这个库专门用于中文文本的分词，
 
-    # split, if has "" item , remove    
-    text_to_list = text_rm_symbol.split()
-   
-
-    # create dictionary
-    sort_list = [(x, text_to_list.count(x)) for x in set(text_to_list)]
-    sort_dict = dict(sort_list)
-    
-    # output a dictionary sort by frequency
-    return (sorted(sort_dict.items(), key=lambda x: x[1], reverse=True))
-
-print(stats_text_en(text_en))
-# [('is', 10), ('better', 8), ('than', 8), ('the', 6), ('to', 5)..
-print("\n\n")
-
-
-def stats_text_cn(text):
-    # remove chinese symbol and "\n" and " " and, don't forget english and number charactor...
-    i = re.compile("[，；。—~ ？!‘’“”\nA-Za-z0-9]")
-    text_rm_symbol = i.sub("", text)
-
-    # split
-    text_to_list = []
-    for x in text_rm_symbol:
-        text_to_list.append(x)
-    while "" in text_to_list:
-        text_to_list.remove("")
-
-    # create dictionary
-    sort_list = [(x, text_to_list.count(x)) for x in set(text_to_list)]
-    sort_dict = dict(sort_list)
-    
-    # output a dictionary sort by frequency
-    return (sorted(sort_dict.items(), key=lambda x: x[1], reverse=True))
-
-print(stats_text_cn(text_cn))
-print("\n\n")
+# 2.需要注意的是，jieba 在分词的时候，也会帮我们把英文单词找出来，所以在运用的时候，
+#   还是需要提前把英文单词过滤掉；
+#   另外，中文符号会留下，不过因为我们要找的是长度大于等于2的词，所以可以不用管了，
+#   更进一步，也不应该管，因为中文的组词特点，直接把符号去掉可能会产生多余的词组
+#   所以我的想法是，把符号保留，并且把英文都替换成'''
+counter=20
+print(stats_text_cn(text, counter))
