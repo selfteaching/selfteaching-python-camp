@@ -7,9 +7,7 @@ for i in range(1,10):
             break
        
 
-
 #while循环
-
 
 i = 1
 while i < 10:
