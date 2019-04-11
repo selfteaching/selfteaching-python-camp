@@ -1,22 +1,20 @@
 from mymodule import stats_word
 import requests
-from pyquery import PyQuery
-from wxpy import *
+import pyquery
+import wxpy 
 
-def main():
-    bot = Bot() #扫描二维码登录微信
-    my_friend = bot.friends('diaboius5') #回复对象为所有好友
+bot = wxpy.Bot()
+my_friend = bot.friends().search()
+@bot.register()
+def print_others(msg):
+    print(msg)
 
-    @bot.register(my_friend,SHARING) #接受分享类消息
-    def auto_reply(msg):
+@bot.register(my_friend,msg_types='Sharing') #接受分享类消息
+def auto_reply(msg):
         response = requests.get(msg.url) #msg.url为分享的网址
-        document = PyQuery(response.text)
+        document = pyquery.PyQuery(response.text)
         content = document('#js_content').text()
         #处理文本
-        result = stats_word.stats_text_cn(content,count=100)
-        return result #将结果返回给好友
-
-    embed() #堵塞线程，保持监听状态
-
-if __name__ == '__main__':
-    main() 
+        result = content
+        print(result)
+wxpy.embed()
