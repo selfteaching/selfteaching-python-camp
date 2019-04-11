@@ -23,7 +23,7 @@ def stats_text_cn(str_cn,count):   # 函数实现统计中文汉字出现的次�
         for i in str2:
             if len(i) >= 2:                  #将字数大于等于二的放进counter
                 str3[i]+=1                 
-        return str3.most_common(count)       #返回结果
+        return str3.most_common(count)
     else : 
         raise ValueError ('type of argumengt is not str')  #不为字符串抛出异常
 
