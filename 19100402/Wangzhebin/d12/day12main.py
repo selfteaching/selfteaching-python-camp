@@ -9,8 +9,9 @@ def new_message(msg):
         response=requests.get(msg.url)
         document = PyQuery(response.text)
         content = document('#js_content').text()
-        freq=stats_word.stats_txt(content,100)
+        freq=stats_word.stats_txt(content,10)
         freq=str(freq)
+        msg.reply('此文章十大高频用词')
         msg.reply(freq)
     
 embed()
