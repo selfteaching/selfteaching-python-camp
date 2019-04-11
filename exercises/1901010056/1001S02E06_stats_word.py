@@ -19,10 +19,13 @@ def stats_text_en(text):
     print(dict2)
     return;
 
+text = '''                        
+
+Beautiful is better than ugly. Explicit is better than implicit. Simple is better than complex.
+好好学习天天向上，学习学习再学习,pony6666
+'''
 print()
-text = ''' The Zen of Python, by Tim Peters
-Beautiful is better than ugly. Explicit is better than implicit. Simple is better than complex. Complex is better than complicated. Flat is better than nested. Sparse is better than dense. Readability counts. Special cases aren't special enough to break the rules. Although practicality beats purity. Errors should never pass silently. Unless explicitly silenced. In the face of ambxiguity, refuse the temptation to guess. There should be one-- and preferably only one --obvious way to do it. Although that way may not be obvious at first unless you're Dutch. Now is better than never. Although never is often better than *right* now. If the implementation is hard to explain, it's a bad idea. If the implementation is easy to explain, it may be a good idea. Namespaces are one honking great idea -- let's do more of those!
-好好学习，天天向上 '''
+
 stats_text_en(text)            #这个自定义的函数，可以极大地方便统计任何一篇英语文章中出现单词的频率
 
 
@@ -104,3 +107,33 @@ text = '''
 stats_text_cn(text)             #调用检索中文频次的函
 cndic=sorted(cndic.items(),key=lambda item:item[1],reverse = True)      #检索完毕后对字典进行按值从大到小排序
 print(cndic)
+
+
+############    另一个更简单的    统计英文词频和汉语字频的程序
+
+#英文词频统计函数
+
+import  re   
+#英文单词统计函数
+def  stats_text_en(text):
+    a=re.sub(r'[^A-Za-z]',' ',text)    #只取英文单词
+    str=a.split()                      #单词划分
+    wordcount={}
+    for i in str:             
+        wordcount[i]=str.count(i)     #词频统计词典设置
+    wordcount=sorted(wordcount.items(),key=lambda x:x[1],reverse=True)    #词频统计，按词频降序排列
+    print(wordcount) #输出英文单词频数统计结果
+    return 
+print(stats_text_en(text))
+
+#中文频数统计函数
+def  stats_text_cn(text):
+    p =  re.compile(r'[\u4e00-\u9fa5]')  # 中文的编码范围是：\u4e00到\u9fa5
+    res = re.findall(p, text)   #取中文
+    wordcount={}                 #词频统计字典初始化
+    for i in res:             
+        wordcount[i]=res.count(i)     #词频统计词典设置
+    wordcount=sorted(wordcount.items(),key=lambda x:x[1],reverse=True)    #词频统计，按词频降序排列
+    print(wordcount)  #输出每个中文汉字频数统计结果
+    return
+print(stats_text_cn(text))
