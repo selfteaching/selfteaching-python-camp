@@ -23,9 +23,17 @@ def stats_text_cn(text,x):
 def stats_txt(text,x):
     if type(text)!=str:
         raise ValueError("Could not deal with this data,please check it and try again.")
-    list_cn=re.findall(u'[\u4e00-\u9fa5]',text)
+    import jieba
+    data=jieba.cut(text)
+    data2=str(",".join(data))
+    list_cn=re.findall(u'[\u4e00-\u9fa5]+',data2)
+    list_cn1=[]
+    for i in list_cn:
+        if len(i)>=2:
+            list_cn1.append(i)
+        else:
+            continue
     list_en=re.findall('[a-zA-Z0-9]+',text)    
-    list_txt=list_cn+list_en
+    list_txt=list_cn1+list_en
     count=int(x)
     return Counter(list_txt).most_common(count)
-
