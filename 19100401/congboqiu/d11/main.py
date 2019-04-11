@@ -16,7 +16,7 @@ from mymodule import stats_word
 
 response = requests.get("https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA")
 document = PyQuery(response.text)
-content = document('#js_content').text()
-return stats_word.stats_text_cn(content,100)
-print(stats_word.stats_text(content,100))
+print(document)
+#content = document('#js_content').text()
+#print(stats_word.stats_text(content,100))
 
