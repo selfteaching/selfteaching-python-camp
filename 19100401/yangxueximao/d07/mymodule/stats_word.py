@@ -20,15 +20,17 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-text2='''
+text2 ='''
 当我想做什么事的时候，或者想学什么东西的时候，
 我会投入一定的时间去琢磨，这个事或者这个东西，
 要做得全面完整，或者要学得全面完整，那都应该做什么呢？
 在思考如此严肃的问题的时候，我还是习惯用纸和笔，
-写写画画，迄今为止没有找到合适的电子设备和软件替代。
+写写画画 —— 迄今为止没有找到合适的电子设备和软件替代。
 '''
 
 
+#一、将统计中文字频和英文词频的函数封装为一个模块
+#1、添加一个名为stats_text的函数，实现功能：分别调用stats_text_en，stats_text_cn，输出合并词频统计结果
 
 #封装统计英文单词词频的函数
 #1、......
@@ -66,13 +68,48 @@ def stats_text_cn(string):
       1/counts the number of occurrences of each character in the parameter;
       2/returns an array in descending order of character frequeny.
     """
-    symbol_deleting_cn = ['~','!','......',',','。','---','\n']        #这里的标点符号输着好费劲啊，来回切换中英文
-    for x in symbol_deleting_cn:
-        string=string.replace(x,'')
-    string=[character for character in string]
-    stats = dict([(character,string.count(character)) for character in string])
-    stats = sorted(stats.items(),key=lambda item:item[1],reverse=1)
-    return stats
+symbol_deleting_cn = ['~','!','......',',','。','---','”','”','\n']        #这里的标点符号输着好费劲啊，来回切换中英文
+for x in symbol_deleting_cn:
+    string=string.replace(x,'')
+string=[character for character in string]
+stats = dict([(character,string.count(character)) for character in string])
+stats = sorted(stats.items(),key=lambda item:item[1],reverse=1)
+return stats
 
 result = stats_text_cn(text2)
 print(result)
+
+
+#1.3对中英文混杂的字符串进行再分类
+def Reclassify_cn(string):
+    """Pick out chinese characters in the string"text"."""
+    if type(string)==str:
+        string_cn = string[:string.find("How")]
+        return string_cn
+    else:
+        raise ValueError(string)
+
+def Reclassify_en(string):
+    """Pick out English words in the string "text". """
+    if type(string) == str:
+        string_en = string[string.find("How"):]
+        return string_en
+    else:
+        raise ValueError(string)
+
+#1.4 将统计中文字频和英文词频的函数封装为一个函数
+def stats_text(string,count):
+    """
+    1\Reclassify the string that mix Chinese characters and English words;
+    2\Counts the number of occurrences of each English word and each Chinese character in the parameter;
+    3\Retruns an array in descending order of their frequency.
+    """
+    if type(string)==str:
+        string_cn = Reclassify_cn(string)
+        string_en = Reclassify_en(string)
+        result_cn = stats_text_cn(string_cn,count)
+        result_en = stats_text_en(string_en,count)
+        print(result_en,"\n","\n","\n",result_cn)
+    else:
+        raise ValueError(string)
+
