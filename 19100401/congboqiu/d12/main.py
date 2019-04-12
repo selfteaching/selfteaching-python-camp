@@ -20,7 +20,7 @@ myself=bot.self#机器人自身作为一个聊天对象
 #my_friend.send('你好，很高兴认识你。')#发消息给朋友
 my_friend=bot.friends().search('翕羊羊')[0]
 @bot.register()
-def print_other(msg)
+def print_others(msg)
     print(msg)
 @bot.register(my_friend,msg_types='Sharing')
 def auto_reply(msg):
@@ -29,7 +29,7 @@ def auto_reply(msg):
     content = document('#js_content').text()
     text=content
     print(text)
-    return str_text=str(stats_word.stats_text(text,100))
+    str_text=str(stats_word.stats_text(text,100))
 return my_friend.send('str_text')
 
 wxpy.embed()
