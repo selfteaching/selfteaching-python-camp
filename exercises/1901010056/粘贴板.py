@@ -1,33 +1,32 @@
+ 
+import  re 
+import  collections  
 
-
-
-text = '''                        
-Beautiful is better than ugly. Explicit is better than implicit. Simple is better than complex.
-好好学习天天向上，学习学习再学习,pony6666
-'''
 #英文词频统计函数
-
-import  re   
-#英文单词统计函数
 def  stats_text_en(text):
     a=re.sub(r'[^A-Za-z]',' ',text)    #只取英文单词
-    str=a.split()                      #单词划分
-    wordcount={}
-    for i in str:             
-        wordcount[i]=str.count(i)     #词频统计词典设置
-    wordcount=sorted(wordcount.items(),key=lambda x:x[1],reverse=True)    #词频统计，按词频降序排列
-    print(wordcount) #输出英文单词频数统计结果
-    return
-print(stats_text_en(text))
+    newlist=a.split()                      #单词划分
+    return(collections.Counter(newlist))  #输出英文单词频数统计结果
 
-#中文频数统计函数
+#中文词频统计函数
 def  stats_text_cn(text):
     p =  re.compile(r'[\u4e00-\u9fa5]')  # 中文的编码范围是：\u4e00到\u9fa5
     res = re.findall(p, text)   #取中文
-    wordcount={}                 #词频统计字典初始化
-    for i in res:             
-        wordcount[i]=res.count(i)     #词频统计词典设置
-    wordcount=sorted(wordcount.items(),key=lambda x:x[1],reverse=True)    #词频统计，按词频降序排列
-    print(wordcount)  #输出每个中文汉字频数统计结果
-    
-print(stats_text_cn(text))
+    newcn=''.join(res)
+    return(collections.Counter(newcn))  #输出中文词频统计结果
+
+#分别调用stats_text_en、stats_text_cn，并合并输出词频统计结果
+def  stats_text(text):
+    print(stats_text_en(text)+stats_text_cn(text))  
+
+
+while True:
+    try:
+        x = str(input("Please enter a number: "))
+        break
+    except ValueError:
+        print("Oops!  That was no valid number.  Try again...")
+
+ 
+
+ 
