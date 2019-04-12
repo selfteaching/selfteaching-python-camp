@@ -22,4 +22,5 @@ def stats_text_cn(text):
     #用counter优化输出
     count_list=Counter(word_list).most_common(20)
     return count_list
-    
+
+

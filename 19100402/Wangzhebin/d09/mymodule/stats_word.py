@@ -1,5 +1,6 @@
 import re
 from collections import Counter
+
 def stats_text_en(text,x):
     """统计输入文本中的英文字频，从大到小排序"""
     if type(text)!=str:
@@ -15,6 +16,7 @@ def stats_text_cn(text,x):
     if type(text)!=str:
         raise ValueError("Could not deal with this data,please check it and try again.")
     list_cn=re.findall(u'[\u4e00-\u9fa5]',text)
+    
     count=int(x)
     return Counter(list_cn).most_common(int(count))
     
