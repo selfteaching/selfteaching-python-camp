@@ -13,7 +13,7 @@ def stats_text_en (text:'输入的文本') -> list:
             en_text_dict[word]=1
     en_text_list=sorted(en_text_dict.items(),key=lambda item:item[1],reverse=True) #iteam()里包含key和value，后面的表达式是按value排序
     return en_text_list 
-
+
 def stats_text_cn (text:'输入的文本') -> list:
     cn_text_list=re_cn.findall(text)  #截取中文部分
     cn_text_dict={} #存储中文的字典
