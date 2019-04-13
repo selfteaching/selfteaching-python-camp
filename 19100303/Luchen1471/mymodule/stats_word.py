@@ -1,105 +1,63 @@
-# 示例字符串
-'''
-text =  
-The Zen of Python, by Tim Peters
+# this is d8 excercise for errors and exceptions
+# date : 2019.3.25
+# author by : qiming
+# Luchen：延用上次作业，完善本次内容。+1
 
 
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren't special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambxiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you're Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it's a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let's do more of those!
-
-Python是一种计算机程序设计语言。是一种动态的、面向对象的脚本语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。
-
-'''
 import collections
 import re
+import jieba
 
-def stats_text_en(string_en):
-    ''' 统计英文词频
-    
-    第一步：过滤英文字符，并将string拆分为list。
-    第二步：清理*-等标点符号。
-    第三步：使用collections库中的Counter函数进行词频统计并输出统计结果。
+
+def stats_text_en(en,x): #还没找到方法限制x为int
+    ''' 1. 英文词频统计。
+        2. 参数类型检查，不为字符串抛出异常。
+    '''    
+    if type(en) == str : 
+            text_en = re.sub("[^A-Za-z]", " ", en.strip())
+            enList = text_en.split( )
+            return collections.Counter(enList).most_common(x)
+    else : 
+            raise ValueError ('type of argumengt is not str')
+
+def stats_text_cn(cn): #还没找到方法限制y为int,这次把20这个参数内置了#d11作业改成100
+    ''' 1. 汉字字频统计 
+        2. 参数类型检查，不为字符串抛出异常。
     '''
-    #print("处理前的原始字符串\n\n",string_en)
-    result = re.sub("[^A-Za-z]", " ", string_en.strip())#把非A-Z和a-z的字符串全部去除掉
-    #print("处理后的结果\n\n",result)
-    newList = result.split( )
-    i=0
-    for i in range(0,len(newList)):
-        newList[i]=newList[i].strip('*-,.?!')
-        if newList[i]==' ': 
-            newList[i].remove(' ')
-        else:
-            i=i+1
-    print('英文单词词频统计结果： ',collections.Counter(newList),'\n')
+    if type(cn) == str : 
+            #cnList0 = re.findall(u'[\u4e00-\u9fff]+', cn.strip())#d11看看能不能过滤网址源码里面的英文单词,做完了看到要求用pyquery
+            #txt = ' '.join(cnList0)
+            cn = re.sub(r'[^\w\s]','',cn)#试图去掉标点符号
+            cnList = jieba.cut(cn)#默认精确模式
+            #cnList1 = []
+            #for i in cnList:
+                    #if len(i) >= 3:
+                        #cnList1.append(i)
+            #cnString = ''.join(cnList)
+            return collections.Counter(cnList).most_common(10)
+    else :
+            raise ValueError ('type of argumengt is not str')
 
 
-def stats_text_cn(string_cn):
-    ''' 统计中文汉字字频
-    
-    第一步：过滤汉字字符，并定义频率统计函数 stats()。
-    第二步：清除文本中的标点字符,将非标点字符组成新列表 new_list。
-    第三步：遍历列表，将字符同上一次循环中频率统计结果作为形参传给统计函数stats()。
-    第四步：统计函数在上一次统计结果基础上得出本次统计结果，赋值给newDict。
-    第五步：new_list遍历结束，输出倒序排列的统计结果。
-    '''
-    result1 = re.findall(u'[\u4e00-\u9fff]+', string_cn)
-    newString = ''.join(result1)
+#def stats_text(text_en_cn) :
+#    ''' 1. 合并英汉词频统计 
+#        2. 参数类型检查，不为字符串抛出异常。
+#    '''
+#    if type(text_en_cn) == str : 
+#            return (stats_text_en(text_en_cn)+stats_text_cn(text_en_cn))
+#    else :
+#            raise ValueError ('type of argumengt is not str')
 
-    def stats(orgString, newDict) :
-        d = newDict
-        for m in orgString :
-            d[m] = d.get(m, 0) + 1
-        return d
-    
-    new_list = []
-    for char in newString :
-        cn = char.strip('-*、。，：？！……')
-        new_list.append(cn)
-    
-    words = dict()
-    for n in range(0,len(new_list)) :
-        words = stats(new_list[n],words)
-    newWords = sorted(words.items(), key=lambda item: item[1], reverse=True) 
-    print('中文汉字字频统计结果： ',dict(newWords))
+#print(stats_text_cn("我来到北京清华，。“”/n大学"))#试验成功
 
-# 调用函数
-#stats_text_en(text)
-#stats_text_cn(text)
-
-def stats_text_en(en) :
-    ''' 英文词频统计'''
-    text_en = re.sub("[^A-Za-z]", " ", en.strip())
-    enList = text_en.split( )
-    return collections.Counter(enList)
-
-    
-def stats_text_cn(cn) :
-    ''' 汉字字频统计 '''
-    cnList = re.findall(u'[\u4e00-\u9fff]+', cn.strip())
-    cnString = ''.join(cnList)
-    return collections.Counter(cnString)
-
-def stats_text(text_en_cn) :
-    ''' 合并英汉词频统计 '''
-    return (stats_text_en(text_en_cn)+stats_text_cn(text_en_cn))
-
-#感觉有一个问题没太明白，我交完作业再看看……
-#还有，文件虽然有报错，但是好像不耽误调用
+def text_strip(cn0):
+        list1 = cn0.split( )
+        i=0
+        for i in range(0,len(list1)):
+                list1[i]=list1[i].strip('，。“” \n')
+                if list1[i]==' ': 
+                        list1[i].remove(' ')
+                else:
+                        i=i+1
+        #return str_cn0_stripped = ''.join(list1)
+        return list1

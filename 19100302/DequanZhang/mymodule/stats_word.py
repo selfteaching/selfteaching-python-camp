@@ -47,46 +47,43 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
-# 定义stats_text_en()函数，统计英文词频
-text = text.replace("\n"," ").replace(","," ").replace("."," ").replace("*"," ").replace("--"," ")
-d = {}
-def stats_text_en(text):
-    if not isinstance(text,str):
-        raise ValueError('仅接受字符串类型参数，输入的不是字符串，请重新输入：')   #添加参数类型检查
-    for x in text.split():
-        if not x in d:
-            d[x] =1
-        else:
-            d[x]=d[x]+1
-    return d
+import collections
+from collections import Counter
+import re
+import jieba
 
-stats_text_en(text)
 
-d= (sorted(d.items(), key=lambda d: d[1],reverse=True)) 
-print(d)
+#定义英文词频
+def stats_text_en(text,count=None):
+    if type(text) == str : 
+            text = re.sub("[^A-Za-z]", " ", text.strip())
+            text = text.split( )
+            return collections.Counter(text).most_common(count)
+    else : 
+            raise ValueError ('仅接受字符串类型参数，输入的不是字符串，请重新输入：')
 
 
 
-#定义stats_text_cn函数，统计中文词频
-dic={}                        
-def stats_text_cn(text):    
-    if not isinstance(text,str):
-        raise ValueError('仅接受字符串类型参数，输入的不是字符串，请重新输入：')   #添加参数类型检查
-    for i in text:
-        if u'\u4e00' <= i <= u'\u9fff':
-            dic[i] = text.count(i)
-    return dic
+#定义中文词频统计
+def stats_text_cn(text,count=None):
+    if type(text) == str : 
+            text = re.findall(u'[\u4e00-\u9fff]+', text.strip())
+            text = "".join(text)
+            text = jieba.lcut(text,cut_all=False)    #jieba精确分词模式，遇到问题，通过看issue#1273解决
+            text1 = []
+            for i in text:
+                if len(i) >= 2:
+                    text1.append(i)    
+            return collections.Counter(text1).most_common(count)
+    else:
+        raise ValueError ('仅接受字符串类型参数，输入的不是字符串，请重新输入：')
+    
 
-stats_text_cn(text)             
-
-dic=sorted(dic.items(),key=lambda item:item[1],reverse = True)      
-print(dic)                            
-
-#定义stats_text函数，分别调用stats_text_en, stats_text_cn，输出合并词频统计
+#定义合并统计
 def stats_text(text):
-    if not isinstance(text,str):
-        raise ValueError('仅接受字符串类型参数，输入的不是字符串，请重新输入：')   #添加参数类型检查
-    return dict(stats_text_en(text),stats_text_cn(text))
-
-print(dict)
+    if type(text) == str :   
+            return (stats_text_en(text),stats_text_cn(text))
+    else:
+            raise ValueError ('仅接受字符串类型参数，输入的不是字符串，请重新输入：')
+  
 

@@ -37,3 +37,14 @@ for i in range(0,len(list1)):
 # 按照出现次数从大到小排列，示例 {'is': 10, ‘better’ : 9, …… }
 import collections
 print(collections.Counter(list1))
+
+
+dict={}
+for i in text:
+    count=list1.count(i)
+    r1={i:count}
+    dict.updat(r1)
+print(dict)
+
+dict1=sorted(dict.items(),key=lambda x:x[1],reverse=True)
+print(dict1)

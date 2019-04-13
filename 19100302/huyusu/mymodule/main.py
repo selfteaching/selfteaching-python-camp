@@ -1,5 +1,6 @@
 import stats_word
 
+
 text1 = 1
 
 while True:

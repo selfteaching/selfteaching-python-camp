@@ -30,8 +30,8 @@ def stats_text_cn(text):
         if len(j) > 1:
             text_list1.append(j)
     import collections
-    count = int(input('请输入要限制输出的元素个数：'))
-    dic = collections.Counter(text_list1).most_common(count)  #调用标准库collections.Counter，按出现次数从大到小排列
+    # count = int(input('请输入要限制输出的元素个数：'))
+    dic = collections.Counter(text_list1).most_common(10)  #调用标准库collections.Counter，按出现次数从大到小排列
     return dic
 
 
