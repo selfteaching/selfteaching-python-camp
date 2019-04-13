@@ -6,7 +6,7 @@ caculation = input("Please enter operator: ")
 
 if caculation == "+":
 
-    print(number_1 + number_2)3
+    print(number_1 + number_2)
 
 elif caculation == "-":
 
