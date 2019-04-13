@@ -1,3 +1,46 @@
+## Day9
+改写了好几天的函数，对函数有了一点点更加深入的认识.今天布置的作业是要在前几天作业的基础上加上collections.Counter most_common([n])这个函数，当看到这个函数中这一行介绍时有点难过
+```
+>>> Counter('abracadabra').most_common(3)  # doctest: +SKIP
+[('a', 5), ('r', 2), ('b', 2)]
+```
+意味这我前几天写的函数是一个重复啰嗦的函数，而我只要调用已经封装好的函数，我写的那几行代码完全可以删掉了。于是我原本的函数：
+```
+import re
+def stats_text_en(t_en): 
+    if not isinstance(t_en,str):
+        raise ValueError('输入的不是文本格式，请重新输入：')
+    '''英文词频统计'''
+    a = t_en.replace(',','').replace('.','').replace(':','').replace(';','').replace('"','').replace('!','').replace('?','').replace('、','').replace('，','').replace('。','').replace('“','').replace('”','').replace('：','').replace('；','').replace('\n','').replace('！','').replace('？','').replace('/','').replace('*',' ').replace('--',' ')
+    a = a.lower()
+    a = re.sub("[^A-Za-z]", " ", a)
+    a = a.split() 
+    b = {}
+    for i in a:
+        count =  a.count(i)
+        r1 = {i:count} 
+        b.update(r1)
+    c = sorted(b.items(),key=lambda x:x[1],reverse=True) 
+    print('英文单词统计频率如下： \n',c)
+```
+可以精简成如下函数：
+```
+import collections
+import re
+
+def stats_text_en(t_en,count): 
+    '''该函数返回一个英文单词词频统计，样式为（word,count）'''
+    if type(t_en) == str:
+        text_en = re.sub("[^A-Za-z]", " ", t_en.strip())
+        enlist = text_en.split() 
+        return collections.Counter(enlist).most_common(count)
+    else:
+        raise ValueError("输入不为字符串")
+```
+还有就是几乎可以嗅到一件可怕的事，那就是我好几天就看到counter函数了，而我只要在官方文档里查查看就可以试着拿来用，而我没有，这就意味这我的“未经声明，不能引用”的内置程序启用了，得赶紧删除了。
+
+
+
 ## Day8
 短跑过半了，坚持，坚持！
 
