@@ -11,6 +11,9 @@ from pyquery import PyQuery
 import getpass
 import yagmail
 from wxpy import Bot,SHARING,embed
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.font_manager import FontProperties
 
 
 bot = Bot(login_callback=True)
@@ -67,10 +70,26 @@ def auto_reply_analysis_result(msg):
     result = {}
 
     result=stats_text_cn(paper_content)
-
-    result= str(result)
-
-    my_friend.send(result)
+    
+    np_list=np.array(result)        #将文本处理结果转化为二维数组
+    word_list=[] #初始化盛放词的列表
+    number_list=[] #初始化盛放词频的列表
+    for i in range(len(np_list)): #拆分Numpy多维数组
+        word_list+=[np_list[i][0]]
+        number_list+=[int(np_list[i][1])]
+    plt.rcdefaults()
+    axis=plt.subplot()
+    
+    y_pos = np.arange(len(word_list))
+    axis.barh(y_pos, number_list, align='center', color='green', ecolor='black')
+    axis.set_yticks(y_pos)
+    axis.set_yticklabels(word_list)
+    axis.invert_yaxis()
+    axis.set_xlabel('词频')
+    axis.set_title('好友分享文章词频统计')
+    plt.savefig("stats.png") #保存图片
+    msg.reply_image("stats.png") #回复图片
+    
 
 embed()
 

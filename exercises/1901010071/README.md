@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Day9
 改写了好几天的函数，对函数有了一点点更加深入的认识.今天布置的作业是要在前几天作业的基础上加上collections.Counter most_common([n])这个函数，当看到这个函数中这一行介绍时有点难过
 ```
@@ -41,6 +42,8 @@ def stats_text_en(t_en,count):
 
 
 
+=======
+>>>>>>> upstream/master
 ## Day8
 短跑过半了，坚持，坚持！
 
