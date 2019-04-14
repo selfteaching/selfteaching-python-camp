@@ -20,10 +20,11 @@ print("Task 2-2:") # use condition to identify odd numbers
 c = 1
 while c <= 9:
     d = 1
-    while d <= c:
-        while c%2 == 1:
+    if(c%2==1):
+        while d <= c:
             print(c,"*",d," = ",c*d, end='\t')
-            break
+            d += 1
+        print()
+    else:
         d += 1
     c += 1
-    print()
