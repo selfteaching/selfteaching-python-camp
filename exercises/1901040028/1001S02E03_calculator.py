@@ -26,3 +26,4 @@ if yunsuan=="4":
 #print ("A+B=%s"%(a+b))
 #print("A-B=%d"%(a-b))
 #print("A*B=%4f"%(a*b))
+#testS
