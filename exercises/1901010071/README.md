@@ -1,3 +1,23 @@
+## day13
+这个做图一开始看着挺令人犯难的，因为前一天返回的数据不知道怎么拿来用，看了下别的同学的成果才知道，需要把结果字典化。
+```
+result = dict(text) 
+keys,values = zip(*r_dic.items())
+# 利用keys和value把词组和词频分开来用
+```
+然后再利用阅读材料中给定的表格编制样本，稍微调整改一下参数，就运行起来了，登录自己的小号，发文章测试了下，得到如下结果：
+![返回结果](https://github.com/unscientific/selfteaching-python-camp/blob/master/exercises/1901010071/d13/day13.png?raw=true)
+
+其中在测试的时候图标中的文字一度不能显示为中文，是一些框框，看了issues中的同学的方法才解决的。直接在issues中的Filters搜索：**1710**可以找到这个问题。win系统解决方案如下：
+```
+plt.rcParams['font.sans-serif']=['SimHei'] # 加在下一句前面
+ax.barh(y_pos, frequency, xerr=error, align='center', color='green', ecolor='black')
+```
+
+
+
+
+
 ## Day12
 今天的内容直接开始玩微信自动回复了，好玩。按照介绍编好了自动回复程序试运行起来，然后直接跳出一个二维码出来，扫描后微信网页登录。初次运行的时候老是跑不起来，然后检查了下自己的代码，发现是代码输入有问题。再次运行的时候，显示已经登录，然后给我匹配的朋友发了句：
 >请给我分享一篇文章
