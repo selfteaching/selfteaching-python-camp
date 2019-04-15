@@ -20,7 +20,7 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-text1 = text.replace('.','').replace(',','').replace('!','').replace('--','').replace('*','').lower().split()  # 消除标点符号,小写转换。
+text1 = text.replace('.','').replace(',','').replace('!','').replace('--','').replace('*','').replace('\n',' ').lower().split(" ")  # 消除标点符号,小写转换。
 def stats_text_en(text):        #定义函数
     dict1 = {}              #dict 为字典类 
     for i in text1:     
@@ -32,6 +32,7 @@ def stats_text_en(text):        #定义函数
     return result
 print(stats_text_en(text1))
 
+#https://github.com/selfteaching/selfteaching-python-camp/issues/1568 不明白就去这
 
 text3 = '''
 1.
