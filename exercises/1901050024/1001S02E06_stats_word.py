@@ -1,4 +1,3 @@
- 
 text = '''
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
@@ -37,17 +36,12 @@ print(stats_text_en(text1))
 text3 = '''
 1.
 The title track is a pointed meditation on a continent gone wrong. 
-
 主打歌是对一个误入歧途的大陆的深刻沉思。
-
 2.
 A study of yoga leads naturally to meditation. 
-
 学习瑜伽自然会发展到进行冥想。
-
 3.
 She found peace through yoga and meditation. 
-
 她通过瑜伽和冥想找到了宁静。
 '''
 
@@ -60,5 +54,3 @@ def stats_text_cn(text):                   #引用字典
 frequency = stats_text_cn(text)
 print (sorted(frequency.items(), key=lambda frequency: frequency[1],reverse=True))
 print(dict2)
-
-
