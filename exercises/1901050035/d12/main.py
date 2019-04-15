@@ -39,9 +39,9 @@ def print_others(msg):
 #罗志全 : dododo123邀你速学钉钉核心功能，成为首批数字化办公人才 (Sharing)
 
 
-#发送微信公众号信息，调用Day11程序自动回复统计结果
+#接收微信公众号信息，调用Day11程序自动回复统计结果
 
-@bot.register(my_friend,SHARING) #接收shareing类信息
+@bot.register(my_friend,sharing) #接收sharing类信息
 def auto_reply(msg):
     sharing_text = requests.get(msg.url) 
     document = PyQuery(sharing_text.text)
