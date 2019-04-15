@@ -8,8 +8,11 @@ re_cn = re.compile(r'[\u4E00-\u9FA5]') #用正常表达式获取所有的汉字
 def stats_text_cn (text:'输入的文本',count) -> list:
     if not isinstance(text,str):
         raise ValueError('stats_text_cn函数需要的参数是字符串')
-    cn_text=''.join(re_cn.findall(text))
+    cn_text=''.join(re_cn.findall(text)) #正则表达式获取中文
     cn_text_list=jieba.lcut(cn_text) #使用lcut，分词后获得列表
+    for i in cn_text_list: #遍历列表，删除长度小于2的元素
+        if len(i) <=1:
+            cn_text_list.remove(i)     
     count_cn=Counter(cn_text_list).most_common(count)#用counter统计列表的元素，用count限制个数
     return count_cn
 
