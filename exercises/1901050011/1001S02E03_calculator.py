@@ -1,58 +1,46 @@
-def add(string):                                #定义加法
-    tmp = 0
-    numbers = []
-    numbers += string.split("+")               #对用户输入的数字以+号做分割，写入到列表里。
-    for i in numbers:                          #遍历列表。
-        tmp += int(i.strip())                  #先对遍历的对象i,去除空格后，得出结果tmp = i + tmp
-    print("{0} = {1}".format(string, tmp))     #打印结果tmp
+# 定义函数
+def add(x, y):
+   """相加"""
  
+   return x + y
  
-def subtraction(string):                        #定义减法
-    numbers = []
-    numbers += string.split("-")                #对用户输入的数字以-号做分割，写入到列表里。
-    tmp = int(numbers[0].strip())               #取列表的第一个数字给tmp
-    numbers.pop(0)                              #因为第一个值给了tmp 所以删除第一个值。
-    for i in numbers:                           #遍历numbers
-        tmp -= int(i.strip())                   #得出结果tmp ，每次循环都删除第一个值然后相减。
-    print("{0} = {1}".format(string, tmp))
+def subtract(x, y):
+   """相减"""
  
+   return x - y
  
-def multiplication(string):                     #定义乘法
-    numbers = []
-    numbers += string.split("*")                #对用户输入的数字以*号做分割，写入到列表里。
-    tmp = int(numbers[0].strip())               #取列表的第一个数字给tmp
-    numbers.pop(0)                              #因为第一个值给了tmp 所以删除第一个值。
-    for i in numbers:                           #遍历numbers
-        tmp *= int(i.strip())                   #得出结果tmp ，每次循环都删除第一个值然后相乘。
-    print("{0} = {1}".format(string, tmp))
+def multiply(x, y):
+   """相乘"""
  
+   return x * y
  
-def division(string):                            #定义除法
-    numbers = []
-    numbers += string.split("/")                 #对用户输入的数字以/号做分割，写入到列表里。
-    tmp = int(numbers[0].strip())                #取列表的第一个数字给tmp
-    numbers.pop(0)                               #因为第一个值给了tmp 所以删除第一个值。
-    for i in numbers:                            #遍历numbers
-        tmp /= int(i.strip())                    #得出结果tmp ，每次循环都删除第一个值然后相除。
-    print("{0} = {1}".format(string, tmp))
+def divide(x, y):
+   """相除"""
  
+   return x / y
  
-if __name__ == '__main__':                       #定义执行方式，当执行脚本本身，执行如下代码。
-    print("******************************")
-    print("          计算器")
-    print("******************************")
-    chose = input("选择你要的计算方式，1/加法 ，2/减法，3/乘法，4/除法: ")
-    if chose == "1":
-        tmp = input("请输入你要计算的数字:")
-        add(tmp)
-    elif chose == '2':
-        tmp = input("请输入你要计算的数字:")
-        subtraction(tmp)
-    elif chose == '3':
-        tmp = input("请输入你要计算的数字:")
-        multiplication(tmp)
-    elif chose == '4':
-        tmp = input("请输入你要计算的数字:")
-        division(tmp)
-    else:
-        print("你输入的有误，请重新输入")
+# 用户输入
+print("选择运算：")
+print("1、相加")
+print("2、相减")
+print("3、相乘")
+print("4、相除")
+ 
+choice = input("输入你的选择(1/2/3/4):")
+ 
+num1 = int(input("输入第一个数字: "))
+num2 = int(input("输入第二个数字: "))
+ 
+if choice == '1':
+   print(num1,"+",num2,"=", add(num1,num2))
+ 
+elif choice == '2':
+   print(num1,"-",num2,"=", subtract(num1,num2))
+ 
+elif choice == '3':
+   print(num1,"*",num2,"=", multiply(num1,num2))
+ 
+elif choice == '4':
+   print(num1,"/",num2,"=", divide(num1,num2))
+else:
+   print("非法输入")
