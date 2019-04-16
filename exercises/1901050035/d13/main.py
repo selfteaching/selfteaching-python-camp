@@ -1,6 +1,8 @@
 #Selfteaching day13homework ,wxpy -chart practice.3!
 
 from mymodule import stats_word as counts  #import module stats_word.py function
+import requests
+from pyquery import PyQuery
 from wxpy import *   
 import numpy as np
 import matplotlib.pyplot as plt
@@ -17,8 +19,8 @@ print（my_friend）
     
 #自动回复
 @bot.register(my_friend)
-   def auto_reply_my_friend(msg):
-    return 'received:{}({})'.format(msg.text,msg.type)
+def auto_reply_my_friend(msg):
+   return 'received:{}({})'.format(msg.text,msg.type)
 
 # 发送文本和图片给好友
 my_friend.send('Hello 今天心情不错')
@@ -41,7 +43,7 @@ def auto_reply(msg):
     import matplotlib.pyplot as plt             #调用matplotlib 库函数
     from matplotlib.ticker import FuncFormatter
     
-    l1=counts.stats_text_cn(content,count=10)      ##统计微信消息前10位热词
+    l1=counts.stats_text_cn(content,count=20)      ##统计微信消息前10位热词
     data=dict(l1)                                  #将统计结果热词数据字典化
     group_data = list(data.values())
     group_names = list(data.keys())
@@ -53,12 +55,12 @@ def auto_reply(msg):
     ax.barh(group_names, group_data)
     labels = ax.get_xticklabels()
     plt.setp(labels, rotation=45, horizontalalignment='right')
-    ax.set(xlim=[0, 50], xlabel='词频( 次 )', ylabel=' 热词 ',title='TOP N 热词')
+    ax.set(xlim=[0, 30], xlabel='词频( 次 )', ylabel=' 热词 ',title='TOP N 热词')
     plt.show()
     fig.savefig('top_n.png', transparent=False, dpi=80, bbox_inches="tight")  # 将统计图表存成png格式
     
     my_friend.send_image('top_n.png')   #发送统计结果图片
-    result = counts.stats_text_cn(content,count=10) #统计热词
+    result = l1 #统计热词
 
     return result #将Top n 热词自动回复给好友 
 
