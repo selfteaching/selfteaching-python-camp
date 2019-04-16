@@ -30,6 +30,6 @@ contents=text_str
 subject='【自学训练营学习3群】Day11 wangzhenjia'
 
 stmp='smtp.qq.com'
-ag=yagmail.SMTP(sender,password,stmp)
+yag=yagmail.SMTP(sender,password,stmp)
 yag.send(recipients,subject,contents)
 
