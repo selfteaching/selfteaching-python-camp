@@ -26,12 +26,16 @@ But you put up with me, and loved me, and protected me.
 There were lots of things I wanted to make up to you when you returned from Vietnam.
 But you didn't.
 '''
-import string #用import导入string模块
 
 def stats_text_en(text):
-    for x in string.punctuation:#用string模块中的punctuation功能检查标点符号并用空格代替
-	    text1=text.replace(x,"")
+    for x in text:
+        for x in ',','.','?','"','!','，','。','？','！','：','「','」':
+	        text=text.replace(x,"")
     text2=text1.split() #以空格拆分为独立单词
+
+    for i in text2:
+        if u'\u4e00' <= i <= u'\u9fff':#判断是不是中文
+            text2.remove(i) #将列表中中文删除
 
     dic={}
     for i in text2:  #将字符串转换为字典
@@ -42,6 +46,7 @@ def stats_text_en(text):
     return(dic1)
 print(stats_text_en(text1))  #调用函数并打印结果
 
+  
 
 #2.封装统计中文汉字字频的函数 
 text_1 = '''                       
@@ -78,4 +83,7 @@ def stats_text_cn(text):    #定义检索中文函数
     return cndic
 print(stats_text_cn(text_1)) #调用函数并打印结果
 
-
+def stats_word(text): #定义函数，实现统计汉字和英文单词出现次数
+    print(stats_text_en(text))
+    print(stats_text_cn(text))
+stats_word(text_1)
