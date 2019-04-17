@@ -1,4 +1,4 @@
-import stats_word
+from mymodule import stats_word
 
 text='''
 愚公移山
@@ -73,4 +73,4 @@ mighty gods to carry the mountains away.
 
 dict1={}
 dict1=stats_word.stats_text(text)
-print(dict1)
+
