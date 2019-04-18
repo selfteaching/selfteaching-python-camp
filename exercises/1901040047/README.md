@@ -67,6 +67,26 @@ ststs_text_cn(text)    #调用中文词频统计
 
 
 第二个作业，新建一个main.py文件，并在里面通过模块导入上面那个函数stats_text(text)，并打印结果。
-这个作业，只需要在上面那个作业的前面，加入两行代码就可以了。
+这个作业，只需要在上面加入两行代码就可以了。
 import stats_word as  a    #导入stats_word函数
 print (a.stats_text)            #打印导入函数的结果
+
+
+
+
+
+DAY8
+DAY8的作业是在DAY7的基础上检查参数是否有输出错误，有则显示错误。需要调用DAY7的两个函数，从DAY5开始，每一次的作业都是下一次作业的原材料，所以，DAY5的作业一定要慎重，要挑那些逻辑相对来说容易理解一点的例子来参考，这样，下一关的任务就会很轻松，因为，每次的前进，都是在前一次的基础之上的。不会突然拉高十米，不会，只会每次拉升一米，这些，你只要花一点点力，一跳就能跳上这个台阶，这个设计还是很懂心理学的。
+今天需要用到的函数有两个，一个是判断是该字符是否为''str"，语法为：
+if type(text)!=str:
+     raise ValueError("文本为非字符串")
+
+
+另一个作业是，调用DAY7的stats_word函数，用try  ……  except来捕获异常。
+语法为：
+import stats_word
+test=123321
+try:
+        ststs_word.ststs_text(test)
+except ValueError:
+       print("文本为非字符串")
