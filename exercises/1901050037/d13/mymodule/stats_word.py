@@ -1,14 +1,14 @@
 
-# coding: utf-8
-
-# In[25]:
-
-
 from collections import Counter
 import re
 import jieba
 import json
-
+import requests
+import getpass
+import yagmail
+from pyquery import PyQuery 
+import matplotlib.pyplot as plt
+import numpy as np
 def stats_text_en (text,count):
     text,count=checktype(text,count)
     temp=text.replace(',','').replace('.','').replace('*','').replace('!','').replace(':','').replace('\n',' ').replace('\t','').replace('，','').replace('。','').replace('！','').replace('？','').strip().lower() #把特殊符号都去掉，并全部换成小写
@@ -68,15 +68,6 @@ def checktype(x,count):
         raise ValueError('input a int!')
     else:
         return x,count
-
-from wxpy import *
-import requests
-import itchat
-from pyquery import PyQuery 
-# from mymodule import stats_text
-import matplotlib.pyplot as plt
-import numpy as np
-# 初始化机器人，扫码登陆
 def plot_wordsfreq(response,count):
     filename="./bar.png"
 
@@ -103,5 +94,4 @@ def plot_wordsfreq(response,count):
 #     plt.show()
 
     return filename
-
-
+    

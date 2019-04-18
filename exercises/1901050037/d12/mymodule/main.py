@@ -15,7 +15,7 @@ bot = Bot(cache_path=True)
 
 
 @bot.register()
-def print_others(msg):
+def print_message(msg):
     if msg.type == 'Sharing': #sharing 分享的公众号文章
         r = requests.get(msg.url) #解析获取公众号文章的url
         document = PyQuery(r.text)
