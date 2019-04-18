@@ -52,7 +52,7 @@ if __name__ =="__main__":
     else:
         print("The string you input is error.")
         '''
-
+'''
 x = int(input("Please enter an integer: "))
 
 if x < 0:
@@ -65,3 +65,7 @@ elif x == 1:
      print('Single')
 else:
      print('More')
+'''
+
+
+

@@ -24,7 +24,6 @@ Namespaces are one honking great idea -- let's do more of those!
 text=text.replace(',','').replace('.','').replace('--','').replace('!','').replace('*','')  #去除标点符号（没有找到更好的办法，如果文本格式很多怎么办？）
 text=text.lower()   #把单词全部变为小写
 text=text.split()   #把字符串分割成单个单词列表
-
 dict={}
 for x in text:
     if x in dict:
@@ -32,7 +31,6 @@ for x in text:
     else:
         dict[x]=1
 text_1 = sorted(dict.items(), key=lambda y: y[1], reverse=True)   #key为排序依据，y【0】为key，1为y，这里不太懂，reverse为true时降序。
-
-print(text_1)
+print (text_1)
 
 
