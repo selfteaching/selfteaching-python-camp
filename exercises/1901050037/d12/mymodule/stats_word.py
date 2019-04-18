@@ -69,6 +69,39 @@ def checktype(x,count):
     else:
         return x,count
 
+from wxpy import *
+import requests
+import itchat
+from pyquery import PyQuery 
+# from mymodule import stats_text
+import matplotlib.pyplot as plt
+import numpy as np
+# 初始化机器人，扫码登陆
+def plot_wordsfreq(response,count):
+    filename="./bar.png"
 
+    document = PyQuery(response.text)
+    content_input = document('#js_content').text()
+    result_str = stats_text(content_input,count)
+    list_words = [x[0] for x in result_str]
+    list_freq=[x[1] for x in result_str]
+
+    # 设置中文字体和负号正常显示
+    matplotlib.rcParams['font.sans-serif'] = ['SimHei']
+    matplotlib.rcParams['axes.unicode_minus'] = False
+
+    freq=list_freq
+    plt.barh(range(count), freq, height=0.7, color='steelblue', alpha=0.8)  
+    plt.yticks(range(count), list_words)
+    plt.xlim(list_freq[count-1],list_freq[0])
+    plt.xlabel("frequency")
+    plt.title('top word frequency of this article')
+
+    for x,y in enumerate(freq):
+        plt.text(y+0,x,"%s"%y,va='center')
+    plt.savefig(filename)
+#     plt.show()
+
+    return filename
 
 
