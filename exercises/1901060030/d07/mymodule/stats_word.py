@@ -6,7 +6,6 @@ def stats_text_en(text):
     for i in new_list:
         new_list1.append(i.lower())
     print(Counter(new_list1))
-    return
 def stats_text_cn(text):
     from collections import Counter
     new_list3 = []
@@ -16,7 +15,6 @@ def stats_text_cn(text):
     for i in new_list3:
         new_list4.append(chr(i))
     print(Counter(new_list4))
-    return
 
 def stats_text(text):
     """
@@ -31,6 +29,5 @@ def stats_text(text):
             cn.append(i)
     # Build a list contains English words only
     en = re.findall('[a-zA-Z0-9]+',text)
-    stats_text_en(en)
-    stats_text_cn(cn)
-    return       
+    return (stats_text_cn(cn),stats_text_en(en))
+           
