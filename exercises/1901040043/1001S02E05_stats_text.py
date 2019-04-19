@@ -24,25 +24,20 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 
-# better替换成wose
-t1 = text.replace('better','worse')
-print(t1)
+list1 = text.split(' ')
+for i in range(len(list1)):
+    list1[i] = list1[i].strip(',*-.!,.\n,:, ,' ',''')
+    
+set1 = set(list1)
+list2 = list(set1)
 
-# 剔除包含ea的单词
+dir1 = {}
+for x in range(len(list2)):
+    dir1[list2[x]] = 0
+    for y in range(len(list1)):
+        if list2[x] == list1[y]:
+            dir1[list2[x]] += 1
+print(dir1)
 
-t2 = t1.split()
-t3 = []
-for i in t2:
-    if 'ea' not in i:
-        t3.append(i)
-print(t3)
-
-# 大小写翻转
-t4 = ''.join(t3)
-T4 = t4.swapcase()
-print(T4)
-
-#将所有单词按照a...z升序排列
-
-t3.sort()
-print(t3)
+dir2 = sorted(dir1.items(),key = lambda x:x[1],reverse = True)
+print(dir2)
