@@ -1,6 +1,18 @@
-@@ -3,4 +3,5 @@
-	print ("A+B=%s"%(a+b))
-	print("A-B=%d"%(a-b))
-	print("A*B=%f"%(a*b))
-	print("A/B=%f"%(a/b)) 
-	print("A/B=%f"%(a/b))
+num1 = int(input("Enter a number:"))
+op = input('Enter Operator')
+num2 = int(input("Enter another number:"))
+
+if op == "+":
+	print(num1 + num2)
+
+elif op == '-':
+	print(num1 - num2)
+
+elif op == "*":
+	print(num1 * num2)
+
+elif op == "/":
+	print(num1 / num2)
+
+else:
+	print("invalid operator")
