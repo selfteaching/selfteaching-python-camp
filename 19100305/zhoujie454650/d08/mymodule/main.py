@@ -60,7 +60,3 @@ try:
 except ValueError:
     print('Input is not str.')
 
-try:
-    stats_word.stats_text_en(test)
-except ValueError:
-    print('Input is not str')
