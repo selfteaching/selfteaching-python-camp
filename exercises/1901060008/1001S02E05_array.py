@@ -12,7 +12,7 @@ str_1=''.join(list_2)
 print(str_1)
 print('*'*50)
 print('第三题：用字符串的切片方式取出第三到第八个字符\n')
-take3_8=str_1[3:9]
+take3_8=str_1[2:8]
 print(take3_8)
 print('*'*50)
 print('第四题：将获得的字符串进行翻转\n')
