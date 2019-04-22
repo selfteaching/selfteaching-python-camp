@@ -1,4 +1,3 @@
-
 text = '''
 愚公移山
 
@@ -48,43 +47,30 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
  '''
 
-import re # 调用正则表达式模块
-	          # re.sub(pattern, repl, string, count=0, flags=0)
-def stats_text_en(text): # 定义函数
-	    '''英文词频统计'''
-	    a = text.replace(',','').replace('.','').replace(':','').replace(';','').replace('"','').replace('!','').replace('?','').replace('、','').replace('，','').replace('。','').replace('“','').replace('”','').replace('：','').replace('；','').replace('\n','').replace('！','').replace('？','').replace('/','').replace('*',' ').replace('--',' ')
-	    a = a.lower() # 全英文单词小写
-	    a = re.sub("[^A-Za-z]", " ", a) # 借用了这个正则表达式，这里保留了英文单词，^代表取出大小写a-z以外所有的字符串剔除
-	    a = a.split() # 分割字符串
-	    b = {}
-	    for i in a:
-	        count =  a.count(i)
-	        r1 = {i:count} 
-	        b.update(r1)
-	    c = sorted(b.items(),key=lambda x:x[1],reverse=True) 
-	    print('英文单词统计频率如下： \n',c) # 这里print()函数缩进就是封装进我定义的函数里面去了
+import collections
+import re
 	
-	# 给自己的中文排序函数写个说明
-	# 1.去标点符号
-	# 2.定义字典e{}
-	# 3.用.count（）把中文字符串的字和字频统计出来然后加入字典e
-	# 4.定义一个参数f，用sorted()函数对f进行排序
-	# 5.print缩进函数里面就是函数的一个输出参数了
-def stats_text_cn(text):
-	    '''中文词频统计'''
-	    d = text.replace(',','').replace('-',' ').replace('.','').replace(':','').replace(';','').replace('"','').replace('!','').replace('?','').replace('、','').replace('，','').replace('。','').replace('“','').replace('”','').replace('：','').replace('；','').replace('\n','').replace('！','').replace('？','').replace('/','').replace('*',' ').replace(' ','')
-	    d = re.sub("[A-Za-z0-9]", "",d) #借用了这个正则表达式，这里删除了英文单词，因为没有加上^
-	    e = {}
-	    for j in d:
-	        count = d.count(j)
-	        r2 = {j:count}
-	        e.update(r2)
-	    f = sorted(e.items(),key=lambda x:x[1],reverse=True)
-	    print('中文单字统计频率如下： \n',f)
+def stats_text_en(t_en,count): 
+	    '''该函数返回一个英文单词词频统计，样式为（word,count）'''
+	    if type(t_en) == str:
+	        text_en = re.sub("[^A-Za-z]", " ", t_en)
+	        enlist = text_en.split() 
+	        return collections.Counter(enlist).most_common(count)
+	    else:
+	        raise ValueError("输入不为字符串")
 	
-def stats_text(text):
-	    '''中英文词频统计'''
-	    stats_text_cn(text)
-	    stats_text_en(text)
-
-stats_text(text)	    
+def stats_text_cn(t_cn,count):
+	    '''该函数返回一个中文单词词频统计，样式为（word,count）'''
+	    if type(t_cn) == str:
+	        text_cn = re.findall(u'[\u4e00-\u9fff]+',t_cn)
+	        cnstr = ''.join(text_cn)
+	        return collections.Counter(cnstr).most_common(count)
+	    else:
+	        raise ValueError('输入不为字符串')
+	
+def stats_text(en_cn,count):
+	    '''该函数返回一个英文单词词频+中文字频混合的函数'''
+	    if type(en_cn) == str:
+	        return (stats_text_en(en_cn,count)+stats_text_cn(en_cn,count))
+	    else:
+	        raise ValueError('输入不为字符串')
