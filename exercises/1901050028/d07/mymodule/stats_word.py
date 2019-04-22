@@ -8,7 +8,7 @@ def stats_text_cn(text):    #定义检索中文函数
     return
 
 
-def stats_text_en(text):#定义函数
+def stats_text_en(text):#定义检索英文函数
     t = text.replace(',',' ').replace('.',' ').replace('-',' ').replace('"',' ').replace('!',' ').replace('?',' ') #替换标点为空格
 
     list = ''   #存储英文单词的字符串
@@ -26,3 +26,11 @@ def stats_text_en(text):#定义函数
     list1= sorted(dict.items(),key=lambda x:x[1],reverse=True) #降序排列
     print(list1)
     return
+
+def stats_text(text):
+    stats_text_cn(text)
+    stats_text_en(text)
+    return
+
+        
+
