@@ -56,5 +56,4 @@ mighty gods to carry the mountains away.
 '''
 
 import stats_word 
-stats_word.stats_text_cn(text)
-stats_word.stats_text_en(text)
+stats_word.stats_text(text)
