@@ -29,7 +29,6 @@ t1 = text.replace('better','worse')
 print(t1)
 
 # 剔除包含ea的单词
-
 t2 = t1.split()
 t3 = []
 for i in t2:
