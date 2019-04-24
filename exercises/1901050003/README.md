@@ -1,3 +1,1 @@
-DAY1
-
-no stop
+philosophy and math are this world true.
