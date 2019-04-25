@@ -21,8 +21,7 @@ def stats_text_en(text):
         list.append(i[0])#取出符合条件的字符加入新的列表
     return list#返回这个排序好之后的字符
 
-print(stats_text_en('kjjk,hjghj,ggg,ggg,ggg'))#自己的测试
-print('==============分割线===================')
+# print('==============分割线===================')
 
 def stats_text_cn(text):
     edit_text = text.replace(',', ' ').replace('.', ' ').replace('--', ' ').replace('!', ' ').replace('*', ' ')
@@ -45,4 +44,8 @@ def stats_text_cn(text):
         list.append(i[0])#取出符合条件的字符加入新的列表
     return list
 
-print(stats_text_cn('你好,世界,美好,你好,你好,adsfsadf,hello'))#自己的测试
+text = 'aaa,aaa,aaa,sdafasdf,sadfasdf,asdfsadf,你好,你好,你好,世界'
+def stats_text():#将两个函数做成一个函数
+    print(stats_text_en(text) + stats_text_cn(text))
+
+#stats_text()#调用
