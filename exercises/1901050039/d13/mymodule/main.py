@@ -2,10 +2,7 @@ from wxpy import *
 import requests
 from pyquery import PyQuery
 import stats_word
-import numpy 
-import matplotlib.pyplot as plt
-from pylab import *
-mpl.rcParams['font.sans-serif'] = ['SimHei']
+
 bot = Bot()
 
 @bot.register()   #回复信息
@@ -14,14 +11,7 @@ def auto_reply(msg):
         r = requests.get(msg.url)
         document = PyQuery(r.text)
         content = document('#js_content').text()
-        result = dict(stats_word.stats_text_cn(content))  #把结果变成字典
-        x = tuple(result.keys())
-        y = tuple(result.values())
-        plt.bar(x,y,width=0.5)
-        plt.title("高频词汇表")
-        plt.xlabel("高频词汇")
-        plt.ylabel("次数")
-        a = plt.savefig('wordslist')
-    return a
+        result = stats_word.stats_text_cn(content)
+    return result
 
 embed()
