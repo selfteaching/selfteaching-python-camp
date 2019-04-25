@@ -17,7 +17,7 @@ def auto_reply(msg):
         result = dict(stats_word.stats_text_cn(content))  #把结果变成字典
         x = tuple(result.keys())
         y = tuple(result.values())
-        plt.bar(x,y,width=1.0)
+        plt.bar(x,y,width=0.5)
         plt.title("高频词汇表")
         plt.xlabel("高频词汇")
         plt.ylabel("次数")
