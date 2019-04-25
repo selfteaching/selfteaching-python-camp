@@ -29,8 +29,7 @@ def stats_text_cn(text,count):    #定义检索中文函数
     for i in text: #筛选长度大于等于2的词
         if len(i)>=2:
             text1.append(i)
-    a=collections.Counter(text1).most_common(count)
-    return a
+    print(collections.Counter(text1).most_common(count))
 
 
 def stats_word(text,count): #定义函数，实现统计汉字和英文单词出现次数
