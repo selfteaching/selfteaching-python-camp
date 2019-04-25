@@ -4,10 +4,11 @@ def stats_text_en(text):
 #上面两句简单的将用户输入的字符串先筛选 再切片
     dir = {}
     for i in edit_text:#遍历列表取出每个元素给空字典用
-        if i in dir:
-            dir[i]+=1#创建字典key并赋值
-        else:
-            dir[i]=1
+        if (i >= '\u0041' and i <= '\u005a') or (i >= '\u0061' and i <= '\u007a'):
+            if i in dir:
+                dir[i]+=1#创建字典key并赋值
+            else:
+                dir[i]=1
     for key in dir:#将数据按照格式化打印出来
         print("字符中这个：'{}'字符出现了{}次".format(key,dir[key]))
 
@@ -44,4 +45,4 @@ def stats_text_cn(text):
         list.append(i[0])#取出符合条件的字符加入新的列表
     return list
 
-print(stats_text_cn('你好,世界,美好,你好,你好，adsfsadf,hello'))#自己的测试
+print(stats_text_cn('你好,世界,美好,你好,你好,adsfsadf,hello'))#自己的测试
