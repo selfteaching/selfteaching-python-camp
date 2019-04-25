@@ -1,62 +1,60 @@
-# 1.参考多位同学的优质代码，把自己代码变得更加简洁；
-# 2.加入报错功能，在输入参数不是字符串的情况下提示；（有些地方还没考虑清楚，先加入一个最简单版本，再改进）
-# 3.一些细节上的改进：
-#     1）英文处理：因为英文很多时候有用“-”把多个单词连起来的习惯，所以在处理英文文本的时候，先把“-”换成空格；
-#     2）排版改进：做了一点小调整，让英文的打印效果更好看
-# ps.如果你在阅读，请别介意我那乱七八糟的英文，感谢有道~
-
 import re
 
+
 def stats_text_en(text):
+    # First changing "\n" into " ", 
+    # then changing all charactor into lowercase
+    # then removing non-english or no-space charactor
+    text_p = text.replace("\n", " ").strip().lower()
+    i = re.compile("[^a-zA-Z0-9 ]")
+    text_en = i.sub("", text_p)
 
-    if not isinstance(text, str):
-        raise ValueError("I can only handle a string type text")
-
-    # first removing "-", useless space, then changing all words into lower-case.
-    text_p = text.replace("\-", " ").strip().lower()
-    # don't forget the "\n", Otherwise it will bring some awkawk words
-    i = re.compile("[^a-zA-Z0-9 \n]")
-    text_en = i.sub("", text_p).split()
+    # split, if has "" item , remove    
+    text_to_list = text_en.split(" ")
+    while "" in text_to_list:
+        text_to_list.remove("")
 
     # create dictionary
-    sort_list = [(x, text_en.count(x)) for x in set(text_en)]
+    sort_list = [(x, text_to_list.count(x)) for x in set(text_to_list)]
     sort_dict = dict(sort_list)
     
     # output a dictionary sort by frequency
     return (sorted(sort_dict.items(), key=lambda x: x[1], reverse=True))
 
 
+# 
 def stats_text_cn(text):
+    # remove chinese symbol and "\n" and " " and, don't forget english and number charactor...
+    i = re.compile("[ \,，\;；\.。：、\{\}\[\]「」\*—~\-\?？！\!‘\'’“\"”\nA-Za-z0-9]")
+    text_rm_symbol = i.sub("", text)
 
-    if not isinstance(text, str):
-        raise ValueError("I can only handle a string type text")
-
-    # only chinese left and change into a list.
-    list_cn = [i for i in text if u'\u4e00' <= i <= u'\u9fa5']
+    # split
+    text_to_list = []
+    for x in text_rm_symbol:
+        text_to_list.append(x)
+    while "" in text_to_list:
+        text_to_list.remove("")
 
     # create dictionary
-    sort_list = [(x, list_cn.count(x)) for x in set(list_cn)]
+    sort_list = [(x, text_to_list.count(x)) for x in set(text_to_list)]
     sort_dict = dict(sort_list)
     
-    # output a dictionary sorted by frequency
+    # output a dictionary sort by frequency
     return (sorted(sort_dict.items(), key=lambda x: x[1], reverse=True))
 
 
 
 def stats_text(text):
-    if not isinstance(text, str):
-        raise ValueError("I can only handle a string type text")
-
+    # Handling text 
     sort_en = stats_text_en(text)
     sort_cn = stats_text_cn(text)
-
-
+    
     # print with a nicer neat
     i = 1
     print()
     print("Englise:", end="\n\n")
     for (x, y) in sort_en:
-        while len(x) < 15 - len(str(y)):
+        while len(x) < 14:
             x = x + " "
         if i % 3 != 0:
             print(x, y, "|", end=" ")

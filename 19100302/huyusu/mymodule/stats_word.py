@@ -67,6 +67,10 @@ mighty gods to carry the mountains away.
 
 '''
 
+import collections
+
+#import jieba    #jieba第三方库（day10_exercise)（这个位置也可以）
+
 a = text.lower()
 a = a.split()  # 指定分隔符对字符串进行切片
 a.pop()  # 删除list中的中文元素
@@ -80,6 +84,8 @@ def stats_text_en():      # 定义检索中文函数
     if not isinstance(text, str):
         raise ValueError('不是字符串类型(string)!')
 
+   
+
     for i in a:
         if i in found:
             found[i] += 1
@@ -88,8 +94,8 @@ def stats_text_en():      # 定义检索中文函数
         found[i] += 1
 
 
-
-    print('英文单词词频：', sorted(found.items(), key=lambda x: x[1], reverse=True))  # 词频降序
+    print('英文单词词频： ', collections.Counter(found).most_common(1))
+    #print('英文单词词频：', sorted(found.items(), key=lambda x: x[1], reverse=True))  # 词频降序
 
 
 stats_text_en()    # 调用函数
@@ -99,19 +105,30 @@ stats_text_en()    # 调用函数
 
 import re
 
+import jieba             #jieba第三方库（day10_exercise)
 
 def stats_text_cn():      # 定义检索英文函数
     """统计参数中每个中文单词出现的次数"""  # 注释
     global text  # 把text标记为全局变量
 
+    
+
     if not isinstance(text, str):
         raise ValueError('不是字符串类型(string)!')
+
+    
+    #text = [x for x in jieba.cut_for_search(text) if len(x) >= 2]  #使用精确模式分词（位置不对）
 
     found = {}      # 初始化一个词典
 
     # 提取中文字符串
     text = re.sub("[A-Za-z0-9\!\%\[\]\,\。]", "", text)
     text = text.replace("  ", '')  # 提取的中文字符串会算上空格，会被统计上，故移除空格
+
+    text = [x for x in jieba.cut_for_search(text) if len(x) >= 2]  #使用精确模式分词(day10_exercise)
+    #通过jieba精确模式将stats_word.py中stats_text_cn函数的输入字符串进行分词
+    #统计分词完成之后的词频（中文词只统计长度大于等于2的词）
+
     #print(text)                   #感觉多余
 
     for i in text:
@@ -121,8 +138,9 @@ def stats_text_cn():      # 定义检索英文函数
             found[i] = 0
             found[i] += 1
 
-
-    print('中文汉字字频： ', sorted(found.items(), key=lambda x: x[1], reverse=True))
+    
+    print('中文单词词频： ', collections.Counter(found).most_common(20))
+    #print('中文汉字字频： ', sorted(found.items(), key=lambda x: x[1], reverse=True))
 
 stats_text_cn()   # 调用函数
 

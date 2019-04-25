@@ -13,9 +13,11 @@ def main():
 		document = PyQuery(response.text)
 		content = document('#js_content').text()  #d11 
         result = stats_word.stats_text_cn(content,count=100)
-        return result   #将结果返回给好友
+        str_1 = str(result)
+        my_friend.send(str_1)   #将结果返回给好友
 
     embed() #
 
 if __name__=='__main__':
     main()
+

@@ -1,3 +1,9 @@
+# 19100304 day10 银零
+# 1.通过 jieba 精确模式将 stats_text_cn 函数的输入字符串进行分次
+# 2.统计分词完成之后的词频（中文词只同级长度大于等于2的词）
+# 3.输出tang300.json 文件内容中的词频前20的词和词频数
+
+
 # 19100304 day9 银零
 # 1.使用标准库中的 counter 函数，使 stats_word 函数能够按照词频出现的次数有序输出
 # 2.分别给两个函数添加一个 int 类型变量 count, 用于限制输出元素的个数
@@ -30,15 +36,21 @@ def stats_text_en(string):
 
 # 这是一个封装统计中文汉字字频的函数，并按字频降序排列数组
 
-def stats_text_cn(string):
+def stats_text_cn(string,count):
     if type(string) == str:                             #检查输入值是否为字符串类型
         import re                                       #导入正则表达式模块
         import collections
+        import jieba        
         result_cn_interpunction = re.sub('[^\u4e00-\u9fa5]','',string)                      #提取中文字符串
         string = string.replace(' ','').replace('\n','')#删除空元素与换行元素
-        list1 = re.split('',string)                     #将字符串转换为列表list1
-        result = collections.Counter(list1).most_common(100)                     #使用 counter 函数统计元素出现次数；使用 most_common 函数使结果按照频率最高的100个元素和其计数输出为列表                 
-        return result
+        list1 = jieba.lcut(string,cut_all=False)
+        for i in list1:
+            if len(i)>=2:
+                list1.append(i)
+            else:
+                pass
+        result = collections.Counter(list1).most_common(count)        
+        return result                                   #使用 counter 函数统计元素出现次数；使用 most_common 函数使结果按照频率最高的100个元素和其计数输出为列表                 
     else:                                               #若输入值不是字符串类型
         raise ValueError('输入值不是字符串')
 

@@ -1,4 +1,4 @@
-from mymodule import stats_word_day7
+from mymodule import stats_word_day9
 
 text = '''
 愚公移山
@@ -31,4 +31,5 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
-stats_word_day7.stats_text(text)
+stats_word_day9.stats_text(text, 100)
+
