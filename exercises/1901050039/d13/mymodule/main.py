@@ -5,7 +5,7 @@ import stats_word
 import numpy 
 import matplotlib.pyplot as plt
 from pylab import *
-mpl.rcParams['font.sans-serif'] - ['SimHei']
+mpl.rcParams['font.sans-serif'] = ['SimHei']
 bot = Bot()
 
 @bot.register()   #回复信息
