@@ -11,7 +11,7 @@ def auto_reply(msg):
         r = requests.get(msg.url)
         document = PyQuery(r.text)
         content = document('#js_content').text()
-        result = stats_word.stats_text_cn(content)
-    return result
+        a = stats_word.stats_text_cn(content)
+    return a
 
 embed()
