@@ -4,7 +4,8 @@ from pyquery import PyQuery
 import stats_word
 import numpy 
 import matplotlib.pyplot as plt
-plt.rcParams['font.family']=['SimHei']
+from pylab import *
+mpl.rcParams['font.sans-serif'] - ['SimHei']
 bot = Bot()
 
 @bot.register()   #回复信息
@@ -20,6 +21,7 @@ def auto_reply(msg):
         plt.title("高频词汇表")
         plt.xlabel("高频词汇")
         plt.ylabel("次数")
-    return plt.show()
+        a = plt.savefig('wordslist')
+    return a
 
 embed()
