@@ -6,7 +6,7 @@ for i in range(1,10):
 print('+++打印九九乘法表，偶数行+++')
 n=1
 while n<10:
-    if n%2==0:
+    if n%2==1:
         m=1
         while m<n+1:
             print(f'{n}*{m}=',n*m,end='\t')
@@ -14,7 +14,3 @@ while n<10:
         print()
     n+=1
     print()
-    
-
-
- 
