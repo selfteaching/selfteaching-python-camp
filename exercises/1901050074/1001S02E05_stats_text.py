@@ -21,15 +21,21 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 
-text=text.replace(',','').replace('.','').replace('--','').replace('!','').replace('*','')  #去标点
-text2=text.lower().split()    #转换为字符串
-dic = {}    #定义字典
+text = text.replace(',', '').replace('.', '').replace('--', '').replace('!', '').replace('*', '')  # 去标点
+text2 = text.lower().split()  # 转换为字符串
+dic = {}  # 定义字典
 for i in text2:
     if i in dic:
-        dic[i] = dic[i] + 1 #遇到同样的字符串就+1
+        dic[i] = dic[i] + 1  # 遇到同样的字符串就+1
     else:
         dic[i] = 1
-print(dic)  #字典值
-dic2=sorted(dic.items(),key=lambda x:(x[1],x[0]),reverse=True) #对字典按值（value）进行从大到小排序
+print(dic)  # 字典值
+dic2 = sorted(dic.items(), key=lambda x:(x[1],x[0]),reverse=True)  # 对字典按值（value）进行从大到小排序
 for key in dic2:
-    print(key)  #打印列表
+    print(key)  # 打印列表
+
+
+  
+#方法二没成功
+#items = sorted(items,key=lambda x:(int(x[0]),-int(x[2]))) 
+#print '\n'.join([','.join(x) for x in items]) 
