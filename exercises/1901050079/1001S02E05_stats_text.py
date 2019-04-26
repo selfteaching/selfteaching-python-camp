@@ -1,6 +1,5 @@
 text = '''
 The Zen of Python, by Tim Peters
-Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
 Complex is better than complicated.
@@ -20,19 +19,9 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-# better 变成 worse
-a=text.replace('better','worse')
-# 去掉 包含 ea 的单词
+# 统计各个单词出现的次数
+a=text.replace(',','').replace('.','').replace('*','').replace('--','').replace('!','')
 b=a.split()
-c=[]
-for x in b:
-    if x.find('ea')<0:
-        c.append(x)
-# 大小写转换
-d=' '.join(c)
-e=d.swapcase()
-# 字母排序
-f=e.replace('*',' ').replace('--',' ')
-g=f.split()
-h=sorted(g)
-print(h)
+c={x:b.count(x) for x in b}
+d=sorted(c.items(),key=lambda x:x[1],reverse=True)
+print(d)
