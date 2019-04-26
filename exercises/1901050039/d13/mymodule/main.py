@@ -2,7 +2,6 @@ from wxpy import *
 import requests
 from pyquery import PyQuery
 import stats_word
-
 bot = Bot()
 
 @bot.register()   #回复信息
@@ -11,7 +10,8 @@ def auto_reply(msg):
         r = requests.get(msg.url)
         document = PyQuery(r.text)
         content = document('#js_content').text()
-        a = stats_word.stats_text_cn(content)
-    return a
+        w = str(stats_word.stats_text_cn(content))
+        result = exercise.wordtable(w)
+    return result
 
 embed()
