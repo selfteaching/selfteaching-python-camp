@@ -1,0 +1,1 @@
+print("hello world","欢迎来到编程的世界")
