@@ -15,7 +15,7 @@ def stats_text_cn(text):
         import jieba
         seg_list = jieba.cut(t1,cut_all=False)
         from collections import Counter  #引入counter模块，数数
-        res2 = Counter(seg_list).most_common(100)
+        res2 = Counter(seg_list).most_common(10)
     return res2  
       
 
