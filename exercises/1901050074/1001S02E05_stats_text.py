@@ -21,8 +21,8 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 
-text = text.replace(',', '').replace('.', '').replace('--', '').replace('!', '').replace('*', '')  # 去标点
-text2 = text.lower().split()  # 转换为字符串
+text1 = text.replace(',', '').replace('.', '').replace('--', '').replace('!', '').replace('*', '')  # 去标点
+text2 = text1.lower().split()  # 转换为字符串
 dic = {}  # 定义字典
 for i in text2:
     if i in dic:
