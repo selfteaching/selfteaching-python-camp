@@ -17,12 +17,11 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!'''
 
 text = text.replace(',','').replace('.','').replace('!','').replace('*','').replace('--','')
-text1 = text.split() #将字符串转换为列表
+text1 = text.split()
 
 d = {}
 for i in text1:
     if  i in d:
         d[i] += 1
-    else:
-        d[i] = 1
+    else: d[i] = 1
 print(d)
