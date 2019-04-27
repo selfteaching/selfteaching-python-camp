@@ -1,5 +1,4 @@
-﻿
-text = '''
+﻿text = '''
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -21,22 +20,24 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-#将text中的better置换为worse
-a=text.replace('better','worse')
-#print(a)
+Rs_str = text.replace('better','worse')
+print(Rs_str)
+print('==============第一步完成=============')
 
-#将a中含“ea的单词删除”
-temp1="ea" 
-temp2=[]
-for i in text:
-    if i.find(temp1)<1:
-        temp2.append(i)
-print(temp2)
+RRs_str = Rs_str.split(' ')#利用split切片 利于遍历每个单词
 
-# 大写字母转成小写，小写字母转成大写
-text=text.swapcase()
-print(text)
+j = ''
+for i in RRs_str:
+    if 'ea' not in i:#判断每个单词中是否含有‘ea’ 不含有的把它们拼接起来
+        j =j+i+' '
+print(j)
+print('==============第二步完成=============')
 
-# 将所有单词按a，...z升序排列,并输出结果
-temp2.sort()
-print(temp2) 
+print(j.swapcase())
+
+print('==============第三步完成=============')
+
+j= j.split()
+j.sort()#排序
+print(j)
+print('==============第四步完成=============')
