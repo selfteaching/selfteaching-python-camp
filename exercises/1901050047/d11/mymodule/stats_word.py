@@ -11,7 +11,7 @@ def stats_text_cn(text_cn,count):
     p = re.compile('[^\u4e00-\u9fa5]')  # 只保留中文字符，不包含标点符号
     zh = "".join(p.split(text_cn)).strip()  # 把文字链接在一起，没有空格（保留空格也可以，分词的结果一样）
     
-    seg_list = jieba.cut(zh, cut_all=True)   # 全模式，把句子中所有的可以成词的词语都扫描出来
+    seg_list = jieba.cut_for_search(zh)   # 适合用于搜索引擎构建倒排索引的分词，粒度比较细
     cnt = []
     for word in seg_list:
         if len(word) >= 2:  # 统计长度大于等于2的词 
