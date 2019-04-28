@@ -59,4 +59,3 @@ def stats_text(text,count):
 
     print(stats_text_en(text,count))  # 输出英文单词词频
 
-
