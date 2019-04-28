@@ -30,7 +30,7 @@ def  stats_text(text,count):
             raise ValueError ('type of argumengt is not str')
 
 
-
+with open(path,'r',encoding='UTF-8') as f:
 
 
 
