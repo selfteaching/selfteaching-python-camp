@@ -96,6 +96,6 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 
 
 
-from 1901010056.d07.mymodule import stats_word7       ######从mydouble这个文件夹里调用stats_word文件里的stats_text程序
+from mymodule7 import stats_word7       ######从mydouble这个文件夹里调用stats_word文件里的stats_text程序
 
 print(stats_word7.stats_text(text))      
