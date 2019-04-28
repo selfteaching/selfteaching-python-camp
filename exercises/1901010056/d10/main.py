@@ -8,5 +8,5 @@ with open(path,'r',encoding='UTF-8') as f: #不加'r', encoding='UTF-8'会报Uni
     read_date = f.read()                              #把这个josn读出来，然后在关闭
 
 
-stats_word.stats_text_cn(read_date,20) ##然后就是打印出执行后的文本
+stats_word10.stats_text_cn(read_date,20) ##然后就是打印出执行后的文本
 
