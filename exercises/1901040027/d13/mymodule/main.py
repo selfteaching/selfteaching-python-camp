@@ -42,6 +42,10 @@ def reply_my_friend(msg):
         error = np.random.rand(len(people))
         word_frequency = values
 
+        #from matplotlib.font_manager import FontProperties
+        #font = FontProperties(fname='/Library/Fonts/Songti.ttc')
+
+        #plt.rcParams['font.sans-serif']=['Songti']#统计表格数据格式汉化
         plt.rcParams['font.sans-serif']=['SimHei']#统计表格数据格式汉化
 
         ax.barh(y_pos, word_frequency, xerr = error, align = 'center', color = 'green', ecolor = 'black')
