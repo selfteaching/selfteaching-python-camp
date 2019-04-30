@@ -7,9 +7,8 @@ from pyquery import PyQuery
 import stats_word
 from wxpy import *
 
-bot = Bot()
-#搜索名称含有“张书忠”的好友
-my_friends=bot.friends().search('蓝溪')[0]
+bot = Bot()#扫码登陆微信
+my_friends=bot.friends().search('蓝溪')[0]#搜索名称含有“蓝溪”的好友
 #给好友发送信息
 #my_friends.send('你好')
 
