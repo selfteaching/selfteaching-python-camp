@@ -1,22 +1,20 @@
-list1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 
-list1.reverse()#翻转数组
-#print(list1)
+import stats_word               #它是输入stats_word
 
-list2=[]
-for i in list1:
-        i =str(i)
-        list2.append(i)
-#print(list2)
+import json  
 
-str1=''
-str1=str1.join(list2)
-#print(str1)       
-str2 = str1[2:8]   #用字符串切片的方式，取出第三到第八个字符,这里有一个bug.
-print(str2)
-list3=list(str2)
-#print(list3)
-list3 = list3.reverse   #将列表进行反转
-print(list3)
-str3 = str(list3)
-str3=int(str2)
-print(str3)
+with open('tang300.json','r', encoding='UTF-8') as f: #不加'r', encoding='UTF-8'会报UnicodeDecodeError
+                                                      #然后是打开，tang300.josn
+    read_date = f.read()                              #把这个josn读出来，然后在关闭
+
+f.closed        
+try:
+     print('合并词频统计结果： ', stats_word.stats_text(text,100))     
+except ValueError as ve :
+     print(ve)
+try:
+
+    print('统计字数最多的前100个字： \n',stats_word.stats_text_cn(read_date,100)) ##然后就是打印出执行后的文本
+
+except ValueError as w:   
+
+    print(w)  

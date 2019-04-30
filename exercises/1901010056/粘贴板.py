@@ -1,23 +1,38 @@
-import matplotlib.pyplot as plt
-import numpy as np
+import  re 
+import  collections  
+count = int()
+#英文词频统计函数
+def  stats_text_en(text,count):
+    if type(text) == str :
+            a=re.sub(r'[^A-Za-z]',' ',text)    #只取英文单词
+            newlist=a.split()                      #单词划分
+            return(collections.Counter(newlist).most_common(count))  #输出英文单词频数统计结果
+    else :
+            raise ValueError ('type of argumengt is not str')
 
-data = np.genfromtxt('life-expectancy-china-1960-2016.txt',
-                     delimiter=',',
-                     names=['x', 'y'])
-da1960  = data[0][1]
-da2016  = data[-1][1]
-increase = (da2016 - da1960) / da1960
-note = 'from {:.2f} in 1960 to {:.2f} in 2016, increased  {:.2%}'\
-    .format(da1960, da2016, increase)
 
-plt.figure(figsize=(10, 5))
-plt.plot(data['x'], data['y'])
-plt.ylabel('Life Expectancy from Birth')
-plt.tick_params(axis='x', rotation=70)
-plt.title('CHINA\n' + note)
+#中文词频统计函数
+def  stats_text_cn(text,count):
+    if type(text) == str : 
+            p =  re.compile(r'[\u4e00-\u9fa5]')  # 中文的编码范围是：\u4e00到\u9fa5
+            res = re.findall(p, text)   #取中文
+            newcn=''.join(res)
+            return(collections.Counter(newcn).most_common(count))  #输出中文词频统计结果
+    else:
+            raise ValueError ('type of argumengt is not str')
 
-# plt.savefig('life-expectancy-china-1960-2016.png', transparent=True)
-plt.show()
 
-# data from:
-# https://databank.worldbank.org/data/reports.aspx?source=2&series=SP.DYN.LE00.IN
+#分别调用stats_text_en、stats_text_cn，并合并输出词频统计结果
+def  stats_text(text,count):
+    if type(text)==str:
+            return(stats_text_en(text)+stats_text_cn(text))  
+    else:
+            raise ValueError ('type of argumengt is not str')
+
+
+with open(path,'r',encoding='UTF-8') as f:
+
+
+
+
+ 

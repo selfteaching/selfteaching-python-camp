@@ -1,46 +1,81 @@
-'输入任何一段英文文档，得到降序排列的词频数组'
-':'
+dictionary = {}
+# 统计参数中每个英文单词出现的次数，最后返还一个按词频降序排列的数组
 def stats_text_en(text):
-    """统计参数中每个英文单词出现的次数，最后返还一个按词频降序排列的数组"""
-    textlist1 = text.split()#形成单词列表
-    textlist2 = []
-    for i in textlist1:
-        if i.isalpha():
-            textlist2.append(i)#去除非单词
+    text=text.replace(',',' ').replace('.',' ').replace('*',' ').replace('--',' ')
+    text1=text.split()
+    for i in text1:
+        dictionary.update({i:text1.count(i)})#通过key:计数函数来更新字典
+    return dictionary
+text = '''The Zen of Python, by Tim Peters
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambxiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!'''
+stats_text_en(text)
+dictionary1=sorted(dictionary.items(),key=lambda x:x[1],reverse=True)#sorted()排序;.items()遍历字典(键,值) 元组,
+print(dictionary1) #打印英文统计数组
+#打印统计英文词频的结果
+print("统计英文词频的结果为:")
+print(stats_text_en(text))
 
-    list1 = textlist2.count(0)
-    print(list1)
 
-    dict1 = {}
-    dict1 = dict1.fromkeys(textlist2)#将textlist2的元素作为dict1的键值key
-    word_1 = list(dict1.keys())
-    for i in word_1:
-        dict1[i] = textlist2.count(i)#统计单词出现的次数
-    dict2 = {}
-    dict2 = sorted(dict1.items(),key=lambda d:d[1],reverse=True)#按values进行排序
-    dict2 = dict(dict2)#转化为字典
-    return dict2
-    print(dict2)
-
-
-stats_text_en( "The Zen of Python, by Tim Peters Beautiful is better than ugly. Explicit is better than implicit. Simple is better than complex. Complex is better than complicated. Flat is better than nested. Sparse is better than dense. Readability counts. Special cases aren't special enough to break the rules. Although practicality beats purity. Errors should never pass silently. Unless explicitly silenced. In the face of ambxiguity, refuse the temptation to guess. There should be one-- and preferably only one --obvious way to do it. Although that way may not be obvious at first unless you're Dutch. Now is better than never. Although never is often better than *right* now. If the implementation is hard to explain, it's a bad idea. If the implementation is easy to explain, it may be a good idea. Namespaces are one honking great idea -- let's do more of those! ")
-
-def stats_text_cn(a):
-    #统计参数中每个中文汉字出现的次数，最后返回一个按字频降序排列的数组
-    dict1 = {}
-    for i in a:
+#统计参数中每个中文汉字出现的次数，最后返回一个按字频降序排列的数组
+cndict = {}#定义一个空字典
+def stats_text_cn(text):
+    for i in text:
         if u'\u4e00' <= i <= u'\u9fff': #判断一个unicode是否是汉字
-            dict1[i] = a.count(i)
+            cndict[i] = text.count(i)
+    return cndict
+#一个中英混杂的文本
+text = '''                       
+The Zen of Python, by Tim Peters
+美丽 is better than 丑陋.
+清楚 is better than 含糊.
+简单 is better than 复杂.
+复杂 is better than 难懂.
+单一 is better than 嵌套.
+稀疏 is better than 稠密.
+可读性计数.
+Special cases aren't special enough to 打破规则.
+即使练习会使得不再纯粹.
+但错误不应该用沉默来掩盖.
+Unless explicitly silenced.
+面对起义，拒绝猜的诱惑.
+有且只有一个办法.
+Although that way may not be obvious at first unless you're Dutch.
+尝试总比从未试过要强.
+Although never is often better than *right* now.
+如果执行很难被解释，那将是一个很糟的想法.
+如果执行很容易解释，这会是一个好点子.
+Namespaces are one honking great idea -- 让我们继续为之努力!
+'''
+stats_text_cn(text)  #调用检索中文频次的函数           
+dic=sorted(cndict.items(),key=lambda item:item[1],reverse = True)#为了阅读方便，检索完毕后对字典进行按值从大到小排序
+print(dic)                            #打印汉字统计数组
         
-    dict1 = sorted(dict1.items(),key=lambda item:item[1],reverse=True)  #创建以键值对为元素的元组
-    dict1 = dict(dict1)#转化为字典
-    return dict1                      
-<<<<<<< HEAD
-    print(dict1)               
-a='morining我的个to省啊mingh妈the妈啊，你usa的良心komi大大的花了啊,很ah好,我爱ao you are my borther你time，你是我的nkkal爱人啊'
-=======
-    print(dict1)            
-    
-a = input('morining我的个to省啊mingh妈the妈啊，你usa的良心komi大大的花了啊,很ah好，我爱ao you are my borther你time，你是我的nkkal爱人啊')
->>>>>>> parent of 87738a28... 111
-stats_text_cn(a)
+
+#打印统计中文词频的结果
+print("统计中文词频的结果为:")
+print(stats_text_cn(text))
+        
+# 合并英汉词频统计 
+def stats_text(text) :
+        if type(text) == str:
+                return stats_tex(stats_text_en(text)+stats_text_cn(text))
+        else :
+               raise ValueError('没有输入标准字符')
