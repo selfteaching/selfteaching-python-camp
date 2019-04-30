@@ -1,13 +1,17 @@
-# 第八天作业1
-# 2019年3月28日
+# 第10天作业
+# 2019年3月30日
+# 完善词频统计的排序功能子程序
 # 修改stats_text、stats_text_en，stats_text_cn函数,
-#  在非字符串输入的时候出错提示.
+# 使用标准库中Counter来完善stats_word模块中，
+# 中英文词频统计的排序功能，使函数能够按照词频出现的次数有序输出.
+# 重点注意 collections.Counter most_common([n])这个函数
+# 分别给两个函数添加一个int类型变量，用于限制输出元素的个数
 
 
-
-def  stats_text(text_string) :
+def  stats_text(text_string, out_num) :
 	'''统计字符样本。返回一个词频统计表.
 	
+	text_string为字符样板, out_num输出元素个数
 	 stats_text函数分别调用stats_text_en，stats_text_cn,
 	输出合并词频统计结果.
 	'''
@@ -19,8 +23,8 @@ def  stats_text(text_string) :
 		print('Funtion:stats_text input date  is ValueError')
 		return 
 	
-	x=stats_text_en(text_string)
-	y=stats_text_cn(text_string)
+	x=stats_text_en(text_string, out_num)
+	y=stats_text_cn(text_string, out_num)
 	z.update(x)
 	z.update(y)
 	return z
@@ -43,9 +47,10 @@ def  text_type_err(text_string) :
 
 
 
-def stats_text_en(text_string):
+def stats_text_en(text_string, out_num):
     """ 统计参数中每个英文单词出现的次数，最后返回一个按词频率降序排列的数组.
-
+	   
+	    text_string为字符样板, out_num输出元素个数
         使用字典(dict)统计字符串样本text中各个英文单词出现的次数，
         按照出现次数从大到小输出所有的单词及出现的次数 .
     """
@@ -55,35 +60,23 @@ def stats_text_en(text_string):
         return 
     
     text_string_1 = text_string.split(" ")
-    # 建立空白字典
-    text_string_dict={}
-
+    # 建立空列表
+    text_string_dict=[]
     # 对列表循环遍历
     for text_word in text_string_1 :
-		
 	    # 判断是否是全是字母
-	    if text_word.isalpha() : 
-			
-		    # 0为第一次
-		    i=0
+        if text_word.isalpha() : 
 		    #判断是否为中文
-		    kk=is_Chinese(text_word)
-
-		    # k,V变量的关键字、键值
-		    for k , v in text_string_dict.items():
-				#非中文，非第一次
-			    if not(kk) and k == text_word :
-				    text_string_dict[k]=v+1
-				    i = 1
-		    # # 0为第一次，非中文，字典添加
-		    if not(kk) and i == 0 :
-			    text_string_dict.setdefault(text_word,1)
-
-    #按照item中的第2字符进行排序，即按照key排序
-    import operator
-    sorted_x=sorted(text_string_dict.items(),key=operator.itemgetter(1),reverse=True)
-
-    return  sorted_x
+            if not(is_Chinese(text_word)) :
+				#汉字添加进列表
+                text_string_dict.append(text_word)
+    # 排序
+    from collections import Counter
+    kk=Counter(text_string_dict)
+	# 按需要输出长度输出数据
+    return(kk.most_common(out_num))
+    
+    
 
 
 def is_Chinese(word):
@@ -98,9 +91,10 @@ def is_Chinese(word):
 			return True
 	return False
 
-def stats_text_cn(text_cn_string):
+def stats_text_cn_old(text_cn_string, out_num):
 	""" 统计参数中每个中文汉字出现的次数，最后返回一个按中文汉字频率降序排列的数组.
-
+	    
+	    text_string为字符样板, out_num输出元素个数
         使用字典(dict)统计字符串样本text中各个汉字词出现的次数，
         按照出现次数从大到小输出所有的汉字及出现的次数 .
 	"""
@@ -110,44 +104,91 @@ def stats_text_cn(text_cn_string):
 		#数据输入出错，报警，并退出程序
 		print('Funtion:stats_text_cn input date is ValueError')
 		return 
-	
-	i=0
-	# 建立空白字典
-	text_string_dict={}	
-	s_3 = text_cn_string
-	#遍历字符串
-	for j in s_3:
-		#是否是中文
-		if is_Chinese(j):
-			i=0
-			#遍历词典
-			for k , v in text_string_dict.items():
-				if k == j :
-					text_string_dict[k]=v+1
-					i = 1
-			if i == 0 :
-				text_string_dict.setdefault(j,1)
-	
-	    #按照item中的第2字符进行排序，即按照key排序
-	import operator
-	sorted_x=sorted(text_string_dict.items(),key=operator.itemgetter(1),reverse=True)
-	return sorted_x
+		
+	text_string_1 = text_cn_string
+    # 建立空列表
+	text_string_dict=[]
+    # 对列表循环遍历
+	for text_word in text_string_1 :
+	    # 判断是否是全是字母
+		if text_word.isalpha() : 
+		    #判断是否为中文
+			if is_Chinese(text_word) :
+				#汉字添加进列表
+				text_string_dict.append(text_word)
+    # 排序
+	from collections import Counter
+	kk=Counter(text_string_dict)
+	# 按需要输出长度输出数据
+	return(kk.most_common(out_num))
+
+def stats_text_cn(text_cn_string, out_num):
+	""" 统计参数中每个中文汉字出现的次数，最后返回一个按中文汉字频率降序排列的数组.
+	    
+	    text_string为字符样板, out_num输出元素个数
+        使用字典(dict)统计字符串样本text中各个汉字词出现的次数，
+        按照出现次数从大到小输出所有的汉字及出现的次数 .
+	"""
+
+	# 检查是否是字符串
+	if text_type_err(text_cn_string) :
+		#数据输入出错，报警，并退出程序
+		print('Funtion:stats_text_cn input date is ValueError')
+		return 
+		
+	str = text_cn_string
+
+	#采用 jieba 第三方库
+	import jieba
+	# 精确模式识别
+	seg_list = jieba.cut(str, cut_all=False)
+	sss= "/".join(seg_list)
+	#print(sss)
+	#sss_beg开始
+	sss_beg=sss
+	num_beg=0
+	#词语切片
+	sss_cut=''
+	#词的断句标志符
+	sStr2 = '/'
+
+	# 建立汉字词语空列表
+	text_string_dict=[]
+
+	#用find查找逗号所在的索引位置
+	while True :
+		num_beg=(sss.find(sStr2))
+
+		#取出词汇,-1表示没有、或到结尾
+		if num_beg==-1 :
+			sss_cut=sss[:num_beg+1]
+			#最后一个汉字添加进列表,长度要大于1
+			if len(sss_cut)>1 :
+				text_string_dict.append(sss)
+			break
+		else :
+			sss_cut=sss[:num_beg]
+			#汉字词语添加进列表
+			# 判断是否是全是字母
+			if sss_cut.isalpha() : 
+				#判断是否为中文
+				if is_Chinese(sss_cut) :
+					#汉字添加进列表,长度要大于1
+					if len(sss_cut)>1 :
+						text_string_dict.append(sss_cut)
+		#删除，找下一组词
+		sss = sss[num_beg+1:]
+	#排序
+	from collections import Counter
+	kk=Counter(text_string_dict)
+	# 按需要输出长度输出数据
+	return(kk.most_common(out_num))
 
 
 
 
 
-# 调试主程序
 
-#sss='fa sd dfsad dfs adasd收到阿斯蒂芬就发大水 ffsafas  is  is sa'
-#sss=0
-
-#print('1')
-#print(stats_text(sss))
-#print('2')
-#print(stats_text_en(sss))
-#print('3')
-#print(stats_text_cn(sss))
 
 
 
