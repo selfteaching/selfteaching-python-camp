@@ -8,6 +8,7 @@ Please type in the math operation you would like to complete:
 ''')
     number_1 = int(input('Please enter the first number: '))
     number_2 = int(input('Please enter the second number: '))
+
     if operation == '+': 
         print('{} + {} = '.format(number_1, number_2))          # "if" expression ":" suite
                                                                 # suite也可以放到和expression一行里

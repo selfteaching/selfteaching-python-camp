@@ -16,7 +16,7 @@ from wxpy import Bot,SHARING,embed
 bot = Bot(login_callback=True)
 
 
-my_friend = bot.friends().search('steve')
+my_friend = bot.friends().search('Steve')
 
 @bot.register()              #打印来自好友的消息
 def print_other(msg):

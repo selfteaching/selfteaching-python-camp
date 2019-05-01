@@ -20,5 +20,5 @@ statsString = ''.join(str(i)for i in statsList)
 sender = input('输入发件人邮箱：')
 password = getpass.getpass('输入发件人邮箱密码：')
 recipients = input('输入收件人邮箱：')
-smpt = 'smpt.qq.com'
+smpt = 'smpt.163.com'
 yagmail.SMTP(sender,password,smpt).send(recipients,'19100402 Autumn0808',statsString)

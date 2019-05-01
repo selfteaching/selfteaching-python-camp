@@ -12,7 +12,7 @@ import stats_word
 from wxpy import *
 
 bot = Bot() #扫码登录微信
-my_friend = bot.friends().search('翠星草')[0] #find a friend who be wanted to chat
+my_friend = bot.friends().search('nina')[0] #find a friend who be wanted to chat
 my_friend.send('send me somthing,please')
 
 #定义好友变量
@@ -23,8 +23,9 @@ def reply_my_friend(msg):
     content = document('#js_content').text()
     #URL信息提取
     reply = stats_word.stats_text(content,100)
-    return reply
-    
+    reply1 = ''.join(str(i) for i in reply)
+    return reply1
+    print(reply1)
 embed() #保持监听状态
 
 
