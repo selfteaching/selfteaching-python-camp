@@ -17,4 +17,4 @@ while i <= 9:
             print(i,"*",n,"=",eval('n*i'),'',end="")
         n += 1
     i += 1
-    print()
+    if i % 2 == 0:print()
