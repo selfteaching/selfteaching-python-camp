@@ -2,8 +2,8 @@ import requests  # 网络请求库
 from pyquery import PyQuery  # 文档解析库
 from stats_word import stats_text_cn  # 统计中文词频
 from wxpy import *  # 导入微信机器人模块
-import matplotlib.pyplot as plt
-import numpy as np
+import matplotlib.pyplot as plt  # 可视化操作界面
+import numpy as np   # 数值数学扩展包
 
 
 bot = Bot(cache_path=True) # 初始化机器人，扫码登陆
@@ -25,10 +25,7 @@ def print_friend_messages(msg):
     fig, ax = plt.subplots()    # 返回一个figure图像和子图ax的array列表 
 
     plt.rcParams['font.sans-serif'] = ['SimHei']    # 用来正常显示中文标签  
-    plt.rcParams['font.sans-serif'] = ['SimHei']    # 用来正常显示中文标签 
     plt.rcParams['axes.unicode_minus'] = False    # 用来正常显示负号
-
-    #plt.rc('font', family='SimHei', size=12)
 
     counter_list = sorted(r_dict.items(), key=lambda x: x[1], reverse=True)
     label = list(map(lambda x: x[0], counter_list[:20]))
@@ -41,7 +38,6 @@ def print_friend_messages(msg):
     ax.set_xlabel('词频数',fontsize=12)    # X轴标签
     ax.set_ylabel('中文词汇',fontsize=12)    # Y轴标签
     ax.set_title('文章中前20的词频统计图',fontsize=16)    # 标题
-   
     
     plt.savefig('stats.png')    # 保存图片
    
