@@ -55,4 +55,4 @@ mighty gods to carry the mountains away.
 '''
 
 from mymodule.stats_word import stats_text
-stats_text(text)
+print(stats_text(text))
