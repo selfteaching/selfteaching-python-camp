@@ -29,7 +29,7 @@ Namespaces are one honking great idea -- lets do more of those!
 import re #调用正则表达式模块
           # re.sub(pattern, repl, string, count=0, flags=0)
 def stats_text_en(test_en):  #定义函数
-    if type(text)!=str:
+    if type(test)!=str:
         raise ValueError('input date is not string')
     m = test_en.replace(',','').replace('.','').replace(':','').replace(';','').replace('"','').replace('!','').replace('?','').replace('、','').replace('，','').replace('。','').replace('”','').replace('：','').replace('；','').replace('\n','').replace('！','').replace('？','').replace('/','').replace('*',' ').replace('--',' ')
     m = m.lower() #全英文单词小写
@@ -42,20 +42,22 @@ def stats_text_en(test_en):  #定义函数
         n.update(r1)
     c = sorted(n.items(),key=lambda x:x[1],reverse=True)
     print('英文单词统计频率如下： \n',c)  #这里print()函数缩进就是封装进我定义的函数里面去了
+    return c   
    
 
 def stats_text_cn(test_cn):
-     if type(text)!=str:
+    if type(test)!=str:
         raise ValueError('input date is not string')
         o = test_cn.replace(',','').replace('.','').replace(':','').replace(';','').replace('"','').replace('!','').replace('?','').replace('、','').replace('，','').replace('。','').replace('”','').replace('：','').replace('；','').replace('\n','').replace('！','').replace('？','').replace('/','').replace('*',' ').replace('--',' ').replace(' ','')
         o = re.sub("[A-Za-z0-9]", "",o) #借用了这个正则表达式，这里删除了英文单词，因为没有加上^
         p = {}
-     for j in o:
+    for j in o:
            count = o.count(j)
            r2 = {j:count}
            p.update(r2)
-     q = sorted(p.items(),key=lambda x:x[1],reverse=True)
-     print('中文字统计频率如下： \n',q)
+    q = sorted(p.items(),key=lambda x:x[1],reverse=True)
+    print('中文字统计频率如下： \n',q)
+    return q 
 
  
 #分别调用stats_text_en和stats_text_cn，输出合并词频统计结果
