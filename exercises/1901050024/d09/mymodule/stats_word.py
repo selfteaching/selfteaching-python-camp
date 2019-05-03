@@ -1,7 +1,7 @@
 import collections
 import re
 import jieba
-def stats_text_en(en,count) :
+def stats_text_en(en,count1):
     ''' 1. 英文词频统计：使用正则表达式过滤英文字符，使用Counter统计并排序。
         2. 参数类型检查，不为字符串抛出异常。
     '''
@@ -13,7 +13,7 @@ def stats_text_en(en,count) :
     else: 
         raise ValueError ('type of argumengt is not str')
 
-def stats_text_cn(cn,count) :
+def stats_text_cn(cn,count2):
     ''' 1. 使用jieba第三方库精确模式分词。
         2. 使用正则表达式过滤汉字字符。
         3. 使用for循环判断分词后词频列表元素长度大于等于2的生成新列表。
