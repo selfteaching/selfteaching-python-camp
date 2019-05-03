@@ -28,14 +28,10 @@ roundOfGames = 0
 def bet(dice, token):    # 接收两个参数，一个是倍数，另一个筹码
     money = dice*token
     if dice < 0:
-        print(f'the dice is {dice} You LOST
-
-{money}!\n')
+        print(f'the dice is {dice} You LOST {money}!\n')
         return money
     elif dice > 0:
-        print(f'the dice is {dice} You WIN
-
-{money}!\n')
+        print(f'the dice is {dice} You WIN {money}!\n')
         return money
 
 while True:         #  除 for 之外的另外一个循环语句
@@ -56,9 +52,7 @@ while True:         #  除 for 之外的另外一个循环语句
         bank += result    # bank += result相当于 bank = bank + result
         roundOfGames += 1
     if bank < 10:
-        print("Woops, you've LOST ALL, and
-
-game over!")
+        print("Woops, you've LOST ALL, and game over!")
         break
     elif roundOfGames > 50:      #完成 50次游戏没有爆仓，则成功
         print("Woops, you've WIN the game!")
