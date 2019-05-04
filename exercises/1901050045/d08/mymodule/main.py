@@ -53,8 +53,8 @@ mighty gods to carry the mountains away.
 '''
 try:
     stats_word.stats_text(123)
-except:
-    ValueError 
+except ValueError:
+    
     print ('参数格式错误或参数不存在,请重新输入字符串')
 
 print ('done')
