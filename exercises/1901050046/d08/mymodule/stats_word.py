@@ -11,7 +11,7 @@ def stats_text_en(text):
     text1 = text.lower()#单词小写化
 
     alphaList="abcdefghijklmnopqrstuvwxyz "#英文字母表，后期可改成unicode编码方式
-    puncList="\"\n\\-!“”?,，。." #英文或中文标点转换成空格，为防止text的不规范
+    puncList="\"\n\\-!“”?,，。.*%\t\r" #英文或中文标点转换成空格，为防止text的不规范
     text2 =''
     for i in text1:
         if i in alphaList:
