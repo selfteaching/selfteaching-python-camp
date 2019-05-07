@@ -36,6 +36,7 @@ def stats_text_cn(text):
    
     c = sorted(a.items(),key=lambda x:x[1],reverse=True)
     return c
+    
 def stats_text(text): 
     """
     分别调用stats_text_en和stats_text_cn方法输出合并词频统计结果
