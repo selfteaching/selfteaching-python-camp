@@ -10,7 +10,7 @@ def stast_text_en(text,count):
     if type(text) == str:
         text = re.sub("[^A-Za-z]", " ", text) #用正则表达式中的sub方法替换所有非英文字母为空格
         text = text.split()
-        print(collections.Counter(text).most_common(count))
+        return(collections.Counter(text).most_common(count))
     else:
         raise ValueError('此文本为非字符串')
     
@@ -23,7 +23,7 @@ def stast_text_cn(text,count):
         for i in seg_list:
             if len(i) > 1:
                 cn_list.append(i)  
-        print(collections.Counter(cn_list).most_common(count))
+        return(collections.Counter(cn_list).most_common(count))
     else:
         raise ValueError('此文本为非字符串')
 

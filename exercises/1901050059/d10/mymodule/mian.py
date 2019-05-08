@@ -7,5 +7,5 @@ f.closed
 
 try:
     print(stats_word.stast_text_cn(text,100))
-except ValueError as w:
-    print(w)
+except ValueError as r:
+    print(r)
