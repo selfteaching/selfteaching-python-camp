@@ -4,7 +4,6 @@ import jieba
 from collections import Counter
 import re
 
-
 def stats_text_en(text):
     """统计参数中每个英文单词出现的次数，最后返回一个按词频降序排列的数组"""
     if not isinstance(text,str):
