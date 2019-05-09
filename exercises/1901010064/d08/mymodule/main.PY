@@ -52,7 +52,10 @@ When the guardian gods of the mountains saw how determined Yugong and
 his crew were, they were struck with fear and reported the incident
 to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two
-mighty gods to carry the mountains away.
+mighty gods to carry the mountains away1233444!23
 '''
-
-print(stats_word.stats_text(text))
+text_0=123
+try:
+    print(stats_word.stats_text(text_0))
+except ValueError as err:
+    print(f'输入的参数是{type(text_0)}类型，不是字符串类型。',err)
