@@ -8,7 +8,7 @@ document = PyQuery(r.text)
 content = document('#js_content').text()
 
 #用stats_word对提取结果进行分析和前100词（100词的筛选在函数那个文件里已经设置了），结果转换成str
-import stats_word
+from mymodule  import stats_word 
 result = str(stats_word.stats_text_cn(content))
 
 #通过yagmail登录邮箱，发送统计结果
