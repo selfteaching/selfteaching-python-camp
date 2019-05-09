@@ -1,1 +1,1 @@
-#DAY1£¬waste much time to learn.
+#DAY1£¬wasting much time to learn.
