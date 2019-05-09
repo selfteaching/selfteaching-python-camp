@@ -1,3 +1,5 @@
+import stats_word
+
 text='''
 愚公移山
 太行，王屋二山的北面，住了一個九十嵗的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他和家人往來極爲不便。
@@ -53,46 +55,4 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two
 mighty gods to carry the mountains away.
 '''
 
-
-import os, codecs
-import jieba
-from collections import Counter
-import re
-
-
-def stats_text_en(text):
-    """统计参数中每个英文单词出现的次数，最后返回一个按词频降序排列的数组"""
-    string=text
-    text_1=re.sub(u'[\u4e00-\u9fa5，。？?.！：,、“”]', " ",string)
-
-    seg_list = text_1.split()
-    c = Counter()
-    for x in seg_list:
-        if len(x)>1 and x != '\r\n':
-            c[x] += 1
-    print('常用词频度统计结果:')
-    for (k,v) in c.most_common(100):
-        print('%s%s %s  %d' % ('  ', k, ' ', v))
-
-
-text_0=stats_text_en(text)
-print(text_0) 
-
-
-
-def stats_text_cn(text):
-    """统计参数中每个中文汉字出现的次数，最后返回一个按字频降序排列的数组"""
-    string=text
-    text_0=re.sub('[a-zA-Z0-9’!"#$%&\'()*+,-./:;<=>?@，。?★、…【】《》？“”‘’！[\\]^_`{|}~\s]+', "", string)
-
-    seg_list = jieba.cut(text_0)
-    c = Counter()
-    for x in seg_list:
-        if len(x)>1 and x != '\r\n':
-            c[x] += 1
-    print('常用词频度统计结果:')
-    for (k,v) in c.most_common(100):
-        print('%s%s %s  %d' % ('  ', k, ' ', v))
-
-text_1=stats_text_cn(text)
-print(text_1)
+print(stats_word.stats_text(text))
