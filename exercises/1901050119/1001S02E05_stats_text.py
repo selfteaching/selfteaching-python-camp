@@ -23,7 +23,10 @@ Namespaces are one honking great idea -- let's do more of those!
 
 #Remove some special characters
 s1 = text.replace('*', '', text.count('*'))
-text1 = s1.replace('-', '', text.count('-'))
+s2 = s1.replace('-', '', text.count('-'))
+s3 = s2.replace(',', '', text.count(','))
+s4 = s3.replace('.', '', text.count('.'))
+text1 = s4.replace('!', '', text.count('!'))
 
 L = text1.split()
 #print(f'the length of L is:', {len(L)})
