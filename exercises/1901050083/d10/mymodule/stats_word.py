@@ -1,5 +1,6 @@
 from collections import Counter
 import re
+import jieba
 def stats_text_en(text, count):
     """
     接收一个 text ，统计其中的英文单词出现的次数
@@ -30,10 +31,13 @@ def stats_text_cn(text, count):
         raise ValueError('输入格式错误，"count"请输入整数(int)')    
 
     a = re.compile(r'[\u4e00-\u9fa5]')
-    b=a.findall(text)
-    c= Counter(b).most_common(count)
-
-    return c
+    b=''.join(a.findall(text))
+    seg_list = jieba.cut(b, cut_all=False)
+    c=' '.join(seg_list)
+    d=c.split()
+    e= Counter(d).most_common(count)
+    
+    return e
 
     
 def stats_text(text, count): 
