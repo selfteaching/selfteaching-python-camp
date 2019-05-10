@@ -35,8 +35,12 @@ def stats_text_cn(text, count):
     seg_list = jieba.cut(b, cut_all=False)
     c=' '.join(seg_list)
     d=c.split()
-    e= Counter(d).most_common(count)
-    
+    cnt = Counter()
+    for word in d:
+        if len (word) >= 2:
+            cnt[word] += 1
+    e= cnt.most_common(count)
+
     return e
 
     
