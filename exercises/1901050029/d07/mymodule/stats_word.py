@@ -4,6 +4,7 @@
 
 
 from collections import Counter
+from pandas import Series
 import re
 
 text = '''
@@ -79,9 +80,11 @@ def getText(text):
 def stats_text_en(text):
     hamletTxt = getText(text)
     words = hamletTxt.split()
-    word = Counter(words)
+    word = Counter(words)      #  It is an unordered collection where 
+    word = Series(word)        #  elements are stored as dictionary keys and  their counts are stored as dictionary values.
+    word =  word.sort_values(ascending=False)                         
    
-    print('英文单词词频统计结果： ','\n', word)    
+    print('英文单词词频统计结果： ', word)    
     
 
 #定义函数用于统计中文汉字字频，并按字频降序输出
@@ -89,13 +92,16 @@ def stats_text_cn(text):
     result = re.findall(u'[\u4e00-\u9fff]+', text)    #汉字的unicode范围
     words = ''.join(result)
     word = Counter(words)
+    word = Series(word)
+    word =  word.sort_values(ascending=False)
    
-    print('汉字词频统计结果： ','\n', word)   
+    print('汉字词频统计结果： ', word)   
     
 #输出中英文合并词频统计结果
 def stats_text(text):
     
     stats_text_en(text)
+   
     stats_text_cn(text)
 
 
