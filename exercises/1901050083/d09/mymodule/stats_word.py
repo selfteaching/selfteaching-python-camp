@@ -59,7 +59,7 @@ def stats_text(text, count):
     #print(text_en)
     #print(text_cn)
     
-    print(stats_text_en(text_en,count) + stats_text_cn(text_cn,count))
+    return(stats_text_en(text_en,count) + stats_text_cn(text_cn,count))
 
 
 
