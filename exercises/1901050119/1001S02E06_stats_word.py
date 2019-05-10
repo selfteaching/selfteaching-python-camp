@@ -15,14 +15,14 @@ def stats_text_en (text):
     i = 0
     aDict = {}
 
-    while(i < len(L)):
+    while i < len(L) :
         cnt = text1.count(L[i])
         aDict.setdefault(L[i], cnt) 
         i = i + 1
 
     # 将字典中的单词按个数从大到小排序
     L1 = sorted(aDict.items(), key=lambda x: x[1], reverse=True)
-    return(L1)
+    return L1
 
 # 统计字符串中每个中文汉字出现的次数，返回一个按字频降序排列的数组 
 def stats_text_cn(text):
@@ -41,14 +41,14 @@ def stats_text_cn(text):
     i = 0
     bDict = {}
     
-    while(i < len(text1)):
+    while i < len(text1):
         cnt = text1.count(text1[i])
         bDict.setdefault(text1[i], cnt) 
         i = i + 1
     
     # 将字典中的中文汉字按个数从大到小排序
     L2 = sorted(bDict.items(), key=lambda x: x[1], reverse=True)
-    return(L2)
+    return L2
 
 
 text_en = '''
