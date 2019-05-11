@@ -39,13 +39,3 @@ def auto_reply_sharing_msg(msg):
     need_reply_friend.send_msg(result)
 embed()    # 堵塞线程，并进入 Python 命令行
 
-'''
-sender = input("请输入您的发件人邮箱")
-password =  getpass.getpass("输入发件人邮箱授权码")
-
-yagmail.register(sender, password)
-
-yag =yagmail.SMTP(sender,password,host='smtp.qq.com')
-yag.send('malin199701@dingtalk.com', '自学训练营学习1群DAY11 pony6666', result)
-print("发送成功")
-'''
