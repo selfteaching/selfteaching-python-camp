@@ -21,7 +21,7 @@ def  stats_text_cn(text,count):
             text1.append(i)
     return collections.Counter(text1).most_common(count)
 
-def stats_word12(text,count): #定义函数，实现统计汉字和英文单词出现次数
+def stats_word11(text,count): #定义函数，实现统计汉字和英文单词出现次数
     if type(text)!=str: 
         raise ValueError("文本为非字符串") 
     stats_text_en(text,count) 
