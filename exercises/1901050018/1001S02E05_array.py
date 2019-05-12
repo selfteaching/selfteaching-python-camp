@@ -1,5 +1,5 @@
+
 import re 
-import collections
 
 text = '''
 The Zen of Python, by Tim Peters
@@ -24,15 +24,31 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 
-wq={}
+replacedText = text.replace("better", "worse")
+# print(replacedText)
 
-for i in text.split():
-	j = re.sub(r'[^a-zA-Z\']',"",i)
-	if j not in wq:
-		wq[j] = 1
-	else:
-		wq[j] +=1
+splitReplacedText = replacedText.split()
+removedEaText = []
 
-print(collections.Counter(wq))
-print('\nonly english words, including \"it\'s\"')
+for i in splitReplacedText:
+	i=re.sub(r'[^a-zA-Z\']',"",i)
+	#print(i)
+	if 'ea' not in i:
+		if i == '':
+			continue
+		else:
+			removedEaText.append(i)
+
+print('\n\n')
+print(removedEaText)
+
+swappedCaseText = []
+for i in removedEaText:
+	swappedCaseText.append(i.swapcase())
+
+print('\n\n')
+print(swappedCaseText)
+
+print('\n\n')
+print(sorted(swappedCaseText))
 
