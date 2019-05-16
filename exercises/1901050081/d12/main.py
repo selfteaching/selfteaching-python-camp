@@ -16,7 +16,6 @@ def step1(msg):
                 document = pq(response.text)
                 content = document('#js_content').text()
                 result = stats_word.stats_text_cn(content,100)
-                msg.reply(str(result))
                 return result
 embed()
 
