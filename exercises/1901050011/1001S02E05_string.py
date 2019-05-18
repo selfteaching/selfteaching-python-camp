@@ -1,3 +1,4 @@
+ 
 text = '''
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
@@ -20,29 +21,22 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
+#将text中的better置换为worse
+ a=text.replace('better','worse')
+#print(a)
 
-#Remove some special characters
-s1 = text.replace('*', '', text.count('*'))
-s2 = s1.replace('-', '', text.count('-'))
-s3 = s2.replace(',', '', text.count(','))
-s4 = s3.replace('.', '', text.count('.'))
-text1 = s4.replace('!', '', text.count('!'))
+#将a中含“ea的单词删除”
+temp1="ea" 
+temp2=[]
+for i in text:
+    if i.find(temp1)<1:
+        temp2.append(i)
+print(temp2)
 
-L = text1.split()
-#print(f'the length of L is:', {len(L)})
+# 大写字母转成小写，小写字母转成大写
+text=text.swapcase()
+print(text)
 
-
-i = 0
-aDict = {}
-
-while i < len(L):
-    cnt = text1.count(L[i])
-    aDict.setdefault(L[i], cnt) 
-    i = i + 1
-
-
-#print(aDict)
-
-# sort the words
-L1 = sorted(aDict.items(), key=lambda x: x[1], reverse=True)
-print(L1)
+# 将所有单词按a，...z升序排列,并输出结果
+temp2.sort()
+print(temp2)

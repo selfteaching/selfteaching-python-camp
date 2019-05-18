@@ -21,28 +21,41 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 
-#Remove some special characters
-s1 = text.replace('*', '', text.count('*'))
-s2 = s1.replace('-', '', text.count('-'))
-s3 = s2.replace(',', '', text.count(','))
-s4 = s3.replace('.', '', text.count('.'))
-text1 = s4.replace('!', '', text.count('!'))
+#将换行 "\n" 换成空格 ' '
+text = text.replace("\n",' ')
 
-L = text1.split()
-#print(f'the length of L is:', {len(L)})
+#将'.'换成' '
+text = text.replace('.',' ')
 
+#将','换成' '
+text = text.replace(',',' ')
 
-i = 0
-aDict = {}
+#将'--'换成' '
+text = text.replace('--',' ')
 
-while i < len(L):
-    cnt = text1.count(L[i])
-    aDict.setdefault(L[i], cnt) 
-    i = i + 1
+#将'*'换成' '
+text = text.replace('*',' ')
 
+#将'!'换成' '
+text = text.replace('!',' ')
 
-#print(aDict)
+#将字符串拆分成列表     
+words = text.split(' ')
 
-# sort the words
-L1 = sorted(aDict.items(), key=lambda x: x[1], reverse=True)
-print(L1)
+#过滤空字符串''
+while '' in words:
+    words.remove('')
+
+#创建一个字典存储满足条件的值
+newWords = {}
+
+for word in words:
+
+    if word in newWords.keys():
+        newWords[word] += 1
+    else:
+        newWords[word] = 1
+
+newWords=sorted(newWords.items(),key=lambda x:x[1],reverse=True)
+
+print(dict(newWords)) 
