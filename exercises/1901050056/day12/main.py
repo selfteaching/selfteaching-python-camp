@@ -24,7 +24,7 @@ print(my_friend)
 @bot.register()
 def print_others(msg):
     print(msg) 
-    #msg.reply(msg)
+    msg.reply(msg)
 
 @bot.register(my_friend,SHARING) #接收sharing信息
 def auto_reply(msg):
