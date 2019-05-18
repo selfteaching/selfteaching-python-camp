@@ -2,22 +2,22 @@
 # author by : www.runoob.com
 
 # 定义函数
-def add(x,y):
+def add(x, y):
     """相加"""
 
     return x + y
 
-def subtract(x,y):
+def subtract(x, y):
     """相减"""
 
     return x - y
 
-def multiply(x,y):
+def multiply(x, y):
     """相乘"""
 
     return x * y
 
-def divide(x,y):
+def divide(x, y):
     """相除"""
 
     return x / y
