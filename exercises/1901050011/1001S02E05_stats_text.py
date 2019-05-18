@@ -21,28 +21,24 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 
-#Remove some special characters
-s1 = text.replace('*', '', text.count('*'))
-s2 = s1.replace('-', '', text.count('-'))
-s3 = s2.replace(',', '', text.count(','))
-s4 = s3.replace('.', '', text.count('.'))
-text1 = s4.replace('!', '', text.count('!'))
+# 使用字典统计样本中各个英文单词出现的次数
 
-L = text1.split()
-#print(f'the length of L is:', {len(L)})
+t1=text.lower() #将text lower
 
+t2=t1.replace(',',' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('*',' ')  #将非英文字符替换为空格
 
-i = 0
-aDict = {}
+t3=t2.split() #将str 转成list 
 
-while i < len(L):
-    cnt = text1.count(L[i])
-    aDict.setdefault(L[i], cnt) 
-    i = i + 1
+d1={} #define dict
 
+for i in t3:
+    d1.setdefault(i,t3.count(i))  #将列表中的单词及单词的出现次数，分别赋值给d1的键和值
 
-#print(aDict)
+print(d1)
 
-# sort the words
-L1 = sorted(aDict.items(), key=lambda x: x[1], reverse=True)
-print(L1)
+# 按照出现次数从大到小输出所有的单词及出现的次数
+d2 = sorted(d1.items(),key = lambda items:items[1],reverse = True)      #将d1按照value值从大到小排列，并将结果赋值给元祖d2
+print(d2)
+
+d3 = sorted(d1.items(),key = lambda items:items[1],reverse = False)      #将d1按照value值从小到大排列，并将结果赋值给元祖d3
+print(d3)

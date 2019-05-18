@@ -21,28 +21,54 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 
-#Remove some special characters
-s1 = text.replace('*', '', text.count('*'))
-s2 = s1.replace('-', '', text.count('-'))
-s3 = s2.replace(',', '', text.count(','))
-s4 = s3.replace('.', '', text.count('.'))
-text1 = s4.replace('!', '', text.count('!'))
 
-L = text1.split()
-#print(f'the length of L is:', {len(L)})
+#better全部替换成worse
+text = text.replace('better','worse')
 
+#将换行 "\n" 换成空格 ' '
+text = text.replace("\n",' ')
 
-i = 0
-aDict = {}
+#将'.'换成' '
+text = text.replace('.',' ')
 
-while i < len(L):
-    cnt = text1.count(L[i])
-    aDict.setdefault(L[i], cnt) 
-    i = i + 1
+#将','换成' '
+text = text.replace(',',' ')
 
+#将'--'换成' '
+text = text.replace('--',' ')
 
-#print(aDict)
+#将'*'换成' '
+text = text.replace('*',' ')
 
-# sort the words
-L1 = sorted(aDict.items(), key=lambda x: x[1], reverse=True)
-print(L1)
+#将'!'换成' '
+text = text.replace('!',' ')
+
+#将字符串拆分成列表     
+words = text.split(' ')
+
+#创建一个新列表存储满足条件的值
+newWords = []
+
+#过滤空字符串''
+while '' in words:
+    words.remove('')
+
+for k,word in enumerate(words):
+
+    #去掉单词首尾' '
+    word = word.strip()
+    
+    #删除包含'ea'的单词
+    if "ea" in word:
+        #words.remove(word)
+        continue
+
+    #大小写字母反转
+    word = word.swapcase()
+
+    newWords.append(word)
+
+#升序排列
+newWords = sorted(newWords)
+
+print(newWords)
