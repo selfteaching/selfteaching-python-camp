@@ -6,6 +6,7 @@ for i in range(1,10): # 九九乘法表
             break
 
 
+
 a, b = 0, 0 # 去除偶数行
 while (a < 9):
     a += 1
