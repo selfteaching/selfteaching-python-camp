@@ -5,15 +5,28 @@ for i in range(1,10):
 
 
 
-f = 1
-while f <= 9:
-     h = 1
-     while h < f + 1:
-          if f%2==0:
+i = 1
+while i <= 9:
+     j = 1
+     while j < i + 1:
+          if i%2==0:
                break
 
-          print(f, "*", h, '=', f*h, sep='', end='\t')
+          print(i, "*", j, '=', i*j, sep='', end=' ')
 
-          h += 1
+          j += 1
      print()
-     f += 1
+     i += 1
+
+i = 1
+while i <= 9:
+     j = 1
+     while j < i + 1:
+          if i%1==0:
+               break
+
+          print(i, "*", j, '=', i*j, sep='', end=' ')
+
+          j += 1
+     print()
+     i += 1
