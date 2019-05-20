@@ -1,4 +1,4 @@
-str = '''
+text = '''
 The Zen of Python, by Tim Peters
 
 
@@ -13,7 +13,7 @@ Special cases aren't special enough to break the rules.
 Although practicality beats purity.
 Errors should never pass silently.
 Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
+In the face of ambxiguity, refuse the temptation to guess.
 There should be one-- and preferably only one --obvious way to do it.
 Although that way may not be obvious at first unless you're Dutch.
 Now is better than never.
@@ -22,16 +22,19 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-
-str1 = str.replace("better", "worse")
-str2 = str1.replace(',','').replace('.','').replace('--','').replace('*','').replace('!','')
-str3 = str2.split()
-str4 = list()
-for i in str3:
-    if 'ea' not in i:
-        str4.append(i)
-str5 = list()
-for j in str3:
-    k = j.swapcase()
-    str5.append(k)
-print(sorted(str5))
+word_dict = {}
+text=text.lower()
+import re
+pttn=r'[^a-z*\s]'
+text=re.sub(pttn,"",text)
+# print(text)
+words = text.split()
+# print(words)
+for item in words:
+    if  item not in word_dict:
+        word_dict[item] = 1
+    else :
+        word_dict[item] += 19
+# print(word_dict)
+for key in sorted(word_dict.items(),key=lambda item:item[1], reverse=True):
+    print (key)

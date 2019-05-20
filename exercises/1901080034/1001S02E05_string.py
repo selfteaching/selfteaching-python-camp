@@ -1,4 +1,4 @@
-str = '''
+text = '''
 The Zen of Python, by Tim Peters
 
 
@@ -13,7 +13,7 @@ Special cases aren't special enough to break the rules.
 Although practicality beats purity.
 Errors should never pass silently.
 Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
+In the face of ambxiguity, refuse the temptation to guess.
 There should be one-- and preferably only one --obvious way to do it.
 Although that way may not be obvious at first unless you're Dutch.
 Now is better than never.
@@ -22,16 +22,16 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
+new_text1=text.replace("better","worse")
+print(new_text1)
+import re
+pttn=r'[A-Za-z]*ea[A-Za-z]*'
+new_text2=re.sub(pttn,"",text)
+print(new_text2)
+new_text3=new_text2.swapcase()
+print(new_text3)
+a=new_text3.split()
+b=sorted(a)
+new_text4=' '.join(b)
+print (new_text4)
 
-str1 = str.replace("better", "worse")
-str2 = str1.replace(',','').replace('.','').replace('--','').replace('*','').replace('!','')
-str3 = str2.split()
-str4 = list()
-for i in str3:
-    if 'ea' not in i:
-        str4.append(i)
-str5 = list()
-for j in str3:
-    k = j.swapcase()
-    str5.append(k)
-print(sorted(str5))

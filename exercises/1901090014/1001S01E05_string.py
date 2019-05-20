@@ -1,7 +1,5 @@
-str = '''
+text='''
 The Zen of Python, by Tim Peters
-
-
 Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
@@ -13,8 +11,8 @@ Special cases aren't special enough to break the rules.
 Although practicality beats purity.
 Errors should never pass silently.
 Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
+In the face of ambxiguity, refuse the temptation to guess.
+There should be one -- and preferably only one -- obvious way to do it.
 Although that way may not be obvious at first unless you're Dutch.
 Now is better than never.
 Although never is often better than *right* now.
@@ -22,16 +20,18 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
+#  better替换 worse
+print(text.replace('better','worse'))
+#  去除ea
+print(text.replace('ea',''))
+ # 小写字母转换成大写字母
+print(text.upper()) 
+# 大写字母转换成小写字母    
+print(text.lower())  
+#升序排列
+s=list(text)
+s.sort()
+print (s)
 
-str1 = str.replace("better", "worse")
-str2 = str1.replace(',','').replace('.','').replace('--','').replace('*','').replace('!','')
-str3 = str2.split()
-str4 = list()
-for i in str3:
-    if 'ea' not in i:
-        str4.append(i)
-str5 = list()
-for j in str3:
-    k = j.swapcase()
-    str5.append(k)
-print(sorted(str5))
+
+
