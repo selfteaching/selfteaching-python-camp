@@ -9,7 +9,7 @@ for i in range(1,10):
 print(sr)
 
 #取出第3到第8个字符(包含第三和第八个字符)
-data1=sr[3:9]
+data1=sr[2:8]
 
 
 #对字符进行翻转并转换成int类型
