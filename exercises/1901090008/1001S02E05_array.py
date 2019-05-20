@@ -7,8 +7,10 @@ sr=str(data[0])
 for i in range(1,10):
     sr=sr+str(data[i])
 print(sr)
+
 #取出第3到第8个字符(包含第三和第八个字符)
 data1=sr[3:9]
+
 
 #对字符进行翻转并转换成int类型
 data2=int(data1[::-1])
