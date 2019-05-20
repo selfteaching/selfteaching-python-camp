@@ -24,13 +24,14 @@ Namespaces are one honking great idea -- let's do more of those!
 '''
 
 str1 = str.replace("better", "worse")
-str2 = str1.split()
-str3 = list()
-for i in str2:
-    if 'ea' not in i:
-        str3.append(i)
+str2 = str1.replace(',','').replace('.','').replace('--','').replace('*','').replace('!','')
+str3 = str2.split()
 str4 = list()
+for i in str3:
+    if 'ea' not in i:
+        str4.append(i)
+str5 = list()
 for j in str3:
     k = j.swapcase()
-    str4.append(k)
-print(sorted(str4))
+    str5.append(k)
+print(sorted(str5))
