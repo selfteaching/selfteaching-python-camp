@@ -88,4 +88,4 @@ def stats_text_cn(str):
     #输出最后的结果
     print(char_dict)
 
-stats_text_cn(text) 
+stats_text_cn(text)
