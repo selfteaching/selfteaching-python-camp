@@ -1,4 +1,4 @@
-text='''
+text = '''
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -12,7 +12,8 @@ Although practicality beats purity.
 Errors should never pass silently.
 Unless explicitly silenced.
 In the face of ambxiguity, refuse the temptation to guess.
-There should be one -- and preferably only one -- obvious way to do it.
+There should be one-- and preferably only one --obvious way to do
+it.
 Although that way may not be obvious at first unless you're Dutch.
 Now is better than never.
 Although never is often better than *right* now.
@@ -20,39 +21,24 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-#  better替换 worse
+text1=text.replace('better','worse')
+print(text1)
 
-#print(text.replace('better','worse'))
 
-#  去除ea
+line_list = []
+for line in text1.split(sep=("\n")):
+    word_list = line.split(" ")
+    for word in word_list[:]:
+        if "ea" in word:
+            word_list.remove(word)
+    line_list.append(' '.join(word_list))    #wrong for me
 
-symbol = ",.!-*"
-for str in symbol:
-    text= text.replace(str,'')
-print(text)
+text2 = '\n'.join(line_list)
+print(text2)  
 
-#split切片
-text2=text.split()
-text3=[]#新建一个空的列表
-for i in text2:
-    if i.find('ea')<0:
-        text3.append(i)
+text3=text2.swapcase()
 print(text3)
- # 小写字母转换成大写字母
-b = []
-for n in text:
-   if "a"<= n <= "z":
-      b.append(n.upper())
-   elif"A" <= n <= "Z" :
-      b.append(n.lower())
-   else:
-      b.append(n)
-#print("".join(b))
-#升序排列
-s=list(text)
-s.sort()
-#print (s)
 
-
-
+text4=sorted(text3)
+print(text4)
 
