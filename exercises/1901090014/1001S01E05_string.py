@@ -21,6 +21,7 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 #  better替换 worse
+
 #print(text.replace('better','worse'))
 
 #  去除ea
@@ -51,6 +52,7 @@ for n in text:
 s=list(text)
 s.sort()
 #print (s)
+
 
 
 
