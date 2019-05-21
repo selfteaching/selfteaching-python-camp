@@ -1,4 +1,6 @@
+
 text = '''
+
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -21,6 +23,7 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
+
 text.replace("better","worse")
 new_text = text.replace("better","worse")
 print(new_text)
@@ -32,7 +35,7 @@ word_list = word_str.split()
 y = []
 for word in word_list:
     # 查找不包含ea的单词
-    if word.find('ea') < 1:
+    if word.find('ea') < 0:
         y.append(word)
 new_text2 = ' '.join(y)
 print(new_text2)
@@ -41,3 +44,4 @@ print(new_text3)
 new_text4 = new_text3.split()
 new_text4.sort()
 print (new_text4)
+

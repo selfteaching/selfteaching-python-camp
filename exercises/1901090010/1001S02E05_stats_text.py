@@ -1,4 +1,6 @@
+
 text = '''
+
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -20,6 +22,7 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
+
 """
 2.统计字符串样本中英文单词出现的次数
 一个创建³³名为1001S02E05_stats_text.py的文件
@@ -58,7 +61,9 @@ for item in words:
 	if  item not in word_dict:
 	    word_dict[item] = 1
 	else :
-	        word_dict[item] += 1
+	    word_dict[item] += 1
 # print(word_dict)
 for key in sorted(word_dict.items(),key=lambda item:item[1], reverse=True):
 	    print(key)
+
+
