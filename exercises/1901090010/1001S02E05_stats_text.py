@@ -45,7 +45,6 @@ for item in d_list:
 # 6.输出，检查结果
 print(new_dict)
 
-
 #------------另一种方法实现-----------
 word_dict = {}
 text=text.lower()
