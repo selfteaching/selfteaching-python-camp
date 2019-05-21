@@ -67,12 +67,14 @@ text = '''
 
 #该函数用于统计字符串中每个汉字出现的个数。需要输入字符串，输出的结果是按照降序排列的以中文汉字及其字频为元组的一个字典
 def stats_text_cn(str):
-    #移除字符串头尾的空格和换行符号
-    str=str.strip()
+
+    #移除字符串头尾的空格和换行符号'\n', 11
+    str=str.strip()#切片去除最后一个字符
     #去除所有的标点符号
     biaodian='。，“”…，——，？：、！《》'
     for i in biaodian:
-        str=str.replace(i,'')
+        str=str.replace(i,'')#切片去除最后一个字符
+
     #目前字符串str中应该只包含汉字，下面对汉字字符串进行统计
     #方法与统计单词基本一样，因为这里是统计中文汉字个数，所以每个汉字都是一个元素，
     #于是没有必要去将字符串再转换成一个单词列表
@@ -84,8 +86,11 @@ def stats_text_cn(str):
             count=0
         count +=1
         char_dict[char]=count
-    char_dict=sorted(char_dict.items(),key=lambda x:x[1],reverse=True)
-    #输出最后的结果
-    print(char_dict)
 
-stats_text_cn(text) 
+    char_dict=sorted(char_dict.items(),key=lambda x:x[1],reverse=True)#切片去除最后一个字符
+    #输出最后的结果
+    print(char_dict)#切片去除最后一个字符
+
+
+stats_text_cn(text)#切片去除最后一个字符
+
