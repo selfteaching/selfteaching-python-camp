@@ -67,7 +67,7 @@ text = '''
 
 #该函数用于统计字符串中每个汉字出现的个数。需要输入字符串，输出的结果是按照降序排列的以中文汉字及其字频为元组的一个字典
 def stats_text_cn(str):
-    #移除字符串头尾的空格和换行符号
+    #移除字符串头尾的空格和换行符号'\n', 11
     str=str.strip()
     #去除所有的标点符号
     biaodian='。，“”…，——，？：、！《》'
@@ -87,5 +87,6 @@ def stats_text_cn(str):
     char_dict=sorted(char_dict.items(),key=lambda x:x[1],reverse=True)
     #输出最后的结果
     print(char_dict)
+
 
 stats_text_cn(text)
