@@ -1,4 +1,4 @@
-# Windows thumbnail cache files
+﻿# Windows thumbnail cache files
 Thumbs.db
 ehthumbs.db
 ehthumbs_vista.db
@@ -174,6 +174,3 @@ dmypy.json
 # Pyre type checker
 .pyre/
 *.html
-19100401/Songhan/1001S01E05_array.py
-exercises/2019/1901050033
-exercises/1901050053/1001S02E06_stats_word.py
