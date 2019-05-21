@@ -36,7 +36,9 @@ def stats_text_en(text:str) -> list:
 	# 统计list中每个item在文本中的出现次数，并加入字典
 	count_dict = {}
 	for word in word_list:
-		count_dict[word] = text_to_count.count(word)
+
+		count_dict[word] = word_list.count(word)
+
 
 	# 将字典按value大小降序排序，输出结果是list
 	count_list_sorted = sorted(count_dict.items(), key = lambda x: x[1], reverse=True)
