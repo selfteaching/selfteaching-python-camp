@@ -1,7 +1,5 @@
-str = '''
+text = '''
 The Zen of Python, by Tim Peters
-
-
 Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
@@ -13,7 +11,7 @@ Special cases aren't special enough to break the rules.
 Although practicality beats purity.
 Errors should never pass silently.
 Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
+In the face of ambxiguity, refuse the temptation to guess.
 There should be one-- and preferably only one --obvious way to do it.
 Although that way may not be obvious at first unless you're Dutch.
 Now is better than never.
@@ -22,16 +20,12 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-
-str1 = str.replace("better", "worse")
-str2 = str1.replace(',','').replace('.','').replace('--','').replace('*','').replace('!','')
-str3 = str2.split()
-str4 = list()
-for i in str3:
-    if 'ea' not in i:
-        str4.append(i)
-str5 = list()
-for j in str3:
-    k = j.swapcase()
-    str5.append(k)
-print(sorted(str5))
+text1=text.replace(',',' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('*',' ')#将非英文字符转换成空格
+text2=text1.split()
+dict={}
+for i in text2:
+    j=text2.count(i)#统计单词i（变量）在text2中出现的次数
+    dict2={i:j}
+    dict.update(dict2)#update()函数把字典dict2的键值对更新到dict里
+dict3=sorted(dict.items(),key=lambda x:x[1],reverse=True)#dict.items()遍历（键/值）元祖数组，x:X[]字母可以随意改写，排序方式按照中括号[]里面的维度，[0]按照第一维，[2]按照第二维reverse=True降序
+print(dict3)
