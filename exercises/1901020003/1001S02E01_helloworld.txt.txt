@@ -1,1 +1,7 @@
+#<<<<<<< master
+=======
+ master
+
 study
+ master
+#>>>>>>> master
