@@ -25,8 +25,7 @@ def stats_text(text):  # 定义函数
     dict2 = stats_text_en(text)
     dict3 = dict1+dict2 # 合并汉字和英语字数统计数量
     return dict3
-    
-# print(stats_text(text))
+
 
 
 
