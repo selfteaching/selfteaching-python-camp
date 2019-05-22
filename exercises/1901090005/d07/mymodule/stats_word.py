@@ -20,6 +20,7 @@ def stats_text_cn(text):  # 定义函数
     f = sorted(e.items(), key=lambda item: item[1], reverse=True)  #降序排序
     return f    
 
+
 def stats_text(text):  # 定义函数
     dict1 = stats_text_cn(text)
     dict2 = stats_text_en(text)
