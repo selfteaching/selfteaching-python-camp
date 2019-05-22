@@ -12,7 +12,7 @@ def stats_text_en(text):              #定义一个名为stats_text_en的函数,
     return new_dict             #返回按词频降序排列的数组
     
  # 以下作为输入的参数用以测试函数   
-text = """ Beautiful is better than ugly.
+text = """ Beautiful is better than ugly. 我从哪里来 1234567
 Explicit is better than implicit.
 Simple is better than complex.
 Complex is better than complicated. 9 Flat is better than nested.
