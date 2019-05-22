@@ -48,4 +48,5 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
-print(stats_word.stats_text)
+
+print(stats_word.stats_text(text))
