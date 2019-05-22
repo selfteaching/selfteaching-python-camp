@@ -34,7 +34,7 @@ for item in words:
     if  item not in word_dict:
         word_dict[item] = 1
     else :
-        word_dict[item] += 19
+        word_dict[item] += 1
 # print(word_dict)
 for key in sorted(word_dict.items(),key=lambda item:item[1], reverse=True):
     print (key)
