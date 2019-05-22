@@ -39,8 +39,9 @@ def stats_text_en(n):
             word_dict[item] = 1
         else:
             word_dict[item] += 1
-    for key in sorted(word_dict.items(),key=lambda item:item[1], reverse=True):
-        print(key)
+    return sorted(word_dict.items(),key=lambda item:item[1], reverse=True)
+        # print(key)
+    
 
 def stats_text_cn(n): 
     word_dict={}
@@ -56,8 +57,8 @@ def stats_text_cn(n):
             word_dict[item] = 1
         else:
             word_dict[item] += 1
-    for key in sorted(word_dict.items(),key=lambda item:item[1], reverse=True):
-        print(key)
+    return sorted(word_dict.items(),key=lambda item:item[1], reverse=True)
+        # print(key)
 
-stats_text_en(text_en)
-# stats_text_cn(text_cn)
+print(stats_text_en(text_en))
+# print(stats_text_cn(text_cn))
