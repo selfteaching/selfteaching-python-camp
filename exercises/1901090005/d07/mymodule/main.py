@@ -61,6 +61,6 @@ two mighty gods to carry the mountains away.
 import stats_word
 new ={}
 new =stats_word.stats_text(text)
-print("输出结果为:")
+print("输出的结果为:")
 print(new)
 
