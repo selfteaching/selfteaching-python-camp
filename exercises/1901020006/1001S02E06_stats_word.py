@@ -1,46 +1,50 @@
 # 封装统计英文单词词频的函数
-# 1定义一个名为 stats_text_en 的函数
 def stats_text_en(text):
-    if not isinstance(text,str):
-        return '请输入字符串'
+    elements = text.split()
+    words = []
+    symbols = ',.*-!'
+    for element in elements:
+        for symbols in symbols:
+            element = element .replace(symbol,'')
+        if len(element):
+            words.append(element)
+    counter = {}
+    word_set = set(words)
+    
+    for word in word_set:
+        counter[word] = words.count(word)
+    return sorted(dict.items(),key=lambda x:x[1],reverse=True)
+
     
 
-    # 2.统计参数中每个英文单词出现的次数
-    # 3.替换掉所有的符号
-    text1 = text.replace(',','').replace('.','').replace('--','').replace('!','').replace('*','')
-    # 4.按照空格把所有单词分隔开
-    text2 = text.split()
-    # 5.构建一个词频字典
-    dict = {}
-    for i in text2:
-        j=text2.count(i)
-        dict2 = {i:j}
-        dict.update(dict2)
-    # 6.对之前的词频字典按照value值进行排序
-    dict3 = sorted(dict.items(),key=lambda x:x[1],reverse=True)
-    print(dict3)
         
 
-#(1)定义一个名为 stats_text_cn 的函数
+# 统计参数中每个中文汉字出现的次数
 def stats_text_cn(text):
-    #(2)函数接受一个字符串 text 作为参数。如果不是字符串，则提示
-    if not isinstance(text,str):
-        return '请输入字符串'
+    cn_characters = []
+    for character in text:
+        if'u4e00' <= character <= '\u9fff':
+            cn_characters.append(character)
+    counter = {}
+    cn_character_set = set(cn_characters)
+    for character in cn_characters_set:
+        counter[character] = cn_character.count(character)
+    return sorted(counter.items(),key=lambda x:x[1],reverse=True)
 
-    # 1.替换掉所有的符号
-    d = text.replace(',','').replace('-',' ').replace('.','').replace(':','').replace('《','').replace(';','').replace('"','').replace('!','').replace('?','').replace('》',' ').replace('、','').replace('，','').replace('。','').replace('“','').replace('”','').replace('：','').replace('；','').replace('\n','').replace('！','').replace('？','').replace('/','').replace('*',' ').replace(' ','').replace("'",'')
-    # 2.将上文中的字符串，用正则运算剔除所有英文字母单词，数字
-    d = re.sub("[A-Za-z0-9]", "", d)
-    print(d)
 
-    # 3.将字符串中的汉字去重，作为字典的key  
-    d_list = list(d)
-    print(d_list)
-    d_index = set(d_list)
-    # 4.构造词频字典
-    dict = {}
-    for i in d_index:
-        dict[i] = d_list.count(i)
-    # 5.对之前的词频字典按照value值进行排序
-    d_list = sorted(dict.items(),key=lambda e:e[1],reverse=True)
-    return d_list 
+    en_text = '''
+    The Zen of Python, by Tim Peters
+    '''
+
+    cn_text = '''
+
+    优美胜于丑陋
+    ...
+    ‘’‘
+    #搜索 __name__ ==__main__
+    # 一般情况下在文件内 测试 代码的事后以下面的形式进行
+    if __name__ =='__main__':
+        en_result = state_text_en(en_text)
+        cn_result = state_text_cn(en_text)
+        print('统计参数中每个英文单词出现的次数 ==>\n', en_result)
+        print('统计参数中每个英文单词出现的次数 ==>\n', cn_result)
