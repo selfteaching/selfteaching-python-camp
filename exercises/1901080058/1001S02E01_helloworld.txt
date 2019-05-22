@@ -1,0 +1,3 @@
+The first day for learn python!
+We learn how to used Github. create a project and commit a file into Internet. 
+clone the  code for localhost!
