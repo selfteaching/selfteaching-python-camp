@@ -28,7 +28,7 @@ def stats_text_en(text):        #定义函数
             dict1[i] += 1   #统计它的出现次数
         else:               
             dict1[i] = 1    
-    result = sorted(dict1.items(),key=lambda x:x[1],reverse=True)           #其实就是把 dict1.item（）生成的值赋予result，多了一个sorted，就是排序后赋值。
+    result = sorted(dict1.items(),key=lambda x:x[1],reverse=True)           
     return result
 print(stats_text_en(text1))
 
