@@ -13,3 +13,4 @@ ls5=int(ls4)
 print("转换为二进制为：", bin(ls5))
 print("转换为八进制为：", oct(ls5))
 print("转换为十六进制为：", hex(ls5))
+

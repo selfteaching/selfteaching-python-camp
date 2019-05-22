@@ -1,6 +1,4 @@
-
 text = '''
-
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -23,25 +21,24 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
+text1=text.replace('better','worse')
+print(text1)
 
-text.replace("better","worse")
-new_text = text.replace("better","worse")
-print(new_text)
-# 1.替换掉所有的符号
-word_str = new_text.replace(',','').replace('.','').replace('!','').replace('*','').replace('--','')
-# 2.按照空格将所有的单词分割开
-word_list = word_str.split()
-word_list = word_str.split()
-y = []
-for word in word_list:
-    # 查找不包含ea的单词
-    if word.find('ea') < 0:
-        y.append(word)
-new_text2 = ' '.join(y)
-print(new_text2)
-new_text3 = new_text2.swapcase()
-print(new_text3)
-new_text4 = new_text3.split()
-new_text4.sort()
-print (new_text4)
+
+line_list = []
+for line in text1.split(sep=("\n")):
+    word_list = line.split(" ")
+    for word in word_list[:]:
+        if "ea" in word:
+            word_list.remove(word)
+    line_list.append(' '.join(word_list))    #wrong for me
+
+text2 = '\n'.join(line_list)
+print(text2)  
+
+text3=text2.swapcase()
+print(text3)
+
+text4=sorted(text3)
+print(text4)
 
