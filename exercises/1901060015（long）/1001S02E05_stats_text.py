@@ -23,12 +23,16 @@ Namespaces are one honking great idea -- let's do more of those!
 
 text=text.replace('.','').replace('--','').replace('!','')
 text=text.split()
-text2=[]
+k=[]
+v=[]
 settext=set(text)
 for i in settext:
     count=text.count(i)
-    k=i
-    v=count
-    d={}
-    d[i]=count
-    print(d)
+    v.append(count)
+
+
+for i in settext:
+    count=text.count(i)
+    k.append(i)
+
+print(dict(zip(k,v)))
