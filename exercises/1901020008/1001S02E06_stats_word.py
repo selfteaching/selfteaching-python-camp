@@ -22,7 +22,7 @@ If the implementation is hard to explain,it may be a good idea.
 If the implementation is easy to explain,it may be a good idea.
 Namespaces are one honking great idea--let's do more of those!
 '''
-'''
+
 def stats_text_en(en_text):
     elements = en_text.split()
     words = []
@@ -38,7 +38,7 @@ def stats_text_en(en_text):
     for word in word_set:
         counter[word] = words.count(word)
 
-    return sorted(counter.items(), key=lambda x: x[1], reverse=True)'''
+    return sorted(counter.items(), key=lambda x: x[1], reverse=True)
     
 
 
