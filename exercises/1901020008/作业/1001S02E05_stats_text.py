@@ -1,7 +1,5 @@
 text = '''
 The Zen of python,by Tim Peters
-
-
 Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
