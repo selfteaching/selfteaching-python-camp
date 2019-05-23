@@ -1,5 +1,4 @@
-import stats_word
-text =  '''
+text ='''
 愚公移山
 
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他和家人往來極為不便。
@@ -47,4 +46,43 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
-print(stats_word.stats_text_en(text))
+
+def stats_text_en (text):
+    if isinstance(text, str) == False:
+        raise TypeError('Invalid string')
+    retext = text.replace(',',' ').replace('.',' ').replace('--','').replace('!','').replace('*',' ').replace('?','').replace('”','').replace('“','').replace('\n','').lower()
+    sptext = retext.split()
+    wordcount={}
+    
+    for i in sptext:
+        if '\u4e00' <= i <= '\u9fff':
+            i = ''
+        if i not in wordcount:
+            wordcount[i] = 1
+        else:
+            wordcount[i]+=1
+    wordcount = sorted(wordcount.items(),key=lambda x:x[1],reverse=True)
+    return wordcount
+def stats_text_cn(text):
+    if isinstance(text, str) == False:
+        raise TypeError('Invalid string')
+    retext1 = text.replace('，' , ' ').replace('。' , ' ').replace('：' , ' ').replace('！' , ' ').replace('\n', ' ').replace('？', ' ')
+    sptext1 = list(retext1)
+    wordcount1 = {}
+
+    for i in sptext1:
+        if '\u4e00' <= i <= '\u9fff':
+            if i not in wordcount1:
+                wordcount1[i] = 1
+            else:
+                wordcount1[i] += 1
+    wordcount1 =sorted(wordcount1.items(), key =lambda x:x[1], reverse = True)
+    return wordcount1
+
+def stats_text(text):
+    if isinstance(text, str) == False:
+        raise TypeError('Invalid string')
+    return(stats_text_en(text)+stats_text_cn(text))
+
+print(stats_text(text))
+
