@@ -27,7 +27,9 @@ y=[]
 for word in word_list:
     if word.find('ea') < 1:
         y.append(word)
-s2 = ''.join(y)
+
+s2 = ' '.join(y)
+
 print(s2)
 s3 = s2.swapcase()
 print(s3)

@@ -1,4 +1,6 @@
+
 from models.stats_word import *
+
 a=123131
 
 try:
