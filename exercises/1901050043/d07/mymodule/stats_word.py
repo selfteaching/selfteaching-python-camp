@@ -1,0 +1,26 @@
+import re
+
+def stats_text_en(text):
+    '''This function aims to count English words.'''
+    
+    result = re.sub("[^A-Za-z]", " ", text.strip())
+    newList = result.split()
+    a ={}
+    for i in newList:
+        a.update({i:newList.count(i)})
+    a1= sorted(a.items(), key= lambda x:x[1],reverse = True)
+    return a1
+
+def stats_text_cn(text):
+    ''' This function aims to count Chinese words.'''
+    
+    result1 = re.findall(u'[\u4e00-\u9fff]', text)
+    newString = result1
+    b ={}
+    for i in result1:
+        b.update({i:newString.count(i)})
+    b1 = sorted(b.items(),key = lambda x:x[1],reverse= True)
+    return b1
+    
+def stats_text(text):
+    return (stats_text_en(text),stats_text_cn(text))
