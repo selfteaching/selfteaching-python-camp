@@ -5,7 +5,7 @@ ls1=[str(i) for i in array]
 print(ls1)
 ls2=''.join(ls1)
 print(ls2)
-ls3=ls2[3:9]
+ls3=ls2[2:8]
 print(ls3)
 ls4=ls3[::-1]
 print(ls4)
