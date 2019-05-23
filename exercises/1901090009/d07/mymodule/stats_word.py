@@ -1,3 +1,4 @@
+
 import re
 
 def stats_text_en(text):
@@ -21,3 +22,4 @@ def stats_text(text):
     list_cn = stats_text_cn(text)
     list_all = sorted((list_en + list_cn), key = lambda x: x[1], reverse=True)
     return list_all
+
