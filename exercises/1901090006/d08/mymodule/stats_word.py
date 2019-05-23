@@ -35,7 +35,9 @@ def stats_text_en(text):
 	
 	# 判断text是否为字符串类型
 	if isinstance(text,str) != True:
-		raise ValueError('Invalid args:',text,'something else.')
+
+		raise ValueError('Invalid args:',text,'it is not string.')
+
 	
 	# 匹配英文
 	word_list = re.findall(r'\b[a-z]+\'?[a-z]+',text.lower())
@@ -55,7 +57,9 @@ def stats_text_cn(text):
 
 	# 判断text是否为字符串类型
 	if isinstance(text,str) != True:
-		raise ValueError('Invalid args:',text,'something else.')	
+
+		raise ValueError('Invalid args:',text,'it is not string.')	
+
 	
 	# 删除text中的英文、标点、数字
 	text_cn = re.sub(r'[\Wa-zA-Z0-9]','',text)
@@ -75,7 +79,9 @@ def stats_text(text):
 
 	# 判断text是否为字符串类型
 	if isinstance(text,str) != True:
-		raise ValueError('Invalid args:',text,'something else.')
+
+		raise ValueError('Invalid args:',text,'it is not string.')
+
 
 	# 对text分别调用统计中文和英文的函数
 	list_en = stats_text_en(text)
