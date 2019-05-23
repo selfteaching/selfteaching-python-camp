@@ -22,20 +22,14 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-word_dict = {}
-text=text.lower()
+new_text1 = text.replace("better", "worse")
+print(new_text1)
 import re
-pttn=r'[^a-z*\s]'
-text=re.sub(pttn,"",text)
-# print(text)
-words = text.split()
-# print(words)
-for item in words:
-    if  item not in word_dict:
-        word_dict[item] = 1
-    else :
-        word_dict[item] += 1
-
-# print(word_dict)
-for key in sorted(word_dict.items(),key=lambda item:item[1], reverse=True):
-    print (key)
+new_text2 = re.sub(r"[A-Za-z]*ea[A-Za-z]*", "", text)
+print(new_text2)
+new_text3 = new_text2.swapcase()
+print(new_text3)
+a = new_text3.split()
+b = sorted(a)
+new_text4 = ' '.join(b)
+print(new_text4)
