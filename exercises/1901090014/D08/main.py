@@ -1,4 +1,4 @@
-from models.stats_word_d8 import *
+from models.stats_word import *
 a=123131
 
 try:
