@@ -1,6 +1,4 @@
-
 text = '''
-
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -14,8 +12,7 @@ Although practicality beats purity.
 Errors should never pass silently.
 Unless explicitly silenced.
 In the face of ambxiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do
-it.
+There should be one-- and preferably only one --obvious way to do it.
 Although that way may not be obvious at first unless you're Dutch.
 Now is better than never.
 Although never is often better than *right* now.
@@ -23,25 +20,21 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
+#替换字符
+yl01=text.replace('better','worse')
+#将含EA的单词都剔除
+yl02=yl01.split()
+yl03=[]
+for a in yl02:
+    if "ea" not in a:
+        yl03.append(a)
+yl04=' '.join(yl03)
+#将字母大写改小写，小写改大写
+yl05=yl04.swapcase()
+#倒序排列
+yl06=yl05.replace(","," ").replace("."," ").replace("--"," ").replace("*"," ").replace("!"," ")
+yl07=yl06.split()
+yl08=sorted(yl07)
+yl06=' '.join(yl08)
 
-text.replace("better","worse")
-new_text = text.replace("better","worse")
-print(new_text)
-# 1.替换掉所有的符号
-word_str = new_text.replace(',','').replace('.','').replace('!','').replace('*','').replace('--','')
-# 2.按照空格将所有的单词分割开
-word_list = word_str.split()
-word_list = word_str.split()
-y = []
-for word in word_list:
-    # 查找不包含ea的单词
-    if word.find('ea') < 0:
-        y.append(word)
-new_text2 = ' '.join(y)
-print(new_text2)
-new_text3 = new_text2.swapcase()
-print(new_text3)
-new_text4 = new_text3.split()
-new_text4.sort()
-print (new_text4)
-
+print(yl06)
