@@ -1,7 +1,5 @@
 text = '''
 The Zen of Python, by Tim Peters
-
-
 Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
@@ -22,20 +20,18 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-word_dict = {}
-text=text.lower()
-import re
-pttn=r'[^a-z*\s]'
-text=re.sub(pttn,"",text)
-# print(text)
-words = text.split()
-# print(words)
-for item in words:
-    if  item not in word_dict:
-        word_dict[item] = 1
-    else :
-        word_dict[item] += 1
+#使用字典 统计单词出现次数
+ 
+a1=text.replace("*"," ").replace("-"," ").replace(","," ").replace("."," ").replace("--"," ").replace("!"," ")
+a1=a1.split()
+i=0
+dictData = {}
+for word in a1:
+    i = a1.count(word)
+    dictData[word] = i
 
-# print(word_dict)
-for key in sorted(word_dict.items(),key=lambda item:item[1], reverse=True):
-    print (key)
+
+#按照从大到小输入所有的单词及出现的次数
+dic2=sorted(dictData.items(),key = lambda item:item[1],reverse=True)
+
+print(dic2)

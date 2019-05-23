@@ -21,7 +21,10 @@ def stats_text_en(text):
     return d_list
 
 
+
 #(1)定义一个名为 stats_text_cn 的函数
+
+
 def stats_text_cn(text):
     #(2)函数接受一个字符串 text 作为参数。如果不是字符串，则提示
     if not isinstance(text,str):
