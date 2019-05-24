@@ -9,7 +9,7 @@ def stats_text_en(text):
     return list_en
 
 def stats_text_cn(text):
-    text_cn = re.sub(r'[\wa-zA-Z0-9]','',text)
+    text_cn = re.sub(r'[\Wa-zA-Z0-9]','',text)
     count_dict = {}
     for char in text_cn:
         count_dict[char] = text_cn.count(char)
