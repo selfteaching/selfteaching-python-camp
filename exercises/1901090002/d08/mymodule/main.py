@@ -1,7 +1,9 @@
 import sys
 import stats_word
+
 from os import path
 import json
+
 
 text = """
 愚公移⼭
@@ -75,6 +77,7 @@ incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered
 two mighty gods to carry the mountains away."""
 
+
 #try:
  #   print(stats_word.stats_text(text))
 #except ValueError:
@@ -87,4 +90,5 @@ def load_file():
         return json.load(f)
 
 print(load_file())
+
 
