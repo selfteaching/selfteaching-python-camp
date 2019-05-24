@@ -1,3 +1,4 @@
+
 import re
 # 封装统计英文单词词频的函数
 def stats_text_en(text):
@@ -117,3 +118,4 @@ if __name__ == "__main__":
     # 对统计中文词频函数进行测试
     array = stats_text_cn(text)
     print(array)
+
