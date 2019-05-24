@@ -1,4 +1,6 @@
-import re
+from collections import Counter
+from os import path
+import json
 
 def stats_text(text):
     if type(text) != str:
@@ -24,9 +26,18 @@ def stats_text_cn(text):
     list_cn = sorted(count_dict.items(), key = lambda x:x[1], reverse=True)
     return list_cn
 
-
+def load_file():
+    file_path = path.join(path.dirname(path.abspath(__file__)),'tang300.json')
+    with open(file_path,'r', encoding='utf-8') as file:
+        return json.load(file)
     
-# 测试非字符串参数的执行结果
-# text = True
-# text = '大法啊都是范德萨 大发动机 的卅饭店 adf fd fd tony apple sick 我是中国人 阿道夫fdsa 12344'
-# print(stats_text(text))
+s = load_file()
+text = ''
+for i in s:
+    text +=str(i)
+
+cnt = Counter()
+for word in [text]:
+    cnt[word] +=1
+words100 = Counter(word).most_common(100)
+print(words100)
