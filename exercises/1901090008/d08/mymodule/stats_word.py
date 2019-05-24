@@ -42,6 +42,7 @@ def stats_text_en (text):  #定义：函数+括弧，为函数添加注释，
 print(stats_text_en(text)) #用于测试
 
 
+
 def stats_text_cn(text):
     if not isinstance(text,(str)):
         raise ValueError('bad operand type')
@@ -61,7 +62,9 @@ def stats_text_cn(text):
     dict =sorted(dict.items(), key =lambda x:x[1], reverse = True)
     return dict
 
+
 print(stats_text_cn(text)) #用于测试
+
 
 def stats_text(text):
     '''合并统计英文词频和中文词频'''
