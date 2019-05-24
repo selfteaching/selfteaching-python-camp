@@ -47,8 +47,10 @@ a=a.split() # 切割字符串
 #print(a)
 def stats_text_en(a):   #定义函数
     import collections  #引用collections包
+
     if type(a) != str:                   #利用判断语句进行分析
         raise ValueError('valuerror:it is not string stats_text_en')
+
     c=collections.Counter(a)  #Counter 确定次数
     return c            #返回值
 
@@ -57,8 +59,10 @@ def stats_text_en(a):   #定义函数
 
 def stats_text_cn(x): #定义函数
     j={}
+
     if type(x)!=str:                   #利用判断语句进行分析
         raise ValueError('valuerrorr:it is not string stats_text_en')
+
     for i in x :                    #通过循环统计汉字
         if '\u4e00' <= i <= '\u9fff' :
             j[i]=x.count(i)+1
@@ -69,8 +73,10 @@ def stats_text_cn(x): #定义函数
     return (text4)
 
 def stats_text(a):
+
     if type(a) !=str:                   #利用判断语句进行分析
         raise ValueError('valuerror:it is not string stats_text_en')
+
     return stats_text_en(a) ,stats_text_cn(a)
 
 
