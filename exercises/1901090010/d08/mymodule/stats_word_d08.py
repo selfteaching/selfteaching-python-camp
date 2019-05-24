@@ -62,7 +62,6 @@ def stats_text_cn(text):
 
 
 
-
 def stats_text(text):
 
     if not isinstance(text,str):
