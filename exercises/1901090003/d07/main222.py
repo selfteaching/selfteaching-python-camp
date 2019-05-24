@@ -1,4 +1,4 @@
-from stats_word import stats_text
+from mymodule import stats_word
 
 text = '''
 愚公移⼭山
@@ -61,7 +61,5 @@ incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered
 two mighty gods to carry the mountains away.
 '''
+print(stats_word.stats_text(text))
 
-if __name__ == "__main__":
-    arr = stats_text(text)
-    print(arr)
