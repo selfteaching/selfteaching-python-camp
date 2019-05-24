@@ -1,31 +1,31 @@
-from mymodule import stats_word
-import tackback
+from mymodule import stats_word_d08
+import traceback
 import logging
 
-logger = logging.getlonger(__name__)
+logger = logging.getLogger(__name__)
 
-def test_teackback():
+def test_traceback():
     try:
-        stats_word.stats_text(1)
+        stats_word_d08.stats_text(1)
     except Exception as e:
-        print('text_tackback=>'e)
-        print(tackback.format_exc())
+        print('test.traceback =>',e)
+        print(traceback.format_exc())
 
-def text_longer()：
+def test_logger():
     try:
-        stats_word.stats_text(1)
+        stats_word_d08.stats_text(1)
     except Exception as e:
-        #print('text_longer=>'e)
-        longer.exception(e)
+        print('test.traceback =>',e)
+        logger.exception(e)
 
-if __name__ = "__main__"
-    stats_word.stats_text(1)
-    test_teackback()
-    text_longer
 
-    
-sample_text = 
-'''
+
+if __name__=='__main__':
+    stats_word_d08.stats_text(1)
+    test_traceback
+    test_logger
+
+sample_text = '''
 愚公移山
 太行，王屋二山的北面住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他
 和家人往來極為不便。
@@ -69,6 +69,6 @@ When the guardian gods of the mountains saw how determined Yugongand his crew we
 incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens orderedtwo mighty gods to carry the mountains away.
 '''
-result = stats_word.stats_text(sample_text)
+result = stats_word_d08.stats_text(sample_text)
 
 print('统计结果==>',result)
