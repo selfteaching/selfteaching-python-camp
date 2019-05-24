@@ -1,5 +1,7 @@
 def  stats_text_en(text):
     '''封装统计英文单词词频的函数'''
+    if not isinstance(text, str):
+        raise ValueError('参数为非字符串')    
     elements=text.split()
     words=[]
     symbols=' ,.*-!'
@@ -14,13 +16,14 @@ def  stats_text_en(text):
         counter[word]=words.count(word)
     
 
-    if not isinstance(text, str):
-        raise ValueError('参数为非字符串')
+
     return sorted(counter.items(),key=lambda x: x[1],reverse=True)
 
 
 def  stats_text_cn(text):
     '''封装统计中文汉字字频的函数'''
+    if not isinstance(text, str):
+        raise ValueError('参数为非字符串')
     cn_charaters=[]
     symbols=', .*-!， '
     for charater in text:
@@ -33,8 +36,7 @@ def  stats_text_cn(text):
     for charater in cn_charater_set:
         counter[charater]=cn_charaters.count(charater)
 
-    if not isinstance(text, str):
-        raise ValueError('参数为非字符串')
+    
     return sorted(counter.items(),key=lambda x:x[1],reverse=True)
 
 
@@ -42,8 +44,6 @@ def stats_text(text):
     '''
     合并中，英文词频的结果
     '''
-   
-
     if not isinstance(text, str):
         raise ValueError('参数为非字符串')
     return stats_text_en(text) + stats_text_cn(text)
