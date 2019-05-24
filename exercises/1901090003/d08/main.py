@@ -1,9 +1,9 @@
 from mymodule import stats_word
 
 try:
-  print(stats_word.stats_text(888))
+    print(stats_word.stats_text(888))
 except ValueError as e:
-  print('test_traceback =>',e)
+    print('test_traceback =>',e)
 
 text = '''
 愚公移山 太行，王屋二山的北面，住了一个九十岁的老翁，名叫愚公。二山占地广阔，挡住去路，使他和家人往来极为不便。 一天，愚公召集家人说:「让我们各尽其力，铲平二山，开条道路，直通豫州，你们认为怎样?」 大家都异口同声赞成，只有他的妻子表示怀疑，并说:「你连开凿一个小丘的力量都没有，怎可能铲平太行、王屋二山呢? 况且，凿出的土石又丢到哪里去呢?」
