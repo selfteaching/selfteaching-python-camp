@@ -1,6 +1,10 @@
 #使用Python编写一个支持加减乘除的计算器，支持输入参数，支持输出结果！
 # Filename : 1001S02E03_calculator.py
+#<<<<<<< master
 
+#=======
+ 
+#>>>>>>> master
 # 定义函数
 def add(x, y):
    """相加"""
