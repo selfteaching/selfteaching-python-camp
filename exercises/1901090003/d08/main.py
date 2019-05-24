@@ -1,26 +1,20 @@
+from mymodule import stats_word
+
+try:
+
+    print(stats_word.stats_text(888))
+except ValueError as e:
+    print('test_traceback =>',e)
+
 
 text = '''
-
-愚公移山
-太行、王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他
-和家人往來極為不便。
-一天，愚公召集家人說:「讓我們各盡其力，剷平二山，開條道路，直通豫州，你們認為怎
-樣?」
-大家都異口同聲贊成，只有他的妻子表示懷疑，並說:「你連開鑿一個小丘的力量都沒有，怎
-可能剷平太行、王屋二山呢?況且，鑿出的土石又丟到哪裏去呢?」
-大家都熱烈地說:「把土石丟進渤海裏。」
-於是愚公就和兒孫，一起開挖土，把土石搬運到渤海去。
-愚公的鄰居是個寡婦，有個兒子八歲也興致勃勃地走來來幫忙。
-寒來暑往，他們要一年才能往返渤海一次。
-住在黃河河畔的智叟，看見他們這樣辛苦，取笑愚公說:「你不是很愚蠢嗎?你已一把年紀
-了，就是用盡你的氣力，也不能挖去山的一角呢?」
-愚公歎息道:「你有這樣的成見，是不會明白的。你比那寡婦的小兒子還不如呢!就算我死
-了，還有我的兒子，我的孫子，我的曾孫子，他們一直傳下去。而這二山是不會加大的，總有
-一天，我們會把它們剷平。」
-智叟聽了，無話可說:
-二山的守護神被愚公的堅毅精神嚇倒，便把此事奏知天帝。天帝佩服愚公的精神，就命兩位大
-力神揹走二山。
-
+愚公移山 太行，王屋二山的北面，住了一个九十岁的老翁，名叫愚公。二山占地广阔，挡住去路，使他和家人往来极为不便。 一天，愚公召集家人说:「让我们各尽其力，铲平二山，开条道路，直通豫州，你们认为怎样?」 大家都异口同声赞成，只有他的妻子表示怀疑，并说:「你连开凿一个小丘的力量都没有，怎可能铲平太行、王屋二山呢? 况且，凿出的土石又丢到哪里去呢?」
+大家都热烈地说:「把土石丢进渤海里。」
+于是愚公就和儿孙，一起开挖土，把土石搬运到渤海去。
+愚公的邻居是个寡妇，有个儿子八岁也兴致勃勃地走来帮忙。
+寒来暑往，他们要一年才能往返渤海一次。 住在黄河河畔的智叟，看见他们这样辛苦，取笑愚公说:「你不是很愚蠢吗?你已一把年纪了，就是用尽你的气力，也不能 挖去山的一角呢?」 愚公叹息道:「你有这样的成见，是不会明白的。你比那寡妇的小儿子还不如呢!就算我死了，还有我的儿子，我的孙子， 我的曾孙子，他们一直传下去。而这二山是不会加大的，总有一天，我们会把它们铲平。」
+智叟听了，无话可说:
+二山的守护神被愚公的坚毅精神吓倒，便把此事奏知天帝。 天帝佩服愚公的精神，就命两位大力神背走二山。
 How The Foolish Old Man Moved Mountains
 Yugong was a ninety-year-old man who lived at the north of two high
 mountains, Mount Taixing and Mount Wangwu.
@@ -40,6 +34,13 @@ remove the earth. They transported the earth and rubble to the Sea of
 Bohai.
 Now Yugong’s neighbour was a widow who had an only child eight years
 old. Evening the young boy offered his help eagerly.
+  上述代码中可以提换的代码:
+修改为:
+ 她做的很好，但是鉴于初期，大家可以使用此代码。学有余力的情况下，可以尝试理解上面的代码。
+/mymodule/stats_word.py
+import sys
+# 添加环境变量:当前脚本路径下的mymodule文件夹 sys.path.append(sys.path[0]+'/mymodule') import stats_word
+from mymodule import stats_word
 Summer went by and winter came. It took Yugong and his crew a full
 year to travel back and forth once.
 On the bank of the Yellow River dwelled an old man much respected for
@@ -62,7 +63,4 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two
 mighty gods to carry the mountains away.
 '''
 
-from mymodule import stats_word
-result = stats_word.stats_text(text)
-print(result)
-
+print(stats_word.stats_text(text))
