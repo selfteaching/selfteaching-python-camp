@@ -1,18 +1,27 @@
+'''
+try:
+    fh = open("testfile", "w")
+    fh.write("这是一个测试文件，用于测试异常!!")
+except IOError:
+    print "Error: 没有找到文件或读取文件失败"
+else:
+    print "内容写入文件成功"
+    fh.close()
+'''
+
 import re
 #(1)定义一个名为 stats_text_en 的函数
 def stats_text_en(text):
     #(2)函数接受一个字符串 text 作为参数。如果不是字符串，则提示
     if not isinstance(text,str):
-        return '请输入字符串'
+        raise ValueError('参数必须是str类型，输入类型%s'%type(text))
 
     #(3)统计参数中每个英文单词出现的次数
     # 1.替换掉所有的符号
     word_str = text.replace(','," ").replace('.'," ").replace('!'," ").replace('*'," ").replace('--'," ")
     # 2.按照空格将所有的单词分割开
-
     word_str = re.sub(r'[^A-Za-z]',' ',word_str)
     word_list = word_str.split()
-
 
     # 3.对单词进行去重操作，作为字典的key
     word_one = set(word_list)
@@ -30,7 +39,7 @@ def stats_text_en(text):
 def stats_text_cn(text):
     #(2)函数接受一个字符串 text 作为参数。如果不是字符串，则提示
     if not isinstance(text,str):
-        return '请输入字符串'
+        raise ValueError('参数必须是str类型，输入类型%s'%type(text))
 
     # 1.替换掉所有的符号
     d = text.replace(',','').replace('-',' ').replace('.','').replace(':','').replace('《','').replace('’','').replace(';','').replace('"','').replace('!','').replace('?','').replace('》',' ').replace('、','').replace('，','').replace('。','').replace('“','').replace('”','').replace('：','').replace('；','').replace('\n','').replace('！','').replace('？','').replace('/','').replace('*',' ').replace(' ','').replace("'",'')
@@ -53,13 +62,15 @@ def stats_text_cn(text):
 
 
 
-
 def stats_text(text):
+
+    if not isinstance(text,str):
+        raise ValueError('参数必须是str类型，输入类型%s'%type(text))
+    
         '''
         
         合并 英文词频 和 中文词频 的结果
         
         '''
-        return stats_text_en(text)+stats_text_cn(text)
+    return stats_text_en(text) + stats_text_cn(text)
         
-
