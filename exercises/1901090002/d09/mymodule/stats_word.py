@@ -1,43 +1,34 @@
-from collections import Counter
-from os import path
-import json
+from collections import Counter 
 
-def stats_text(text):
-    if type(text) != str:
-        raise ValueError('非字符串类型')
-    list_en = stats_text_en(text)
-    list_cn = stats_text_cn(text)
-    list_all = list_en+list_cn
-    return list_all
+def stats_text_en(a,count):  
+    a=a.replace(',',' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('*',' ')
+    a=a.split() 
+    if type(a) != str:                  
+        raise ValueError('ValuError:it is not string')
+    number = Counter()
+    for s in a:  
+        if s.isascii():
+            number[s]+=1
 
-def stats_text_en(text):
-    word_list = re.findall(r'\b[a-z]+\'?[a-z]+',text.lower())
-    count_dict = {}
-    for word in word_list:
-        count_dict[word] = word_list.count(word)
-    list_en = sorted(count_dict.items(), key=lambda x:x[1], reverse=True)
-    return list_en
+    return Counter(number).most_common(count)  
 
-def stats_text_cn(text):
-    text_cn = re.sub(r'[\wa-zA-Z0-9]','',text)
-    count_dict = {}
-    for character in text_cn:
-        count_dict[character] = text_cn.count(character)
-    list_cn = sorted(count_dict.items(), key = lambda x:x[1], reverse=True)
-    return list_cn
+def stats_text_cn(x,count): 
+    j={}
+    if type(x)!=str:                  
+        raise ValueError('ValuError:it is not string')   
+    x=x.replace('，','').replace('。','').replace('!','').replace('*','').replace('-','').replace('?','') 
+    j=''.join(x)
 
-def load_file():
-    file_path = path.join(path.dirname(path.abspath(__file__)),'tang300.json')
-    with open(file_path,'r', encoding='utf-8') as file:
-        return json.load(file)
     
-s = load_file()
-text = ''
-for i in s:
-    text +=str(i)
+    number = Counter()
 
-cnt = Counter()
-for word in [text]:
-    cnt[word] +=1
-words100 = Counter(word).most_common(100)
-print(words100)
+    for e in j :                   
+        if '\u4e00' <= e <= '\u9fff' :
+            number[e]+=1
+    return Counter(number).most_common(count)
+
+def stats_text(a,count):
+    if type(a) !=str:                   
+        raise ValueError('ValuError:it is not string')
+    print(stats_text_cn(a,count))  
+    print(stats_text_en(a,count)) 
