@@ -57,18 +57,26 @@ def stats_text_cn(text, n):
     s16 = s15.replace(':', '', text.count(':'))
     s17 = s16.replace('n', '', text.count('n'))
     s18 = s17.replace('\\', '', text.count('\\'))
-    text1 = s18.replace(' ', '', text.count(' '))
+    s19 = s18.replace('？', '', text.count('？'))
+    s20 = s19.replace('0', '', text.count('0'))
+    s21 = s20.replace('1', '', text.count('1'))
+    s22 = s21.replace('2', '', text.count('2'))
+    s23 = s22.replace('3，', '', text.count('3'))
+    s24 = s23.replace('4', '', text.count('4'))
+    s25 = s24.replace('5', '', text.count('5'))
+    s26 = s25.replace('6', '', text.count('6'))
+    s27 = s26.replace('7', '', text.count('7'))
+    s28 = s27.replace('8', '', text.count('8'))
+    s29 = s28.replace('9', '', text.count('9'))
+    text1 = s29.replace(' ', '', text.count(' '))
     
     # 将字符串整理为以每个汉字为key，以该汉字个数为value的字典
     i = 0
     bDict = {}
     
     while i < len(text1):
-        if text1[i] in range(1, 321):
-            break
-        else:
-            cnt = text1.count(text1[i])
-            bDict.setdefault(text1[i], cnt) 
-            i = i + 1
-    
+        cnt = text1.count(text1[i])
+        bDict.setdefault(text1[i], cnt) 
+        i = i + 1
+
     return(Counter(bDict).most_common(n))
