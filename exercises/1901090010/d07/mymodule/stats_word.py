@@ -9,8 +9,10 @@ def stats_text_en(text):
     # 1.替换掉所有的符号
     word_str = text.replace(','," ").replace('.'," ").replace('!'," ").replace('*'," ").replace('--'," ")
     # 2.按照空格将所有的单词分割开
+
     word_str = re.sub(r'[^A-Za-z]',' ',word_str)
     word_list = word_str.split()
+
 
     # 3.对单词进行去重操作，作为字典的key
     word_one = set(word_list)
