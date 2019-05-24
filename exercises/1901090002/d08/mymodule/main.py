@@ -1,5 +1,7 @@
 import sys
 import stats_word
+from os import path
+import json
 
 text = """
 愚公移⼭
@@ -73,7 +75,16 @@ incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered
 two mighty gods to carry the mountains away."""
 
-try:
-    print(stats_word.stats_text(text))
-except ValueError:
-    print('当前输入为',type(text),'请输入字符串参数')
+#try:
+ #   print(stats_word.stats_text(text))
+#except ValueError:
+ #   print('当前输入为',type(text),'请输入字符串参数')
+
+def load_file():
+    file_path = path.join(path.dirname(path.abspath(__file__)),'tang300.json')
+    print(__file__,file_path)
+    with open(file_path,'r', encoding='utf-8') as f:
+        return json.load(f)
+
+print(load_file())
+
