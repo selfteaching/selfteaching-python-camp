@@ -3,6 +3,7 @@ import re
 import collections
 
 
+
 # 这里需要修改，添加参数count
 def stats_text_en(text,count):
     #函数接受一个字符串 text 作为参数。如果不是字符串，则提示
@@ -17,7 +18,7 @@ def stats_text_en(text,count):
 
     # 函数使用return，print的话直接打印，不方便，return可以在调用的时候使用变量进行接收
     return collections.Counter(word_list).most_common(count)
-#你这用错了，首先Counter里面直接传入d_list就可以了。其次，你这样相当于重复做了，和之前的代码重复
+
 
 #(1)定义一个名为 stats_text_cn 的函数
 def stats_text_cn(text,count):
