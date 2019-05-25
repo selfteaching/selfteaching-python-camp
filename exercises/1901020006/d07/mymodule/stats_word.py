@@ -6,7 +6,12 @@ def stats_text_en(text):
     for element in elements:
         for symbol in symbols:
             element = element.replace(symbol,'')
+# master
+        # 用 str 类型的 isascii 方法判断是否是英文单词
+        if len(element) and element.isascii:
+#=======
         if len(element):
+# master
             words.append(element)
     counter = {}
     word_set = set(words)
@@ -45,6 +50,13 @@ if __name__ =='__main__':
     print('统计参数中每个英文单词出现的次数 ==>\n', cn_result)
 
 
+# master
+def stats_text(text):
+    '''
+    合并 英文词频 和 中文词频 的结果
+    '''
+    return stats_text_en(text) + stats_text_cn(text)
+#
 def stats_text_cn(text):    #定义函数，参数text可变
     setb=set(text)   #设定集合set，并把集合元素赋值给setb
     d = []   #设定列表
@@ -57,3 +69,4 @@ def stats_text_cn(text):    #定义函数，参数text可变
     return x
     #print('\n按照出现次数降序输出所有汉字:\n')
     #print(x)
+# master
