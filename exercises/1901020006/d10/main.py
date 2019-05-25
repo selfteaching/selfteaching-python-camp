@@ -15,4 +15,3 @@ try:
 except ValueError:
     print("error:文本为非字符串")   
 
-pip --version
