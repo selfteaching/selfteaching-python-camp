@@ -9,3 +9,4 @@ print(stats_word.stats_text_cn(text,100))
 
 file.close()
 
+

@@ -1,8 +1,10 @@
 
-
 from collections import Counter
+import jieba
+
 import re
-count = 100
+count = 20
+
 
 def stats_text_en (text,count):
     if isinstance(text,str) == False:
@@ -18,13 +20,11 @@ def stats_text_en (text,count):
 def stats_text_cn(text,count):
     if isinstance(text,str) == False:
         raise TypeError('Invalid string')
-    retext1 = text.replace('，' , ' ').replace('。' , ' ').replace('：' , ' ').replace('！' , ' ').replace('\n', ' ').replace('？', ' ')
-    sptext1 = list(retext1)
-    cnt=Counter()
-    for i in sptext1:
-        if u'\u4e00' <= i <= u'\u9fa5':         
-            cnt[i]+=1
-    return Counter(cnt).most_common(count)
+    text = re.sub('[^\u4e00-\u9fa5]','',text)
+    seg_list = jieba.cut(text,cut_all = False)
+    seg = [word for word in seg_list if len(word)>=2]
+    # 下面的Counter接收的参数是列表
+    return Counter(seg).most_common(count)
 
 def stats_text(text,count):
     if isinstance(text,str) == False:
