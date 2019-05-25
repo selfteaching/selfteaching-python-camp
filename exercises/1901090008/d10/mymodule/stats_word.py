@@ -1,4 +1,7 @@
-from collections import Counter   
+#coding = utf-8
+
+from collections import Counter 
+
  #collections 是python内建的集合模块，Counter 是其中的一个函数,需要用到from...import...  否则counter函数出现Undefined的情况     
 text = '''
 The Zen of python, by Tim Peters
@@ -21,8 +24,8 @@ If the implementation is easy to explain,it's may be a good idea.
 Namespaces are one honking great idea --let's do more of those!
 '''
 count =100
-def stats_text_en (text, count):  #定义：函数+括弧；限制输出元素个数
-    if not isinstance(text,(str)):   #参数检查
+def stats_text_en (text, count):               #定义：函数+括弧；限制输出元素个数
+    if not isinstance(text,(str)):             #参数检查
         raise ValueError('bad operand type')   #抛出错误
 
     replace_text = text.replace(',',' ').replace('.',' ').replace('--','').replace('!','').replace('*',' ').replace('\n','')  #第一步：去掉标点符号
@@ -34,27 +37,28 @@ def stats_text_en (text, count):  #定义：函数+括弧；限制输出元素�
         c[word1] += 1            
 
     c.most_common()             #括号内为输入数字，默认输出全部的单词词频
-
-    return c 
-
+    return c
 
 print(stats_text_en (text, count))
 
 
-def stats_text_cn(text,count):
+import jieba                     #导入结巴
+
+def stats_text_cn(text,count):     
     if not isinstance(text,(str)):
         raise ValueError('bad operand type')
 
+    seg_list = jieba.lcut(text, cut_all=False)        #调用jieba method 分词成列表   
+    seg_dic = dict([(word ,seg_list.count(word)) for word in seg_list if len(word)>=2])  #遍历seg_list,生成词典，key>=2  来源：issues/1734
+    return Counter(seg_dic).most_common(count)
 
-    text1 = text.replace('，' , ' ').replace('。' , ' ').replace('：' , ' ').replace('！' , ' ').replace('\n', ' ').replace('？', ' ')
-    text2 = list(text1)             #汉字词频统计不需要空格符隔开
 
-    cnt = Counter()
-    for word2 in text2:
-        if '\u4e00' <= word2 <= '\u9fff': #找中文字符
-                cnt[word2] += 1
+print(stats_text_cn (text,count))
 
-    return cnt
+
+
+
+
 
 print(stats_text_cn (text,count))
 
