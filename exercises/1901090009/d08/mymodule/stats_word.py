@@ -19,7 +19,9 @@ def stats_text_cn(text):
     except:
         raise ValueError("oops, this is not a string!")
     else:
-        text_cn = re.sub(r'[\wa-zA-Z0-9]','',text)
+
+        text_cn = re.sub(r'[\Wa-zA-Z0-9]','',text)
+
         count_dict = {}
         for char in text_cn:
             count_dict[char] = text_cn.count(char)
