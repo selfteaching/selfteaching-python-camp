@@ -1,31 +1,11 @@
-from mymodule import stats_word
-import tackback
-import logging
 
-logger = logging.getlonger(__name__)
+from mymodule import stats_word_d08
+try:
+    stats_word_d08.stats_text_en(12123)
+except ValueError as e:
+    print(e)
+sample_text = '''
 
-def test_teackback():
-    try:
-        stats_word.stats_text(1)
-    except Exception as e:
-        print('text_tackback=>'e)
-        print(tackback.format_exc())
-
-def text_longer()：
-    try:
-        stats_word.stats_text(1)
-    except Exception as e:
-        #print('text_longer=>'e)
-        longer.exception(e)
-
-if __name__ = "__main__"
-    stats_word.stats_text(1)
-    test_teackback()
-    text_longer
-
-    
-sample_text = 
-'''
 愚公移山
 太行，王屋二山的北面住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他
 和家人往來極為不便。
@@ -69,6 +49,40 @@ When the guardian gods of the mountains saw how determined Yugongand his crew we
 incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens orderedtwo mighty gods to carry the mountains away.
 '''
+
+result = stats_word_d08.stats_text(sample_text)
+
+print('统计结果==>',result)
+
+
+
+'''
+可以不带任何异常类型使用except，如下实例：
+
+try:
+    正常的操作
+   ......................
+except:
+    发生异常，执行这块代码
+   ......................
+else:
+    如果没有异常执行这块代码
+以上方式try-except语句捕获所有发生的异常。但这不是一个很好的方式，我们不能通过该程序识别出具体的异常信息。因为它捕获所有的异常。
+
+使用except而带多种异常类型
+你也可以使用相同的except语句来处理多个异常信息，如下所示：
+
+try:
+    正常的操作
+   ......................
+except(Exception1[, Exception2[,...ExceptionN]]]):
+   发生以上多个异常中的一个，执行这块代码
+   ......................
+else:
+    如果没有异常执行这块代码
+    '''
+======
 result = stats_word.stats_text(sample_text)
 
 print('统计结果==>',result)
+
