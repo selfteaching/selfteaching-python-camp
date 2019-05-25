@@ -1,9 +1,11 @@
+
 from mymodule import stats_word_d08
 try:
     stats_word_d08.stats_text_en(12123)
 except ValueError as e:
     print(e)
 sample_text = '''
+
 愚公移山
 太行，王屋二山的北面住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他
 和家人往來極為不便。
@@ -47,6 +49,7 @@ When the guardian gods of the mountains saw how determined Yugongand his crew we
 incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens orderedtwo mighty gods to carry the mountains away.
 '''
+
 result = stats_word_d08.stats_text(sample_text)
 
 print('统计结果==>',result)
@@ -78,3 +81,8 @@ except(Exception1[, Exception2[,...ExceptionN]]]):
 else:
     如果没有异常执行这块代码
     '''
+======
+result = stats_word.stats_text(sample_text)
+
+print('统计结果==>',result)
+
