@@ -16,6 +16,7 @@ def stats_text_en(text,count):
 
 
 # 统计参数中每个中文汉字出现的次数
+import jieba
 def stats_text_cn(text,count):
     cn_characters = []
     for character in text:
