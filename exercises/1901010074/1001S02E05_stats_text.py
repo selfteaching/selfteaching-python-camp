@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 text = '''
 The Zen of Python, by Tim Peters Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -25,7 +28,9 @@ str = text.replace('.',' ')
 str = str.replace('\n','')
 
 str_array = str.split(' ')
-from collections import Counter
+
+# 统计英文单词出现的次数
+
 result = {}
 for i in set(str_array):
     result[i] = str_array.count(i)
