@@ -69,7 +69,7 @@ def email(my_contents):
     my_password = getpass.getpass('输入发件人邮箱密码(可复制粘贴):')
     recipients = input('输入收件人邮箱:')
     yag = yagmail.SMTP(sender,my_password,'smtp.qq.com')
-    yag.send(recipients, '【1901090008】自学营4群 day11 Jungle002', my_contents)
+    yag.send(recipients, '【1901090008】自学营1群 day11 Jungle002', my_contents)
 
 def stats_text(text,count):#将两个函数做成一个函数
     if type(text)==str:
