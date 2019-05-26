@@ -11,7 +11,13 @@ with open(fp, 'rb') as f:                                            #读取本�
     c3 =s.stats_text_cn(b,100) 
     print(c3.most_common(100))
 
+    f.close(fp, 'rb')
+    
+
+
+
 try:                                 #try except  捕获异常
     print(c3.most_common(100))
 except ValueError as err:
     print("err:not string ,try again")
+
