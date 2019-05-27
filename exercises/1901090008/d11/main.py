@@ -18,13 +18,9 @@ print(r_string)
 import yagmail                                                       #通过邮箱发送内容                      
 import getpass
 
-sender= input('824966768@qq.com')
-password = getpass.getpass('pdmzbivsarpmbeda')        #在填写授权码时，是不会出现东西的，只要一口气把它输完就好
-recipients= input('pythoncamp@163.com')
-yag= yagmail.SMTP(sender, password,'smtp.163.com' ).send(recipients,'自学营008期01班+Jungle002', r_string)
 
+sender= input('输入发件人邮箱')
+password = getpass.getpass('输入发件人邮箱密码（可复制粘贴):')        #在填写授权码时，是不会出现东西的，只要一口气把它输完就好
+yag=yagmail.SMTP(user=sender, password=password, host='smtp.163.com')
+yag.send(to, subject,body)
 
-try:                                 #try except  捕获异常
-    print(s.stats_text_cn(content,100))
-except ValueError as err:
-    print("err:not string ,try again")
