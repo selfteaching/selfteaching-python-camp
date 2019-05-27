@@ -24,7 +24,7 @@ def merge_poems(data):
 
 def main():        #
     try:
-    data = load_file()
+        data = load_file()
         logging.info(data[0])    #打印检查代码
         # poems = merge_poems(json.loads(data))  #转化josn格式
         logging.info('reasult ==> %s', stats_word.stats_text_cn(data, 100))
