@@ -34,7 +34,9 @@ def stats_text_en (text, count):  #定义：函数+括弧；限制输出元素�
         c[word1] += 1            
 
     c.most_common()             #括号内为输入数字，默认输出全部的单词词频
-    return c
+
+    return c 
+
 
 print(stats_text_en (text, count))
 

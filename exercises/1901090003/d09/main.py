@@ -4,6 +4,9 @@ file = open('/Users/Justco/selfteaching-python-camp/exercises/1901090003/d09/tan
 text1 = file.read()
 text = text1.decode()
 
-print(stats_word.stats_text(text))
+print(stats_word.stats_text(text,100))
+print(stats_word.stats_text_cn(text,100))
 
 file.close()
+
+
