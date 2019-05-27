@@ -18,7 +18,9 @@ print(r_string)
 import yagmail                                                       #通过邮箱发送内容                      
 import getpass
 
+
 sender= input('输入发件人邮箱')
 password = getpass.getpass('输入发件人邮箱密码（可复制粘贴):')        #在填写授权码时，是不会出现东西的，只要一口气把它输完就好
 yag=yagmail.SMTP(user=sender, password=password, host='smtp.163.com')
 yag.send(to, subject,body)
+
