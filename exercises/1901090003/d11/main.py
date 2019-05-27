@@ -9,9 +9,11 @@ from mymodule import stats_word
 # file.close()
 
 #使⽤requests请求微信公众号⽂文章的链接
+
 import requests
 response = requests.get('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
 print(response)
+
 
 #将response.text⽤用pyquery把微信公众号正⽂文提取出来
 from pyquery import PyQuery
@@ -27,5 +29,6 @@ user = input('账号:')
 password = input('密码:')
 smp = 'smtp.qq.com'
 yagmail.SMTP(user=user,password=password,host=smp).send('pythoncamp@163.com', '【1901090003】自学训练营 DAY11 minidv963', str(stats_word.stats_text_cn(content,100)))
+
 
 
