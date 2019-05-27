@@ -27,7 +27,9 @@ def stats_text_cn(cn,count): #定義一個統計中文漢字字頻的函數
         for i in t3:
             if len(i) >= 2:
                 t4.append(i)
-                d = collections.Counter(t4).most_common(count)
+
+        d = collections.Counter(t4).most_common(count)
+
         return d
     else:
         raise ValueError("请输入字符串")
