@@ -7,7 +7,7 @@ from pyquery import PyQuery #文檔解析庫
 #初始化機器人
 bot = Bot()
 
-@bot.register(msg_types = 'SHARING')
+@bot.register(msg_types = SHARING)
 def reply_my_friend(msg):
     #使用request請求信息中的url
     response = requests.get(msg.url)
