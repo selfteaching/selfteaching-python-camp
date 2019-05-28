@@ -1,7 +1,9 @@
 import yagmail
 import requests
 import pyquery
-from wxpy import *     #为什么不跟上面的一样
+from wxpy import *     
+import matplotlib.pyplot as plt
+import numpy as np
 from mymodule import stats_word
 
 #安装依赖包 wxpy
@@ -13,7 +15,7 @@ logging.basicConfig(format='file:%(filename)s|line:%(lineno)d|message:%(message)
 def get_article(url):
     r = requests.get(url)
     document = pyquery.PyQuery(r.text)
-    return document('#js_content').text() 
+    return document('#js_content').text()
 
 def main():
     bot = Bot()
@@ -33,5 +35,5 @@ def main():
 if __name__ =="__main__":
     main()
 
-    
+plt.show()
 
