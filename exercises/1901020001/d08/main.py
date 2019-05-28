@@ -16,4 +16,4 @@ def test_logger():
 
 if __name__== "__main__":
     test_traceback()
-    test_logger
+    test_logger()
