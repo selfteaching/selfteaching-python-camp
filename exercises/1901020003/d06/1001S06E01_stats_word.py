@@ -8,7 +8,7 @@ def stats_text_en(text):
         for symbol in symbols:
             elment = elment.replace(symbol, '')
             if len(elment):
-                words.append(elment)
+                word.append(elment)
         counter = {}
         word_set = set(words)
 
@@ -25,11 +25,11 @@ def stats_text_cn(text):
         # unicode 中 中文 字符的范围
        if '\u4e00' <= character <= '\u9fff':
            cn_character.append(character)
-counter = {}
-cn_character_set = set(cn_characters)
-for character in cn_character_set:
-    counter[character] = cn_characters.count(character)
-return sorted(counter.items(), key=lambda x: x[1], reverse=True)
+    counter = {}
+    cn_character_set = set(cn_character)
+    for character in cn_character_set:
+        counter[character] = cn_character.count(character)
+    return sorted(counter.items(), key=lambda x: x[1], reverse=True)
 
 
 en_text = '''
@@ -86,6 +86,6 @@ The Zen of Python, by Tim Peters
 # 一般情况下在文件内 测试 代码的时候以下面的形式进行
 if __name__ == '__main__':
     en_result = stats_text_en(en_text)
-    cn_result = stats_text_cn(en_text)
+    cn_result = stats_text_cn(cn_text)
     print('统计参数中每个英文单词出现的次数 ==>\n', en_result)
-    print('统计参数中每个中文汉字出现的次数 ==>\n', en_result)
+    print('统计参数中每个中文汉字出现的次数 ==>\n', cn_result)
