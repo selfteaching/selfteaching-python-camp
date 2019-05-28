@@ -92,7 +92,6 @@ The Zen of Python, by Tim Peters
 名称空间是一个非常好的主意——让我们做更多的事情吧！
  '''
 
-
  # 搜索 __name__ == __main__
 # 一般情况下在文件内 测试 代码的时候以下面的形式进行
 if __name__ == '__main__':
