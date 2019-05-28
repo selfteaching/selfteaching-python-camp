@@ -1,23 +1,52 @@
-import wxpy                                                            # 导入wxpy模块，from wxpy import *,会报错函数不可用，方法1：*改成以下代码的所用到的所有函数，方法2：在以下所用到的wxpy函数前加上wxpy.
+import matplotlib.pyplot as plt
+from matplotlib.font_manager import FontProperties  #为了显示中文，替换字体
+import numpy as np
+import requests # 网络请求库
+from pyquery import PyQuery # 文档解析库
+from stats_word import stats_text_cn    # 统计中文词频
+from wxpy import *
 
-bot = wxpy.Bot()                                                       # 扫码登陆微信 
+def main():
+    bot = Bot() #扫描二维码登录微信
+    my_friend = bot.friends() #回复对象为所有好友
 
-my_friend= bot.friends().search('云如', city='抚州')[0]                 #搜索朋友       
-my_friend.send('请给我分享一篇文章可好')                                 #请求朋友发送消息
-SHARING= 'Sharing'                                                     #消息类型
-@bot.register(my_friend, SHARING)                                      #装饰器，预先注册：预先将特定聊天对象，特定类型消息，注册到对应的处理函数，实现自动回复
-def print_msg(msg):                                                    
-    import requests
-    import urllib3
-    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning) #禁用安全证书，解决InsecureRequestWarning
-    response = requests.get(msg.url)                                    #msg.url获取朋友分享类消息的网址
-    from pyquery import PyQuery
-    document = PyQuery(response.text)
-    content =document('#js_content').text()                             #从网页中导出文本
-    from mymodule import stats_word as s 
-    results= s.stats_text_cn(content,100)                               #调用函数，统计词频
-    r_string= ''.join(str(i)for i in results)                           #列表转化为字符串
-    print(r_string) 
-    return r_string                                                     #自动把结果回复的朋友 return=msg.reply()
+    @bot.register(my_friend,SHARING) #接受分享类消息
+    def auto_reply(msg):
+        response = requests.get(msg.url) #msg.url为分享的网址
+        document = PyQuery(response.text)
+        content = document('#js_content').text()
 
-wxpy.embed()                                                            #堵塞线程，以保持监听状态 
+        #处理文本：
+        #如果输出100个结果，图表没法画了，限制在30个结果
+        result = stats_text_cn(content,count=30)
+        #由于typing.Counter输出的结果是一个奇怪的列表
+        #形式如：[('a',8),('b',2)...]，所以必须用numpy来处理
+        np_list=np.array(result) #将文本处理结果转化为二维数组
+        word_list=[] #初始化盛放词的列表
+        number_list=[] #初始化盛放词频的列表
+        for i in range(len(np_list)): #拆分Numpy多维数组
+            word_list+=[np_list[i][0]]
+            #Numpy在处理('a',8)的时候，会把8记录为'8'，所以需要强制转换类型为int
+            number_list+=[int(np_list[i][1])]
+
+        #绘图：
+        #为了能在matplotlib中显示中文，需要中文字体的支持
+        font = FontProperties(fname=r"c:\windows\fonts\simsun.ttc", size=8)
+
+        plt.rcdefaults()
+        fig, ax = plt.subplots()
+        y_pos = np.arange(len(word_list))
+
+        ax.barh(y_pos, number_list, align='center', color='green', ecolor='black')
+        ax.set_yticks(y_pos)
+        ax.set_yticklabels(word_list, fontproperties=font)
+        ax.invert_yaxis()
+        ax.set_xlabel('词频', fontproperties=font)
+        ax.set_title('好友分享文章词频统计', fontproperties=font)
+        plt.savefig("stats.png") #保存图片
+        msg.reply_image("stats.png") #回复图片
+
+    embed() #堵塞线程，保持监听状态
+
+if __name__ == '__main__':
+    main() 
