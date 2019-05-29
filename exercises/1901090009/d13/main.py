@@ -39,7 +39,7 @@ def auto_reply(msg):
     ax.invert_yaxis()
     ax.set_xlabel('counts')
     ax.set_title('Analysis of Chinese word frequency')
-    plt.savefig('word_frequency_chart.jpg')
-    msg.reply('word_frequency_chart.jpg')
+    plt.savefig("word_frequency_chart.jpg")
+    msg.reply_image("word_frequency_chart.jpg")
 
 embed()
