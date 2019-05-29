@@ -13,7 +13,7 @@ plt.rcParams['font.sans-serif'] = 'STFangsong'
 mpl.rcParams['axes.unicode_minus'] = False
 
 bot = Bot()
-my_friend = bot.friends().search('周衢')[0]
+my_friend = bot.friends().search('煜鹏')[0]
 my_friend.send("给我发个公众号文章")
 
 @bot.register(my_friend,SHARING)
