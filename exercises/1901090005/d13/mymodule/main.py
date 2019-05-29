@@ -13,7 +13,7 @@ plt.rcParams['font.sans-serif'] = 'STFangsong'
 mpl.rcParams['axes.unicode_minus'] = False
 
 bot = Bot()
-my_friend = bot.friends().search('煜鹏')[0]
+my_friend = bot.friends().search('周衢')[0]
 my_friend.send("给我发个公众号文章")
 
 @bot.register(my_friend,SHARING)
@@ -27,9 +27,9 @@ def auto_reply(msg):
     tmp = dict(string)
     keys,value = zip(*tmp.items())
 
-    np.random.seed(19680801)
+    #np.random.seed(19680801)
 
-    plt.rcdefaults()
+    #plt.rcdefaults()
     fig, ax = plt.subplots()
     wd = string
     y_pos = np.arange(len(wd))
