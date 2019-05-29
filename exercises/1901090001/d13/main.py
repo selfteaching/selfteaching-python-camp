@@ -48,7 +48,6 @@ def print_group_msg(msg):
     ax.set_xlabel('counts')
     ax.set_title('Analysis of Chinese word frequency')
     plt.savefig('word_frequency_chart.jpg')
-    plt.show('word_frequency_chart.jpg')
     msg.reply_image('word_frequency_chart.jpg') 
 
 embed()
