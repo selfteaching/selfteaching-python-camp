@@ -1,9 +1,9 @@
 
 
 def stats_text_en(en_text):
-    if not isinstance(text,str):
+    if not isinstance(en_text, str):
         raise ValueError('非字符串类型')
-    elements = text.split()
+    elements = en_text.split()
     words = []
     symbols = ',.*-!'
     for element in elements:
@@ -19,11 +19,11 @@ def stats_text_en(en_text):
 
     return sorted(counter.items(), key=lambda x: x[1], reverse=True)
     
-def stats_text_cn(text):
-    if not isinstance(text,str):
+def stats_text_cn(cn_text):
+    if not isinstance(en_text, str):
         raise ValueError('非字符串类型')
     cn_characters = []
-    for character in text:
+    for character in cn_text:
         if '\u4e00' <= character <= '\u9fff':
             cn_characters.append(character)
         counter = {}
@@ -33,9 +33,9 @@ def stats_text_cn(text):
         return sorted(counter.items(), key=lambda x:x[1], reverse=True)
 
 def stats_text(text):
-    if not isinstance(text,str):
+    if not isinstance(text, str):
         raise ValueError('非字符串类型')
-    return stats_text_en(text) + stats_text_cn(text)
+    return stats_text_en(en_text) + stats_text_cn(cn_text)
 
 if __name__ == '__main__':
     en_text = '''
