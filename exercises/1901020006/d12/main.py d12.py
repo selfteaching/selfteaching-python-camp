@@ -17,14 +17,20 @@ def get_article(url):
 
 def main():
     bot = Bot()
+#<<<<<<< master
     friends = bot.friends().search('青baby')
     #friends.send("hello")
+#=======
+    friends = bot.friends()
+
+#>>>>>>> master
     @bot.register(friends,SHARING)
     def handler(msg):
         try:
            logging.info('sharing url = %s',msg.url)
            article = get_article(msg.url)  
            result = stats_word.stats_text_cn(article,100)     
+#<<<<<<< master
            
            #msg.reply(str(result))
            #return 'received: {} ({})'.format(result)
@@ -37,6 +43,15 @@ def main():
 if __name__ =="__main__":
     main()
     print()
+#=======
+           msg.reply(str(result))
+        except Exception as e:
+            logging.exception(e)
+    embed()
+
+if __name__ =="__main__":
+    main()
+#>>>>>>> master
 
     
 
