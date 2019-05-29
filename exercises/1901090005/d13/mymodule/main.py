@@ -30,6 +30,7 @@ def auto_reply(msg):
     #np.random.seed(19680801)
 
     #plt.rcdefaults()
+
     fig, ax = plt.subplots()
     wd = string
     y_pos = np.arange(len(wd))
