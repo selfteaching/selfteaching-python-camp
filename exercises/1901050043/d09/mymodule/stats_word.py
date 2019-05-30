@@ -1,7 +1,7 @@
 import re
 from collections import Counter
 
-def stats_text_en(text,count):
+def stats_text_en(count,text):
     '''This function aims to count English words.'''
 
     if type(text)==str:
@@ -11,7 +11,7 @@ def stats_text_en(text,count):
     else:
         raise ValueError(type(text))
 
-def stats_text_cn(text,count):
+def stats_text_cn(count,text):
     ''' This function aims to count Chinese words.'''
     
     if type(text)==str:
@@ -21,5 +21,5 @@ def stats_text_cn(text,count):
     else:
          raise ValueError(type(text))
     
-def stats_text(count,text):
-    return (stats_text_en(text,count),stats_text_cn(text,count))
+def stats_text(text,count):
+    return (stats_text_en(count,text),stats_text_cn(count,text))
