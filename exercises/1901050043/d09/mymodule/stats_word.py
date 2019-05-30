@@ -20,6 +20,6 @@ def stats_text_cn(count,text):
         return (Counter(newString).most_common(count),'/n')
     else:
          raise ValueError(type(text))
-    
+
 def stats_text(text,count):
     return (stats_text_en(count,text),stats_text_cn(count,text))
