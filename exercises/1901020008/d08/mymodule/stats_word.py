@@ -1,3 +1,4 @@
+#<<<<<<< master
 
 
 def stats_text_en(en_text):
@@ -39,6 +40,9 @@ def stats_text(text):
 
 if __name__ == '__main__':
     en_text = '''
+#=======
+en_text = '''
+#>>>>>>> master
 The Zen of python,by Tim Peters
 
 
@@ -62,6 +66,29 @@ If the implementation is hard to explain,it may be a good idea.
 If the implementation is easy to explain,it may be a good idea.
 Namespaces are one honking great idea--let's do more of those!
 '''
+#<<<<<<< master
+#=======
+
+def stats_text_en(en_text):
+    elements = en_text.split()
+    words = []
+    symbols = ',.*-!'
+    for element in elements:
+        for symbol in symbols:
+            element = element.replace(symbol,'')
+        if len(element)and element.isascii():
+            words.append(element)
+    counter = {}
+    word_set = set(words)
+
+    for word in word_set:
+        counter[word] = words.count(word)
+
+    return sorted(counter.items(), key=lambda x: x[1], reverse=True)
+    
+
+
+#>>>>>>> master
 cn_text = '''
 轻轻的我走了
 
@@ -118,4 +145,32 @@ cn_text = '''
 我挥一挥衣袖
 
 不带走一片云彩
+#<<<<<<< master
 '''
+#=======
+'''
+
+
+
+import re    #引入正则表达式，以便操作字符串
+import collections   #引入collections模块，以便使用计数功能
+
+def stats_text_en(en_text):
+    if type(en_text)! = str:
+        raise ValueError('文本为非字符串')
+    en_text = re.sub("[^A-Za-z]", " ", en_text)
+    en_text = en_text.lower()
+    en_text = en_text.split()
+    en_text = collections.Counter(en_text)
+    print('英文单词词频: \n',en_text)
+
+def stats_text_cn(cn_text):
+    if type(cn_text) != str:
+        raise ValueError('文本为非字符串')
+    cn_text = re.sub("[A-Za-z.。，,'!！“”「」？?、：\"\-* \n]", "", cn_text)
+    for t1 in cn_text:
+        t1 = cn_text.split() 
+    cn_text=collections.Counter(cn_text)         
+    print('中文汉字字频：\n',cn_text)
+
+#>>>>>>> master
