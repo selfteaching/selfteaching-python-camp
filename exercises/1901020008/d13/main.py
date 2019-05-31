@@ -1,14 +1,18 @@
+from os import path
 import requests
 import pyquery
 import logging
 import matplotlib.pyplot as plt
 from wxpy import *
 from mymodule import stats_word
-from os import path
+
 cwd = path.abspath(path.dirname(__file__))
+
+plt.rcParams['font.sans-serif'] = 'SimHei'
+
 logging.basicConfig(
     format='file:%(filename)s|line:%(lineno)d|message: %(message)s', level=logging.DEBUG)
-plt.rcParams['font.sans-serif'] = 'SimHei'
+
 def get_article(url):
     r = requests.get(url)
     document = pyquery.PyQuery(r.text)
@@ -20,7 +24,8 @@ def generate_image(data,image_path):
     ypos = range(len(data))
     fig, ax = plt.subplots()
     ax.barh(ypos, widths)
-    ax.set_ytichk(ypos)
+    ax.set_yticks(ypos)
+    ax.set_yticklabels(labels)
     ax.invert_yaxis()
     ax.set_ylabel('关键字')
     ax.set_ylabel('词频')
@@ -45,6 +50,12 @@ def main():
         except Exception as e:
             logging.exception(e)
     embed()
+def test():
+    article = get_article('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
+    result = stats_word.stats_text_cn(article, 20)
+    image_path = path.join(cwd, 'stats.png')
+    generate_image(result, image_path)
 
 if __name__ == "__main__":
   main()
+  #test()
