@@ -29,9 +29,6 @@ Namespaces are one honking great idea -- let's do more of those!
 #单词列表
 word_list = re.sub(r'[\-\*\.\-!,]', '', text.lower()).split()  #单词小写，去除标点，只留单词,并将字符串分拆成单词列表
 
-#去重单词列表
-word_set = list(set(word_list))
-
 word_dict = {}
 
 word_dict = {word:word_list.count(word) for word in word_list}
