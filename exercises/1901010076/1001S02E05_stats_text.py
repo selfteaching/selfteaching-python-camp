@@ -22,6 +22,29 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
+text_list1 = text.split()   #形成单词列表
+text_list2 = []               #列表用方括号括起来
+for d in text_list1:            #遍历text_list1中的每个单词
+    if d.isalpha():               #如果d中的所有字符都是字母则返回True
+        text_list2.append(d)        #去除非单词
+dict1 = {}                                      #让dict2等于{}
+dict1 = dict(dict1)                               #转化为字典
+print(dict1) 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
 
 text_list1 = text.split()   #形成单词列表
 text_list2 = []               #列表用方括号括起来
