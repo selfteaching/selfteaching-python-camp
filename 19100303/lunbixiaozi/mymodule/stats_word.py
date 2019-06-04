@@ -95,7 +95,7 @@ def stats_text_cn (text, max_counts): #sort Chinese words by the frequency. Only
 
         print("The most common " + str(max_counts)+ " CN wrods: ")
         print(counter_cn)
-        return counter_cn
+        return dict(counter_cn)
 
     
     except TypeError:
