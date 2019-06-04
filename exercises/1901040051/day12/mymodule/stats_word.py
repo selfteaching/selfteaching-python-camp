@@ -5,7 +5,7 @@ import sys
 import collections
 from collections import Counter
 sys.path.append("c:")
-# import stats_word
+import stats_word
 
 # with open("mymodule/tang300.json", "r", encoding="utf-8") as file:
 #     try:

@@ -1,7 +1,7 @@
 import requests
 from pyquery import PyQuery
 import sys
-# sys.path.append("/Users/SeanChen/Documents/GitHub/selfteaching-python-camp/19100303/gogogomove/mymodule")
+sys.path.append("c:")
 from stats_word import stats_text_cn
 from wxpy import * #导入wxpy模块
 
