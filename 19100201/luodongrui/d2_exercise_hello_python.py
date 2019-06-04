@@ -1,1 +1,0 @@
-pirnt("hello world")

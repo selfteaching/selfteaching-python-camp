@@ -1,7 +1,0 @@
-def TeachYourSelf(anything):
-    while not create(somthing):
-        learn()
-        practice()
-    return TeachYourSelf(another)
-
-TeachYourSelf(coding)

@@ -1,8 +1,0 @@
-# 19100302
-Day 1 
-**Tasks confusing**:
-What's the relationships between (among) a master and other files in one repository?
-If commit in master then no pull request required? 
-or did I missed some automatic procedure?
-to be answered by myself.
-Thanks to one week ahead trying (started March 18th, 2019) # day1 erro typo correction 

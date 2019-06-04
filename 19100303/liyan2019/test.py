@@ -1,2 +1,0 @@
-import keyword
-keyword.kwlist
