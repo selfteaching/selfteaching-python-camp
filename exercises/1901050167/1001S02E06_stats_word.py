@@ -24,22 +24,22 @@ Namespaces are one honking great idea -- let's do more of those!
 def stats_text_en(text):
     for ch in '!,.--':
         text=text.replace(ch,"")
-    return text
-text=stats_text_en(text)
-textlist1 = text.split()
-textlist2 = []
-for i in textlist1:
-    if i.isalpha():
-        textlist2.append(i)
-dict1 = {}
-dict1 = dict1.fromkeys(textlist2)
-word_1 = list(dict1.keys())
-for i in word_1:
-    dict1[i] = textlist2.count(i)
-dict2 = {}
-dict2 = sorted(dict1.items(),key=lambda d:d[1],reverse=True)
-dict2 = dict(dict2)
-print(dict2)
+    textlist1 = text.split()
+    textlist2 = []
+    for i in textlist1:
+        if i.isalpha():
+            textlist2.append(i)
+    dict1 = {}
+    dict1 = dict1.fromkeys(textlist2)
+    word_1 = list(dict1.keys())
+    for i in word_1:
+        dict1[i] = textlist2.count(i)
+    dict2 = {}
+    dict2 = sorted(dict1.items(),key=lambda d:d[1],reverse=True)
+    dict2 = dict(dict2)
+    return dict2
+text1=stats_text_en(text)
+print(text1)
 
 
 txt='''不同的人会呈现不同的应对生活的状态，
@@ -52,20 +52,16 @@ txt='''不同的人会呈现不同的应对生活的状态，
 成长型思维模式的人往往会认为自己的能力是可以发展的，所以在面对困境与压力的时候，
 总会找到合适的进步空间，让自己突破自己，积极地应对生活。'''
 def stats_text_cn(txt):
-    for ch in '!，。':
-        txt=txt.replace(ch,"")
-    return txt
-    for ch in word:
-        if '\u4e00' <= ch <= '\u9fff':
-            return True
-    return False
-
-txt1=stats_text_cn(txt)
-counts={}
-for n in txt1:
-    counts[n]=counts.get(n,0)+1
-items=list(counts.items())
-items.sort(key=lambda x:x[1],reverse=True)
-print("{}".format(items))
+    txt1=[]
+    for m in txt:
+        if '\u4e00'<=m<='\u9fff':
+            txt1.append(m)
+    counts={}
+    txt2=set(txt1)
+    for n in txt2:
+        counts[n]=txt1.count(n)
+    return sorted(counts.items(),key=lambda x:x[1],reverse=True)
+txt3=stats_text_cn(txt)
+print(txt3)
 
     
