@@ -12,8 +12,6 @@ def calculator():
         result = num_1 / num_2
     print(result)
 
-
-
 calculator()
 
 
