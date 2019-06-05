@@ -12,7 +12,7 @@ print('second_number:', second_number, type(second_number), type(b))
 if operator == '+':
     print(a, '+', b, '=', a + b)
 elif operator == '-':
-    print(a, '-', b, '=', a - b)+
+    print(a, '-', b, '=', a - b)
 elif operator == '*':
     print(a, '*', b, '=', a * b)
 elif operator == '/':
