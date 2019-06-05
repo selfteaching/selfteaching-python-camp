@@ -14,3 +14,4 @@ def calculator():
 
 
 
+calculator()
