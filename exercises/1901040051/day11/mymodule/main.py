@@ -1,8 +1,11 @@
 import requests
 import yagmail
 import getpass
+#<<<<<<< master
 import sys
 sys.path.append('c:')
+#=======
+#>>>>>>> master
 import stats_word
 from pyquery import PyQuery
 
@@ -32,4 +35,8 @@ shoujian=input('输入收件人邮箱：')
 
 yag=yagmail.SMTP(fajian,password,'smtp.163.com')
 
+#<<<<<<< master
 yag.send(shoujian,'自学训练营3期 1901040051自学训练营3期 1901040051 benjamine30000',text1)
+#=======
+yag.send(shoujian,'自学训练营3期 1901040051 benjamine30000',text1)
+#>>>>>>> master

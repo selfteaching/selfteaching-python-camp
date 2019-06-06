@@ -1,3 +1,4 @@
+
 import requests
 import getpass
 import yagmail
@@ -13,7 +14,7 @@ r_content = document('#js_content').text()
 
 
 sender = input('输入发件人邮箱:')
-password = getpass.getpass('输入发件人邮箱密码:') 
+password = getpass.getpass('输入发件人邮箱密码:')
 
 
 yag = yagmail.SMTP(sender,password, host='smtp.qq.com')
