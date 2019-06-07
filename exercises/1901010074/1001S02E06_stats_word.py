@@ -27,11 +27,6 @@ def stats_text_cn(text):
     return  sorted( result.items(),key= lambda item:item[1],reverse= True )
 
 print(stats_text_cn(text))
-
-
- 
- 
-
  
 
 # def findPart(regex, text, name):
@@ -44,3 +39,4 @@ print(stats_text_cn(text))
 # text ="#who#helloworld#a中文x#"
 # #usample=unicode(text,'utf8')
 # findPart(u"#[\w\u2E80-\u9FFF]+#", text, "unicode chinese")
+

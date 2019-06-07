@@ -1,4 +1,4 @@
-from collections import Counter
+afrom collections import Counter
 
 
 text = '''
@@ -27,7 +27,12 @@ Namespaces are one honking great idea -- let's do more of those!
 str = text.replace('.',' ')
 str = str.replace('\n','')
 
-str_array = str.split(' ')
+str_array = str.split('，')
+
+for  item in str_array
+{
+    item.len == 10
+}
 
 # 统计英文单词出现的次数
 
