@@ -5,7 +5,7 @@ def stats_text_en(text):
     textlist1 = text.split()
     textlist2 = []
     for i in textlist1:
-        if i.isalpha():
+        if i.isascii():
             textlist2.append(i)
     dict1 = {}
     dict1 = dict1.fromkeys(textlist2)
@@ -15,9 +15,6 @@ def stats_text_en(text):
     dict2 = {}
     dict2 = sorted(dict1.items(),key=lambda d:d[1],reverse=True)
     return dict2
-
-
-
 
 def stats_text_cn(text):
     txt1=[]
@@ -29,9 +26,6 @@ def stats_text_cn(text):
     for n in txt2:
         counts[n]=txt1.count(n)
     return sorted(counts.items(),key=lambda x:x[1],reverse=True)
-
-
-
 
 def stats_text(text):
     return stats_text_en(text)+stats_text_cn(text)
