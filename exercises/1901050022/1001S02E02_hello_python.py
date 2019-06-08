@@ -1,2 +1,1 @@
-“print('Hello World')”
-hecheng
+'Hello World'
