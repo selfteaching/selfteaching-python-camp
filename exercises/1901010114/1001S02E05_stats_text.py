@@ -31,7 +31,9 @@ def word_count(str):
         else:
             counts[word] = 1
 
+
     for key, value in sorted(counts.items(), key=lambda item: item[1], reverse=True):
+
         print("%s: %s" % (key, value))
 
     
