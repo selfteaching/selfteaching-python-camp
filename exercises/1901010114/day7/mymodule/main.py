@@ -1,3 +1,4 @@
-from stats_word import stats_text
+import stats_word
+print(stats_word.stats_text)
 
 
