@@ -11,8 +11,11 @@ for i in range(1,10):
     print("")
 
 
-print("九九乘法奇数表")
-i=1
+
+
+
+    print("九九乘法奇数表")
+ i=1
 while i<10:
     if i%2==0:
         i=i+1
