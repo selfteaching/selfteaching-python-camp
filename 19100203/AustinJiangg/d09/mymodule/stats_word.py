@@ -1,31 +1,6 @@
-from functools import wraps
-
-def typeassert(*type_args, **type_kwargs):
-    def decorate(func):
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            return func(*args, **kwargs)
-        return wrapper
-    return decorate
-
-
 from inspect import signature
 from functools import wraps
-
-def typeassert(*type_args, **type_kwargs):
-    def decorate(func):
-        sig = signature(func)
-        bound_types = sig.bind_partial(*type_args, **type_kwargs).arguments
-
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            return func(*args, **kwargs)
-        return wrapper
-    return decorate
-
-
-from inspect import signature
-from functools import wraps
+from collections import Counter
 
 def typeassert(*type_args, **type_kwargs):
     def decorate(func):
@@ -52,6 +27,7 @@ def stats_text_en(text):
     for i in textlist1:
         if i.isalpha():
             textlist2.append(i)#去除非单词
+    '''
     dict1 = {}
     dict1 = dict1.fromkeys(textlist2)#将textlist2的元素作为dict1的键值key
     word_1 = list(dict1.keys())
@@ -61,6 +37,9 @@ def stats_text_en(text):
     dict2 = sorted(dict1.items(),key=lambda d:d[1],reverse=True)#按values进行排序
     dict2 = dict(dict2)#转化为字典
     print(dict2)#输出字典
+    '''
+    print(Counter(textlist2).most_common(10))
+
 
 @typeassert(str)
 def stats_text_cn(text):
@@ -136,10 +115,5 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
-'''stats_text(text)'''
-
-import re
-import math
-from collections import Counter
-words = re.findall(r'\w+', text)
-Counter(words).most_common(100)
+#stats_text_en(text)
+stats_text_cn(text)
