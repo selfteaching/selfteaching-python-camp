@@ -1,9 +1,18 @@
+from modules.stats_word import stats_text as st
 import json
-#JSON(JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式。JSON的数据格式其实就是python里面的字典格式，里面可以包含方括号括起来的数组，也就是python里面的列表。
-count=int()
-path = r'C:\Users\Administrator\Documents\GitHub\selfteaching-python-camp\exercises\1901050095\d09\tang300.json'
-with open(path,'r',encoding='UTF-8') as f:
-    a = f.read()
-from mymodule.stats_word import stats_text_cn
-print(a,100) 
-#任選一個函數用a測試參數類型檢測是否成功
+f = open('tang300.json')
+t = json.load(f)
+f.close()
+# format loaded json file as list of dict
+
+# go through entry of list, pick ```'contents'``` per entry like a dict
+it=''
+for i in t:
+	it+=i['contents']
+
+try:
+	s = st(it,101)
+	print(s[1:100])
+
+except TypeError:
+	print("\nFrom main.py:\tInput should be string if you see an error above")
