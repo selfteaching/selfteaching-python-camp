@@ -1,5 +1,5 @@
 from stats_word import stats_text_cn
-#stats_text_cn(1234)
+'''stats_text_cn(1234)
 
 while True:
     try:
@@ -8,3 +8,7 @@ while True:
         break
     except ValueError:
         print("Oops! Argument text must be <class 'str'>  Try again...")
+'''
+
+f = open('tang300.json', 'r')
+stats_text_cn(f)

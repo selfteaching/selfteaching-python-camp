@@ -1,6 +1,7 @@
 from inspect import signature
 from functools import wraps
 from collections import Counter
+import re
 
 def typeassert(*type_args, **type_kwargs):
     def decorate(func):
@@ -38,25 +39,30 @@ def stats_text_en(text):
     dict2 = dict(dict2)#转化为字典
     print(dict2)#输出字典
     '''
-    print(Counter(textlist2).most_common(10))
+    count = input('输出个数')
+    count = int(count)
+    print(Counter(textlist2).most_common(count))
 
 
 @typeassert(str)
 def stats_text_cn(text):
-    #统计参数中每个中文汉字出现的次数，最后返回一个按字频降序排列的数组
+    #统计参数中每个中文汉字出现的次数，最后返10回一个按字频降序排列的数组
     dict1 = {}
     for i in text:
-        if i in [' ','，','。','”','“','※','…','？','：','！','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']:
+        if i in ['」','「','!','-','’',' ','\n',',','，','.','，','。','”','“','※','…','？','：','！','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']:
             continue
         if i not in dict1:        #为首次出现的字创建key
             dict1[i] = 0
         dict1[i] += 1
-    dict1 = sorted(dict1.items(),key=lambda item:item[1],reverse=True)          #创建以键值对为元素的元组
+    '''dict1 = sorted(dict1.items(),key=lambda item:item[1],reverse=True)          #创建以键值对为元素的元组
     list1 = []
     for j in range(len(dict1)):
         list1.append(dict1[j][1])
     print(list1)            #返回按字频降序排列的数组
-  
+    '''
+    count = input('输出个数')
+    count = int(count)
+    print(Counter(dict1).most_common(count))
  
 @typeassert(str)
 def stats_text(text):
@@ -115,5 +121,5 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
-#stats_text_en(text)
+stats_text_en(text)
 stats_text_cn(text)
