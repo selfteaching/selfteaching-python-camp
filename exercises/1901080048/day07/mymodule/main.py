@@ -71,4 +71,4 @@ of Bohai.
 
 #导入stats_word(模块)
 import stats_word
-
+print(stats_word)
