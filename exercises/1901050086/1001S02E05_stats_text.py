@@ -23,5 +23,5 @@ Namespaces are one honking great idea -- let's do more of those!
 a=text.replace(',','').replace('.','').replace('*','').replace('--','').replace('!','')
 b=a.split()
 c={x:b.count(x) for x in b}
-d=sorted(c.items(),key=lambda x:x[1],reverse=True)
-print(d)
+e=sorted(c.items(),key=lambda x:x[1],reverse=True)
+print(e)

@@ -34,5 +34,5 @@ e=d.swapcase()
 # 字母排序
 f=e.replace('*',' ').replace('--',' ')
 g=f.split()
-h=sorted(g)
-print(h)
+i=sorted(g)
+print(i)
