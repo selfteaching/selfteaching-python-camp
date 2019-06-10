@@ -1,44 +1,30 @@
-t = ''' The Zen of Python, by Tim Peters
-Beautiful is better than ugly. Explicit is better than implicit. Simple is better than complex. Complex is better than complicated. Flat is better than nested. Sparse is better than dense. Readability counts. Special cases aren't special enough to break the rules. Although practicality beats purity. Errors should never pass silently. Unless explicitly silenced. In the face of ambxiguity, refuse the temptation to guess. There should be one-- and preferably only one --obvious way to do it. Although that way may not be obvious at first unless you're Dutch. Now is better than never. Although never is often better than *right* now. If the implementation is hard to explain, it's a bad idea. If the implementation is easy to explain, it may be a good idea. Namespaces are one honking great idea -- let's do more of those! '''
+def stats_text_en(text):# 统计英文单词出现的次数
+    """Return a list containing English word's counts in decrease."""# 使用文档字符串说明
+    import re
+    t1=text.lower() #将text lower
+    t2=[]
+    pttn = r'[a-z]\w+'
+    t2=re.findall(pttn, t1)
+    d1={} #define dict
+    for i in t2:
+        d1.setdefault(i,t2.count(i))  #将单词及单词的出现次数，分别赋值给d1的KEY和vaule
+      #print(d1)
+    d2 = sorted(d1.items(),key = lambda items:items[1],reverse = True)
+     #print(d2)
+    return d2 #返回统计结果，出现次数从大到小降序输出
 
-# 使用“字典”统计以上文本中出现的单词次数，并把结果从大到小输出
-def stats_text_en(t):#定义函数，其中t是可变的量
-    t = t.replace(',',' ').replace('.',' ').replace('--',' ').replace('*',' ').replace('!',' ') # 去标点
-    t = t.lower() # 全部换成小写
-    t = t.split() # 拆成字符串
-    d = {} # 上字典
-    for i in t:
-        count = t.count(i) # 数数
-        r1 = {i:count} # 单词在前，词频在后
-        d.update(r1) #上传r1到d中去
-    #print(d)
-    print('\n按照出现次数降序输出所有单词\n')
-    d = sorted(d.items(),key=lambda x:x[1],reverse=True)
-    # sorted(iterable,*,key=None,reverse=False) lambda是个特殊的定义函数，后面的是定义的表现形式，留待以后研究，reverse=True是颠倒的意思
-    print(d)
+def stats_text_cn(text):  # 统计每个中文字出现的次数
+    """Return a list containing chinese word's counts in in decrease """  # 使用文档字符串说明
+    t1=text
+    d1={}
+    for i in t1:
+        if u'\u4e00' <= i <= u'\u9fff':  #调用中文正则表达式
+            d1.setdefault(i,t1.count(i))
+    #print(d1)  
+    d3 = sorted(d1.items(), key=lambda item: item[1], reverse=True)  #将d1按照value值从大到小降序排列
+    return d3 #返回统计结果，次数从大到小降序输出
+    
 
-    #该函数用于统计字符串中每个汉字出现的个数。需要输入字符串，输出的结果是按照降序排列的以中文汉字及其字频为元组的一个字典
-def stats_text_cn(text):
-    #移除字符串头尾的空格和换行符号
-    text=text.strip()
-    #去除所有的标点符号
-    biaodian='。，“”…，——，？：、！《》'
-    for i in biaodian:
-        text=text.replace(i,'')
-    #到此text中应该只包含汉字，下面对汉字字符串进行统计,方法与统计单词基本一样，因为这里是统计中文汉字个数，所以每个汉字都是一个元素，
-    #于是没有必要去将字符串再转换成一个单词列表
-    char_dict={}
-    for char in text:
-        if char in char_dict:
-            count=char_dict[char]
-        else:
-            count=0
-        count +=1
-        char_dict[char]=count
-    char_dict=sorted(char_dict.items(),key=lambda x:x[1],reverse=True)
-    #输出最后的结果
-    print('\n按照出现次数降序输出所有汉字\n')
-    print(char_dict)
 text = '''
 愚公移⼭山
 太⾏行行，王屋⼆二⼭山的北北⾯面，住了了⼀一個九⼗十歲的⽼老老翁，名叫愚公。⼆二⼭山佔地廣闊，擋住去路路，使他
@@ -110,12 +96,11 @@ of Bohai.
     two mighty gods to carry the mountains away.
 48  '''
 
- #定义 stats_text 函数，功能是分别调用 stats_text_en 与 stats_text_cn 函数并合并输出词频统计结果
+def stats_text(text): 
+    """Return a list containing english and chinese word's counts in in decrease """ # 使用文档字符串说明 
+    d3=[]
+    d3=stats_text_cn(text)+stats_text_en(text) # 分别调用英文和中文统计结果 
+    #print(d3)
+    return d3 #返回统计结果
 
-def stats_text(string):
-    if type(string) == str: #检查输入值是否是为字符串类型
-        stats_text_en(string)
-        stats_text_cn(string)
-    else:                #若输入值不是字符串类型
-        raise ValueError('输入值不是字符串')
         
