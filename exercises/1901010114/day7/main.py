@@ -1,5 +1,3 @@
-
-from mymodule import stats_word
-print(stats_word.stats_text())
-
-
+from mymodule.stats_word import stats_text
+a = stats_text()
+print(a)

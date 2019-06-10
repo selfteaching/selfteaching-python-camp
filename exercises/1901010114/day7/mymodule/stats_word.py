@@ -15,8 +15,9 @@ def stats_text_en(s):  #定义一个函数stats_text_en
             counts[word] = 1
 
     for key, value in sorted(counts.items(), key=lambda item: item[1], reverse = True):#山寨来的
-        print("%s: %s" % (key, value))
-print(stats_text_en(s))
+        print("%s: %s" % (key, value), end=" ")
+        
+
 
 
 text = open('D:\\dayfive\ygyszw.txt')
@@ -36,11 +37,11 @@ def stats_text_cn(S):  #定义一个函数stats_text_en
             counts[word] = 1
 
     for key, value in sorted(counts.items(), key=lambda item: item[1], reverse=True):
-        print("%s: %s" % (key, value))
+        print("%s: %s" % (key, value), end=" ")
+        
 
-print(stats_text_cn(S))
 
 def stats_text():  
-    print(stats_text_en(s))
-    print(stats_text_cn(S)) 
+    stats_text_en(s)
+    stats_text_cn(S)
 
