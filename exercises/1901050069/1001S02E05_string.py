@@ -26,5 +26,24 @@ Namespaces are one honking great idea -- let's do more of those!
 # 1. 将字符串样本里的 better 全部替换成 worse
 
 # 调用 str 类型的 replace 方法进行替换
-text = simple_text.replace('better','wworse')
+text = simple_text.replace('better','worse')
 print(text)
+
+# 2.将单词中包含 ea 的单词剔除
+
+# 先将字符串根据 空白字符 分割成 list,要调用 str 类型
+words = text.split()
+filtered = []
+for word in words:
+    if word.find('ea') < 0:
+        filtered.append(word)
+print(filtered)
+
+# 3.字母大小写翻转
+
+swapcased = [i.swapcase() for i in filtered]
+print(swapcased)
+
+# 4.单词按A-Z升序排列
+print(sorted(swapcased))
+print(sorted(swapcased, reverse=True))
