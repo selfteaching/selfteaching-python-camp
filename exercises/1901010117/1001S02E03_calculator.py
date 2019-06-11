@@ -5,8 +5,7 @@ def subtract(x,y):
 def multiply(x,y):
     return x*y
 def divide(x,y):
-    return x/y
-print('输入数字开始进行计算')
+    returnx/y
 a=int(input(''))
 print('请选择：+，-，*，/')
 c=input('')
