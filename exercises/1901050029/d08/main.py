@@ -62,9 +62,16 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two
 mighty gods to carry the mountains away.
 '''
 
+def stats_text():
+    try:
+        stats_word.stats_text(1)
+    except Exception as err:
+        print('Value Error:', err)
 
 
-stats_word.stats_text(1)
+        
+
+#stats_word.stats_text(1)
 #stats_word.stats_text(text)
     
 
