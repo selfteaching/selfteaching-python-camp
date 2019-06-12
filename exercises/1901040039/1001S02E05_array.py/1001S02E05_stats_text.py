@@ -21,15 +21,14 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 
-text_a=text.replace(',',' ').replace('*',' ').replace('!',' ').replace('--',' ')
+text_a=text.replace(","," ").replace("."," ").replace("-"," ").replace("*"," ").replace("!"," ")
 text_b=text_a.lower()
 text_c=text_b.split()
-word_dic={} 
+word_dic={}
 for i in text_c:
     count=text.count(i)
     text_count={i:count}
     word_dic.update(text_count)
 print(word_dic)
-
 word_dic1=sorted(word_dic.items(),key=lambda x:x[1],reverse=True)
 print(word_dic1)

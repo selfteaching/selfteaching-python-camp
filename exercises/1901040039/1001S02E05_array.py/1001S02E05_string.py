@@ -38,5 +38,6 @@ print(except_text)
 text.swapcase()
 print(text.swapcase())
 #将所有单词按a-z升序排序
-list1=text.swapcase（）
-list1.sort（reverse=False）
+list1=text.swapcase().replace("*"," ").replace("-"," ").split()
+list1.sort()
+print(list1)
