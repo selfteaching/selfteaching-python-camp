@@ -55,15 +55,50 @@ text = '''
 所以，只要你有一次 “只靠阅读习得一项新技能” 的经验，你就变成另外一个人了。你会不由自主、哪怕下意识里都会去运用你新习得的能力…… 从这个角度看，自学很上瘾！能上瘾，却不仅无害，还好处无穷，这样的好事，恐怕也就这一个了罢。
 '''
                   
+#def stats_text_cn(text):    #定义检索中文函数
+#    cndic={} #初始化一个空的字典
+#     for i in text:
+#         if u'\u4e00' <= i <= u'\u9fff':#判断是不是中文
+#             count=text.count(i)
+#             r1={i:count}
+#             cndic.update(r1)
+#             #cndic[i] = text.count(i)
+#     #return cndic
+#     cndic=sorted(cndic.items(),key=lambda item:item[1],reverse = True) 
+#     print(cndic)
+# stats_text_cn(text)
+
+#---------------------------教练修改后-----------------------------------------------------------
+#封装统计中文汉字字频的函数
+text = '''
+我把那些能给你带来新视野，能让你改变思考模式，甚至能让你拥有一项新技能的内容称之为 “有繁殖能力的内容”。
+人都一样，拥有什么样的能力之后，就会忍不住去用，甚至总是连下意识中也要用。
+那些靠阅读机器算法推送的内容而杀时间的人，恰恰就是因为他们有阅读能力才去不断地读，读啊读，
+像是那只被打了兴奋剂后来死在滚轮上的小白鼠。如果这些人哪怕有一点点自学能力，那么他们很快就会分辨出自己正在阅读的东西不会刺激自己的产出，
+只会消磨自己的时间；那么，他们就会主动放弃阅读那些杀时间的内容，把那时间和精力自然而然地用在筛选有繁殖能力的内容，让自己进步，让自己习得更多技能上去了。
+所以，只要你有一次 “只靠阅读习得一项新技能” 的经验，你就变成另外一个人了。你会不由自主、哪怕下意识里都会去运用你新习得的能力…… 从这个角度看，
+自学很上瘾！能上瘾，却不仅无害，还好处无穷，这样的好事，恐怕也就这一个了罢。
+'''
+
 def stats_text_cn(text):    #定义检索中文函数
-    cndic={} #初始化一个空的字典
-    for i in text:
-        if u'\u4e00' <= i <= u'\u9fff':#判断是不是中文
-            count=text.count(i)
-            r1={i:count}
-            cndic.update(r1)
-            #cndic[i] = text.count(i)
-    #return cndic
-    cndic=sorted(cndic.items(),key=lambda item:item[1],reverse = True) 
-    print(cndic)
-stats_text_cn(text)
+    # 1.首先将乱七八糟的符号去掉，方便之后的匹配
+    d = text.replace(',','').replace('-',' ').replace('.','').replace(':','').replace(';','').replace('"','').replace('!','').replace('?','').replace('、','').replace('，','').replace('。','').replace('“','').replace('”','').replace('：','').replace('；','').replace('\n','').replace('！','').replace('？','').replace('/','').replace('*',' ').replace(' ','').replace("'",'')
+    #print(d)
+    # 2.将上面字符串中的英文以及数字替换为空，即删除
+    #re.sub(pattern, repl, string, count=0, flags=0)
+    #re.sub是个正则表达式方面的函数，用来实现通过正则表达式，实现比普通字符串的replace更加强大的替换功能；
+    import re
+    d = re.sub("[A-Za-z0-9]", "", d)
+    # 3.将字符串中的汉字去重，作为字典的key
+    d_list = list(d)#将元组转换为列表
+    print(d_list)
+    d_index = set(d_list)#set() 函数创建一个无序不重复元素集
+    print(d_index)
+    # 4.构造词频字典
+    dict = {}
+    for i in d_index:
+        dict[i] = d_list.count(i)
+    # 5.对之前的词频字典按照value值进行排序
+    d_list = sorted(dict.items(),key=lambda e:e[1],reverse=True)
+    print(d_list)
+stats_text_cn(text) 
