@@ -47,5 +47,5 @@ for word in word_set:
     counter[word] = words.count(word)
 print(counter)
 
-# 按照出现次数从⼤到⼩输出所有的单词及出现的次数
+# 2.按照出现次数从⼤到⼩输出所有的单词及出现的次数
 print(sorted(counter.items(),key = lambda x: x[1]))
