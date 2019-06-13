@@ -1,7 +1,7 @@
 print
 x=int(input("x:"))
 y=int(input("y:"))
-z=input("加减乘除")
+z=input("+-*/")
 if z=="+":
     print(x+y)
 elif z=="-":
