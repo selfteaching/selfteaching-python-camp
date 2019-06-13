@@ -1,20 +1,21 @@
-def stats_text_en(text,symbols):
-    text = text.strip().split()
-    words = [] # for store the text after processing
-    for word in text:
-        for  symbol in symbols:
-            word = word.replace(symbol,'') # delet the redundant symbols in the text
-        words.append(word)
 
-    word_set = set(words) # transfer the list to the set
+def stats_text_en(text,symbols): #()里面是参数和自变量
+    text = text.strip().split() #string.strip()删除两边字符，str.split(拆分字符)
+    words=[]#用于存储处理后的文本
+    for word in text:#赋值word 开始for循环
+        for symbol in symbols:
+            word = word.replace(symbol,'')#删除文本words.append（word）中的冗余符号
+        words.append(word)   
+
+    word_set = set(words)#将列表转移到集合中
     counter_dict = {}
-
-    for word in word_set: # count the number for each word
-        counter_dict[word] = words.count(word)
-    aa = sorted(counter_dict.items(),key = lambda x: x[1], reverse = True)
+    for word in word_set: # count the number for each word:计算每个单词的数量
+        counter_dict[word]=words.count(word)
+    aa = sorted(counter_dict.items(),key=lambda x:x[1], reverse=True)
 
     return print('the sorted word frequencies for the input english text',aa)
-
+    
+    
 text_sample = '''
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -38,34 +39,33 @@ Namespaces are one honking great idea -- let's do more of those!
 '''
 symbols = '.,*-!'
 
-# a example calling the function english text 
+# 调用函数英文文本的示例
 stats_text_en(text_sample,symbols)
+
 
 
 
 # 2 for chinese word
 def stats_text_cn(text,symbols):
     text = text.strip().split()
-    words = [] # for store the text after processing
+    words=[]
     for word in text:
-        for  symbol in symbols:
-            word = word.replace(symbol,'') # delet the redundant symbols in the text
+        for symbol in symbols:
+            word=word.replace(symbol,'')
         words.append(word)
 
-    words_cn = [] # for storing the chinese single character
+    words_cn=[]
     for word in words:
         for _i in word:
             words_cn.append(_i)
-    # print(words_cn)
-    word_set = set(words_cn) # transfer the list to the set
-
-    counter_dict = {}
-
-    for word in word_set: # count the number for each word
-        counter_dict[word] = words_cn.count(word) # for a dict{key,value} this is: dict[key] = value (value is the frequencies for the word)
-    aa = sorted(counter_dict.items(),key = lambda x: x[1], reverse = True)
-
+    print(words_cn)
+    word_set=set(words_cn)
+    counter_dict={}
+    for word in word_set:
+        counter_dict[word]=words_cn.count(word)
+    aa=sorted(counter_dict.items(),key=lambda x:[1],reverse=True)
     return print('the sorted word frequencies for the input chinese text',aa)
+   
 
 text_sample1 = '''
 垃圾问题解决不好，群众不答应。垃圾分类，
@@ -77,5 +77,5 @@ text_sample1 = '''
 '''
 symbols1 = '.,*-!。，/、？'
 
-# a example calling the function chinese text
+# 调用函数中文文本的示例
 stats_text_cn(text_sample1,symbols1)
