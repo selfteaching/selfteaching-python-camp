@@ -78,38 +78,40 @@ def getText(text):
 
 #定义函数用于统计英文单词词频，并按词频降序输出 
 def stats_text_en(text):
-    if type(text) == str:
+    if not isinstance(text, str):
+        raise  ValueError('the type of argument need str')
         
-        hamletTxt = getText(text)
-        words = hamletTxt.split()
-        word = Counter(words)      #  It is an unordered collection where 
-        word = Series(word)        #  elements are stored as dictionary keys and  their counts are stored as dictionary values.
-        word =  word.sort_values(ascending=False)                         
+    hamletTxt = getText(text)
+    words = hamletTxt.split()
+    word = Counter(words)      #  It is an unordered collection where 
+    word = Series(word)        #  elements are stored as dictionary keys and  their counts are stored as dictionary values.
+    word =  word.sort_values(ascending=False)                         
    
-        print('英文单词词频统计结果： ', word) 
-    else:
-        raise  ValueError('the type of argument need str')               
+    print('英文单词词频统计结果： ', word) 
+             
     
 #定义函数用于统计中文汉字字频，并按字频降序输出
 def stats_text_cn(text):
-    if type(text) == str:
-        result = re.findall(u'[\u4e00-\u9fff]+', text)    #汉字的unicode范围
-        words = ''.join(result)
-        word = Counter(words)
-        word = Series(word)
-        word =  word.sort_values(ascending=False)
-           
-        print('汉字词频统计结果： ', word)   
-    else:
+    if not isinstance(text, str):
         raise  ValueError('the type of argument need str')
+        
+    result = re.findall(u'[\u4e00-\u9fff]+', text)    #汉字的unicode范围
+    words = ''.join(result)
+    word = Counter(words)
+    word = Series(word)
+    word =  word.sort_values(ascending=False)
+           
+    print('汉字词频统计结果： ', word)   
+
     
 #输出中英文合并词频统计结果
 def stats_text(text):    
-    if type(text) == str:
-         stats_text_en(text)
-         stats_text_cn(text)
-    else:
-        raise ValueError('the type of argument need str')
+    if not isinstance(text, str):
+        raise  ValueError('the type of argument need str')
+        
+    stats_text_en(text)
+    stats_text_cn(text)
+
    
 
 
