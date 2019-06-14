@@ -63,5 +63,5 @@ two mighty gods to carry the mountains away.
 
 try:
     print(stats_text(text))
-except:
-    print('Please enter a str!')
+except Exception as e:
+    print(e)
