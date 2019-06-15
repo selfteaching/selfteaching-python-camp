@@ -1,8 +1,8 @@
 #作业. 将统计中⽂文词频和英⽂文词频的函数封装为⼀一个模块
 #解决问题思路：首先将文档分为英文和中文两个文档保存在本地文档，然后在建立一个新函数分别调用之前的stats_text_en(s)、stats_text_cn(S)
 #函数
-Text = open('D:\\dayfive\ygysyw.txt')
-s = Text.read()
+text = open('D:\\dayfive\ygysyw.txt', r)
+
 #之前复制文档在代码的做法有偷懒的想法，如果碰到文档很长的话难道我要全文复制？，要创建文件然后在读取:
 def stats_text_en(s):
     if type(s) != str:
