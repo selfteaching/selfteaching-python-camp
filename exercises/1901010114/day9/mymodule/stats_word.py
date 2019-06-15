@@ -22,10 +22,3 @@ def stats_text(text,count):
     return list_en + list_cn
 
 
-    
-    
-   
-        
-
-
-
