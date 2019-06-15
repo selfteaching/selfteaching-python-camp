@@ -1,12 +1,17 @@
-
-
-
 from mymodule import stats_word
-s = 369
-try:
-    stats_word.stats_text_en(s)
-except ValueError:
-    print('Error:文本为非字符串,请输入字符串')
+import os
+import json
+count = 100
+dirname = os.path.dirname(__file__)
+file_path = os.path.join(dirname,'tang300.json')
+with open(file_path,'r',encoding = 'UTF-8') as a:
+    text = a.read()
 
+ 
+ 
+ 
+print(stats_word.stats_text_cn(text,100))
+
+   
 
 
