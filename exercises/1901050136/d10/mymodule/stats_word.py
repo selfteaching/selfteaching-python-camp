@@ -1,6 +1,7 @@
 import collections
+import jieba
 
-# this script is to learn standard Library
+# this script is to learn  call Library from others
 
 # 1 for english word
 def stats_text_en(text):
@@ -27,17 +28,30 @@ def stats_text_en(text):
     return Result, count
 
 
-# 2 for chinese word
+# 2 for chinese word **this version is to implement statstics for words rather than single Han Chars**
 def stats_text_cn(text):
+
     # judge if the type of input is correct.
     if type(text) != str:
         raise ValueError('The input text is not the type of String')
 
-    characters_cn = [] # for storing the text after processing
-
+    # delete the non-chinese character
+    text_cn = ''
     for character in text:
         if '\u4e00'<= character <= '\u9fff':
-            characters_cn.append(character)
+            text_cn += character
+    text = text_cn # new text without non-chinese chars
+
+    # dividing words using jieba
+    words = jieba.cut(text)
+    text = (' '.join(words))
+    
+    # select the words whose length >= 2
+    text_list = text.split()
+    characters_cn = [] # for storing the text after processing # this str object store all the words larger 2
+    for chars in text_list:
+        if len(chars) >= 2:
+            characters_cn.append(chars)
     
     # the collections is used in stead of set and dictionary
     cnt = collections.Counter()
@@ -47,6 +61,7 @@ def stats_text_cn(text):
 
     Result = cnt
     count = len(Result)
+
     return Result, count
 
 # 3 the function which calls the above 2 functions
