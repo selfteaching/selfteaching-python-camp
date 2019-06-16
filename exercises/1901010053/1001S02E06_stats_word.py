@@ -77,3 +77,5 @@ def stats_text_cn(text):    #定义检索中文函数
     cndic=sorted(cndic.items(),key=lambda item:item[1],reverse = True) 
     return cndic
 print(stats_text_cn(text_1)) #调用函数并打印结果
+
+
