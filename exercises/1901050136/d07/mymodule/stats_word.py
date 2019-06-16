@@ -136,3 +136,4 @@ if __name__ == "__main__":
     # # a example calling the function chinese text
     # print('the sorted word frequencies for the input chinese text \n',stats_text_cn(text_sample1))
     print("The result combining statistic of Chinese words and English words \n",stats_text(text))
+
