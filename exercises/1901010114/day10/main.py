@@ -1,7 +1,7 @@
 from mymodule import stats_word
 import os
 import json
-count = 100
+count = 20
 dirname = os.path.dirname(__file__)
 file_path = os.path.join(dirname,'tang300.json')
 with open(file_path,'r',encoding = 'UTF-8') as a:
@@ -10,7 +10,7 @@ with open(file_path,'r',encoding = 'UTF-8') as a:
  
  
  
-print(stats_word.stats_text_cn(text,100))
+print(stats_word.stats_text_cn(text,20))
 
  
  
