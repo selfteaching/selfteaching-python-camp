@@ -2,7 +2,7 @@ from inspect import signature
 from functools import wraps
 from collections import Counter
 import re
-
+import jieba
 
 def typeassert(*type_args, **type_kwargs):
     def decorate(func):
