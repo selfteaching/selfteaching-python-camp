@@ -1,3 +1,4 @@
+import jieba
 from collections import Counter
 
 def  stats_text_en(text,count):
