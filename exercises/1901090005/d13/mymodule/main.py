@@ -27,9 +27,10 @@ def auto_reply(msg):
     tmp = dict(string)
     keys,value = zip(*tmp.items())
 
-    np.random.seed(19680801)
+    #np.random.seed(19680801)
 
-    plt.rcdefaults()
+    #plt.rcdefaults()
+
     fig, ax = plt.subplots()
     wd = string
     y_pos = np.arange(len(wd))
