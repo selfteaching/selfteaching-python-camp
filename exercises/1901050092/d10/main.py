@@ -29,11 +29,3 @@ with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tang300.json
     mydict = Counter(cn1).most_common(20)#统计出现频次前100的字符
 
 print (mydict)
-
-try:
-
-    stats_word.stats_text(read_date,20)
-
-except ValueError:
-
-    print('Input is not str. try again')
