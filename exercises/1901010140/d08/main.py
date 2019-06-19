@@ -63,5 +63,5 @@ text_0=123.23
 try:
     print(stats_word.stats_text(text_0))
 except ValueError as err:
-    print(f'输入的参数是{type(text_0)}类型。',err)
+    print(f'输入的参数是{type(text_0)}类型。',err)#打印出调试信息
 
