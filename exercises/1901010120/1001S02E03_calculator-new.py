@@ -2,9 +2,9 @@ print("Welcome to the calculator. ")
 
 # define the function
 # use input function to limit only run operation at time, if * then *
-def calculate():
+def calc():
     operation = input('''
-Please type in the math operation you would like to complete:
+Please type in wrong, you need to type +,-,*,/:
 + for addition
 - for subtraction
 * for multiplication
@@ -31,7 +31,7 @@ Please type in the math operation you would like to complete:
         print(number_1 / number_2)
 
     else:
-        print('You have not typed a valid operator, please run the program again.')
+        print('You have not typed wrong, please run the program again.')
 
 # add again function to calculator function        
     again()
@@ -51,5 +51,6 @@ Please type Y FOR YES or N FOR NO.
     else:
         again() 
 
+
 # Call calculate() outside of the function
-calculate()
+calc()
