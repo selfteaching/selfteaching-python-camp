@@ -83,17 +83,13 @@ text = '''
 def stats_text_cn(text):    #定义检索中文函数
     # 1.首先将乱七八糟的符号去掉，方便之后的匹配
     d = text.replace(',','').replace('-',' ').replace('.','').replace(':','').replace(';','').replace('"','').replace('!','').replace('?','').replace('、','').replace('，','').replace('。','').replace('“','').replace('”','').replace('：','').replace('；','').replace('\n','').replace('！','').replace('？','').replace('/','').replace('*',' ').replace(' ','').replace("'",'')
-    #print(d)
-    # 2.将上面字符串中的英文以及数字替换为空，即删除
-    #re.sub(pattern, repl, string, count=0, flags=0)
-    #re.sub是个正则表达式方面的函数，用来实现通过正则表达式，实现比普通字符串的replace更加强大的替换功能；
     import re
-    d = re.sub("[A-Za-z0-9]", "", d)
+    d = re.sub("[A-Za-z0-9]", "", d)  #re.sub是个正则表达式方面的函数，用来实现通过正则表达式，实现比普通字符串的replace更加强大的替换功能；
     # 3.将字符串中的汉字去重，作为字典的key
     d_list = list(d)#将元组转换为列表
-    print(d_list)
+    #print(d_list)
     d_index = set(d_list)#set() 函数创建一个无序不重复元素集
-    print(d_index)
+    #print(d_index)
     # 4.构造词频字典
     dict = {}
     for i in d_index:
