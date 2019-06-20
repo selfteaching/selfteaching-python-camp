@@ -19,6 +19,7 @@ def  stats_text_en(text,count):
 
 def stats_text_cn(text,count):
     '''封装统计中文汉字字频的函数'''
+    
     words = jieba.cut(text)
     tmp = []
     for i in words:
