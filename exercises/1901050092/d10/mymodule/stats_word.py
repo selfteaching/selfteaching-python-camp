@@ -1,5 +1,5 @@
-import jieba
 from collections import Counter
+import jieba
 
 def  stats_text_en(text,count):
     '''封装统计英文单词词频的函数'''
@@ -17,19 +17,14 @@ def  stats_text_en(text,count):
     return Counter(words).most_common(count)
 
 
-def  stats_text_cn(text,count):
+def stats_text_cn(text,count):
     '''封装统计中文汉字字频的函数'''
-    if not isinstance(text, str):
-        raise ValueError('参数为非字符串')
-    cn_charaters=[]
-    symbols=', . *-!，。  '
-    for charater in text:
-        for symbol in symbols:
-            charater=charater.replace(symbol,'')
-        if '\u4e00 <=charater <=u9fff':
-            cn_charaters.append(charater)
-
-    return Counter(cn_charaters).most_common(count)
+    words = jieba.cut(text)
+    tmp = []
+    for i in words:
+        if len(i) > 1:
+            tmp.append(i)    
+    return Counter(tmp).most_common(count)
 
 
 
