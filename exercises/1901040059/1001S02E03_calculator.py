@@ -14,7 +14,8 @@ def divide(x,y):
    
 num1=int(input("输入第一个数字："))
  
-mothod=(raw_input（"请输入运算符："）)
+mothod=raw_input（"请输入运算符："）
+
 
 num2=int(input("输入第二个数字："))
 
