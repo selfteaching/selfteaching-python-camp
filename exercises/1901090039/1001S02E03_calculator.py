@@ -14,4 +14,4 @@ print(x*y)
 else z =="/"
 print(x/y)
 else
-print("wrong input, please try it again!")
+print("wrong input, please kindly try it again!")
