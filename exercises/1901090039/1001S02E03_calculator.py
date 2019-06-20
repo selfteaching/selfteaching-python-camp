@@ -10,5 +10,5 @@ elif z =="*":
     print(x*y)
 else:
     print(x/y)
-print("thank you")
+print("thank you！")
 
