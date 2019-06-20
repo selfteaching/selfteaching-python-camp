@@ -1,3 +1,4 @@
+#for 循环打印乘法表
 for a in range(1,10):
     for b in range(1 , a+1):   
         if(b == a):
