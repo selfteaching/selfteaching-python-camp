@@ -1,5 +1,4 @@
-
-text = [1,2,3]
+text = [1,2,3,4]
 
 import stats_word
 try:
