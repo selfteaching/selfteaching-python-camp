@@ -1,31 +1,20 @@
-import  re 
+import stats_word               #它是输入stats_word
 
-import  collections  
-text = '''                        
-Beautiful is better than ugly. Explicit is better than implicit. Simple is better than complex.
-好好学习天天向上，学习学习再学习,pony6666
-'''
-#英文词频统计函数
+import json  
 
-def  stats_text_en(text):
+with open('tang300.json','r', encoding='UTF-8') as f: #不加'r', encoding='UTF-8'会报UnicodeDecodeError
+                                                      #然后是打开，tang300.josn
+    read_date = f.read()                              #把这个josn读出来，然后在关闭
 
-    a=re.sub(r'[^A-Za-z]',' ',text)    #只取英文单词
+f.closed        
+try:
+     print('合并词频统计结果： ', stats_word.stats_text(text,100))     
+except ValueError as ve :
+     print(ve)
+try:
 
-    newlist=a.split()                      #单词划分
+    print('统计字数最多的前100个字： \n',stats_word.stats_text_cn(read_date,100)) ##然后就是打印出执行后的文本
 
-    return(collections.Counter(newlist))  #输出英文单词频数统计结果
+except ValueError as w:   
 
-print(collections.Counter(text))
-
-#中文词频统计函数
-
-def  stats_text_cn(text):
-
-    p =  re.compile(r'[\u4e00-\u9fa5]')  # 中文的编码范围是：\u4e00到\u9fa5
-
-    res = re.findall(p, text)   #取中文
-
-    newcn=''.join(res)
-
-    return(collections.Counter(newcn))  #输出中文词频统计结果
-print(collections.Counter(text))
+    print(w)  
