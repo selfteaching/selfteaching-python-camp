@@ -1,14 +1,12 @@
+#这是一个调用stats_word.py模块，统计并输出一段文字中英文和中文词频的程序
 
-with open('tang300.json','r') as t:
-    ''' 1. 导入json文件并读取文件内容'''
-    read_file=t.read()
-
-
+"""导入stats_word模块"""
 from mymodule import stats_word
-''' 1. 捕获传入非字符串参数异常。
-    2. 调用stats_word.py中的stats_text_cn(),传入读取文件结果和输出限制参数。
-'''
-try : 
-    print('Top20中文词频统计结果： ', stats_word.stats_text_cn(read_file,20))
-except ValueError as ve:
-    print(ve)
+
+with open('tang300.json') as a:
+    file1 = a.read()
+    a.closed
+"""调用stats_word模块中的stats_text函数"""
+
+print("汉字单字出现的结果如下：")
+print(stats_word.stats_text_cn(file1,20))

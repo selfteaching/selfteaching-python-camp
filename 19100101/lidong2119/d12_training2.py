@@ -1,10 +1,11 @@
-from wxpy import *
+from wxpy import Bot,Message,embed
 import d11_training1
+
 bot = Bot()
 
 
-my_friend = bot.friends().search('伟仪',sex=FEMALE,city='深圳')[0]
-my_friend.send('请小叶子分享文章')
+my_friend = bot.friends().search('老婆叶',city="深圳")[0]
+my_friend.send('请分享文章，谢谢您！')
 
 
 @bot.register(my_friend)

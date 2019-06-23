@@ -1,6 +1,8 @@
 #-*- coding: UTF-8 -*- 
 import collections
 import os
+import jieba
+import chardet
 
 #text = 
 '''
@@ -37,65 +39,76 @@ Namespaces are one honking great idea -- let's do more of those!
 '''
 
 def stats_text_en (text): #sort English words by the frequency.
-
-    for i in range(len(text)):
-        if (text[i] >= u'\u0041' and text[i]<=u'\u005a') or (text[i] >= u'\u0061' and text[i]<=u'\u007a'):
-            break
-
-
-    text_en = text[i:]
-    text_en = text_en.replace('--', '')
-    text_en = text_en.replace('!', '')
-    text_en = text_en.replace('*', '')
-    text_en = text_en.replace('.', ' ')
-    text_en = text_en.replace(',', '')
-
-    # print("CN words frequency: ")
-    # print(text_en)
-
-    text_en = text_en.split()
-
-    counter_en = collections.Counter(text_en)
-    print("\n\nEN words frequency: ")
-    print(counter_en)
-
-    return counter_en
+    try:
+        for i in range(len(text)):
+            if (text[i] >= u'\u0041' and text[i]<=u'\u005a') or (text[i] >= u'\u0061' and text[i]<=u'\u007a'):
+                break
 
 
+        text_en = text[i:]
+        text_en = text_en.replace('--', '')
+        text_en = text_en.replace('!', '')
+        text_en = text_en.replace('*', '')
+        text_en = text_en.replace('.', ' ')
+        text_en = text_en.replace(',', '')
+
+        # print("CN words frequency: ")
+        # print(text_en)
+
+        text_en = text_en.split()
+
+        counter_en = collections.Counter(text_en)
+        print("\n\nEN words frequency: ")
+        print(counter_en)
+
+        return counter_en
+
+    except TypeError:
+        print("English sorting: TypeError catched!")
+        
+
+def stats_text_cn (text, max_counts): #sort Chinese words by the frequency. Only output the first 100!
+    try:
+        text_cn = ''
+
+        for ch in text:
+            if u'\u4e00' <= ch <= u'\u9fff': #only fetch the Chinese characthers
+                text_cn = text_cn + ch
+        #text_cn = text_cn.encode("utf-8")
+        
+        text_jieba = " ".join(jieba.cut(text_cn, cut_all=True))
+
+        text_jieba_split = text_jieba.split()
+       
+
+# ''' previous homework without jieba:
+#         text_split = []
+
+#         for i in range(len(text_cn)):
+#             text_split.append(text_cn[i])
+#'''
+
+    
+        counter_cn = collections.Counter(text_jieba_split)
+        counter_cn = collections.Counter(counter_cn).most_common(max_counts)
 
 
-def stats_text_cn (text): #sort Chinese words by the frequency.
-    text_cn = ''
+        print("The most common " + str(max_counts)+ " CN wrods: ")
+        print(counter_cn)
+        return dict(counter_cn)
 
-    for ch in text:
-        if u'\u4e00' <= ch <= u'\u9fff': #only fetch the Chinese characthers
-            text_cn = text_cn + ch
+    
+    except TypeError:
+        print("Chinese sorting: TypeError catched!")
 
-
-    # text = text.replace('：', '')
-    # text = text.replace('，', '')
-    # text = text.replace('\n', '')
-    #text = text.replace('*', '')
-    #print ('first char:')
-    #print (text[0])
-
-    text_split = []
-
-    for i in range(len(text_cn)):
-        text_split.append(text_cn[i])
-
-    #text = text.split()
-
-    counter_cn = collections.Counter(text_split)
-    print("CN wrods frequency: ")
-    print(counter_cn)
-    return counter_cn
-
-#print(stats_text_cn(text_cn))
 
 
 def stats_text (text): #call the functions above
+
+    try:        
+        stats_text_cn (text, 20)
+        stats_text_en (text)
+    except TypeError:
+        print("Text sorting: TypeError catched!")
     
-    stats_text_cn (text)
-    stats_text_en (text)
 
