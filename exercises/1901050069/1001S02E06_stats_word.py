@@ -16,8 +16,9 @@ def stats_text_en(text):
         counter[word] = words.count(word)
     # 函数返回值用 return 进行返回，如果没有 return 放回值则为None
     return sorted(counter.items(), key=lambda x: x[1], reverse=True)
+
 # 统计参数中每个中⽂汉字出现的次数
-def ststs_text_en(text):
+def ststs_text_cn(text):
     cn_characters = []
     for character in text:
         # unicode 中 中文 字符的范围
@@ -56,6 +57,7 @@ Namespaces are one honking great idea -- let's do more of those!
 
 cn_text = '''
 Python之禅 by Tim Peters
+
 优美胜于丑陋
 明了胜于晦涩
 简介胜于复杂
@@ -71,3 +73,13 @@ Python之禅 by Tim Peters
 做也许好过不做，但不假思索就动手还不如不做
 。。。
 '''
+
+# 搜索 __name__ == __main__
+# 一般情况下在文件内 测试 代码的时候以下面的形式进行
+
+if __name__ == '__main__':
+    en_result = stats_text_en(en_text)
+    cn_result = stats_text_cn(cn_text)
+    print(en_result)
+    print(cn_result)
+
