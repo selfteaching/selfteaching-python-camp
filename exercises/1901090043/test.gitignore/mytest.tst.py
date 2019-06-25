@@ -1,5 +1,6 @@
-import os
-file_object = open('./d07/text.txt')
-file_context = file_object.read()
-file_object.close()
-print(file_context)
+while True:
+    try:
+        x = int(input("Please enter a number: "))
+        break
+    except ValueError:
+        print("Oops!  That was no valid number.  Try again...")
