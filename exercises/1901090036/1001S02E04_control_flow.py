@@ -20,8 +20,3 @@ while(x<10):
                 print(x,"*",y,"=",x*y,end="   ")
                 y+=1
             break
-
-                
-
-
-
