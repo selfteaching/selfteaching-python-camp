@@ -6,7 +6,9 @@ for i in range(1,10):  #i从1~10这几个数中逐增提取
         else:
             print(i,"*",j,"=",i*j,end="   ")
 print()
-print()
+
+
+
 x=1
 y=1
 while(x<10):
