@@ -30,12 +30,12 @@ strResult=','.join([str(x) for x in mdict])
 #strResult='test'
 
 #发送邮件
-sender=input('请输入发件人邮箱：')
-password=getpass.getpass('输入发件人邮箱密码（可复制粘贴）：')
-recipients=input('请输入收件人邮箱：')
+sender = input('输入发件人邮箱:')
+password = getpass.getpass('输入发件人邮箱密码:')
+recipients = input('输入收件人邮箱:')
 
 try:
-    yag=yagmail.SMTP(sender,password,'smtp.mail.aliyun.com')
+    yag=yagmail.SMTP(sender,password,'smtp.qq.com')
     #yag.send('pythoncamp@163.com','subject',strResult)
     yag.send(recipients,'19100102 daweijian',strResult)
     print("已发送，请注意查收。")
