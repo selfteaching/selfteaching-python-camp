@@ -15,7 +15,7 @@ def stats_text_en(text):
         dic = sorted(dic.items(),key = lambda x:x[1],reverse = True)
 
         return dic
-    except ValueError:
+    except TypeError:
         print('传入的数据类型错误！')
 
     
