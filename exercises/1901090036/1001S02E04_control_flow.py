@@ -8,6 +8,8 @@ for i in range(1,10):
 print()
 print()
 print()
+
+
 x=1
 y=1
 while(x<10):
