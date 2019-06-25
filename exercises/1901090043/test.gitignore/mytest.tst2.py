@@ -1,8 +1,8 @@
 def temp_convert(var):
     try:
         return int(var)
-    except ValueError,0:
-        print("参数没有包含数字\n", 0)
+    except ValueError, Argument:
+        print "参数没有包含数字\n", Argument
 
 # 调用函数
-temp_convert("xyz")
+temp_convert("xyz");
