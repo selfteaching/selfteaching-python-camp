@@ -36,6 +36,5 @@ for item in result:
 # 将上一步的结果里的字⺟进⾏⼤小写翻转
 result = [word.swapcase() for word in word_list]
 # print(result)
-
 # 将第上一步的结果里面所有单词按a...z升序排列列，并输出结果
 print(sorted(result))
