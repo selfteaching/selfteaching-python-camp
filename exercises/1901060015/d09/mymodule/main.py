@@ -62,6 +62,7 @@ two mighty gods to carry the mountains away.
 
 import stats_word
 try:
+    text=text.replace("，","").replace("\n","").replace("。","").replace("？","").replace("「","").replace("⼀","")
     print(stats_word.stats_text(text))
     
 except:
