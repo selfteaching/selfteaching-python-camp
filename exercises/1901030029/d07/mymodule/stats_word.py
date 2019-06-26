@@ -35,11 +35,9 @@ def stats_text_en(text):                   #定义一个以字符串text为参�
         else:
             dic[x]=dic[x]+1
     return dic
-frequency = stats_text_en(text)
-print('******************************')
-print("按照出现次数从小到大输出所有的单词及出现的次数")
-print('******************************')
+frequency = stats_text_en(text)        #"按照出现次数从小到大输出所有的单词及出现的次数"
 print(sorted(frequency.items(),key=lambda x:x[1],reverse=True))
+
 
  #创建一个名为stas_text_cn的函数 
 def stats_text_cn(text):
@@ -48,13 +46,11 @@ def stats_text_cn(text):
          if u'\u4e00' <= i <=u'\u9fa5':    #提取中文汉字 \u是unincode的编码，u4e00是十进制表达式
              dictionary[i]=text.count(i)
      return dictionary 
-frequency = stats_text_cn(text)
-print('**************************')
-print("按照出现次数从大到小输出所有的汉字以及出现的次数")
-print('**************************')        
+frequency = stats_text_cn(text)    #"按照出现次数从大到小输出所有的汉字以及出现的次数"
 print(sorted(frequency.items(),key=lambda x: x[1],reverse=True))
 
     
+
 def stats_text(text):
     """合并英文词频和中文字频的结果
     """
