@@ -54,11 +54,8 @@ print("按照出现次数从大到小输出所有的汉字以及出现的次数"
 print('**************************')        
 print(sorted(frequency.items(),key=lambda x: x[1],reverse=True))
 
-def stats_text(test):
-    """Count the English and Chinese characters in the text."""
-
-    stats_text_en(test) 
     
-    stats_text_cn(test) 
-    
-
+def stats_text(text):
+    """合并英文词频和中文字频的结果
+    """
+    return stats_text_en(text) + stats_text_cn(text)
