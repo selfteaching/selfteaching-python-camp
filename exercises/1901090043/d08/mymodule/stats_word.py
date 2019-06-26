@@ -4,7 +4,9 @@ import re
 def stats_text_en(text):
     pattern = re.compile( "[A-Z]*[a-z]+")
     try:
-        
+        if type(text) != 'str':
+            raise ValueError('异常！你输入的不是字符串！','line 4') 
+            
         word_list = re.findall(pattern,text)
         dic = {}
         for item in word_list:
@@ -15,40 +17,49 @@ def stats_text_en(text):
         dic = sorted(dic.items(),key = lambda x:x[1],reverse = True)
 
         return dic
-    except TypeError:
-        print('传入的数据类型错误！')
 
-    
-
+    except ValueError as result:
+        print(result)
 
 #参数：字符串文本，输出按汉子的统计排名
 def stats_text_cn(text):
     pattern1 = re.compile( "[\u4E00-\u9FA5]")
-    new_list = re.findall(pattern1,text)
-    dic1 = {}
-    for item in new_list:
-        item = item.strip()
-        if item not in dic1:
-            dic1[item] = 1
-        else:
-            dic1[item] += 1        
-    #降序排列
-    dic1 = sorted(dic1.items(),key = lambda x:x[1] ,reverse = True)
+    try:
+        if type(text) != 'str':
+            raise ValueError('异常！你输入的不是字符串！','line 29') 
 
-    return dic1
+        new_list = re.findall(pattern1,text)
+        dic1 = {}
+        for item in new_list:
+            item = item.strip()
+            if item not in dic1:
+                dic1[item] = 1
+            else:
+                dic1[item] += 1        
+        #降序排列
+        dic1 = sorted(dic1.items(),key = lambda x:x[1] ,reverse = True)
+
+        return dic1
+    except ValueError as result:
+        print(result)
+
 #调用stats_text_en()，stats_text_cn()两个函数并且合并排序输出
 def stats_text(text):
     try:
+        if type(text) != 'str':
+            raise ValueError('异常：你输入的不是字符串！','line 50') 
         dic = dict(stats_text_en(text))
         dic1 = dict(stats_text_cn(text))
-    except ValueError:
-        print('传入的数据类型错误！')
-    
-    
-#合并dic，dic1
-    merge_dic = dict(dic,**dic1)
-    
-#对新字典排序统计
-    merge_dic = sorted(merge_dic.items(),key = lambda x:x[1],reverse = True)
 
-    return merge_dic
+        #合并dic，dic1
+        merge_dic = dict(dic,**dic1)
+        
+    #对新字典排序统计
+        merge_dic = sorted(merge_dic.items(),key = lambda x:x[1],reverse = True)
+
+        return merge_dic
+    except ValueError as result:
+        print(result)
+    
+    
+
