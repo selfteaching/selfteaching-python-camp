@@ -9,15 +9,18 @@ import requests
 from pyquery import PyQuery
 import getpass
 
+def get_text():
+    response = requests.get('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
+    documenmt = PyQuery(response.text)
+    return documenmt('#js_content').text()
+
+
+content = get_text()
+result = stats_word.stats_text_cn(content, 100)
+
 sender = input('输入发件人邮箱：')
 password = getpass.getpass('输入发件人邮箱密码：')
 recipients = input('输入收件人邮箱：')
 
-response = requests.get('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
-documenmt = PyQuery(response.text)
-content = documenmt('#js_content').text()
-
-string = str(stats_word.stats_text_cn(content, 100))
-
-yag = yagmail.SMTP()
-yag.send('pythoncamp@163.com', '1901050119 Galaxy1227', string)
+yag = yagmail.SMTP(sender, password, 'smtp.qq.com')
+yag.send('pythoncamp@163.com', '1901050119 Galaxy1227', str(result))
