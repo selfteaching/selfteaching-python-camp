@@ -22,7 +22,7 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those! 
 '''
-
+#自己的方法
 word = ""
 result = []
 for item in text:
@@ -43,7 +43,7 @@ for item in result:
             freq_dict[item] += 1 
         else:
             freq_dict[item]  = 1  
-print(freq_dict)                    
+# print(freq_dict)                    
 word_count = () 
 #先排序后输出
 for i in range(len(freq_dict.copy().keys())):
@@ -53,5 +53,24 @@ for i in range(len(freq_dict.copy().keys())):
             word_count = (key,freq_dict[key])
  #选出来一个就删掉一个，免得重复比较           
     freq_dict.__delitem__(word_count[0])
-    print (word_count)
+    # print (word_count)
         
+#老师的方法：
+elements = text.split()
+words = []
+symbols = ',.*-!' #这是要删除掉的符号
+for element in elements:
+    for symbol in symbols:
+        #如果某个element中存在symbols中的某个字符，那么久替换为''
+        element = element.replace(symbol,'')
+        #如果element长度大于零，就正式作为一个单词写入words里面
+    if len(element):
+        words.append(element)
+#创建一个词典用来存储单词和单词出现的次数
+counter = {}    
+#用set运算排除了words里面重复的元素
+word_set = set(words)
+for word in word_set:
+    counter[word] = words.count(word)
+# print(counter)
+print(sorted(counter.items(),key = lambda x:x[1],reverse = True))    
