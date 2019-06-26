@@ -1,3 +1,6 @@
+import os
+path = os.path.abspath('mytest.tst.py')
+print(path)
 while True:
     try:
         x = int(input("Please enter a number: "))
