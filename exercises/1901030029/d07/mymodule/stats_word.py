@@ -36,7 +36,11 @@ def stats_text_en(text):                   #定义一个以字符串text为参�
             dic[x]=dic[x]+1
     return dic
 frequency = stats_text_en(text)        #"按照出现次数从小到大输出所有的单词及出现的次数"
+print('******************************')
+print("按照出现次数从小到大输出所有的单词及出现的次数")
+print('******************************')
 print(sorted(frequency.items(),key=lambda x:x[1],reverse=True))
+
 
 
  #创建一个名为stas_text_cn的函数 
@@ -47,10 +51,12 @@ def stats_text_cn(text):
              dictionary[i]=text.count(i)
      return dictionary 
 frequency = stats_text_cn(text)    #"按照出现次数从大到小输出所有的汉字以及出现的次数"
+print('**************************')
+print("按照出现次数从小到大输出所有的单词及出现的次数")
+print('**************************')
 print(sorted(frequency.items(),key=lambda x: x[1],reverse=True))
 
     
-
 def stats_text(text):
     """合并英文词频和中文字频的结果
     """
