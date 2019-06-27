@@ -11,8 +11,8 @@ import getpass
 
 def get_text():
     response = requests.get('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
-    documenmt = PyQuery(response.text)
-    return documenmt('#js_content').text()
+    document = PyQuery(response.text)
+    return document('#js_content').text()
 
 
 content = get_text()
