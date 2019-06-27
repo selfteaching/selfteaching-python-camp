@@ -54,8 +54,9 @@ print("按照出现次数从大到小输出所有的汉字以及出现的次数"
 print('**************************')        
 print(sorted(frequency.items(),key=lambda x: x[1],reverse=True))
 
-
 def stats_text(text):
-    """合并英文词频和中文字频的结果
-    """
-    return stats_text_en(text) + stats_text_cn(text)
+    '''分别调⽤stats_text_en , stats_text_cn ，输出合并词频统计结果'''
+
+    text = stats_text_en(text) + stats_text_cn(text)
+    # print(result)
+    # return result
