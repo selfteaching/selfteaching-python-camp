@@ -18,7 +18,7 @@ def stats_text_en(text):
     return sorted(counter.items(), key=lambda x: x[1], reverse=True)
 
 # 统计参数中每个中⽂汉字出现的次数
-def ststs_text_cn(text):
+def stats_text_cn(text):
     cn_characters = []
     for character in text:
         # unicode 中 中文 字符的范围
