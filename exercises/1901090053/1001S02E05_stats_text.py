@@ -21,9 +21,10 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-text = re.sub(r'[,.!--*]', ' ', text)
-text_list = text.split()
-text_list = [x.lower() for x in text_list ]
-d = {x:text_list.count(x) for x in text_list}
+text = text.lower()
+import re
+text_list = re.findall(r'\w+', text)
+text_set = set(text_list)
+d = {x:text_list.count(x) for x in text_set}
 d1 = sorted(d.items(), key=lambda x: x[1], reverse=True)
 print (d1)
