@@ -41,9 +41,7 @@ print("按照出现次数从小到大输出所有的单词及出现的次数")
 print('******************************')
 print(sorted(frequency.items(),key=lambda x:x[1],reverse=True))
 
-
-
- #创建一个名为stas_text_cn的函数 
+#创建一个名为stas_text_cn的函数 
 def stats_text_cn(text):
      dictionary={}                         #引用一个新字典
      for i in text:
