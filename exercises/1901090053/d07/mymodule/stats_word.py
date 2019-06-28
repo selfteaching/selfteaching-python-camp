@@ -72,8 +72,6 @@ def stats_text_en(text):
     d_list.sort(reverse=True)
     return d_list
 
-stats_text_en(text)
-
 
 def stats_text_cn(text):
     ''' count the number of every Chinese character in
@@ -86,7 +84,6 @@ def stats_text_cn(text):
     d_list.sort(reverse=True)
     return d_list
 
-stats_text_cn(text)
 
 def stats_text(en_cn_text):
     ''' count the number of every Chinese character and English word in
