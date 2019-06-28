@@ -91,5 +91,6 @@ def stats_text(en_cn_text):
     import re
     stats_result = stats_text_en(en_cn_text) + stats_text_cn(en_cn_text) 
     stats_result.sort(reverse=True)
-    print ('the frequency of English words and Chinese characters: ' , stats_result)
+    return stats_result
+    
 
