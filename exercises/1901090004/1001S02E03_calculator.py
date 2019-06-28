@@ -1,4 +1,5 @@
 def add(x,y):
+
     return x+y
 def subtract(x,y)
     return x-y
@@ -20,5 +21,6 @@ elif c=='*':
     print(multiply(a,b))
 elif c=='/':
     print(divide(a,b))
+
 else:
     print('输入错误')

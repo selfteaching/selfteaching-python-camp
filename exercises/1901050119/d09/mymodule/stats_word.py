@@ -79,4 +79,8 @@ def stats_text_cn(text, n):
         bDict.setdefault(text1[i], cnt) 
         i = i + 1
 
+#<<<<<<< master
     return Counter(bDict).most_common(n)
+#=======
+    return(Counter(bDict).most_common(n))
+#>>>>>>> master
