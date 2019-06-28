@@ -60,4 +60,4 @@ two mighty gods to carry the mountains away.
 '''
 
 import stats_word as sw 
-sw.stats_text(text)
+print (sw.stats_text(text))
