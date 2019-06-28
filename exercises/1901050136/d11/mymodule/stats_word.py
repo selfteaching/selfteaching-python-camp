@@ -11,7 +11,7 @@ def stats_text_en(text):
 
     text = text.strip().split()# for chinese words dividing
     words = [] # for store the text after processing
-    symbols = '、??:「」，。.!,“”' ' \n '
+    symbols = '、??:「」，。.!,“”' ' \n ？'
     for word in text:
         for  symbol in symbols:
             word = word.replace(symbol,'') # delet the redundant symbols in the text
