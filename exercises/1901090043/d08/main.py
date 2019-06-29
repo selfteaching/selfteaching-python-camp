@@ -10,4 +10,3 @@ except ValueError as result:
 
 
 print(sort_list)
-
