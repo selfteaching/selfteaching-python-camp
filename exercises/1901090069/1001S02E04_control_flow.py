@@ -9,8 +9,10 @@ m = 1
 while (m<10):
     n = 1
     while(n<m+1):
-        if m%2!=0:
+        if m%2!=0:       
             print(m,"*",n,"=",m*n,end='\t')
         n+=1
-    print(end='\n')
+    if m%2!=0:
+        print(end='\n')
     m+=1
+    
