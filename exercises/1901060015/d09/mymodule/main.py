@@ -1,9 +1,14 @@
 import json
 
-with open('tang300.json','r') as f:
-    for line in f:
-        t=json.loads(line)
-        print(t)
+with open('tang300.json','r',encoding='UTF-8') as f:
+    print(f.read())
+    
+    
+
+
+
+
+   
 
 
 
@@ -19,7 +24,7 @@ with open('tang300.json','r') as f:
 
 
     
-
+()
     
 
 
