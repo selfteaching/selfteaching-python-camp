@@ -61,4 +61,3 @@ print('英文单词出现的次数 ==>', counter)
 #内置函数 sorted 的参数 key 表示按元素的那一项的值进行排序
 # dict 类型 counter 的 items 方法会返回一个 包含 相应 项 （key, value）的 元组 列表
 print('从大到小输出所有的单词及出现的次数==>', sorted(counter.items(), key=lambda x: x[1], reverse=True))
-  
