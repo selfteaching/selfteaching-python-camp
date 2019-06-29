@@ -1,14 +1,34 @@
+
 import json
-with open('tang300.json',mode='r+',encoding='utf-8') as text:
-    text=text.read()
-    
 import stats_word
-try:
+
+with open("tang300.json",'r+',encoding = ("UTF-8")) as f:
+    t=json.loads(f.readlines())
+    for line in t:
+        print(t)
+
+
+
+
+
+
+
+
+
     
-    print(stats_word.stats_text_cn(text))
+
     
-except:
-    print("omg! please try again!!!")
+
+
+        
+    
+
+
+    
+
+    
+
+    
 
 
         
