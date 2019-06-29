@@ -1,9 +1,13 @@
-from collections import Counter
-colors = ['red', 'blue', 'red', 'green', 'blue', 'blue']
-c = Counter(colors)
-print (dict(c))
+import sys
+sys.path.append('../')
 
-c = Counter(a=3, b=1)
-d = Counter(a=1, b=2)
-#Counter({'a': 2})
-print(c | d)
+import jieba
+import jieba.analyse
+from optparse import OptionParser
+
+USAGE = "usage:    python,python extract_tags.py [file name] -k [top k]"
+
+
+tags = jieba.analyse.extract_tags(USAGE, topK=2,withWeight = True)
+
+print(tags)
