@@ -1,4 +1,5 @@
 import string
+import re
 
 text = '''
 The Zen of Python, by Tim Peters Beautiful is better than ugly.
@@ -17,6 +18,7 @@ print("替换字符结果为：",re_text)
 print()
 
 print("**********************删除包含ea的单词******************")
+<<<<<<< HEAD
 
 #创建一个65~122数列对应所有大小写字母
 int_array = []
@@ -124,6 +126,33 @@ rank_text = rank_text.replace('.',' ')
 rank_text = rank_text.replace('-',' ')
 rank_text = rank_text.replace('!',' ')
 rank_text = rank_text.replace('*',' ')
+=======
+print()
+#创建一个65~122数列对应所有大小写字母
+pattern = re.compile("[A-Z]*[a-z]+")
+del_text = re.findall(pattern,re_text)
+
+result_text = []
+for item in del_text:
+    if 'ea' not in item:
+        result_text.append(item)
+    else:
+        continue
+result_text = ' '.join(result_text)
+print(result_text) 
+print()
+
+print("***************************将文本大小写翻转*********************************")
+print()
+swap_text = result_text.swapcase()
+print(swap_text)
+print()
+
+print("****************************单词顺序不变，单词内字母升序排列********************")
+print()
+
+rank_text = swap_text
+>>>>>>> 56828ce69a6bfe0ca19e7cd7319f42416531c19a
 
 rank_text = rank_text.split(' ')
 
