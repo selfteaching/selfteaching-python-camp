@@ -7,16 +7,18 @@ def stats_text_en (text_in):
     print('请输入一字符串，除字母仅包括常用的标点符号：==>')
 
     try:
-        text = text_in + ''
-    except TypeError:
+        if type(text_in)!= str:
+            raise ValueError('非字符串类型')
+    except ValueError:
         print("哎哟，程序需要输入字符串，请再次运行程序，并重新输入......")
+        raise
 
-    print('您所输入的字字符串为==>', text)
+    print('您所输入的字字符串为==>', text_in)
 
 
     #1. 使用字典 dict 类型 统计字符串样本 text 中各个英文单词出现的次数
     #先将字符串根据 空白字符 分割成 list, 要调用 str 类型
-    elements = text.split()
+    elements = text_in.split()
     
     #定义一个新的 list 类型变量，存储处理过的单词
     words = []
@@ -62,15 +64,16 @@ def stats_text_cn (textIn):
     print('请输入一串包含中文的字符串==>')
 
     try:
-        text = textIn + ''
-    except TypeError:
+        if type(textIn)!= str:
+            raise ValueError('非字符串类型')
+    except ValueError:
         print("哎哟，程序需要输入字符串，请再次运行程序，并重新输入......")
+        raise
 
-    #text = textIn
-    print('您所输入的包含中文的字符串为==>', text)
+    print('您所输入的包含中文的字符串为==>', textIn)
     #1. 使用字典 dict 类型 统计字符串样本 text 中各个英文单词出现的次数
     #先将字符串根据 采用强制 list 类型转换成单个字符, 要调用 str 类型
-    elements = list(text)
+    elements = list(textIn)
     
     #定义一个新的 list 类型变量，存储处理过的单词
     words_cn = []
@@ -109,10 +112,11 @@ def stats_text(text_en_cn):
     print('请输入一串包含中文的字符串==>')
 
     try:
-        text = text_en_cn + ''
-    except TypeError:
+        if type(text_en_cn)!= str:
+            raise ValueError('非字符串类型')
+    except ValueError:
         print("哎哟，程序需要输入字符串，请再次运行程序，并重新输入......")
-    else:
+        raise
 
     # 调用英文词频统计 函数 stats_text_en 将结果存入 临时字典 dictTmpEn
         dictTmpEn = stats_text_en(text_en_cn)
