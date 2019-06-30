@@ -1,4 +1,4 @@
-from mymodule import stats_word
+import stats_word
 from os import path
 import json
 import re
