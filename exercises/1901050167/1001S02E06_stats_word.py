@@ -21,7 +21,7 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-def stats_text_en(text):
+def stats_text_en():
     for ch in '!,.--':
         text=text.replace(ch,"")
     textlist1 = text.split()
@@ -51,7 +51,7 @@ txt='''不同的人会呈现不同的应对生活的状态，
 很难做出突破性的改变。
 成长型思维模式的人往往会认为自己的能力是可以发展的，所以在面对困境与压力的时候，
 总会找到合适的进步空间，让自己突破自己，积极地应对生活。'''
-def stats_text_cn(txt):
+def stats_text_cn():
     txt1=[]
     for m in txt:
         if '\u4e00'<=m<='\u9fff':
