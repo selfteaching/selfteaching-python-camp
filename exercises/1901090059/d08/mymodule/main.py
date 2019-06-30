@@ -3,7 +3,7 @@
 from stats_word import stats_text, stats_text_en, stats_text_cn
 
 test_text = 9999999
-text = '''
+test_text = '''
 愚公移山
 
 太行，王屋山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他和家人往來極為不便。
@@ -61,11 +61,10 @@ two mighty gods to carry the mountains away.
 print('请输入一字符串，除字母仅包括常用的标点符号：==>')
 
 try:
-    if type(test_text)!= str:
-        raise ValueError('非字符串类型')
+    # 调用 stats_text 函数 并将输出结果保存到 dict 类型数据 dict_EnCn 中
+    stats_text(test_text)
 except ValueError:
-    print("哎哟，程序需要输入字符串，请再次运行程序，并重新输入......")
-    raise
+    print("请用字符串作为输入==>")
 
 # 调用 stats_text 函数 并将输出结果保存到 dict 类型数据 dict_EnCn 中
 dict_EnCn = stats_text(test_text)
