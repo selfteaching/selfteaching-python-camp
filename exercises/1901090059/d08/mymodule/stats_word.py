@@ -21,17 +21,16 @@ def stats_text_en (text_in):
     #定义一个新的 list 类型变量，存储处理过的单词
     words = []
  
-    #先针对样本文本挑选出需要剔除的非单词符号
-    symbols =  ".,:;!?-*'—'‘’\“\”()[ ]<>{}《》.\¨\"‖／＆～§→|,.-!;"
     for element in elements:
-        #遍历一遍要剔除的符号
-        for symbol in symbols:
-        #逐个替换字符号， 用''是为了同时删除符号所占的位置
-          element = element.replace(symbol, '')
-       
-        #剔除了字符后如果 element 的长度不为 0，而且不是中文汉字的，则算作正常英文单词
-        if (len(element) > 0) and (not '\u4e00' <= element[0] <= '\u9fff'):
-          words.append(element)
+        #定义一下新的 字符串 类型变量，存储每个处理过的英文单词
+        word = ""
+        #遍历一遍 element 字符串，保留所有字母
+        for uchar in element:
+            if (uchar >= u'\u0041' and uchar <= u'\u005a') or (uchar >= u'\u0061' and uchar <= u'\u007a'):
+                word = word + uchar
+        #剔除了字符后如果 element 的长度不为 0，则算作正常单词
+        if len(word):
+          words.append(word)
 
     print('正常的英文单词 ==>', words)
 
@@ -160,7 +159,7 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea. 
 Namespaces are one honking great idea -- let's do more of those!
 #''' 
-# )
+#)
 
 #stats_text_cn(
 ''' 
