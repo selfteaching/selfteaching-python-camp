@@ -5,7 +5,7 @@ import re
 import logging
 
 logging.basicConfig(
-    format='file:%(filename)s|line:%(lineno)d|message:%(message)s',level=logging.DEBUG)
+    format='file:%(filename)s | line:%(lineno)d | message:%(message)s',level=logging.DEBUG)
 
 def load_file():
     flie_path = path.join(path.dirname(path.abspath(__file__)),'tang300.json')
@@ -25,7 +25,7 @@ def main():
         data=load_file()
         logging.info(data[0])
         poems=merge_poems(json.loads(data))
-        logging.info('result ==> %S',stats_word.stats_text_cn(poems))
+        logging.info('result ==> %s',stats_word.stats_text_cn(poems))
     except Exception as e:
         logging.exception(e)
 
