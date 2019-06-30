@@ -1,10 +1,9 @@
 # 1. 定义一个 stats_text_en 函数，统计输入给函数一个字符串中的所有的不同的英文单词的个数并按照从大到小排序
 
 def stats_text_en (text_in):
-    #提示输入一串字符串后，系统将统计其中英文单词个数并按照出现的频度进行排序，假设输入字符串除了字母外仅包括如
-    # ．，：；！？-*'—'‘’\“\”()[ ]<>{}《》.\¨\"‖／＆～§→|,.-! 等常用非字母
+    #提示输入一串字符串后，系统将统计其中英文单词个数并按照出现的频度进行排序
 
-    print('请输入一串字符串，除了字母外，仅包括,.*-!非字母字符串：==>')
+    print('请输入一串字符串：==>')
     text = text_in
     print('您所输入的字字符串为==>', text)
     #1. 使用字典 dict 类型 统计字符串样本 text 中各个英文单词出现的次数
@@ -12,18 +11,18 @@ def stats_text_en (text_in):
     elements = text.split()
     
     #定义一个新的 list 类型变量，存储处理过的单词
-    words = []
+    words = []    
  
-    #先针对样本文本挑选出需要剔除的非单词符号
-    symbols =  "．，：；！？-*'—'‘’\“\”()[ ]<>{}《》.\¨\"‖／＆～§→|,.-!"
     for element in elements:
-        #遍历一遍要剔除的符号
-        for symbol in symbols:
-        #逐个替换字符号， 用''是为了同时删除符号所占的位置
-          element = element.replace(symbol, '')
+        #定义一下新的 字符串 类型变量，存储每个处理过的英文单词
+        word = ""
+        #遍历一遍 element 字符串，保留所有字母
+        for uchar in element:
+            if (uchar >= u'\u0041' and uchar <= u'\u005a') or (uchar >= u'\u0061' and uchar <= u'\u007a'):
+                word = word + uchar
         #剔除了字符后如果 element 的长度不为 0，则算作正常单词
-        if len(element):
-          words.append(element)
+        if len(word):
+          words.append(word)
 
     print('正常的英文单词 ==>', words)
 
