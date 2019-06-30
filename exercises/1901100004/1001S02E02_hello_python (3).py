@@ -1,8 +1,7 @@
-print(str('九九乘法表'))
-for i in range (1,10):
-    # print('第%d行'% i,end = '\t')
-    for j in range (1,i+1):
-        print('{}*{}={}\t'.format(j,i,i*j),end='\t')
+
+
+s = hello,world
+        print(s)
     print()
 
 print(str('去掉偶数行的九九乘法表'))
