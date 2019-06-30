@@ -61,9 +61,11 @@ two mighty gods to carry the mountains away.
 print('请输入一字符串，除字母仅包括常用的标点符号：==>')
 
 try:
-    text = test_text + ''
-except TypeError:
+    if type(test_text)!= str:
+        raise ValueError('非字符串类型')
+except ValueError:
     print("哎哟，程序需要输入字符串，请再次运行程序，并重新输入......")
+    raise
 
 # 调用 stats_text 函数 并将输出结果保存到 dict 类型数据 dict_EnCn 中
 dict_EnCn = stats_text(test_text)
