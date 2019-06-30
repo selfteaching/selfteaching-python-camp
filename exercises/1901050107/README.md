@@ -15,4 +15,7 @@ Day1：
 6、桌面github和github网站的区别
  github网络无法直接管理我们本地的工程，所以必须下载github app到本地，然后用github app进行合并，上传等操作。 
 
+Day2：
+
+1、JupyterLab的可视化界面是在浏览器中打开的，作业要求我们把Github上《自学是⻔手艺》fork到本地电脑，然后在Files⽬录下找到本地电脑新书的位置，但是在浏览器端的JupyterLab可视化界面中无法直接打开新书文件夹，我们可以在JupyterLab操作界面里新建一个文件夹，然后把新书文件夹里的ipynb，md，txt等等所有格式的文件直接拖拽到JupyterLab操作界面中刚才新建的文件夹里面
 
