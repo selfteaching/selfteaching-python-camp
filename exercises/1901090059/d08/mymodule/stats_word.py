@@ -6,12 +6,8 @@ def stats_text_en (text_in):
 
     print('请输入一字符串，除字母仅包括常用的标点符号：==>')
 
-    try:
-        if type(text_in)!= str:
-            raise ValueError('非字符串类型')
-    except ValueError:
-        print("哎哟，程序需要输入字符串，请再次运行程序，并重新输入......")
-        raise
+    if type(text_in)!= str:
+        raise ValueError('非字符串类型')
 
     print('您所输入的字字符串为==>', text_in)
 
@@ -63,12 +59,8 @@ def stats_text_cn (textIn):
 
     print('请输入一串包含中文的字符串==>')
 
-    try:
-        if type(textIn)!= str:
-            raise ValueError('非字符串类型')
-    except ValueError:
-        print("哎哟，程序需要输入字符串，请再次运行程序，并重新输入......")
-        raise
+    if type(textIn)!= str:
+        raise ValueError('非字符串类型')
 
     print('您所输入的包含中文的字符串为==>', textIn)
     #1. 使用字典 dict 类型 统计字符串样本 text 中各个英文单词出现的次数
@@ -111,27 +103,23 @@ def stats_text(text_en_cn):
 
     print('请输入一串包含中文的字符串==>')
 
-    try:
-        if type(text_en_cn)!= str:
-            raise ValueError('非字符串类型')
-    except ValueError:
-        print("哎哟，程序需要输入字符串，请再次运行程序，并重新输入......")
-        raise
+    if type(text_en_cn)!= str:
+        raise ValueError('非字符串类型')
 
     # 调用英文词频统计 函数 stats_text_en 将结果存入 临时字典 dictTmpEn
-        dictTmpEn = stats_text_en(text_en_cn)
+    dictTmpEn = stats_text_en(text_en_cn)
 
     # 调用汉字词频统计 函数 stats_text_cn 将结果存入 临时字典 dictTmpCn
-        dictTmpCn = stats_text_cn(text_en_cn)
+    dictTmpCn = stats_text_cn(text_en_cn)
 
     # 合并 汉字、英文丙个 dict 类型 数据 为一个字典 dictEnCn
-        dictEnCn = dict(dictTmpEn, **dictTmpCn)
+    dictEnCn = dict(dictTmpEn, **dictTmpCn)
     
     #按照出现次数从大到小输出所有的汉字及出现次数
 
     #内置函数 sorted 的参数 key 表示按元素的那一项的值进行排序
     # dict 类型 counter 的 items 方法会返回一个 包含 相应 项 （key, value）的 元组 列表
-        print('从大到小输出所有的单词及出现的次数==>', sorted(dictEnCn.items(), key=lambda x: x[1], reverse=True))
+    print('从大到小输出所有的单词及出现的次数==>', sorted(dictEnCn.items(), key=lambda x: x[1], reverse=True))
     return dictEnCn
 
 # 以下为测试用例，进行了注释
@@ -218,4 +206,4 @@ Although never is often better than *right* now.
 If the implementation is hard to explain, it's a bad idea. 
 If the implementation is easy to explain, it may be a good idea. 
 Namespaces are one honking great idea -- let's do more of those!
-'''# )
+''' #)
