@@ -29,3 +29,18 @@ def stats_text_cn(text):
         counter[set_cn1]=text_character.count(set_cn1)
     return sorted(counter.items(),key=lambda x:x[1],reverse=True)
     
+
+en_text='''
+asada afaff wffa, agrwe.
+gssdhc -- *yfhsdhci*, frdcsc!
+'''
+
+cn_text='''
+自学训练营
+'''
+
+if __name__ == '__main__':
+   en_result=stats_text_en(en_text)
+   cn_result=stats_text_cn(cn_text)
+   print("统计单词出现次数——\n",en_result)
+   print("统计中文出现次数——\n",cn_result)
