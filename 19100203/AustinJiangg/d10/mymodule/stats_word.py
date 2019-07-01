@@ -48,13 +48,15 @@ def stats_text_en(text):
 @typeassert(str)
 def stats_text_cn(text):
     #统计参数中每个中文汉字出现的次数，最后返10回一个按字频降序排列的数组
+    text = jieba.cut(text, cut_all=False)
     dict1 = {}
     for i in text:
-        if i in ['」','「','!','-','’',' ','/n',',','，','.','，','。','”','“','※','…','？','：','！','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']:
-            continue
-        if i not in dict1:        #为首次出现的字创建key
-            dict1[i] = 0
-        dict1[i] += 1
+        if len(i) >= 2:
+            if i in ['」','「','!','-','’',' ','/n',',','，','.','，','。','”','“','※','…','？','：','！','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']:
+                continue
+            if i not in dict1:        #为首次出现的字创建key
+                dict1[i] = 0
+            dict1[i] += 1
     '''dict1 = sorted(dict1.items(),key=lambda item:item[1],reverse=True)          #创建以键值对为元素的元组
     list1 = []
     for j in range(len(dict1)):
