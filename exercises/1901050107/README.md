@@ -14,18 +14,15 @@ Day1：
 
 6、桌面github和github网站的区别
  github网络无法直接管理我们本地的工程，所以必须下载github app到本地，然后用github app进行合并，上传等操作。 
+ 
 
 Day2：
+<<<<<<< HEAD
+=======
 
-JupyterLab的可视化界面是在浏览器中打开的，作业要求我们把Github上《自学是⻔手艺》fork到本地电脑，然后在Files⽬录下找到本地电脑新书的位置，但是在浏览器端的JupyterLab可视化界面中无法直接打开新书文件夹，我们可以在JupyterLab操作界面里新建一个文件夹，然后把新书文件夹里的ipynb，md，txt等等所有格式的文件直接拖拽到JupyterLab操作界面中刚才新建的文件夹里面。在JupyterLab操作界面中读这本书的目的是可以一边读，一边执行里面的代码。
+1、JupyterLab的可视化界面是在浏览器中打开的，作业要求我们把Github上《自学是⻔手艺》fork到本地电脑，然后在Files⽬录下找到本地电脑新书的位置，但是在浏览器端的JupyterLab可视化界面中无法直接打开新书文件夹，我们可以在JupyterLab操作界面里新建一个文件夹，然后把新书文件夹里的ipynb，md，txt等等所有格式的文件直接拖拽到JupyterLab操作界面中刚才新建的文件夹里面。在JupyterLab操作界面中读这本书的目的是可以一边读，一边执行里面的代码。
 
 到目前为止，我们学习了两个必然会经常用到的工具：github 和 JupyterLab
+>>>>>>> origin/master
 
-Day3
-
-1、for 语句块还可以附加一个 else —— 这是 Python 的一个比较有个性的地方。附加在 for 结尾的 else 语句块，在没有 break 发生的情况下会运行。  也就是说这个else是和它前面的for有关，而和前面的 if 没关
-2、pass  更多是在写程序的时候占位用的，比如在for i in range（x，y）： pass
-3、Github + Jupyter 可以让代码在浏览器中执行，为讲解代码提供了便利
-
-
-
+1、JupyterLab的可视化界面是在浏览器中打开的，作业要求我们把Github上《自学是⻔手艺》fork到本地电脑，然后在Files⽬录下找到本地电脑新书的位置，但是在浏览器端的JupyterLab可视化界面中无法直接打开，我们可以在自己建立一个新的文件，
