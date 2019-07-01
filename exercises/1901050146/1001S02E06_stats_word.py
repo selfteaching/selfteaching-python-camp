@@ -24,8 +24,8 @@ def stats_text_cn(text):
             text_character.append(character)
     
     counter={}
-    set_cn=set()text_character
+    set_cn=set(text_character)
     for set_cn1 in set_cn:
-        counter[]=text_character.count(set_cn1)
+        counter[set_cn1]=text_character.count(set_cn1)
     return sorted(counter.items(),key=lambda x:x[1],reverse=True)
     
