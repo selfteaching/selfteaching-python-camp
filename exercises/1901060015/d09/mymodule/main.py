@@ -25,7 +25,7 @@ def main():
     
         data=load_file()
         logging.info(data[0])
-        poems=merge_poems(json.loads(data))
+        poems=merge_poems(json.loads(data)).replace("，","").replace("。","").replace("\n","").replace("？","").replace("！","")
         logging.info('result ==> %s',stats_word.stats_text_cn(poems))
     except Exception as e:
         logging.exception(e)
