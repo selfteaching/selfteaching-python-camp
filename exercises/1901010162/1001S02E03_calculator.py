@@ -1,21 +1,17 @@
 # 2个数字相加
 def add(x, y):
-    print(x, y)
-    return x + y
+    return x+y
 
 # 2个数字相减
 def subtract(x, y):
-    print(x, y)
-    return x - y
+    return x-y
 
 # 2个数字几相乘
 def multiply(x, y):
-    print(x, y)
     return x * y
 
 # 2个数字相除
 def divide(x, y):
-    print(x, y)
     return x / y
 
 # 用户功能
@@ -28,8 +24,8 @@ print("4.除法")
 # 用户操作
 choice = input("(1/2/3/4)输入对应序号:")
 
-num1 = input("输入第一个数字:")
-num2 = input("输入第二个数字:")
+num1 =float ( input("输入第一个数字:"))
+num2 =float( input("输入第二个数字:"))
 
 if choice == '1':
     print(num1,"+",num2,"=",add(num1,num2))
