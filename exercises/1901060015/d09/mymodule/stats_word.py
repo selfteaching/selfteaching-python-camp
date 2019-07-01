@@ -4,7 +4,7 @@ def stats_text_en(text):
     
     t=text.split()
     from collections import Counter
-    t1=Counter(t).most_common(10)
+    t1=Counter(t).most_common(100)
     return t1
 
 
@@ -19,7 +19,7 @@ def stats_text_cn(text):
     #分割汉字
     t=jieba.lcut(text)
     #计数
-    t1=Counter(t).most_common(10)
+    t1=Counter(t).most_common(100)
     return t1
 
 
@@ -28,9 +28,8 @@ def stats_text(text):
     if not isinstance(text,(str)):
         raise TypeError('ValueError')
         
-    text1=text[1:495]
-    text2=text[495:2800]
-    return stats_text_cn(text1)+stats_text_en(text2)
+
+    return stats_text_cn(text)+stats_text_en(text)
 
 
 

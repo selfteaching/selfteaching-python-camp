@@ -1,8 +1,9 @@
-import stats_word
-from os import path
 import json
-import re
 import logging
+import re
+from os import path
+
+import stats_word
 
 logging.basicConfig(
     format='file:%(filename)s | line:%(lineno)d | message:%(message)s',level=logging.DEBUG)
@@ -31,57 +32,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
-
-
-
-
-
-    
-
-    
-    
-    
-    
-    
-
-
-
-
-   
-
-
-
-        
-    
-
-
-
-
-
-
-
-
-
-    
-
-    
-
-
-        
-    
-
-
-    
-
-    
-
-    
-
-
-        
-        
-       
-    
-
-   
