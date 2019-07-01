@@ -1,4 +1,6 @@
-#作业1. 封装统计英⽂文单词词频的函数
+#作业. 将统计中⽂文词频和英⽂文词频的函数封装为⼀一个模块
+#解决问题思路：首先将文档分为英文和中文两个文档保存在本地文档，然后在建立一个新函数分别调用之前的stats_text_en(s)、stats_text_cn(S)
+#函数
 Text = open('D:\\dayfive\ygysyw.txt')
 s = Text.read()
 #之前复制文档在代码的做法有偷懒的想法，如果碰到文档很长的话难道我要全文复制？，要创建文件然后在读取:
@@ -13,8 +15,9 @@ def stats_text_en(s):  #定义一个函数stats_text_en
             counts[word] = 1
 
     for key, value in sorted(counts.items(), key=lambda item: item[1], reverse = True):#山寨来的
-        print("%s: %s" % (key, value))
-print(stats_text_en(s))
+        print("%s: %s" % (key, value), end=" ")
+        
+
 
 
 text = open('D:\\dayfive\ygyszw.txt')
@@ -34,13 +37,11 @@ def stats_text_cn(S):  #定义一个函数stats_text_en
             counts[word] = 1
 
     for key, value in sorted(counts.items(), key=lambda item: item[1], reverse=True):
-        print("%s: %s" % (key, value))
+        print("%s: %s" % (key, value), end=" ")
+        
 
-print(stats_text_cn(S))
 
-def stats_text(en,cn):
-    cn = stats_text_cn(S)
-    en = stats_text_en(s)
-    scjg = cn + en
-    return scjg
+def stats_text():  
+    stats_text_en(s)
+    stats_text_cn(S)
 

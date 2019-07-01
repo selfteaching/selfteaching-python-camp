@@ -59,6 +59,9 @@ b = a.join(str2_2)#Python join() 方法用于将序列中的元素以指定的�
 str3_2 = b.swapcase()
 print(str3_2)
 #将第 4 步的结果⾥里里所有单词按 a…z 升序排列列，并输出结果
+
+str3_1=text.replace(',','').replace('.','').replace('*','').replace('--','').replace('!','')
+
 t4 = str3_1.split()
 str4 = sorted(t4)
 print(str4)
