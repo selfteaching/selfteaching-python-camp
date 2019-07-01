@@ -21,15 +21,18 @@ num2 = int(input("输入第二个数字: "))
 
 # 结果输出 
 if choice == '加':
-  print (num1+num2)
+  print ("第一个数字","+","第二个数字","=",num1+num2)
  
 elif choice == '减':
-   print(num1-num2)
+  print ("第一个数字","+","第二个数字","=",num1+num2)
  
 elif choice == '乘':
-   print(num1*num2)
+  print ("第一个数字","+","第二个数字","=",num1+num2)
  
 elif choice == '除':
-   print(num1/num2)
+  print ("第一个数字","+","第二个数字","=",num1+num2)
 else:
-   print("非法输入")
+   print("您输入的有误")
+   print("人生不能重来，所以您没有下次输入的机会了")
+   print("死机了")
+   print("再见！！！")
