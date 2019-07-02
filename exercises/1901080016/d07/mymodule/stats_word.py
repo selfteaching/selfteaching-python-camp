@@ -1,7 +1,7 @@
 def stats_text_en(text):
     elements=text.split()
     words=[]
-    symbols=',.-!'
+    symbols=',.*-!'
     for element in elements:
         for symbol in symbols:
             element=element.replace(symbol,'')
@@ -31,8 +31,8 @@ def stats_text(text):
     '''
     return stats_text_en(text)+stats_text_cn(text)
 
-if __name__=='__main__':
-    en_text='''
+
+en_text='''
 
 The Zen of Python, by Tim Peters
 
