@@ -34,7 +34,7 @@ text3=[]                                                  # text3初始为空列
 for x in text2:                                           # x 为 列表text2中的任意元素（字符串）
     if 'ea' not in x:                                     # 在列表中删除包含ea的单词
         text3.append(x)                                   # text3 为不包含ea的单词的列表
-print(text3)                                              # 此处不理解，为什么print必须顶格？不能往右空4格或8格？
+print(text3)                                              # text3创建一个空列表，下面的for循环是把不包含ea的单词找出来并添加到text3中，print要与text3对齐。如果往右4或8个空格，是在for循坏内，打印会报错。
 
 text4=(' '.join(text3))                                   # 把text3列表中各个元素连接生成新的字符串，每个元素之间用空格相连
 text5=text4.swapcase()                                    # 把text4字符串中的单词进行大小写翻转，生成text5字符串
