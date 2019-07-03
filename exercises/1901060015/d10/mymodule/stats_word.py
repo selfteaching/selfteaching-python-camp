@@ -18,11 +18,13 @@ def stats_text_cn(text):
     import jieba
     #分割汉字
     t=jieba.lcut(text)
+    tx=[]
     #计数
     for itme in t:
         len(itme) > 2
+        tx.append(itme)
     
-    return Counter(t).most_common(20)
+    return Counter(tx).most_common(20)
 
 
 def stats_text(text):
