@@ -21,8 +21,10 @@ def stats_text_cn(text):
     tx=[]
     #计数
     for itme in t:
-        len(itme) > 3
-        tx.append(itme)
+        if len(itme) > 1:
+            tx.append(itme)
+
+        
     
     return Counter(tx).most_common(100)
 
