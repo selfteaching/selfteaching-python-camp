@@ -1,3 +1,4 @@
+a_list=[0,1,2,3,4,5,6,7,8,9]
 a_list.reverse()
 a_list=a_list[2:8]
 a_list.reverse()
