@@ -4,6 +4,13 @@ for m in range(1,10):
         print (m,'*',n,'=',m*n,end='    ')
     print()
 #while 打印乘法表
+while a<=9:
+    while b<=a:
+        print (a,'*',b,'=',a*b,end='    ')
+        b =b+1
+    print ()   
+    a=a+1
+#删除乘法表
 i=1
 while i<=9:
     j=1
@@ -12,4 +19,4 @@ while i<=9:
             print (i,'*',j,'=',i*j,end='    ')
         j =j+1
     print ()   
-    i=i+2
+    i=i+2  
