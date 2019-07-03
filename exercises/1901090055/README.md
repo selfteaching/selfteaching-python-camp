@@ -30,3 +30,6 @@ GitHub和desktop登录的都是evlyn5的账号，但是exercise的最新记录�
 先关闭vscode，然后在终端里cd到指定目录，然后用code .命令再打开vscode。
 我想到一个问题，如果此时终端从另一个路径code .会怎样？试了一下，原来会打开一个新的vscode窗口。
 我还发现，在vscode里边点击Terminal，会在file下方出现terminal的界面，和从mac里打开的terminal功能是一样的，还不用来回切换界面，方便了很多。
+旅游一个星期回来，连commit都忘了，还得重新学习day1的内容。
+在GitHub desktop里，push origin的界面必需在所有changes都commit了之后才会出现吗？
+我的学习心得还没写完，暂时不想commit，就没有单独push origin部分changes的办法吗？
