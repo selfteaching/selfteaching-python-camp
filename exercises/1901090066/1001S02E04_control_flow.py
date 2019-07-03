@@ -3,8 +3,11 @@ for m in range(1,10):
     for n in range(1,m+1):
         print (m,'*',n,'=',m*n,end='    ')
     print()
-#while 打印乘法表
+
+ #while 打印乘法表
+a=1
 while a<=9:
+    b=1
     while b<=a:
         print (a,'*',b,'=',a*b,end='    ')
         b =b+1
