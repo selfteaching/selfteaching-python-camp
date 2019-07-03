@@ -19,10 +19,26 @@ text = '''
 智叟聽了，無話可說：
 ⼆⼭的守護神被愚公的堅毅精神嚇倒，便把此事奏知天帝。天帝佩服愚公的精神，就命兩位⼤
 ⼒神揹⾛⼆⼭。'''
-t=jieba.lcut(text)
-from collections import Counter
-t2=Counter(t)
-print(t2)
+def stats_text_cn(text):
+    # 文章字符串前期处理
+    
+    from collections import Counter
+    import jieba
+    #分割汉字
+    t=jieba.cut(text)
+    tx=[]
+    #计数
+    for itme in t:
+        if len(itme) >2:
+            tx.append(itme)
+        
+    t2=''
+    t3=t2.join(tx)
+    return Counter(t3).most_common(30)
+    
+    
+        
+print(stats_text_cn(text))
 
 
 
