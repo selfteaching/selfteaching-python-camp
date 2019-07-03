@@ -29,15 +29,12 @@ def stats_text_cn(text):
     tx=[]
     #计数
     for itme in t:
-        if len(itme) >2:
+        if len(itme) >1:
             tx.append(itme)
         
-    t2=''
-    t3=t2.join(tx)
-    return Counter(t3).most_common(30)
+
+    return Counter(tx).most_common(50)
     
-    
-        
 print(stats_text_cn(text))
 
 
