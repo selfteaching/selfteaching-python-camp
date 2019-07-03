@@ -19,7 +19,9 @@ def stats_text_cn(text):
     #分割汉字
     t=jieba.lcut(text)
     #计数
-    t1=Counter(t).most_common(100)
+    for itme in t:
+        len(itme) > 2
+    t1=Counter(t).most_common(20)
     return t1
 
 
