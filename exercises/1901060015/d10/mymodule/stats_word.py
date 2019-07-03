@@ -21,8 +21,8 @@ def stats_text_cn(text):
     #计数
     for itme in t:
         len(itme) > 2
-    t1=Counter(t).most_common(20)
-    return t1
+    
+    return Counter(t).most_common(20)
 
 
 def stats_text(text):
