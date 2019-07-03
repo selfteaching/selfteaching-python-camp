@@ -30,7 +30,7 @@ dict={} #空字典
 for i in y:
     j=y.count(i) #i在y中出现的总次数
     dict2={i:j} #i到j的切片
-    dict.update(dict2) #update()函数把字典dict2的键更新到dict
+    dict.update(dict2) #update()函数把字典dict2的键更新到dict中
     print(dict)
     print('\n')
 dict3=sorted(dict.items(),key=lambda x:x[1],reverse=True) #items()函数将字典转化为元组，遍历（键）元组数组，x:x[]字母可以随意修改，表示选第二个元素做比较  reverse表示降序

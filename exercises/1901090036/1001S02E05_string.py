@@ -36,7 +36,7 @@ print(str2)
 str3=('  '.join(str2)) # 将序列的元素连接生成新的字符串
 print(str3)
 
-o=text.swapcase() #大小写转换
+o=text.swapcase() #大小的写转换
 print(o)
 
 str2.sort()
