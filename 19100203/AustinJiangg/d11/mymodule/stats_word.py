@@ -40,9 +40,9 @@ def stats_text_en(text):
     dict2 = dict(dict2)#转化为字典
     print(dict2)#输出字典
     '''
-    count = input('输出个数')
-    count = int(count)
-    print(Counter(textlist2).most_common(count))
+    #count = input('输出个数')
+    #count = int(count)
+    print(Counter(textlist2).most_common(100))
 
 
 @typeassert(str)
@@ -63,18 +63,16 @@ def stats_text_cn(text):
         list1.append(dict1[j][1])
     print(list1)            #返回按字频降序排列的数组
     '''
-    print(dict1)
-    '''count = input('输出个数')
-    count = int(count)
-    print(Counter(dict1).most_common(count))'''
+    #print(dict1)
+    #count = input('输出个数')
+    #count = int(count)
+    print(Counter(dict1).most_common(100))
  
 @typeassert(str)
 def stats_text(text):
     """输出合并词频统计结果"""
     stats_text_en(text)
     stats_text_cn(text)
-
-
 
 text = '''
 愚公移山
@@ -125,5 +123,6 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
+
 #stats_text_en(text)
-stats_text_cn(text)
+#stats_text_cn(text)

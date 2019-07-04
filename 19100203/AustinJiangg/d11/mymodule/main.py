@@ -69,5 +69,21 @@ if len(a_str) >= 2:
 print(Counter(dict1).most_common(20))'''
 
 import requests
-r = requests.get('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
-print(r)
+from pyquery import PyQuery
+from stats_word import stats_text
+import getpass 
+import yagmail 
+
+sender = input('输入发件人邮箱：')
+password = getpass.getpass('输入发件人邮箱密码（可复制粘贴）：')
+recipients = input('输入收件人邮箱：')
+
+response = requests.get('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
+document = PyQuery(response.text)
+content = document('#js_content').text()
+output = str(stats_text(content))
+print(str(stats_text(content)))
+
+yag = yagmail.SMTP()
+contents = output
+yag.send('pythoncamp@163.com', '【19100203】⾃学训练营 DAY11 AustinJiangg', contents)
