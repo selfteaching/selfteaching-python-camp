@@ -11,7 +11,7 @@ logging.basicConfig(
 def load_file():
     '''
     1.
-    下面是常用的获取文件路径的方式，要确保tang300.json跟当前文件在同一文件下，这两种方式等价
+    下面是常用的获取文件路径的方式，要确保tang300.json跟当前文件在同一文件夹下，这两种方式等价
     file_path=path.join(path.dirname(path.abspath(__file__)),'./tang300.json')
     '''
     file_path=path.join(path.dirname(path.abspath(__file__)),'tang300.json')
@@ -27,7 +27,6 @@ def load_file():
     这种方式表示tang300.json在当前文件的上一级目录的data文件夹下
     file_path=path.join(path.dirname(path.abspath(__file__)),'../data/tang300.json')
     print(__file__,file_path)
-    
     '''
     with open(file_path,'r',encoding='utf-8')as f:
         return f.read()
@@ -36,7 +35,7 @@ def load_file():
 def merge_poems(data):
     poems=''
     for item in data:
-        poems +=item.get('counters','')
+        poems +=item.get('contents','')
     return poems
 
 def main():
@@ -51,7 +50,6 @@ def main():
 
 if __name__=="__main__":
     main()
-
 
 
 

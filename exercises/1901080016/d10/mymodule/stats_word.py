@@ -17,7 +17,7 @@ def stats_text_en(text,count):
     
 
 def stats_text_cn(text,count):
-    words = jieba.cut(text)
+    words=jieba.cut(text)
     tmp=[]
     for i in words:
         if len(i)>1:
