@@ -20,7 +20,8 @@ Now is better than never.
 Although never is often better than *right* now.
 If the implementation is haed to explanin,it's a bad idea.
 If the implementation is easy to explanin, it may be a good idea.
-Namespaces are one honking great idea--Let's do more of those!'''
+Namespaces are one honking great idea--Let's do more of those!
+'''
 
 print(text.replace('better','worse'))
 
@@ -33,10 +34,11 @@ for i in y:
     if str1 not in i:
         str2.append(i)
 print(str2)
+
 str3=('  '.join(str2)) # 将序列的元素连接生成新的字符串
 print(str3)
 
-o=text.swapcase() #大小的写转换
+o=text.swapcase() #大小写转换
 print(o)
 
 str2.sort()
