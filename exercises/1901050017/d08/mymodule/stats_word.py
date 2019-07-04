@@ -32,10 +32,6 @@ def stats_text_cn(text):
 
 def stats_text(text):
      return (stats_text_en(text),stats_text_cn(text))
-    
-
-
-
-    
+        
 
 

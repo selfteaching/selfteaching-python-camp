@@ -10,10 +10,10 @@ def mutiply(x, y):
 def divide(x, y):
     return x/y
 
-dict = {"+": 1, "-": 2, "*": 3, "/": 4}
+aDict = {"+": 1, "-": 2, "*": 3, "/": 4}
 operator = input("请选择运算类型：+、-、*、/")
 
-if operator in dict:
+if operator in aDict:
     a = int(input("请输入第一个数字："))
     b = int(input("请输入第二个数字："))
     if operator == '+':
