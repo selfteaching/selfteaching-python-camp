@@ -1,5 +1,9 @@
-import os
-file_object = open('./d07/text.txt')
-file_context = file_object.read()
-file_object.close()
-print(file_context)
+from collections import Counter
+colors = ['red', 'blue', 'red', 'green', 'blue', 'blue']
+c = Counter(colors)
+print (dict(c))
+
+c = Counter(a=3, b=1)
+d = Counter(a=1, b=2)
+#Counter({'a': 2})
+print(c | d)
