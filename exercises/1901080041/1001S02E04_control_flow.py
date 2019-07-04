@@ -5,14 +5,12 @@ for i in range (1,10):
             print("")
             break
 
-i=0
-j=0
-while i<9:
-    i+=1
-    while j<9:
-        j+=1
-        print(j,"x",i,"=",i*j,"\t",end="")
-        if i==j:
-            j=0
-            print("")
-            break
+
+for i in range(1, 10):
+    if i % 2 != 0:
+        for j in range(1, i+1):
+            print('{}x{}={}\t'.format(i, j, i*j),end='')
+        print()
+
+
+print()
