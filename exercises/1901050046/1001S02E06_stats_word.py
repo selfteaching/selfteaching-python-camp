@@ -7,10 +7,13 @@
 def stats_text_en(text):
     text1 = text.lower()#单词小写化
     alphaList="abcdefghijklmnopqrstuvwxyz "#英文字母表，后期可改成unicode编码方式
+    puncList="\"\n\\-!“”?,，。.*%\t\r" #英文或中文标点转换成空格，为防止text的不规范
     text2 =''
     for i in text1:
         if i in alphaList:
             text2 = text2+i #去除多余非字母字符
+        elif i in puncList:
+            text2 = text2 + ' '
     list1 =text2.split() #存储text单词化的列表
     list2 = list(set(list1))#单词不重复的列表
     list2.sort()#单词从首字母a~z排序
@@ -29,8 +32,8 @@ def stats_text_en(text):
         for key in dictData:
             if dictData[key] == i:
                 dictFinal[key] = i #生成新的字典
-    listWord = list(dictFinal.keys())
-    #print(dictFinal)
+    listWord = list(dictFinal.items())
+   
     print(listWord)
 
 ###################
@@ -61,8 +64,8 @@ def stats_text_cn(text):
         for key in dictData:
             if dictData[key] == i:
                 dictFinal[key] = i #生成新的字典
-    listWord = list(dictFinal.keys())
-    #print(dictFinal)
+    listWord = list(dictFinal.items())
+
     print(listWord)
  
 
