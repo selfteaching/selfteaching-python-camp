@@ -1,1 +1,2 @@
-come on!
+# -*- coding: UTF-8 -*-
+print('hello world')

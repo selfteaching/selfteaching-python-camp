@@ -48,7 +48,7 @@ def stats_text_cn(text):
     
     # select the words whose length >= 2
     text_list = text.split()
-    characters_cn = [] # for storing the text after processing # this str object store all the words larger 2
+    characters_cn = [] # for storing all the words larger 2
     for chars in text_list:
         if len(chars) >= 2:
             characters_cn.append(chars)
