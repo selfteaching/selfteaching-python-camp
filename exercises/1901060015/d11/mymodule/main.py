@@ -1,34 +1,22 @@
-import json
-import logging
-import re
-from os import path
-
+import requests
+from pyquery import PyQuery
 import stats_word
+import getpass
 
-logging.basicConfig(
-    format='file:%(filename)s | line:%(lineno)d | message:%(message)s',level=logging.DEBUG)
+#用文章链接，获取返回结果
+r = requests.get("https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA")
 
-def load_file():
-    flie_path = path.join(path.dirname(path.abspath(__file__)),'tang300.json')
-    
-    with open(flie_path,'r',encoding='utf-8') as f:
-        return f.read()
 
-def merge_poems(data):
-    poems =''
-    for item in data:
-        poems +=item.get('contents','')
-    return poems
+#提取正文
+d=PyQuery(r.text)
+c=d('#js_content').text()
 
-def main():
-    try:
-    
-        data=load_file()
-        logging.info(data[0])
-        poems=merge_poems(json.loads(data)).replace("，","").replace("。","").replace("\n","").replace("？","").replace("！","").replace("［","").replace("］","")
-        logging.info('result ==> %s',stats_word.stats_text_cn(poems))
-    except Exception as e:
-        logging.exception(e)
+print(stats_word.stats_text_cn(c))
 
-if __name__ == "__main__":
-    main()
+#发邮件
+sender = input('13141360658@163.com')
+passworld =getpass.getpass('piaolong123')
+recipients = input('pythoncamp@163.com')
+
+
+
