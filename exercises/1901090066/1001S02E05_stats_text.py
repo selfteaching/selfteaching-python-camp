@@ -23,7 +23,7 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 ''' 
 text0=text.replace(',',' ').replace('*',' ').replace('!',' ').replace('--',' ')
-text1=text.split()
+text1=text0.split()
 text2={}
 for i in text1:
     count=text.count(i)
