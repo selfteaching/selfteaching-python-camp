@@ -84,7 +84,7 @@ for element in elements:
         # 如果是字符第一次出现 加入到字典中
         elif element[word] not in counter:
             counter[element[word]] = 1
-            #出现次数加一
+
 print('正常的中文汉字 ==>',words)
 print()
 print()
