@@ -10,7 +10,7 @@ array2 = list(map(str, array1))
 # 将字符列表拼接成字符串
 text = "".join(array2)
 # 取出字符串的3~8个字符
-text1 = text[3:9]
+text1 = text[2:8]
 # 将字符串转成列表，然后反转
 list1 = list(text1)
 list1.reverse()
