@@ -20,7 +20,7 @@ num1 = int(input("输入第一个数字："))
 num2 = int(input("输入第二个数字："))
 
 if choice == '6':
-   print(num1, "+", num2, "=", add(num1,num2))
+    print(num1, "+", num2, "=", add(num1,num2))
 
 elif choice == '7':
     print(num1, "-", num2, "=", subtract(num1,num2))
