@@ -1,19 +1,13 @@
-def jia(x, y):
-  return x + y
-  
-def jian(x, y):
-  return x - y
-
-def cheng(x, y):
-    return x * y
-
-def chu(x, y):
-    return x / y
-
-
-print(jia(1,2))
-
-
-
-以为很难…… 想了半天要怎么做
-后来发现简单的让人无语，总感觉自己做错了
+a=input('')
+way=input('运算方法(1+ 2- 3* 4/)')
+b=input('')
+if int(way)==1:
+    print (int(a)+int(b))
+elif int(way)==2:
+    print (int(a)-int(b))
+elif int(way)==3:
+    print (int(a)*int(b))
+elif int(way)==4:
+    print (int(a)/int(b))
+else:
+    print('Error')
