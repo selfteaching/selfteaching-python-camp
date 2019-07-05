@@ -18,15 +18,10 @@ def stats_text_cn(text):
     import jieba
     #分割汉字
     t=jieba.cut(text)
-    tx=[]
-    #计数
-    for itme in t:
-        if len(itme) > 1:
-            tx.append(itme)
-
+ 
         
     
-    return Counter(tx).most_common(100)
+    return Counter(t).most_common(100)
 
 
 def stats_text(text):
