@@ -23,7 +23,7 @@ yag = yagmail.SMTP(user= input('输入发件人邮箱：'),password= input('输�
 contents =c2
 
 #发送邮件
-yag.send(to= input('收件人邮箱：'),subject= '测试',contents= [contents])
+yag.send(to= input('收件人邮箱：'),subject= '【1901060015】学训练营5群 DAY11 piaolong',contents= [contents])
 print('已发送邮件')
 
 
