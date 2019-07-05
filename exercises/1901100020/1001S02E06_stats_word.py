@@ -58,7 +58,7 @@ help(stats_text_en)
 print()
 
 # 2. 封装统计中⽂文汉字字频的函数
-sample_text  = '''天下只有两种人。比如一串葡萄到手，一种人挑最好的先吃，另一种人把最好的留到最后吃。照例第一种人应该乐观，因为他每吃一颗都是吃剩的葡萄里最好的；第二种人应该悲观，因为他每吃一颗都是吃剩的葡萄里最坏的。不过事实却适得其反，缘故是第二种人还有希望，第一种人只有回忆。'''
+sample_text  = '''中国中国天下只有两种人。比如一串葡萄到手，一种人挑最好的先吃，另一种人把最好的留到最后吃。照例第一种人应该乐观，因为他每吃一颗都是吃剩的葡萄里最好的；第二种人应该悲观，因为他每吃一颗都是吃剩的葡萄里最坏的。不过事实却适得其反，缘故是第二种人还有希望，第一种人只有回忆。'''
 
 def stats_text_cn(text):
     """
@@ -72,8 +72,9 @@ for element in elements:
     # 统计以及删除标点符号symbols
     for symbol in symbols:
         element = element.replace(symbol,'')
-    if len(element)==0:
-        continue
+    ## 之前一直缺一行这样的代码，即保留输出words中所有的重复性汉字
+    for word in element:
+        words.append(word)
 
     # 统计并保留汉字word
     for word in range(0,len(element)):
@@ -84,7 +85,6 @@ for element in elements:
         elif element[word] not in counter:
             counter[element[word]] = 1
             #出现次数加一
-            counter[element[word]] += 1
 print('正常的中文汉字 ==>',words)
 print()
 print()
