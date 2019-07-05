@@ -68,8 +68,6 @@ if len(a_str) >= 2:
         dict1[k] += 1
 print(Counter(dict1).most_common(20))'''
 
-
-'''
 import requests
 from pyquery import PyQuery
 from stats_word import stats_text
@@ -89,30 +87,3 @@ print(str(stats_text(content)))
 yag = yagmail.SMTP()
 contents = output
 yag.send('pythoncamp@163.com', '【19100203】⾃学训练营 DAY11 AustinJiangg', contents)
-'''
-
-from wxpy import *
-
-bot = Bot()
-my_friend = bot.friends().search('Austin', sex=MALE, city='杭州')[0]
-my_friend.send('Hello WeBhat!')
-my_friend.send_image('my_picture.jpg')
-# 打印来自其他好友、群聊和公众号的消息
-@bot.register()
-def print_others(msg):
-    print(msg)
-
-# 回复 my_friend 的消息（优先匹配后注册的函数！）
-@bot.register(my_friend)
-def reply_my_friend(msg):
-    return 'received: {} ({})'.format(msg.text, msg.type)
-
-# 自动接受新的好友请求
-@bot.register(msg_types=FRIENDS)
-def auto_accept_friends(msg):
-    # 接受好友请求
-    new_friend = msg.card.accept()
-    # 向新好友发送消息
-    new_friend.send('哈哈，我自动接受了你的好友请求')
-
-embed()
