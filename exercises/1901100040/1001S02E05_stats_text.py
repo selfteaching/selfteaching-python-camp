@@ -17,12 +17,23 @@ Although never is often better than *right* now.
 If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!'''
+#<<<<<<< master
+dictionary={} 
+#创建一个字典
+#=======
 dictionary={} #创建一个字典
+#>>>>>>> master
 text=text.replace(',',' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('*',' ')
 #将text中标点符号用空格替换
 mytext=text.split( ) 
 for i in mytext:                
+#<<<<<<< master
+     dictionary[i]=mytext.count(i) 
+dic=sorted(dictionary.items(),key=lambda item:item[1])
+ #按照值排序，从小到大
+#=======
      dictionary[i]=text.count(i) 
 dic=sorted(dictionary.items(),key=lambda item:item[1]) #按照值排序，从小到大
+#>>>>>>> master
 dic.reverse() #将从小到大的排序反转
 print(dic) #从大到小排序单词 

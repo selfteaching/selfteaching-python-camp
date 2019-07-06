@@ -62,10 +62,13 @@ def stats_text_cn(text):
 
     chars = {}
     # 汉字都是单字符的，所以遍历就可以了
+#<<<<<<< master
 text = text.split()
 print(text)
 
 '''
+#=======
+#>>>>>>> master
     for char in text:
         if char in chars.keys():
             chars[char] += 1
@@ -80,4 +83,7 @@ print(text)
 
 print (stats_text_cn(text))
     
+#<<<<<<< master
 '''
+#=======
+#>>>>>>> master
