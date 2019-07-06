@@ -50,9 +50,7 @@ def stats_text_en(text):
             word_dict[item] = 1
     
     # 排序        
-    word_dict_items = sorted(word_dict.items(),key = lambda x:x[1],reverse = True)
-    return word_dict_items
-
+    return(sorted(word_dict.items(),key = lambda x:x[1],reverse = True))
 
 text = '''
 1. 在 1001S02E06_stats_word.py 中定义⼀一个名为 stats_text_cn 的函数，函数接受⼀一 个字符串串 text 作为参数
@@ -69,6 +67,4 @@ def stats_text_cn(text):
             chars[char] += 1
         elif '\u4e00' <= char <= '\u9fff':
              chars[char]  = 1   
-    chars = sorted(chars.items(),key = lambda x:x[1],reverse = True)
-    # 最终返回一个春单词的数组    
-    return chars
+    return(sorted(chars.items(),key = lambda x:x[1],reverse = True))
