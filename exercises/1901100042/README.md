@@ -1,9 +1,13 @@
-# ѧϰ�ĵü�¼
+# 学习心得记录
 
-# day1    ��2019��6��30��20���õ���һ��������𣬵�����2019��7��2��0��30����һ�������Žӽ���ɣ��ܼƺ�ʱԼ6.5Сʱ����Ԥ��ʱ����3Сʱ����Ҫ�����������Github Desktop��¡��ҵ���ʱ��ʧ�ܺö�Σ�������γ��Ժ�ͨ���������ԣ�ʹ��VPN�����ؽ����������⡣Well done~
+#<<<<<<< master
+# day1    从2019年6月30日20点拿到第一天的任务起，到现在2019年7月2日0：30，第一天的任务才接近完成，总计耗时约6.5小时，比预计时间多出3小时。主要问题出在利用Github Desktop克隆作业库的时候失败好多次，经过多次尝试后，通过更换电脑，使用VPN完美地解决了这个问题。Well done~
 
-#day3    7��5��00��39�֣�day3ѧϰ2Сʱ����Ҫ����https://learnxinyminutes.com/docs/python3/��������˽�Python�Ļ���֪ʶ������number��string��list��tuple��dictionary �Ȼ�����ɲ��֣����в����﷨����if��forѭ����while�ȡ������ۻ��ؿ���һ�飬���˳����������쿪ʼ���day3��ҵ���֡�cheer up,man~
+#day3    7月5日00点39分，day3学习2小时，主要是在https://learnxinyminutes.com/docs/python3/上面初步了解Python的基本知识，包括number、string、list、tuple、dictionary 等基本组成部分，还有部分语法，如if、for循环、while等。走马观花地看了一遍，有了初步眼像，明天开始完成day3作业部分。cheer up,man~
 
-#day3    7��5��23��36�֣�day3ѧϰ��Сʱ�����������python�Ļ���֪ʶ������class�ĸ����ʹ��ѧϰ�����Ƚϳ���������������ѧϰ�Ĺ�������Ҫ�����֪ʶ������ͻ�ơ�
+#day3    7月5日23点36分，day3学习半小时，粗略浏览了python的基础知识，其中class的概念和使用学习起来比较吃力，后续在深入学习的过程中需要对这个知识点着重突破。
 
-#day3    ��ʼ��ҵ7��6��00��49�����day3��ҵ����ʱ1Сʱ���������⣺1�������ʽ���淶�����а���������ʽ������������2��type����ָ��ʹ�ò�������3��=��==������4��������Ż���ͨ������������Ľ����������Ƶ�����˱�����ҵ��
+#day3    开始作业7月6日00点49分完成day3作业，耗时1小时。遇到问题：1、代码格式不规范，其中包括缩进格式，参数命名；2、type（）指令使用不熟练；3、=与==的区别；4、代码的优化。通过对以上问题的解决，相对完善地完成了本次作业。
+#=======
+# 从2019年6月30日20点拿到第一天的任务起，到现在2019年7月2日0：30，第一天的任务才接近完成，总计耗时约6.5小时，比预计时间多出3小时。主要问题出在利用Github Desktop克隆作业库的时候失败好多次，经过多次尝试后，通过更换电脑，使用VPN完美地解决了这个问题。Well done~
+#>>>>>>> master
