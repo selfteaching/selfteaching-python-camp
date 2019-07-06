@@ -24,16 +24,13 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those! 
 '''
 
-# 分别调⽤用stats_text_en , stats_text_cn ，输出合并词频统计结果
-def stats_text(text): 
-    print('\n按照出现次数降序输出所有单词:\n')
-    print(stats_text_en(text),'\n')
-    print('\n按照出现次数降序输出所有汉字:\n')
-    print(stats_text_cn(text),'\n')   
 
+# 分别调⽤用stats_text_en , stats_text_cn ，输出合并词频统计结果
 # 统计参数中每个英⽂文单词出现的次数，最后返回⼀个按词频降序排列列的数组
 from functools import reduce
 def stats_text_en(text):
+    if not isinstance(text,str):
+        raise ValueError("text is not a string")
     # 将单词分离出来
     result = text.split()
     word_dict = {}
@@ -50,7 +47,8 @@ def stats_text_en(text):
             word_dict[item] = 1
     
     # 排序        
-    return(sorted(word_dict.items(),key = lambda x:x[1],reverse = True))
+    return sorted(word_dict.items(),key = lambda x:x[1],reverse = True)
+  
 
 
 text = '''
@@ -58,32 +56,23 @@ text = '''
 2. 实现该函数的功能:统计参数中每个中⽂文汉字出现的次数，最后返回⼀一个按字频降序排列列的 数组
 3. 为 stats_text_cn 添加注释说明
 '''
+
 # 函数接受⼀一 个字符串串 text 作为参数, 统计参数中每个中⽂文汉字出现的次数，最后返回⼀一个按字频降序排列的数组
 def stats_text_cn(text):
-
-    chars = {}
+    if not isinstance(text,str):
+        raise ValueError("text is not a string")
     # 汉字都是单字符的，所以遍历就可以了
-#<<<<<<< master
-text = text.split()
-print(text)
-
-'''
-#=======
-#>>>>>>> master
+    chars = {}
     for char in text:
         if char in chars.keys():
             chars[char] += 1
         elif '\u4e00' <= char <= '\u9fff':
-             chars[char]  = 1   
-    return(sorted(chars.items(),key = lambda x:x[1],reverse = True))
-    
-print (stats_text_cn(text))
-    
-#<<<<<<< master
+            chars[char]  = 1   
+    return sorted(chars.items(),key = lambda x:x[1],reverse = True)
 
-#=======
-#<<<<<<< master
-'''
-#=======
-#>>>>>>> master
-#>>>>>>> master
+# 如果输⼊入参数不不为字符串串类型则抛出 ValueError 错误，并包含完整的错误提示信息
+def stats_text(text): 
+    if not isinstance(text,str):
+        raise ValueError("text is not a string")    
+    return stats_text_cn(text) + stats_text_en(text)
+
