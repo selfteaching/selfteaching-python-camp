@@ -1,11 +1,9 @@
-import yagmail
-import getpass
+from wxpy import *
+bot =Bot(cache_path=True)
 
-yag = yagmail.SMTP(user= input('输入发件人邮箱：'),password= input('输入密码：'),host='smtp.163.com')
+#机器人账号自身
+myself= bot.self
 
-#邮件正文
-contents ='hello my love'
+#向文件传数助手发送消息
 
-#发送邮件
-yag.send(to= input('收件人邮箱：'),subject= '测试',contents= [contents])
-print('已发送邮件')
+bot.file_helper.send('hello from wxpy!')
