@@ -40,8 +40,13 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 # 功能是否⽣生效
 
 try:
+#<<<<<<< master
     print(stats_word.stats_text(520))
     print(stats_word.stats_text_en([1,2,3,4]))
+#=======
+    # print(stats_word.stats_text(520))
+    # print(stats_word.stats_text_en([1,2,3,4]))
+#>>>>>>> master
     print(stats_word.stats_text_cn(True))
 except ValueError:
     print("ValueError: text is not a string")
