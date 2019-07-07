@@ -31,7 +31,7 @@ def stats_text(text):
     print('\n按照出现次数降序输出所有汉字:\n')
     print(stats_text_cn(text),'\n')   
 
-# 统计参数中每个英⽂文单词出现的次数，最后返回⼀个按词频降序排列列的数组
+# 统计参数中每个英⽂文单词出现的次数，最后返回⼀个按词频降序排列列的数组
 from functools import reduce
 def stats_text_en(text):
     # 将单词分离出来
@@ -59,11 +59,11 @@ def stats_text_en(text):
 #>>>>>>> master
 
 text = '''
-1. 在 1001S02E06_stats_word.py 中定义⼀一个名为 stats_text_cn 的函数，函数接受⼀一 个字符串串 text 作为参数
-2. 实现该函数的功能:统计参数中每个中⽂文汉字出现的次数，最后返回⼀一个按字频降序排列列的 数组
+1. 在 1001S02E06_stats_word.py 中定义⼀一个名为 stats_text_cn 的函数，函数接受⼀一 个字符串串 text 作为参数
+2. 实现该函数的功能:统计参数中每个中⽂文汉字出现的次数，最后返回⼀一个按字频降序排列列的 数组
 3. 为 stats_text_cn 添加注释说明
 '''
-# 函数接受⼀一 个字符串串 text 作为参数, 统计参数中每个中⽂文汉字出现的次数，最后返回⼀一个按字频降序排列的数组
+# 函数接受⼀一 个字符串串 text 作为参数, 统计参数中每个中⽂文汉字出现的次数，最后返回⼀一个按字频降序排列的数组
 def stats_text_cn(text):
 
     chars = {}
