@@ -19,10 +19,8 @@ def get_msgurl(msg):
 
 embed()
 
-
-
 #用文章链接，获取返回结果
-r = requests.get( get_msgurl(msg))
+r = requests.get(get_msgurl(msg))
 
 #提取正文
 d=PyQuery(r.text)
