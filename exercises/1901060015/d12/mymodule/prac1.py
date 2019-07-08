@@ -5,14 +5,20 @@ bot = Bot(cache_path= True)
 myself =bot.self
 
 my_friend =bot.friends()
-
+msg = bot.messages
 
 @bot.register(my_friend,SHARING)
-def get_msg(Message):
+def get_msgurl(msg):
     return Message.url
 
 
-print(get_msg(Message))
+
+
+    
+    
+
+
+
 
 
 
