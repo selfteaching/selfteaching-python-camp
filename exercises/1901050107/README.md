@@ -31,4 +31,11 @@ day8
 快速地回顾了一下MIT课程中异常处理的章节，主要有try except ##Error, raise ###Error等，主要思想是提前在可能出错的地方设保险
 
 day9
+#<<<<<<< master
+1、标准库中的Counter ，使用后返回一个元组数组
+2、读取文件中，用with语法比try catch要有用
+with open(path) as f:
+    data = f.read()
+#=======
 标准库中的Counter ，使用后返回一个元组数组
+#>>>>>>> master
