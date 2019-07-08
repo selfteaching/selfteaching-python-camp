@@ -2,6 +2,8 @@ from wxpy import *
 from pyquery import PyQuery
 import stats_word
 import getpass
+import requests
+
 
 bot = Bot(cache_path= True)
 
@@ -15,8 +17,12 @@ msg = bot.messages
 def get_msgurl(msg):
     print(msg.url)
 
+embed()
+
+
+
 #用文章链接，获取返回结果
-r = requests.get(msg.url)
+r = requests.get( get_msgurl(msg))
 
 #提取正文
 d=PyQuery(r.text)
