@@ -1,4 +1,8 @@
+#<<<<<<< master
 # -*- coding: utf-8 -*-
+#=======
+
+#>>>>>>> master
 text ='''
 The Zen of Python, by Tim Peters
 
@@ -51,7 +55,13 @@ def stats_text_en(text,count):
 
 
 text2 = '''
+#<<<<<<< master
 1.c
+#=======
+1. 在 1001S02E06_stats_word.py 中定义⼀一个名为 stats_text_cn 的函数，函数接受⼀一 个字符串串 text 作为参数
+2. 实现该函数的功能:统计参数中每个中⽂文汉字出现的次数，最后返回⼀一个按字频降序排列列的 数组
+3. 为 stats_text_cn 添加注释说明
+#>>>>>>> master
 '''
 
 # 函数接受⼀一 个字符串串 text 作为参数, 统计参数中每个中⽂文汉字出现的次数，最后返回⼀一个按字频降序排列的数组
