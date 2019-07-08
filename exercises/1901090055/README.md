@@ -1,8 +1,39 @@
+学习心得 Day3
+在软件安装和使用上纠结了三四天，遇到的问题太多，笔记也太多，今天没时间整理了，明天整理之后再发到糖果上。
+
+学习心得 Day2
+
+1. 学习内容
+安装和设置Python的运行环境，自己搜索学习编写hello world。
+2. 学习用时
+共用时2小时7分钟
+3. 收获总结
+大致了解了终端、vscode、GitHub之间的操作关系
+我发现，在vscode里边点击Terminal，会在file下方出现terminal的界面，和从mac里打开的terminal功能是一样的，还不用来回切换界面，方便了很多。
+4. 遇到的难点与问题
+已解决
+
+没有搞清楚怎样在vscode里边切换路径，但是换了一种方法实现了。
+先关闭vscode，然后在终端里cd到指定目录，然后用code .命令再打开vscode。
+
+如果此时终端从另一个路径code .会怎样？试了一下，会打开一个新的vscode窗口。
+
+旅游一个星期回来，连commit都忘了，重新学习了day1的内容才想起来。
+
+在GitHub desktop里，push origin的界面必需在所有changes都commit了之后才会出现吗？
+我的学习心得还没写完，暂时不想commit，就没有单独push origin部分changes的办法吗？
+测试了一下，是可以的，在顶部的界面框里点depository，再点击push，就可以只push已经commit的部分。
+
+未解决
+
+今天的任务已经完成了，但是还没搞清楚anaconda是做什么用的？只是用来下载vscode等软件？编程的时候可不可以关掉？试了一下，好像没有任何影响。vscode软件还在，终端也可以使用，anaconda的环境也在，似乎编程的时候不需要单独打开它。下次试试。
+
+在vscode里写学习心得，编辑文档非常不方便，不知道markdown的格式在这里可不可以用。
 学习心得 Day1
 
 1. 学习内容
 今天学习的是GitHub的使用，主要是新建repository，pull，push，clone，fork等基础的操作。
-2. 学习⽤用时
+2. 学习⽤时
 共用时1小时58分
 3. 收获总结
 之前也用过GitHub，但是完全不理解，只是按照教材照着copy。这回从GitHub的官方指导手册开始阅读，对整个逻辑框架有了一定得理解。
@@ -11,7 +42,6 @@
 在自己电脑里修改内容后要commit。
 要把修改的内容更新到自己的账号里叫push origin。
 想把自己账号里的东西合并到原作者的repository里要pull request。
-
 4. 遇到的难点与问题(是否解决)
 原来有一个GitHub账号，ID是evlyn5，但是上边有一些改得稀烂的repository，所以想干脆重新注册一个号。
 我把旧账号的ID改成了evlyn555，把evlyn5的ID让给新账号。但是新账号用新浪邮箱注册，一直收不到验证邮件，
@@ -24,12 +54,3 @@ GitHub和desktop登录的都是evlyn5的账号，但是exercise的最新记录�
 但是，如果在实际工作中出现这个问题，可能会给teamwork带来一些困扰吧，而且接收notification也会受到影响。
 
 
-学习心得 Day1
-
-没有搞清楚怎样在vscode里边切换路径，但是换了一种方法实现了。
-先关闭vscode，然后在终端里cd到指定目录，然后用code .命令再打开vscode。
-我想到一个问题，如果此时终端从另一个路径code .会怎样？试了一下，原来会打开一个新的vscode窗口。
-我还发现，在vscode里边点击Terminal，会在file下方出现terminal的界面，和从mac里打开的terminal功能是一样的，还不用来回切换界面，方便了很多。
-旅游一个星期回来，连commit都忘了，还得重新学习day1的内容。
-在GitHub desktop里，push origin的界面必需在所有changes都commit了之后才会出现吗？
-我的学习心得还没写完，暂时不想commit，就没有单独push origin部分changes的办法吗？
