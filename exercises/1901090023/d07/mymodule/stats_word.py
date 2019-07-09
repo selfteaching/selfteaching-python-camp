@@ -67,8 +67,6 @@ def stats_text_en(text):                   # 定义函数，形式参数名为te
         d[i]=list1.count(i)                            # list1.count(i)是i 单词元素在列表中的次数，将其赋值给字典d中key为i单词元素的value值
     d1=sorted(d.items(),key=lambda x:x[1],reverse=True) # items() 函数以列表返回可遍历的(键, 值) 元组数组；sorted()函数，通过key参数，指定第二个字段（value值）的值的降序来排序
     return d1                                           # python 函数返回值 return，函数中一定要有return返回值才是完整的函数。              【非常重要】
-print('统计参数中英文单词出现的次数 ==>\n', stats_text_en(text))
-print('_'*200)
 
 
 # 2. 封装统计中文汉字字频的函数
@@ -93,14 +91,15 @@ def stats_text_cn(text):         # 定义函数，用来统计中文汉字字频
     for hanzi in character_set:
         charanum[hanzi] = characters.count(hanzi)
     return sorted(charanum.items(), key=lambda x: x[1], reverse=True)
-print('统计参数中中文汉字出现的次数 ==>\n', stats_text_cn(text))
        
 
 # 3. 添加名为stats_text的函数，实现分别调用stats_text_en, stats_text_cn的功能
-def stats_text():
+def stats_text(text):
     """ 函数名：stats_text
 
+    参数名：text
     实现分别调用stats_text_en, stats_text_cn的功能
     """
-    stats_text_en
-    stats_text_cn
+    return stats_text_en(text) + stats_text_cn(text) 
+
+print(stats_text(text))
