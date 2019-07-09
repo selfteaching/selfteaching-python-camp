@@ -1,30 +1,51 @@
 import requests
 from pyquery import PyQuery
 import stats_word
-import getpass
-import yagmail
+import logging
+from wxpy import *
 
-#用文章链接，获取返回结果
-r = requests.get("https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA")
-
-
-#提取正文
-d=PyQuery(r.text)
-c=d('#js_content').text().replace("，","").replace("。","").replace("\n","")
-
-c1 = stats_word.stats_text_cn(c)
-#转换为字符串
-c2 =str(c1)
+logging.basicConfig(format='file:%(filename)s|line:%(lineno)d|message:%(message)s',level=logging.DEBUG)
 
 
-yag = yagmail.SMTP(user= input('输入发件人邮箱：'),password= input('输入密码：'),host='smtp.163.com')
 
-#邮件正文
-contents =c2
+#获取url
+def get_url(url):
+    r = requests.get(url)
+    d=PyQuery(r.text)
+    return d('#js_content').text().replace("，","").replace("。","").replace("\n","")
 
-#发送邮件
-yag.send(to= input('收件人邮箱：'),subject= '【1901060015】学训练营5群 DAY11 piaolong',contents= [contents])
-print('已发送邮件')
+
+def main():
+    bot =Bot(cache_path=True)
+    my_friend=bot.friends()
+
+    @bot.register(my_friend,SHARING)
+    def handler(msg):
+        try:
+            logging.info('sharing url = %s',msg.url)
+            artical =get_url(msg.url)
+            result = stats_word.stats_text_cn(artical)
+            msg.reply(str(result))
+        except Exception as e:
+            logging.exception(e)
+    embed()
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
