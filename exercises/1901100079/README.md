@@ -1,5 +1,5 @@
 # Day1
-# Github涉及repositories，branches，commits，和pull requests。
+ Github涉及repositories，branches，commits，和pull requests。
 # 一个项目下面可以有多个repositories，每个repositories里面有多个branches。
 # 一个repository默认一个branch——master branch，我们可以在branch这一栏新建第二个branch，新建的2号与主branch完全相同，是平行关系。
 # 此时，在master branch里做的任何修改不会进入2号branch，同理2号branch中的修改也不会进入master。
