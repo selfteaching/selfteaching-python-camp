@@ -1,6 +1,10 @@
 from collections import Counter
 import jieba
+#<<<<<<< 1001S02E02_hello_python.py
 # pip install -i https://pypi.tuna.tsinghua.edu.cn/simple jieba
+#=======
+
+#>>>>>>> master
 # 统计参数中每个英文单词出现的次数
 def stats_text_en(text, count):
     elements = text.split()
@@ -16,12 +20,20 @@ def stats_text_en(text, count):
 
 # 统计参数中每个中文汉字出现的次数
 def stats_text_cn(text, count):
+#<<<<<<< 1001S02E02_hello_python.py
     words = jieba.cut(text)
     tmp = []
     for i in words:
         if len(i) > 1:
             tmp.append(i)
     return Counter(tmp).most_common(count)
+#=======
+    cn_characters = []
+    for character in text:
+        if '\u4e00' <= character <= '\u9fff':
+            cn_characters.append(character)
+    return Counter(cn_characters).most_common(count)
+#>>>>>>> master
 
 def stats_text(text, count):
     '''
