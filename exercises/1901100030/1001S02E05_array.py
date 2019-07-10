@@ -5,15 +5,15 @@
 #对列表进行翻转
 sample_list = [0,1,2,3,4,5,6,7,8,9]
 #print(sample_list)
-#reversed_list = sample_list.reverse()
 sample_list.reverse()
 reversed_list = sample_list
 print(reversed_list)
 
 #拼接字符串
-join_str=""
-for i in reversed_list:
-    join_str = join_str + str(i)
+#join_str=""
+#for i in reversed_list:
+#    join_str = join_str + str(i)
+join_str = "".join([str(i) for i in reversed_list])
 print(join_str)
 
 #切片取出3到8字符
