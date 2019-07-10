@@ -3,7 +3,7 @@ from pyquery import PyQuery
 import requests
 from wxpy import *
 bot = Bot()
-my_friend = bot.friends
+my_friend = bot.friends()
 
 @bot.register(my_friend,SHARING)
 def reply_my_friend(msg):
