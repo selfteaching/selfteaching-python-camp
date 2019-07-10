@@ -5,7 +5,7 @@
 # 此时，在master branch里做的任何修改不会进入2号branch，同理2号branch中的修改也不会进入master。
 # 除非，用pull request将一个branch compare 另一个branch并且merge，这样两个branch的修改或者内容就又完全一致了。
 # 有意思的是，虽然merge了，但是仍可以在每个branch独立更改而不影响被merge into的那个branch。
-# 为什么每次pull request都要有一个名字框，既然是compare两个branch而非文件，但是名字框必填一个文件名？这个名字只是修改提交时标明一个主题或关键词用的，我认为
+# 为什么每次pull request都要有一个名字框，既然是compare两个branch而非文件，但是名字框必填一个文件名？这个名字只是compare时注此次行为的一个主题或关键词用的，我认为。
 
 # Day2
 # 今天发现fork的repository并不能与主库实时更新，因此fork只是为了让自己能够对主库进行commit，pull requests，然后贡献绵薄之力的。如果要实时同步，要写代码。
