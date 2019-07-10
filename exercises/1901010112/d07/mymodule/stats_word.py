@@ -1,5 +1,5 @@
 
-text = '''
+text1 = '''
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -22,15 +22,11 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-#  1.定义⼀个名为 stats_text_en 的函数，函数接受⼀个字符串 text 作为参数
-# 2. 实现该函数的功能（同 day5 任务 2）：统计参数中每个英⽂单词出现的次数，最后返回⼀个按词频降序排列的数组
-# 3. 为 stats_text_en 添加注释说明
-#定义一个接受字符串的函数，1.统计样本text中英文单词出现的次数
-                        #2.按照出现次数从大到小只输出所有单词及出现的次数，不要非英文字符和其他符号
+
 # 定义一个接受字符串的函数
-def stats_text_en(str):
+def stats_text_en(a):
 #1.将英文单词全部转换为小写
-    text_lower = str.lower()
+    text_lower = a.lower()
 #2.分割text文本，并转换为list
     text_split = text_lower.split()
 #3.为了只统计英文单词
@@ -52,16 +48,13 @@ def stats_text_en(str):
     for word in text_set:
         text_count[word] = words.count(word)
     #print('英文单词出现的次数 ==>',text_count)
-    print('从大到小输出所有单词及出现的次数 ==>\n', sorted(text_count.items(), key = lambda x: x[1], reverse = True)) 
-    """
-    用sorted()函数对所有可迭代的对象进行排序操作，以下格式是固定写法
-    key=lambda x : x[1] 中的x可以是任何字母，[]中的数字是，相对元素第几个字段排序时，就写几
-    比如第一位 →[0]，第二位[1]...     reverse = True 降序 ， reverse = False 升序（默认）
-    """
-stats_text_en(text)
+    #把字典里的每个元素都转换为一个元祖，按元祖中的索引为text1的item进行排序
+    list_en =  sorted(text_count.items(), key = lambda x: x[1], reverse = True)
+    
+    return list_en
 # 函数的参数为text
 
-text_cn = """
+text = """
 木兰诗 / 木兰辞
 
 南北朝：佚名
@@ -82,22 +75,19 @@ text_cn = """
 #定义一个接受字符串的函数，1.统计样本text_cn中中文单词出现的次数
                         #2.按照出现次数从大到小只输出所有中文字及出现的次数，不要其他符号
 
-def stats_text_cn(str):
+def stats_text_cn(b):
      # 定义一个list来存放处理过的汉字，[]→代表list列表数据类型，
     cn = []
     # 把汉字拆分
-    for i in str:#在中文中一个字符串本质上来讲就是一个列表，所以不用转换
+    for i in b:#在中文中一个字符串本质上来讲就是一个列表，所以不用转换
         cn.append(i)#将拆分完的汉字重新组合起来
-#<<<<<<< master
     #print(cn)
-#=======
-#>>>>>>> master
     # 定义标点符号合集，把\n放在和标点符号一起去除
-    symbols = '，。()：；/\n？'
+    symbols = '，。()：；“”""/\n？.「」'
     #定义一个list来存放处理过标点符号的汉字
     z = []
     # 替换掉标点符号
-    for zi in str:#在中文中一个字符串本质上来讲就是一个列表，所以不用转换
+    for zi in b:#在中文中一个字符串本质上来讲就是一个列表，所以不用转换
         for s in symbols:
            zi = zi.replace(s, '') #  .replace(old, new) →是吧所有的符号全部转换成''，也就是去掉所有符号
     # 只存储长度不为零的字符
@@ -116,5 +106,19 @@ def stats_text_cn(str):
     key=lambda x : x[1] 中的x可以是任何字母，[]中的数字是，相对元素第几个字段排序时，就写几
     比如第一位 →[0]，第二位[1]...     reverse = True 降序 ， reverse = False 升序（默认）
     """
-    print('从大到小输出所有汉字及出现的次数:\n', sorted(text_ccc.items(), key = lambda x: x[1], reverse = True))
-stats_text_cn(text_cn)#执行定义的方法
+    list_cn = sorted(text_ccc.items(), key = lambda x: x[1], reverse = True)
+    return list_cn
+
+    # 定义一个函数用来统计中英文混合的词频
+def stats_text(w):
+# 将字符串拆分为单个字符
+    w = list(w)
+# 分离出英文字符与中文字符，等我搞懂了正则函数再把这块改改  
+    cn = ''.join(i for i in w if ord(i)>256)
+    en = ''.join(i for i in w if ord(i)<257)
+# 调用之前的函数，分别统计中英文词频
+    list_cn = stats_text_cn(cn)
+    list_en = stats_text_en(en)
+# 合并中英文词频list，并排序
+    list_all = sorted((list_cn+list_en), key = lambda x:x[1], reverse = True)
+    return list_all 
