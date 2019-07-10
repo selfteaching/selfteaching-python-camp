@@ -1,4 +1,4 @@
-Day1
+# Day1
 # Github涉及repositories，branches，commits，和pull requests。
 # 一个项目下面可以有多个repositories，每个repositories里面有多个branches。
 # 一个repository默认一个branch——master branch，我们可以在branch这一栏新建第二个branch，新建的2号与主branch完全相同，是平行关系。
@@ -7,7 +7,7 @@ Day1
 # 有意思的是，虽然merge了，但是仍可以在每个branch独立更改而不影响被merge into的那个branch。
 # 为什么每次pull request都要有一个名字框，既然是compare两个branch而非文件，但是名字框必填一个文件名？这个名字只是修改提交时标明一个主题或关键词用的，我认为
 
-Day2
+# Day2
 # 今天发现fork的repository并不能与主库实时更新，因此fork只是为了让自己能够对主库进行commit，pull requests，然后贡献绵薄之力的。如果要实时同步，要写代码。
 # Anaconda很强大，我喜欢它的Anaconda Prompt。在AP中写入python并回车，可以进入python编程模式，通过同时按Ctrl+Z+回车，退出编程模式。还可以直接键入spyder或者jupyter-notebook按回车打开相应程序。
 # Anaconda里Spyder和Jupyter-Notebook均可以直接编程，界面比VScode美丽简洁。
