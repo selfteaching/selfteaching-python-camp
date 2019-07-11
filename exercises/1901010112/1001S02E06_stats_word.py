@@ -88,7 +88,10 @@ def stats_text_cn(str):
     # 把汉字拆分
     for i in str:#在中文中一个字符串本质上来讲就是一个列表，所以不用转换
         cn.append(i)#将拆分完的汉字重新组合起来
+#<<<<<<< master
     #print(cn)
+#=======
+#>>>>>>> master
     # 定义标点符号合集，把\n放在和标点符号一起去除
     symbols = '，。()：；/\n？'
     #定义一个list来存放处理过标点符号的汉字
