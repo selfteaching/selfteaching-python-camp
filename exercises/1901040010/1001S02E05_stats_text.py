@@ -23,38 +23,21 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-#text=text.replace(',',' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('*',' ')
+text=text.replace(',',' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('*',' ')
 #将非英文字符替换为空格
 
-#text=text.lower()    #将所有英文字符改为小写
+text=text.lower()    #将所有英文字符改为小写
 
-#text=text.split()    #以空格拆分为独立的单词
-#bai={}               #将字符串转换为字典
-#for i in text:       
-    #count=text.count(i)
-    #r1={i:count}
-    #bai.update(r1)
+text=text.split()    #以空格拆分为独立的单词
+bai={}               #将字符串转换为字典
+for i in text:       
+    count=text.count(i)
+    r1={i:count}
+    bai.update(r1)
     #print(i,'',count )
-#print(bai)
+print(bai)
 
 # print(end='\n')
-#bai1=sorted(bai.items(),key=lambda x:x[1],reverse=True) 
+bai1=sorted(bai.items(),key=lambda x:x[1],reverse=True) 
 #按照单词出现次数，从大到小排序
-#print(bai1)
-
-#使用字典(dict)统计字符串样本text中各个英文单词出现的次数。
-text = text.replace(',','').replace('--','').replace('\'','').replace('!','').replace('.','').replace('*','')
-text = text.lower()
-text = text.split()
-dic = {}
-for word in text:
-    count = text.count(word)
-    new_word = {word:count}
-    dic.update(new_word)
-    print(new_word,'',count)
-print(dic)
-
-#按照出现次数从大到⼩输出所有的单词及出现的次数
-new_dic = sorted(dic.items(),key=lambda x:x[1],reverse = True)
-print(new_dic)
-
+print(bai1)

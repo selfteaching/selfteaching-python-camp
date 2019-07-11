@@ -24,66 +24,35 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 #将文本中的“better”用“worse”代替
-#new_text = text.replace('better', 'worse')
-#print (new_text)
-
-#将单词中包含 ea 的单词剔除#
-#delete_word = new_text.split()
-#for i in delete_word:
-    #if 'ea' in i:
-            #delete_word.remove(i)
-#l = [] 
-#for j in delete_word:
-        #l.append(j+'  ')
-#s = ''.join(l)
-#print(s)
-
-#将字⺟进行⼤小写翻转#
-#def fn( x ):
-    #if x.islower():
-        #return x.upper()
-    #elif x.isupper():
-        #return x.lower()
-    #else:
-        #return x
-
-                                                # result = ''.join  ([fn(r) for r in test_text])
-#t = ''.join([fn(r) for r in s])
-#print (t)
-
-#所有单词按a...z升序排列列#
-#t1 = t.replace(',', ' ').replace('.', ' ').replace(  '--', ' ').replace('!', ' ').replace('*', ' ') #用空格替换标点符号
-#t2 = t1.split() #切片，把单词分列
-#t2.sort() #将分列的单词按升序排列
-#print(t2) 
-
-#将字符串串样本text⾥里里的better全部替换成worse
-new_text = text.replace('better','worse')
+new_text = text.replace('better', 'worse')
 print (new_text)
 
-#将单词中包含 ea 的单词剔除
+#将单词中包含 ea 的单词剔除#
 delete_word = new_text.split()
-for word in delete_word:
-    if 'ea' in word:
-        delete_word.remove(word)
-i = []
+for i in delete_word:
+    if 'ea' in i:
+            delete_word.remove(i)
+l = [] 
 for j in delete_word:
-    i.append(j+' ')
-k = ''.join(i)
-print (k)
+        l.append(j+'  ')
+s = ''.join(l)
+print(s)
 
-#将第3步的结果⾥的字母进⾏⼤小写翻转(将大写字母转成小写，小写字母转成大写)
-def change(x):
+#将字⺟进行⼤小写翻转#
+def fn( x ):
     if x.islower():
         return x.upper()
     elif x.isupper():
         return x.lower()
     else:
         return x
-t = ''.join([change(r) for r in k])
+
+                                                # result = ''.join  ([fn(r) for r in test_text])
+t = ''.join([fn(r) for r in s])
 print (t)
 
-#将第4步的结果里所有单词按a...z升序排列，并输出结果
-t1 = t.strip('.'',''!''-''*')
-t2 = sorted(t1.split())
+#所有单词按a...z升序排列列#
+t1 = t.replace(',', ' ').replace('.', ' ').replace(  '--', ' ').replace('!', ' ').replace('*', ' ')
+t2 = t1.split()
+t2.sort()
 print(t2)
