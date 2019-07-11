@@ -5,7 +5,7 @@ Explicit is better than implicit.
 
 def stats_text_en(text1):
     elements = text1.split()                      #整理字符
-    words = []                                    #给字符创建列表
+    words = []                                    #给字符列表
     symbols = '*-,.'                              #清理文档中的符号
     for element in elements:
         for symbol in symbols:
@@ -27,7 +27,7 @@ text2 = '''
 '''
 
 def stats_text_cn(text2):
-    characters = []                               #给字符创建列表
+    characters = []                               #给字符列表
     for character in text2:
         if '\u4e00'<=character<='\u9fff':         #检查是否为中文字符
             characters.append(character)
