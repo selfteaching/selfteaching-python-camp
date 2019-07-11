@@ -1,4 +1,4 @@
-函数：字符串切片，拼接，swapcase()，strip（） sorted() range()
+#  函数：字符串切片，拼接，swapcase()，strip（） sorted() range()
 输入输出:input(),print()
 字符串：切片，join（） swapcase（），strip（） 字符串.center(,),字符串.lower() 字符串.upper()
 字典：字典合并：dic(dic1,**dic2) 赋值：dic[item] = value
