@@ -4,6 +4,10 @@
 
 text = '''
 The Zen of Python, by Tim Peters
+#<<<<<<< master
+
+#=======
+#>>>>>>> master
 Beautiful is better than ugly. 
 Explicit is better than implicit.
 Simple is better than complex. 
@@ -23,7 +27,11 @@ If the implementation is hard to explain, it's a bad idea. If the implementation
 Namespaces are one honking great idea -- let's do more of those!
 '''
 elements = text.split()
+#<<<<<<< master
+print(elements)
+#=======
 
+#>>>>>>> master
 # 定义新存储变量
 words = []
 # 定义待剔除的符号
