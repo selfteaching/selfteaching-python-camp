@@ -26,7 +26,6 @@ def auto_ai(text):
 
         return str(sort_list)
 
-
     except ValueError as result:
         print(result)
     except:
@@ -34,9 +33,9 @@ def auto_ai(text):
 
 try:
     # 回复 my_friend 的消息 (优先匹配后注册的函数!)
-    my_friend = bot.friends().search("戴戴")[0]
+    #my_friend = bot.friends().search("戴戴")[0]
     # 发送文本给好友
-    my_friend.send('在吗？回复下！')
+    #my_friend.send('在吗？回复下！')
     
     @bot.register(chats = [Friend])
     def forward_message(msg):
