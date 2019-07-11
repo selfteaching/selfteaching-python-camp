@@ -20,11 +20,11 @@ new_text= new_text.replace('*',' ')
 new_text = new_text.split(' ')
 d={}
 for word in new_text:
-    
+    word = word.strip()
     if not word in d:
         if word != '':
             if word != "\n":
-                d[word.strip()]=1
+                d[word]=1
     else:
         d[word]=d[word]+1
  
