@@ -1,12 +1,13 @@
 
-#<<<<<<< master
+
 from mymodule.stats_word import stats_text as a
-#=======
 from mymodule import stats_word as a
-#>>>>>>> master
 import requests
 from pyquery import PyQuery
 from wxpy import *
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.font_manager import FontProperties 
 # 初始化机器人，扫码登陆
 #<<<<<<< master
 bot=Bot()
