@@ -1,31 +1,31 @@
-import requests
-from pyquery import PyQuery
-import stats_word
 import logging
+import requests
+import pyquery
 from wxpy import *
+import stats_word
 
-logging.basicConfig(format='file:%(filename)s|line:%(lineno)d|message:%(message)s',level=logging.DEBUG)
+# 安装依赖包 wxpy
+# pip install -i https://pypi.tuna.tsinghua.edu.cn/simple wxpy
 
+logging.basicConfig(format='file:%(filename)s|line:%(lineno)d|message: %(message)s', level=logging.DEBUG)
 
-
-#获取url
-def get_url(url):
+#提取微信公众号文章正文
+def get_article(url):
     r = requests.get(url)
-    d=PyQuery(r.text)
-    return d('#js_content').text().replace("，","").replace("。","").replace("\n","")
+    document = pyquery.PyQuery(r.text)
+    return document('#js_content').text()
 
 
 def main():
-    bot =Bot(cache_path=True)
-    my_friend=bot.friends()
+    bot = Bot()
+    friends = bot.friends()
 
-    @bot.register(SHARING)
+    @bot.register(friends,SHARING)
     def handler(msg):
         try:
-            logging.info('sharing url = %s',msg.url)
-            artical =get_url(msg.url)
-            result = stats_word.stats_text_cn(artical)
-            print(result)
+            logging.info('sharing url = %s', msg.url)
+            article = get_article(msg.url)
+            result = stats_word.stats_text_cn(article)
             msg.reply(str(result))
         except Exception as e:
             logging.exception(e)
