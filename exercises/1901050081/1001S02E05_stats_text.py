@@ -23,7 +23,7 @@ Namespaces are one honking great idea -- let's do more of those!
 '''
 text1=text.lower()
 import re
-pattern=re.compile('\w+')
+pattern=re.compile(r'\w+')
 result=pattern.findall(text1)
 list1=list(result)
 set1=set(list1)
