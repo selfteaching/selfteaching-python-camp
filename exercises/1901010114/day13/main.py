@@ -41,10 +41,20 @@ def auto_reply(msg):     #定义一个自动回复的函数，在这一部分有
     response = requests.get(msg.url)
     document = PyQuery(response.text)
     content = document('#js_content').text()
-    result = str(stats_word.stats_text_cn(contents,20))
+    result = dict(stats_word.stats_text_cn(contents,20))
+    x = tuple(reslt.keys())   #制表
+    y = tuple(result.values())
+    plt.bar(x,y,width=0.5)
+    plt.title("高频词汇表")
+    plt.xlabel("高频词汇")
+    plt.ylabel("次数")
+    plt.savefig('list.png')    
+    return msg.reply_image('list.png')
     msg.reply(result)
 
 embed()
+
+
    
 
 
