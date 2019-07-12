@@ -29,4 +29,8 @@ def main():
     embed()
 
 if __name__ == "__main__":
+#<<<<<<< 1001S02E02_hello_python.py
     main()
+#=======
+    main()
+#>>>>>>> master
