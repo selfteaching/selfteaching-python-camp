@@ -5,7 +5,7 @@ import json
 
 f = open('tang300.json','r') 
 text = f.read()
-f.closed
+f.close()
 
 try:
     print('在《唐诗三百首》中，使用频率最高的前100个字：')
