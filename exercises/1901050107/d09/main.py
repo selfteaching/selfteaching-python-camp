@@ -1,4 +1,5 @@
 
+#<<<<<<< master
 # -*- coding: utf-8 -*-
 # 读取本地唐诗三百首文件中的内容，并统计其中汉字的词频，输出词频最高的前100个词 
 from collections import Counter 
