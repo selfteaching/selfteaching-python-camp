@@ -29,7 +29,7 @@ def stats_text_en (text, n):
         aDict.setdefault(L[i], cnt) 
         i = i + 1
 
-    return(Counter(aDict).most_common(n))
+    return Counter(aDict).most_common(n)
 
 
 # 统计字符串中每个中文汉字出现的次数，返回一个按字频降序排列的数组 
@@ -79,4 +79,8 @@ def stats_text_cn(text, n):
         bDict.setdefault(text1[i], cnt) 
         i = i + 1
 
+#<<<<<<< master
+    return Counter(bDict).most_common(n)
+#=======
     return(Counter(bDict).most_common(n))
+#>>>>>>> master
