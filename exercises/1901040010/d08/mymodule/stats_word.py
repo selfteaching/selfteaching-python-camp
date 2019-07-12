@@ -48,14 +48,18 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 '''
 
 def stats_text_en(text):
+    if isinstance(text,str) == False:
+        raise ValueError('The text should be a string.')
+        
     elements = text.split()                      #整理字符
     words = []                                   #给字符列表
     symbols = '*-,.」:「。，、?!’“'                #清理文档中的符号
     for element in elements:
         for symbol in symbols:
             element = element.replace(symbol,'')  #把整理好的字符不含符号的加入
-        if len(element)and element.isascii():                          #字符长度
+        if len(element)and element.isascii():     #字符长度
             words.append(element)
+            
     counter = {}                                  #建立字典
     word_set = set(words)                         #设置字符
     for word in word_set:
@@ -68,6 +72,9 @@ if __name__ =='__main__':
 
 
 def stats_text_cn(text):
+    if isinstance(text,str) == False:
+        raise ValueError('The text should be a string.')
+
     characters = []                               #给字符列表
     for character in text:
         if '\u4e00'<=character<='\u9fff':         #检查是否为中文字符
@@ -81,4 +88,6 @@ if __name__=='__main__':
     print('中文汉字字频降序排列 \n', stats_text_cn(text))
 
 def stats_text(text):
+    if isinstance(text,str) == False:
+        raise ValueError('The text should be a string.')
     print('英文单词词频降序排列 \n', stats_text_en(text),'\n''中文汉字字频降序排列 \n', stats_text_cn(text)) 
