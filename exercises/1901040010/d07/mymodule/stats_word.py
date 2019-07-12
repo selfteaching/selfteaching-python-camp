@@ -54,7 +54,11 @@ def stats_text_en(text):
     for element in elements:
         for symbol in symbols:
             element = element.replace(symbol,'')  #把整理好的字符不含符号的加入
+#<<<<<<< master
         if len(element)and element.isascii():                          #字符长度
+#=======
+        if len(element):                          #字符长度
+#>>>>>>> master
             words.append(element)
     counter = {}                                  #建立字典
     word_set = set(words)                         #设置字符
@@ -81,4 +85,10 @@ if __name__=='__main__':
     print('中文汉字字频降序排列 \n', stats_text_cn(text))
 
 def stats_text(text):
+#<<<<<<< master
     print('英文单词词频降序排列 \n', stats_text_en(text),'\n''中文汉字字频降序排列 \n', stats_text_cn(text)) 
+#=======
+    stats_text_en(text)
+    stats_text_cn(text)
+ 
+#>>>>>>> master
