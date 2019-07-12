@@ -57,4 +57,4 @@ sender = input('输入发件人邮箱:')
 password = getpass.getpass('输入发件人邮箱密码(可复制粘贴):')
                  
 mail = yagmail.SMTP(user=sender,password=password,host='smtp.163.com')
-mail.send(to=['pythoncamp@163.com','15309888203@163.com'], subject='19100105 baishanheishui',contents=result) 
+mail.send(to=['pythoncamp@163.com','danagcong@163.com'], subject='19100105 baishanheishui',contents=result) 
