@@ -12,7 +12,6 @@ chars = []
 for item in data:
     if isinstance(data,str):
         ValueError("data not a string ")
-
     if '\u4e00' <= item <= '\u9fff':
         chars.append(item)
 print(Counter(chars).most_common(100))   
