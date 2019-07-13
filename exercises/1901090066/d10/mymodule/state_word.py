@@ -1,6 +1,5 @@
 from collections import Counter
 import jieba
-
 def stats_text_en(tx1,count):
     # 将符号变为空格，将字符串分割
     if not isinstance(tx1,str):#如果不是字符串，则抛出异常
@@ -20,9 +19,9 @@ def stats_text_cn(text,count):
     if not isinstance(text,str):#如果不是字符串，则抛出异常
          raise ValueError("输入的不是字符串类型!")
     count=int(count) 
-    words=jieba.cut(text,cut_all=False)   
+    word=jieba.cut(text,cut_all=False)   
     cn_characters=[]
-    for i in words:
+    for i in word:
         if '\u4e00'<=i<='\u9fff':
             if len(i)>=2:
                  cn_characters.append(i)
