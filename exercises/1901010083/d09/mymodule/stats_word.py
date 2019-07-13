@@ -1,4 +1,5 @@
 # 利用的是day5的作业，把day5的作业封装进day6的函数中
+
 text = '''
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
