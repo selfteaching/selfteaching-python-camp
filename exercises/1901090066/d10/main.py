@@ -3,7 +3,7 @@ fo=open("//Users//zhangyuxiaowanzi//Documents//English//selfteaching-python-camp
 text=fo.read()
 fo.close
 try:
-    print('统计字数最多的前20词：',state_word.stats_text_cn(text,20))
+    print('统计出现最多的前20词：',state_word.stats_text_cn(text,20))
 except ValueError :
     print('输入异常') 
 
