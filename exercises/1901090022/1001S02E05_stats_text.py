@@ -30,7 +30,7 @@ for row in text.splitlines(True):
         match_obj = re.search('([a-zA-Z]+)', word)
         if match_obj is not None:
             w = match_obj.group(1)
-            w = w.lower();
+            w = w.lower()
             if w in word_dict:
                 word_dict[w] += 1
             else:
