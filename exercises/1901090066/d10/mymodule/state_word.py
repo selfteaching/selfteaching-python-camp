@@ -1,7 +1,7 @@
 from collections import Counter
 import jieba
 def stats_text_en(tx1,count):
-    '''将符号变为空格，将字符串分割'''
+    '''定义函数，英文单词按词频输出'''
     if not isinstance(tx1,str):#如果不是字符串，则抛出异常
          raise ValueError("输入的不是字符串类型!")
     text0=[]
@@ -15,7 +15,7 @@ def stats_text_en(tx1,count):
 
 
 def stats_text_cn(text,count):
-    '''将text中符号变为空格，然后放到list中'''
+    '''定义函数，中文文本按词频输出'''
     if not isinstance(text,str):#如果不是字符串，则抛出异常
          raise ValueError("输入的不是字符串类型!")
     count=int(count) 
