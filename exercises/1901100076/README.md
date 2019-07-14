@@ -1,6 +1,7 @@
 # helloworld
 #this is anne' 2nd day learning sharing
 *notice 中英文字符的转换，中文字符会报错
+#<<<<<<< master
 #Day 3 计算器学习
 Item 1 变量命名规则
     1.1 在使用标识符时，需要注意如下规则：
@@ -19,3 +20,5 @@ Item 2 else 语句
     2.1 每个else语句结束之后需要有：来结束，标准的语句
 Item 3 字符串转换成数字
      3.1 输入的为字符串，进行运算需要转换成数字
+#=======
+#>>>>>>> master
