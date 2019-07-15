@@ -16,4 +16,7 @@ elif op == "/":
 
 else:
 	print("invalid operator")
+<<<<<<< HEAD
 	
+=======
+>>>>>>> c184ccdc2c33a47756508a149add32f7e3c3fc8b
