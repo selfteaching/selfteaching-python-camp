@@ -1,3 +1,102 @@
+学习心得 Day5
+
+1. 学习内容
+各种数据类型、dict
+2. 学习用时
+9小时18分
+3. 收获总结
+
+Task 1-剔除单词
+
+如果要删掉单词的话，应该用lstrip语法，但是死活看不懂它是怎么运作的，教程的中文版看起来想第二外语，还不如直接看英文版。
+
+看不懂的话，只能用笨方法了，修改各个部分的内容，然后多次尝试，看看会输出什么结果。跑代码的过程还是很愉快的，虽然大多数时候都提示我错误，好歹也算是即时反馈。单纯看文档是会崩溃的，越看越不懂，持续打击哦。
+
+果然，代码一跑起来，我就明白了。我分别尝试了：
+>>> 'www.example.com'.lstrip('cmowz.')
+'example.com'
+>>> 'www.example.com'.lstrip('e')
+'www.example.com'
+>>> 'www.example.com'.lstrip('w')
+'.example.com'
+>>> 'www.example.com'.lstrip('wwww')
+'.example.com'
+>>> 'www.example.com'.lstrip('.com')
+'www.example.com'
+>>> 'www.example.com'.lstrip('w.e')
+'xample.com'
+我终于明白文档里说的leading character的含义了。这东西用文字来解释是真繁琐，用扑克牌来解释就简单不过了。
+
+'www.example.com'.lstrip('cmowz.')代表我手里扣着十五张扑克牌，从上到下分别是w w w .  E x a m p l e .  C o m，桌面上亮着六张牌，分别是c m o w z . 。现在从我手里亮出最上边的那张牌，如果跟桌面上的牌能配成一对，就扔掉。桌面上牌不动，再从我手里亮出第二张，重复上一个动作，直到无法配对。此时我手里剩下的牌，就是代码的输出结果。
+
+但这个不适用于任务，完全不相干。同理str.rstrip这个也不适用，是从底下往上翻扑克牌的。
+
+str.strip这个就难了，不仅上下同时翻，还玩起了顺子。手里连续的牌，如果能和桌上牌拼出的顺子相同，就可以消掉，条件是，必需从头顺或从尾顺。但这也不适用。
+
+如果不能直接达到目的，应该是要分两步，先找出含有ea的单词，然后删除这些单词。
+find，index等语法都只能找到第一个结果，不知道是不是要用到find all，要import re什么的。实在没有思路了，就去同学那里copy一下。
+for i in text.split():
+    if i.find('ea') < 0:
+    word.append(i)
+
+但是竟然用了split，这又是为什么呢？原来电脑不认识单词，不知道字母之间是怎么划分的，所以需要告诉它，要以空格为分隔，划分出一个个单词。text.split()就表示已经用空格分隔好的text。i是文本中的一个个单词，如果在i里边找到了ea，就把它删掉。这个<0又是干什么的？关键问题是，这个代码跑不动啊….换一个人的吧。
+
+text3=text2.split() 
+text4=[]  
+for word in text3:
+    if 'ea' not in word:
+        text4.append(word)
+    text4.append(word)
+text5=' '.join(text4)
+
+这个童鞋的代码很清晰，还有备注。但是，他们都不print吗？无论代码对错，总是要输出的吧？
+
+想copy也不容易啊，这个同学的代码也有问题啊。又换了一个同学的。
+
+c=b.split()
+    d='ea'
+    e=[]
+    for i in c:
+    if i.find(d)<0:
+    e.append(i)
+    print(e)
+
+if i.find(d)<0:的意思是，如果在i里边找d没找到，就把i加到e里边。
+原来如此！代码不是要挑出包含ea的所有单词，而是要挑出所有不含ea的单词，把他们放在一起。其实挑出来应该好挑，用if i.find(d)>=0应该就可以，但是想把它们删掉就不容易了，扑克牌只能从顶部或底部抽。
+
+但是这个代码跑出的结果，所有单词都加上了引号，这效果很别扭。用join加上空格就是正常句子的样式了。不过一句话一行是实现不了了。
+
+join语法是这样的：
+s1 = "-"
+s2 = ""
+seq = ("r", "u", "n", "o", "o", "b") # 字符串序列
+print (s1.join( seq ))
+print (s2.join( seq ))
+输出结果分别是
+r-u-n-o-o-b
+runoob
+
+Task 1-转换大小写
+
+转换大小写字母用swapcase就可以，但是Instance of 'list' has no 'swapcase' memberpylint(no-member)，上一个任务的结果text3用不了这个语法，用text原文就没问题，我猜可能是text3的属性变了。
+
+Task 1-单词排序
+
+本来以为排序很麻烦，结果一个print(sorted(text3,reverse=False))就搞定了？
+
+Task 2-统计单词出现次数
+
+dict的材料看了很多，就是没懂怎么往dict里边加东西，教程里都是把每个元素写出来，然后往里加，文本那么长，这么加怎么行？于是参考了童鞋们的作业，不得不感慨一下，每个人的代码都不一样，很是神奇。dict = {}, if i not in dict, dict[i]=1,就把所有的i加到dict里了。if i in dict, dict[i] = dict[i]+1就是数数了。
+
+Task 3-数组操作
+
+越往后越简单了，翻转就用list[::-1]，取片段就用list[2:8]这在最开始就学过了。转换进制也不难，分别是bin(list4)，oct(list4)，hex(list4)。
+
+4. 遇到的难点与问题
+dict还不是很理解。
+把一个元素里的东西挑出一些组成新的集合，再用空格替换掉'',数据类型为什么就变了，无法理解。
+
+——————————————————————————————————————————————————————————————————
 
 学习心得 Day4
 1. 学习内容
