@@ -62,3 +62,16 @@ def stats_text_cn(text):
     for zi in text_list:
         for symbol in symbols:
             zi=zi.replace(symbol,'')
+        if len(zi):
+            characters.append(zi)
+  #上面这个部分还是用于剔除标点符号
+    counter={}
+    characters_set=set(characters)
+    for character in characters_set:
+        counter[character]=text_list.count(character)
+    print(sorted(counter.items(),key=lambda x:x[1], reverse=True))
+    '''最后的排序及输出结果与英文相同
+       也可以在使用函数时再打印
+       记得在最后一行把print()删除即可'''
+
+stats_text_cn(text_cn)       #
