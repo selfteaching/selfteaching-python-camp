@@ -25,8 +25,8 @@ print("4.除法")
 # 用户操作
 choice = input("请输入你的选择(1/2/3/4):")
  
-num1 = int(input("输入第一个数字: "))
-num2 = int(input("输入第二个数字: "))
+num1 = int(input("请输入第一个数字: "))
+num2 = int(input("请输入第二个数字: "))
  
 if choice == '1':
    print(num1,"+",num2,"=", add(num1,num2))
