@@ -10,7 +10,13 @@ print('operator', operator, type(operator))
 print('first_number', first_number, type(first_number), type(a))
 print('second_number', second_number, type(second_number), type(b))
 
+#<<<<<<< master
+print('测试加法 str 加法 ：',a + b)
+print('测试加法 str 减法 ：',a - b)
+
+#=======
 print('测试加法 str 加法 ：',first_number + second_number)
+#>>>>>>> master
 
 if operator == '+':
    print(a,'+',b,'=',a + b)
