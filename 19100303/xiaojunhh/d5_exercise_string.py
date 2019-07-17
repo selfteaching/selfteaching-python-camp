@@ -25,25 +25,16 @@ Namespaces are one honking great idea -- let's do more of those!
 # 将全部better变换为worse 第一次以为要从本地txt文件中修改
 text1 = text.replace("better","worse")
 # 大写字母转换成小写，小写转换成大写
-text2 = text1.swapcase()
+text2=text1.swapcase()
+print(text2)
 # 剔除标点，将所有单词按a…z升序排列，同时转换为列表
-list1 = text1.split()
-i=0
-for i in range(0,len(list1)):
-    list1[1]=list1[i].strip("*-,.!")
-    if list1[i]=="":
-        list1[i].remove('')
-else:
-    i=i+1
-list2=sorted(list1)
+list2=text2.split()
 
 
 # 剔除包含‘ea’的英文单词，同时将列表转换为字符串
-str1 = 'EA'
-list3 = []
 for i in list2:
-    if i.find(str1) == -1 :
-        list3.append(i)
-    else :
-        continue
-print(' '.join(list3))
+    if "EA" in i:
+        del i
+print(list2)
+list2.sort()
+print(list2)

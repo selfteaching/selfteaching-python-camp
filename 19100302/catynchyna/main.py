@@ -50,10 +50,30 @@
 #Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 #'''
 
-text = [1,3,4,6,6] #using a list to check the exception handling. worked...
+#text = [1,3,4,6,6] #using a list to check the exception handling. worked...
 
-from mymodule import stats_word # whole text words frequence stats (en + cn) 
+#from mymodule import stats_word # whole text words frequence stats (en + cn) 
+#try:
+#    print('Day7全文词频统计结果： ', stats_word.stats_text(text))
+#except ValueError:
+#    print('Inappropriate argument value (of correct type)')
+import os
+import json
+from mymodule import stats_word # @wangrui thoughts copied and revised a little
+
+# with open("tang300.json","r+") as f: my thoughts not working
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tang300.json')) as f:
+    #''' day9 1. 导入json文件并读取文件内容'''
+    '''Day10 top20词频统计：'''
+    read_file = f.read()
+#if used f= open() ,then f.closed required, with here thus no f.closed
+
 try:
-    print('Day7全文词频统计结果： ', stats_word.stats_text(text))
+    ''' 1. 捕获传入非字符串参数异常。
+        2. day9调用stats_word.py中的stats_text_cn(),传入读取文件结果和输出限制参数。
+        3. day10使用jieba精准分词后统计。
+    '''
+    print('Day10 top100词频统计结果： ', stats_word.stats_text_cn(read_file,20))
 except ValueError:
     print('Inappropriate argument value (of correct type)')
+    

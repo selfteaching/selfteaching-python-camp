@@ -10,5 +10,6 @@ for i in range(1,10):
     else:
         for j in range(1,i+1):
             print('%d*%d=%2d\t'%(i,j,i*j),end='')
-        print()
+    print()
 print()
+

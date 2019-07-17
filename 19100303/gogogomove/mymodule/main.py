@@ -7,7 +7,14 @@ try:
     print(stats_text(text))
 except ValueError:
     print('Non-Strin words are not accepted here, pls re-input:')  
-import stats_word
+with open('tang300.json','r',encoding='UTF-8') as f:
+    text = f.read()
+    try:
+        print("词频Top100:" stats_text_cn(text,100))
+    except ValueError as Error:
+        print('Non-Strin words are not accepted here, pls re-input:')  
+from stats_words import stats_word
+from wxpy import *
 
 text = '''
 愚公移山

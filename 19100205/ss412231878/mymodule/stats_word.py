@@ -88,7 +88,7 @@ def stats_text_cn(text2):
     count_list = sorted(count.items(),key=lambda a:a[1],reverse=True)'''
 
     #用counter优化输出(day9)
-    count_list = Counter(word_list).most_common(100)
+    count_list = Counter(word_list).most_common(10)
 
     return count_list
 #输出

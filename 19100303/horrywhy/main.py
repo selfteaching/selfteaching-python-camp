@@ -58,6 +58,15 @@ chao = {}
 from mymodule import stats_word
 import os
 
+# 第9天，读取文件并排序
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'tang300.json')) as nine :
+    read_data = nine.read()
+    nine.closed
+
+    result = stats_word.stats_text_cn(read_data)
+    #print("yangchao\n",type (result))
+    print(result.most_common(20))
+
 try:
     #print("全部结果为:",stats_word.stats_text(chao))
     pass

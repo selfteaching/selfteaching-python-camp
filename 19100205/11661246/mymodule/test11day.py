@@ -26,6 +26,6 @@ statString = "".join(str(i) for i in statlist)
 
 
 # 发送邮件
-yagmail.SMTP(sender,password,smtp).send(recipients, '19100205 11661246', content)
+yagmail.SMTP(sender,password,smtp).send(recipients, '19100205 11661246', statString)
 
 

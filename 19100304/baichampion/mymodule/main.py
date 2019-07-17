@@ -1,5 +1,7 @@
 import stats_word
-text = '''
+#import json
+#text = 
+'''
 愚公移山
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他和家人往來極為不便。
 一天，愚公召集家人說：「讓我們各盡其力，剷平二山，開條道路，直通豫州，你們認為怎樣？」
@@ -47,6 +49,7 @@ When the guardian gods of the mountains saw how
 determined Yugong and his crew were, they were struck with fear and reported the incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
+'''
 test = 9999
 try:                                            #运用try...except...语句处理非字符串数据类型带来的错误
     champion = stats_word.stats_text_en(test)    #这个就是应用了函数调用方法在某个模块中调用某个函数
@@ -54,3 +57,22 @@ except TypeError as err:
     print(err)
 
 print(champion)
+'''
+
+
+with open('tang300.json') as f:                #在正式把程序加进来之前，在一个新的文件里面先试运行了今天作业需要实现的功能。                                                                
+    read_data = f.read()                       #然后不断的调整with open这个操作，最后面终于发现了在运用这个方法时出现的一
+                                               #个很大的漏洞就是没有加入 reda（）这个函数，而是直接使用了，怪不得总是没办法
+                                               #打开成功。
+
+'''
+import os
+fn = os.path.join(os.path.dirname(os.path.abspath('__file__')), 'tang300.json')
+f = open(fn,'r')
+data = f.read()
+#以上是用了绝对路劲，不知道为什么文件在同级目录下都不能打开
+'''
+
+eee = stats_word.stats_text_cn(read_data)     #调用的这个函数，在里面写了一个语句“您想统计前多少个词频最高词：”
+                                        #所以在打印输出时可以根据你的需求输出。
+print(eee)

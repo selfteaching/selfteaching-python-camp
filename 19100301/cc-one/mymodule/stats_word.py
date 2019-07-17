@@ -1,102 +1,66 @@
-# 2019.03.30 Satueday
-#made by cc-one
-#函数的难点在形参和实参的区分，以及函数的调用和返回值
-#在今天作业中的参考文档最后4.8小节提到了 编码风格
-#编码风格 个人觉得最重要的是写注释，让别人能够快速读懂程序
+#2019.04.03
+#与main函数协同更改
 
-#在day6基础上增加stats_text函数
-
-
-# 示例字符串
-string1 =  '''
-The Zen of Python, by Tim Peters
-
-
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren't special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambxiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you're Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it's a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let's do more of those!
-
-Python是一种计算机程序设计语言。是一种动态的、面向对象的脚本语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。
-'''
-
+'''调用collections的Counter函数'''
 import collections
+from os import path
+import json
 import re
+'''导入jieba'''
+import jieba
 
-def stats_text_en(string_en):
-    ''' 统计英文词频
-    '''
-    result = re.sub("[^A-Za-z]", " ", string_en.strip())
-    newList = result.split( )
-    i=0
-    for i in range(0,len(newList)):
-        newList[i]=newList[i].strip('*-,.?!')
-        if newList[i]==' ': 
-            newList[i].remove(' ')
-        else:
-            i=i+1
-    print('英文单词词频统计结果： ',collections.Counter(newList),'\n')
-
-
-def stats_text_cn(string_cn):
-    ''' 统计中文汉字字频
-    '''
-    result1 = re.findall(u'[\u4e00-\u9fff]+', string_cn)
-    newString = ''.join(result1)
-
-    def stats(orgString, newDict) :
-        d = newDict
-        for m in orgString :
-            d[m] = d.get(m, 0) + 1
-        return d
+def stats_text_en(text):
+    #dict1 = {}
+    import re
+    ''' 保留英文单字 '''
+    en_pattern = re.compile(r'[a-zA-Z]+[\'\-]?[a-zA-Z]+')
+    list1 = re.findall(en_pattern, text)
     
-    new_list = []
-    for char in newString :
-        cn = char.strip('-*、。，：？！……')
-        new_list.append(cn)
+    return list1
+
+def stats_text_cn(text):
+    #dict1 = {}
+    ''' 保留中文单字 '''
+    cn_pattern = re.compile(r'[\u4e00-\u9fa5]')
+    return "".join(re.findall(cn_pattern, text))
     
-    words = dict()
-    for n in range(0,len(new_list)) :
-        words = stats(new_list[n],words)
-    newWords = sorted(words.items(), key=lambda item: item[1], reverse=True) 
-    print('中文汉字字频统计结果： ',dict(newWords))
+    #'''调用collections的Counter函数'''
+    #cnt = collections.Counter()
+    #for word in list1:
+        #cnt[word] += 1
 
-# 调用函数
-stats_text_en(string1)
-# stats_text_cn(string1)
 
-# stats_text 函数，实现调用stats_text_en , stats_text_cn ，输出合并词频统计结果
-import collections
-import re
+def jiebacut(text):
+    list2=[]
+    seg_list = jieba.cut(text, cut_all=False)
+    for i in seg_list:
+        if len(i)>=2:
+            list2.append(i)
+    return list2
 
-def stats_text_en(en) :
-    ''' 英文词频统计'''
-    text_en = re.sub("[^A-Za-z]", " ", en.strip())
-    enList = text_en.split( )
-    return collections.Counter(enList)
 
-    
-def stats_text_cn(cn) :
-    ''' 汉字字频统计 '''
-    cnList = re.findall(u'[\u4e00-\u9fff]+', cn.strip())
-    cnString = ''.join(cnList)
-    return collections.Counter(cnString)
+def cut_cnwords(text):
+    list2=[]
+    seg_list = jieba.cut(text, cut_all=True)
 
-def stats_text(text_en_cn) :
-    ''' 合并英汉词频统计 '''
-    return (stats_text_en(text_en_cn)+stats_text_cn(text_en_cn))
+    for i in seg_list:
+        if len(i)>=2:
+            list2.append(i)
+    return list2
+
+def stats_text(text):
+    '''使用isinstance函数验证输入的参数类型是否为str'''
+    if isinstance(text, str) != True: 
+        '''用raise语句来引发异常'''
+        raise ValueError
+    else: 
+        return stats_text_en(text),stats_text_cn(text)
+
+def main(text):
+    '''提取所有英文单字'''
+    enwords = stats_text_en(text)
+    '''提取所有中文单字'''
+    cnwords = stats_text_cn(text)
+    '''分词'''
+    cutcnwords = cut_cnwords(cnwords)
+    return enwords+cutcnwords

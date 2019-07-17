@@ -27,3 +27,8 @@ ipconfig /flushdns
 来源：CSDN 
 原文：https://blog.csdn.net/oZhangBi/article/details/82915994 
 版权声明：本文为博主原创文章，转载请附上博文链接！
+
+第三天汇总：eval()函数
+eval(<字符串>)能够以Python表达式的方式解析并执行字符串，并将返回结果输出。eval()函数将去掉字符串的两个引号，将其解释为一个变量。
+无论用户输入的是字符还是数字，input()函数统一按照字符串类型输出。因此input()的输出类型是str
+eval(input())在接收输入数字作为变量时非常好用，可以尽量在此场合下使用
