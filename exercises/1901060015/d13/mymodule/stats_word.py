@@ -21,7 +21,7 @@ def stats_text_cn(text):
  
         
     
-    return Counter(t).most_common(100)
+    return Counter(t).most_common(15)
 
 
 def stats_text(text):
