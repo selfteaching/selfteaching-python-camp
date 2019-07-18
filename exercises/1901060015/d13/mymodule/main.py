@@ -54,7 +54,7 @@ def main():
             image_path = path.join(cwd,'stats.png')
             make_P(result,image_path)
 
-            msg.reply(image_path)
+            msg.reply_image(image_path)
         except Exception as e:
             logging.exception(e)
     embed()
