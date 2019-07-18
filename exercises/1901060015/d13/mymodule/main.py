@@ -20,7 +20,7 @@ logging.basicConfig(format='file:%(filename)s|line:%(lineno)d|message: %(message
 def get_article(url):
     r = requests.get(url)
     document = pyquery.PyQuery(r.text)
-    return document('#js_content').text()
+    return document('#js_content').text().replace("，","").replace("。","").replace("\n","").replace("“","").replace("”","").replace("!","").replace("、","")
 
 def make_P(data,image_path):
     labels = [v[0] for v in data]
