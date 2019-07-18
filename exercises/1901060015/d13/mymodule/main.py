@@ -33,7 +33,7 @@ def make_P(data,image_path):
     ax.invert_yaxis()
     ax.set_ylabel('关键字')
     ax.set_xlabel('词频')
-    ax.set_tile('词频统计')
+    ax.set_title('词频统计')
     fig.savefig(image_path, bbox_inches ='tight')
 
 
