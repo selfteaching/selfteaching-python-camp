@@ -1,5 +1,6 @@
 from mymodule import stats_word
 
+
 text = '''
 愚公移山
 
@@ -34,5 +35,4 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 '''
 
 if __name__ == "__main__":
-    stat_main = stats_word.stats_text(text)
-    print(stat_main)
+    print(stats_word.stats_text(text))
