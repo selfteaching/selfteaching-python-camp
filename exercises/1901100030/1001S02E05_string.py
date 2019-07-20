@@ -1,6 +1,11 @@
+#<<<<<<< master
+# day5 字符串练习
+# 2019年7月9日
+#=======
 # day4 流程控制练习
 # 2019年7月9日
 # 内容：数据容器学习
+#>>>>>>> master
 # 陈浩 学号 1901100030
 
 
@@ -39,9 +44,16 @@ for word in words :
 print(filered)
 
 # 3大小写翻转
+#<<<<<<< master
+#swapcased = []
+#for word in filered:
+#    swapcased.append(word.swapcase())
+swapcased = [i.swapcase() for i in filered]
+#=======
 swapcased = []
 for word in filered:
     swapcased.append(word.swapcase())
+#>>>>>>> master
 print(swapcased)
 
 # 4升序排列
