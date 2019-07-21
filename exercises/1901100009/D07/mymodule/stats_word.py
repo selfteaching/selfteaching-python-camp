@@ -1,5 +1,5 @@
 en_text = '''
-The Zen of Python, by Tim Peters 
+The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
@@ -43,7 +43,7 @@ def states_text_en(text):
     for element in elements:
         for symbol in symbols:
             element = element.replace(symbol,'')
-        if len(element):
+        if len(element) and element.isascii():
             words.append(element)
     counter={}
     word_set = set(words)
@@ -64,6 +64,13 @@ def states_text_cn(text):
     for character in cn_character_set:
         counter[character]=cn_characters.count(character)
     return sorted(counter.items(),key=lambda x:x[1],reverse=True)   
+
+
+def stats_text(text):
+    return states_text_en(text) + states_text_cn(text)
+
+
+
 
 if __name__=="__main__":
     en_result = states_text_en(en_text)
