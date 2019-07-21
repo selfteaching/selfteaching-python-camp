@@ -113,7 +113,7 @@ def stats_text_cn(string_cn,count=8):
 # 第7天作业
 def stats_text(all,count=100):
     if type(all) == str:  # 第8天作业，为函数添加参数类型检查
-        return (stats_text_en(all,count)+stats_text_cn(all))    # 用return语句返回
+        return stats_text_en(all,count)+stats_text_cn(all,count)    # 用return语句返回
 
 # 第8天作业，为函数添加参数类型检查
     else:
