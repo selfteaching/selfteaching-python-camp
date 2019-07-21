@@ -58,6 +58,3 @@ for word in word_set:
 print("英文单词出现的次数 ==>", counter)
 
 print("从大到小输出所有单词及出现的次数 ==>",sorted(counter.items(),key = lambda x: x[1],reverse=True))
-
-
-
