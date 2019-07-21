@@ -4,7 +4,7 @@ print(m)
 m1 = [str(i) for i in m]
 m2 = ''.join(m1)
 print(m2)
-m3 = m2[3:9]
+m3 = m2[2:8]
 print(m3)
 m4 = m3[::-1]
 print(m4)
