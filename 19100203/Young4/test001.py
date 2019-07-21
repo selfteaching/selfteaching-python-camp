@@ -15,13 +15,7 @@ def stats_text_en(text):  #定义函数
         dict2=sorted(dict1.items(),key = lambda dict_items:dict_items[1], reverse=True)
     return(dict2)
 
-
-
-text = '''
-abc,frd,hugggv,我是一串字母，想把我分开？
-
 '''
 
-print(stats_text_en(text))
-
-'''
+cn=int(input())
+print(cn)
