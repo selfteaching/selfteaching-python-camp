@@ -2,11 +2,8 @@ sample_list = [0,1,2,3,4,5,6,7,8,9]
 reversed_list = sample_list[::-1]
 print('列表翻转 ==>',reversed_list)
 
-#<<<<<<< master
+
 joined_str = ''.join([str(i) for i in reversed_list])
-#=======
-joined_str = ''.join([str9i for i in reversed_list])
-#>>>>>>> master
 print('翻转后的数组拼接成字符串 ==>',joined_str)
 
 sliced_str = joined_str[2:8]
