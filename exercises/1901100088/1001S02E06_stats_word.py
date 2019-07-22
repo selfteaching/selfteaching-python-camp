@@ -38,6 +38,11 @@ def stats_text_en(text):
     """Calculate the occurrence number of the english word.
     """
 
+def stats_text_en(text)-> str:
+    """Calculate the occurrence number of the english word.
+    """
+    print("Annotations:", stats_text_en.__annotations__)
+
     stat = text.lower()
     stats = stat.split()
     word = []
