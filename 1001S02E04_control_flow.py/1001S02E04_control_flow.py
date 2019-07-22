@@ -14,3 +14,8 @@ while i < 10:
         for j in range(1, i + 1):
             print(i, '*', j, '=', i * j, end='\t')
     i += 1
+
+
+5 ** 2  
+
+

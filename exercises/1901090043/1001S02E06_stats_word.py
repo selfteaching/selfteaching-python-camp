@@ -17,7 +17,9 @@ def stats_text_en(text):
         else:
             dic[item] += 1
     dic = sorted(dic.items(),key = lambda x:x[1],reverse = True)
+
     return dic
+
 
 #参数：字符串文本，输出按汉子的统计排名
 def stats_text_cn(text):
@@ -32,6 +34,7 @@ def stats_text_cn(text):
             dic1[item] += 1        
     #把汉子装入词典
     dic1 = sorted(dic1.items(),key = lambda x:x[1] ,reverse = True)
+
     return dic1
 
 pprint.pprint(stats_text_en(text))
