@@ -1,8 +1,10 @@
 from mymodule import stats_word
 from collections import Counter
 import json
+import os
 
-json_file = open('/Users/adamlu/Documents/GitHub/selfteaching-python-camp/exercises/1901090022/d09/1001S02E09.json')
+d9_dir = os.path.dirname(__file__)
+json_file = open(d9_dir + '/1001S02E09.json')
 jason_data = json.load(json_file)
 
 text = ""
