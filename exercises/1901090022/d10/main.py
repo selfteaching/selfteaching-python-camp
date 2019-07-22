@@ -3,8 +3,8 @@ from collections import Counter
 import json
 import os
 
-d9_dir = os.path.dirname(__file__)
-json_file = open(d9_dir + '/1001S02E09.json')
+json_dir = os.path.dirname(__file__)
+json_file = open(json_dir + '/1001S02E09.json')
 jason_data = json.load(json_file)
 
 text = ""
