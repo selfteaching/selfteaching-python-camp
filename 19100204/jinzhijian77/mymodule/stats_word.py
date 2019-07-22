@@ -49,20 +49,21 @@ Python是一种计算机程序设计语言。是一种动态的、面向对象�
 越来越多被用于独立的、大型项目的开发。'''
 
 
+import re
+import collections
+import jieba
 
-dict1 = {} #Decalre variable is blank 
+dict1 = {}
+str1 = ''
 
-dict2 = {}
-
-dict3 = {}
-
-dict4 = {}
+count = int
+count = 5
 
 
 
-def stats_text_en(text):  #define the function 
+def stats_text_en(text,count):  #define the function 
 
-    import re # reference:https://docs.python.org/3/library/re.html 
+    
 
     text = re.sub("[^A-Za-z]", " ", text.strip())  #only keep Eng, from the same reference 
 
@@ -73,54 +74,19 @@ def stats_text_en(text):  #define the function
     while '' in list1:   
 
         list1.remove('')  #delete space 
-
-    
-
-    for i in list1:   #loop 
-
-        
-
-        dict1.setdefault(i,list1.count(i))  
-
-   
-
-    tup1 = sorted(dict1.items(),key = lambda items:items[1],reverse = True)   #Arrange 
-
-
-
-    for tup1 in tup1:   
-
-            dict2[tup1[0]] = dict1[tup1[0]]  
-
-    return dict2
-
-
-
-print("英文词频:") #printing funciton 
-
-print(stats_text_en(text))
+    return collections.Counter(list1).most_common(count)
 
 
 
 
 
-def histogram(s, old_d):
 
-    d = old_d
 
-    for c in s:
-
-        d[c] = d.get(c, 0) + 1
-
-    return d
+def stats_text_cn(text,count): #define a function to calcuate character frequencies 
 
 
 
-def stats_text_cn(text): #define a function to calcuate character frequencies 
-
-    import re
-
-    text = re.sub("[A-Za-z0-9]", "", text) #only keep chinese and numbers
+    text = re.sub("[A-Za-z]", "", text) #only keep chinese and numbers
 
 
 
@@ -131,43 +97,16 @@ def stats_text_cn(text): #define a function to calcuate character frequencies
     while '' in list1:   
 
         list1.remove('') #delete space 
+    str1 = ''.join(list1)
+
+    seg_list =[ x for x in jieba.cut(str1,cut_all=False) if len(x) >= 2]
+
+    return collections.Counter(seg_list).most_common(count)
 
 
 
-    dict3 = dict()        #use dict function
+def stats_text(text,count):
 
-    
+    return collections.OrderedDict(collections.Counter(stats_text_en(text,count)+stats_text_cn(text,count)))
 
-    for i in range(len(list1)):
-
-        dict3 = histogram(list1[i], dict3)
-
-
-
-    
-
-    tup1 = sorted(dict3.items(),key = lambda items:items[1],reverse = True)  
-
-
-
-    for tup1 in tup1:   
-
-            dict4[tup1[0]] = dict3[tup1[0]]  
-
-    return dict4
-
-
-
-print("中文词频:")
-
-print(stats_text_cn(text))
-
-def stats_text(text):
-    if isinstance(text,str) != True:
-            raise ValueError
-    else:
-
-        return dict(stats_text_en(text),stats_text_cn(text))
-
-    return dict(stats_text_en(text),**stats_text_cn(text))
 
