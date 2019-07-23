@@ -25,7 +25,6 @@ def stats_text_en(text, count):
 
 # 统计参数中每个汉字出现的次数
 def stats_text_cn(text, count):
-    
     words = jieba.cut(text)
     tmp = []
     for word in words:
@@ -39,7 +38,7 @@ def stats_text(text, count):
     if not isinstance(text, str):
         raise ValueError("参数必须是str类型，输入类型 %s" %type(text))
 #   返回合并输出结果
-    return stats_text_cn(text, count) + stats_text_en(text, count)
+    return stats_text_cn(text,count) + stats_text_en(text,count)
 
 #测试程序
 # if __name__ == "__main__":
