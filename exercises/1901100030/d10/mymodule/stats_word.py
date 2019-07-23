@@ -28,9 +28,15 @@ def stats_text_cn(text, count):
     
     words = jieba.cut(text)
     tmp = []
+
+    for word in words:
+        if len(word) > 1:
+            tmp.append(word)
+
     for i in words:
         if len(i) > 1:
             tmp.append(i)
+
     # 调用counter函数
     return Counter(tmp).most_common(count)
 
@@ -39,7 +45,11 @@ def stats_text(text, count):
     if not isinstance(text, str):
         raise ValueError("参数必须是str类型，输入类型 %s" %type(text))
 #   返回合并输出结果
+
+    return stats_text_cn(text, count) + stats_text_en(text, count)
+
     return stats_text_cn(text) + stats_text_en(text)
+
 
 #测试程序
 # if __name__ == "__main__":
