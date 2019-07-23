@@ -14,10 +14,10 @@ def word_count(msg):
         content = document('#js_content').text()
         word_list = stats_word.stats_text_cn(content, 20)
         content = document('#js_content').text()
-        msg.sender(str(word_list))
+        msg.reply(str(word_list))
     elif msg.type == 'Text':
-        msg.sender("还给你: " + msg.text)
+        msg.reply("还给你: " + msg.text)
     else:
-        msg.sender("不理你")
+        msg.reply("不理你")
 
 embed()
