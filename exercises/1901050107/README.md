@@ -36,15 +36,6 @@ day9
 2、读取文件中，用with语法比try catch要有用
 with open(path) as f:
     data = f.read()
-#<<<<<<< master
-
-day10 
-遇到一个问题 ：No module named mymodule，找不到想要引入的包
-pip安装包失败
-解决办法：卸载了python2和Anacoda2，重新安装了3
-day11
-#=======
 #=======
 标准库中的Counter ，使用后返回一个元组数组
-#>>>>>>> master
 #>>>>>>> master
