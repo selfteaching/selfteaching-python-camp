@@ -6,10 +6,10 @@ def multiply(x,y):
     return x*y
 def divide(x,y):
     return x/y
-print('输入数字开始进行计算')
-a=int(input(''))
-print('请选择：+，-，*，/')
+print('请选择：+,-,*,/')
 c=input('')
+print('输入数字开始计算')
+a=int(input(''))
 print('请继续输入数字')
 b=int(input(''))
 if c=='+':

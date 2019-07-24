@@ -22,6 +22,7 @@ Namespaces are one honking great idea -- let's do more of those!
 '''
 
 
+
 #先把字符串进行切割为list，要调用str类型
 elements = text.split()
 #定义一个新的list型变量，存储处理过的单词
@@ -56,3 +57,20 @@ print('英文单词出现的次数',counter)
 #dict类型的items方法会返回一个包含相应的（key，value）的元组列表
 #print('counter.items()',counter.trems)
 print('从大到小，排序',sorted(counter.items(),key=lambda x:x[1],reverse=True))
+
+text=text.replace(',',' ').replace('.',' ').replace('--','').replace('!','').replace('*',' ')#将非英文字符替换为空格
+text=text.lower()#将所有英文字符改为小写
+text=text.split()#以空格拆分为独立的单词
+print(text)
+
+zidian = {}
+
+for i in text:  #将字符转换为字典
+    count=text.count(i)
+    r1={i:count}  #字典自动去重
+    zidian.update(r1) 
+print(zidian)
+
+zidian1=sorted(zidian.items(),key=lambda x:x[1],reverse=True) #按照单词出现次数，从小到大排序
+print(zidian1) 
+

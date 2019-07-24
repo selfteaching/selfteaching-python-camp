@@ -36,3 +36,4 @@ d = dict(res) #转换为词典
 d2 = sorted(d.items(),key=lambda a: a[1],reverse=True) #用sort排序
 d2 = dict(d2) #转换为词典
 print(d2)
+

@@ -35,7 +35,7 @@ L = text1.split()
 i = 0
 aDict = {}
 
-while(i < len(L)):
+while i < len(L):
     cnt = text1.count(L[i])
     aDict.setdefault(L[i], cnt) 
     i = i + 1
