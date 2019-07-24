@@ -51,3 +51,9 @@ def stats_text_cn(text2):
     return sorted(counter.items(),key=lambda x:x[1],reverse=True)
 print(stats_text_cn(text2))
      
+
+
+
+
+
+
