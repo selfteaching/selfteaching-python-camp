@@ -1,5 +1,0 @@
-#hello world
-
-hi, everybody
-
-SYL here, this is my second local file.

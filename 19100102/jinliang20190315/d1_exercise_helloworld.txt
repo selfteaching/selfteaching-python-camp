@@ -1,1 +1,0 @@
-d1_exercise_helloworld.txt
