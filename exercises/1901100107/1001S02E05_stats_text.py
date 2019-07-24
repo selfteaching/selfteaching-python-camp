@@ -40,5 +40,5 @@ for word in word_set:
     counter[word] = words.count(word)
 print('\n2.Count frequence of each word', counter)    
 
-#counter.items() returns (key, value) in set list
+#counter.items() returns (key, value) in set list 
 print('\n3. sorted by frequence descending', sorted(counter.items(), key= lambda x:x[1], reverse=True))

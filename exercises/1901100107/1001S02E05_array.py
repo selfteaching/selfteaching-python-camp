@@ -3,7 +3,7 @@ list1=[1,2,3,4,5,6,7,8,9]
 
 #2.reverse the list
 list1.reverse()
-print(list1) 
+print(list1)  
 
 #3.convert list to strings
 list_str1 = [ str(i) for i in list1 ]
