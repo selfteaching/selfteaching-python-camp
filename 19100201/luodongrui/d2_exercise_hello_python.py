@@ -1,0 +1,1 @@
+pirnt("hello world")
