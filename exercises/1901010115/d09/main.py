@@ -62,10 +62,11 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered
 two mighty gods to carry the mountains away.
 '''
 
+
 with open('tang300.json',mode='r',encoding='utf-8') as f: #创建文件对象f，内容为打开并读取“唐诗300.json文件中的字节”
     read_data = f.read() #设定字符串read_data，其对应为文件f中的内容
 try:
     read_data is isinstance(read_data,str) #如果取值内容为字符串read_data
-    print(stats_word.stats_text(read_data,100)) #通过模块内的函数stats_text()罗列字符。 （不知道为什么此处会自动打印出106个统计字符，明明count是100）
+    print(stats_word.stats_text_cn(read_data,100)) #通过模块内的函数stats_text()罗列字符。
 except ValueError: #如果取值不正确，不是字符串
     print('输入文本为非字符串，请再次检查第68行代码的取值') #则打印报错提示
