@@ -1,7 +1,0 @@
-D1
-
-1. fork 作业仓库到自己账户
-2. clone 作业仓库到本地电脑
-3. 在本地电脑添加文件夹 nathanye ，在 nathanye 文件夹中添加 README.md  和 1_exercise_helloworld.txt 文件
-4. 在本地电脑客户端中提交一次 commit
-5. 回到网页端，在作业仓库 master 分支里发起 Pull Request 并 @教练 提醒检查作业

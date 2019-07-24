@@ -1,4 +1,0 @@
-# learn how to create repository on gitub, create a new branch, make changes in new branch then make pull request 
-## post my first issue
-### clone the remote repository from github to local computer through github desktop
-#### make changes on local repository,then commits, after push to origin(remote repository) on github.com
