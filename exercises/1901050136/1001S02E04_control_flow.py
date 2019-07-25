@@ -37,19 +37,7 @@ while i <= 9:
 
 # times table by do while and meanwhile delete the even rows
 print("Times table by while and deleting the even rows")
-i = 1
-while i <= 9:
-    j = 1
-    while j <=9:
-        if i%2==0:# i indicates the number of row
-            pass
-        else:
-            print('{:}*{:}={:} '.format(j,i,j*i),end='')
-            if i==j:
-                break
-        j=j+1
-    print('\n')
-    i += 1 
+565
 
 print("Times table by while and deleting the even rows2")
 i = 1
