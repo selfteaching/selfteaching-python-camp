@@ -24,16 +24,16 @@ def stats_text_en(text):#自定义函数:统计英语单词词频
     for i in ('""*,-.!'): 
         text=text.replace(i,'') #去除文章中的符号
     list=text.split() 
-    dict = {}  # 建立空字典
+    dict = {}  # 建立字典
     for word in list:
         if word not in dict:  # 如果单词不在字典中
             dict[word] = 1    # 初始词频为1
         else:
             dict[word] += 1   # 每次单词出现，词频加1
-    count_dict=sorted(dict.items(),key=lambda x:x[1],reverse=True) #字典是个无序的结构，最终返回的是一个列表，没有排序。 
+    count_dict=sorted(dict.items(),key=lambda x:x[1],reverse=True) #字典是个无序的结构，最终返回的是一个没有排序的列表。 
     print(count_dict) #输出排序后的字典                             #key=lambda x:x[1] 其中X表示某一迭代出来的元素，其实是个元组，
 stats_text_en(text)                                                #而x[1] 表示元组的第二个元素，即单词的次数(词频)，
-                                                                   #若要按照单词排序则改成key=lambda x:x[0]即可。
+      #若要按照单词排序则改成key=lambda x:x[0]即可。
   
 text1='''
 one is always on a strange road, watching strange scenery
@@ -54,7 +54,7 @@ def stats_text_cn(text): #自定义函数:统计汉字词频
             dict1.update(dict2)
     dict1=sorted(dict1.items(),key=lambda item:item[1],reverse=True) #先引用吧，慢慢再弄懂它，现在不懂
     return dict1
-print(stats_text_cn(text1)) #打印结果
+print(stats_text_cn(text1)) 
 
 
 
