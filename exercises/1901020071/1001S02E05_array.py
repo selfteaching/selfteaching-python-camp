@@ -36,3 +36,5 @@ print(octNum)
 
 hexNum=hex(num1)
 print(hexNum)
+
+

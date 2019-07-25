@@ -24,5 +24,5 @@ password =  getpass.getpass("输入发件人邮箱密码:")
 
 yagmail.register(sender, password)
 yag =yagmail.SMTP(sender,password,'smtp.qq.com')
-yag.send('boby2028@126.com', '1901050028 boby2028', r2)
+yag.send('pythoncamp@163.com', '1901050028 boby2028', r2)
 print("发送成功")
