@@ -1,5 +1,5 @@
-from stats_word import stats_text
-text = '''
+from mymodule import stats_word
+sample_text = '''
 愚公移山
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，檔住去路，使他 和家人往來極為不便。
 一天，愚公召集家人說：「讓我們各盡其力，剷平二山，開條道路，直通豫州，你們認為怎 樣？」
@@ -29,4 +29,5 @@ The wise old man was totally silenced.
 When the guardian gods of the mountains saw how determined Yugong and his crew were, they were struck with fear and reported the incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
-print(stats_text(text))
+result = stats_word.stats_text(sample_text)
+print('统计结果==>\n',result)

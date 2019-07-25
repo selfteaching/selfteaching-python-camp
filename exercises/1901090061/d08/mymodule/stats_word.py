@@ -3,8 +3,10 @@ def stats_text_en(text):
     """
     stats_text_en 可接收一个英文字符串text作为参数，统计参数中每个英文单词出现的次数，最后返回一个按词频降序排列的数组
     """
+    if not isinstance(text,str):
+        raise ValueError('参数必须为str类型，当前输入类型%s'%type(text))
     words = []
-    symbols = '.,!-*，。？：、?"「 」'
+    symbols = '.,!-"*，。？：、?"「 」'
     elements = text.split()
     for element in elements:
         for symbol in symbols:
@@ -21,9 +23,10 @@ def stats_text_cn(text):
     """
     stats_text_cn接收一个中文字符串text作为参数，统计参数中每个汉字出现的次数，最后返回一个按字频降序排列排列的数组
     """
+    if not isinstance(text,str):
+        raise ValueError('输入类型必须为str，当前输入类型为%s'%type(text))
     cn_characters = []
     for character in text:
-    #如果是汉字，则加入列表中,\u4e00----\u9fff 是Unicode中中文字符的范围
         if '\u4e00' <= character <= '\u9fff':
             cn_characters.append(character)
     cn_counter = {}
@@ -36,9 +39,12 @@ def stats_text(text):
     """
     stats_text接收字符串text作为参数，分别调用stats_word.en和stats_text_cn函数，输出合并词频统计结果
     """
+    if not isinstance(text,str):
+        raise ValueError('输入参数必须为str类型，当前输入类型为%s'%type(text))
     return stats_text_en(text) + stats_text_cn(text)
 
-text = '''
+if __name__ == '__main__':
+    text = '''
 愚公移山
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，檔住去路，使他 和家人往來極為不便。
 一天，愚公召集家人說：「讓我們各盡其力，剷平二山，開條道路，直通豫州，你們認為怎 樣？」
@@ -68,6 +74,5 @@ The wise old man was totally silenced.
 When the guardian gods of the mountains saw how determined Yugong and his crew were, they were struck with fear and reported the incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
-if __name__ == '__main__':
     result = stats_text(text)
     print('统计参数中英文单词和中文汉字出现的次数 ==>\n',result)
