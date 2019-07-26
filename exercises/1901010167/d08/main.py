@@ -96,7 +96,7 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 '''
 if __name__ == "__main__":
     try:
-        stats_word.stats_text(253)
+        print(stats_word.stats_text(253))
     except ValueError :
         print('输入的为非字符串')
                           

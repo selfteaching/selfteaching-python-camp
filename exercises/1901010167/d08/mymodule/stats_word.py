@@ -26,8 +26,8 @@ def stats_text(text):
     if type(text) != str:                                             #判断输入的text参数是否为字符串，不是则抛出valueerror异常
         raise ValueError("输入的为非字符串，请输入字符串")
     else:
-        return(print(stats_text_cn(text),stats_text_en(text)))
-    
+        return stats_text_cn(text),stats_text_en(text)
+        
 
     
     
