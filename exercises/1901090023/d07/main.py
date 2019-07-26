@@ -1,8 +1,7 @@
 # 通过模块导入stats_word，调用stats_text统计汉字和单词词频
-from mymodule.stats_word import stats_text     # 第一步导入模块中的函数：模块名是py文件的文件名（不包含后缀）; from 模块 import 模块中的函数（函数名）
+from mymodule.stats_word import stats_text     # 模块名是py文件的文件名（不包含后缀）; from 模块 import 模块中的函数（函数名）
 
-# 第二步：定义参数
-text = '''                                     
+text = '''
 愚公移山
 
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他和家人往來極為不便。
@@ -51,5 +50,5 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
 
-print(stats_text(text))   # 第三步：调用函数
+print(stats_text(text))
 
