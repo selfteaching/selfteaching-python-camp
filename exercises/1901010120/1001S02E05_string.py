@@ -22,10 +22,8 @@ Namespaces are one honking great idea -- let's do more of those!'''
 print(text.replace("better","worse"))
 # removed ea with replace()
 print (text.replace("ea",""))
-#upper all letters 
-print(text.upper())
-#lower all letters 
-print(text.lower())
+#swapcase of all letters 
+print(text.swapcase())
 #A TO Z
 text = text.split()
 for word in sorted(text):

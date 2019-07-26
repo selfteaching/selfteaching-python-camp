@@ -6,7 +6,7 @@ join_array = (''.join(list(map(str,array))))
 print(join_array)
 
 #截取第3到第8
-slice_array = join_array[2:9]
+slice_array = join_array[2:8]
 print(slice_array)
 #再翻转
 reverve_str = slice_array[::-1]
