@@ -150,4 +150,3 @@ def cn(t,count):
         if len(j)>=2: #如果单个词的汉字数大于等于2
             z[j] +=1 #则汉字数大于等于2的词整合为一个词典，并计数排列
     return z.most_common(count)
-print(cn(read_data,20))
