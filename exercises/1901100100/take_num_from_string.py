@@ -62,6 +62,5 @@ def caculator(num,sym):
      
     return float(num1[0])   
 
-                
 result = caculator(num,sym)
 print(result)
