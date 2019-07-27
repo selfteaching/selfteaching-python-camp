@@ -1,11 +1,12 @@
-#清洗英文字符串中的特殊字符,使其仅对单个英文单词进行排序。
-def data_cleaning_en(data_sample_str):
-    for chara in ",.!-*":
+#清洗字符串中的特殊字符,使其仅对文字进行排序。
+def data_cleaning(data_sample_str):
+    for chara in ",.!-*，。？！ \n":
         data_sample_str = data_sample_str.replace(chara," ")
     return data_sample_str
 
 #将清洗后的英文字符串进行词频统计。
 def stats_text_en(text):
+    text = text.lower()
     list1 = text.split()
     counts = {}
     for word in list1:
@@ -13,12 +14,6 @@ def stats_text_en(text):
     list2 = list(counts.items())
     list2.sort(key=lambda x:x[1], reverse=True)
     print(list2)
-
-#清洗中文字符串中的特殊字符，使其仅对单个中文单词进行排序。
-def data_cleaning_cn(data_sample_str):
-    for chara in ["，","。","？","！"," ","\n"]:
-        data_sample_str = data_sample_str.replace(chara,"")
-    return data_sample_str
 
 #将清洗后的中文字符串进行词频统计。
 def stats_text_cn(text):
@@ -78,9 +73,9 @@ def main():
     锦城虽云乐，不如早还家。
     蜀道之难，难于上青天，侧身西望长咨嗟！
     '''
-    string1 = data_cleaning_en(text_en)
+    string1 = data_cleaning(text_en)
     stats_text_en(string1)
-    string2 = data_cleaning_cn(text_cn)
+    string2 = data_cleaning(text_cn)
     stats_text_cn(string2)
 
 main()
