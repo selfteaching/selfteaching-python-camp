@@ -3,6 +3,7 @@ def data_cleaning_en(data_sample_str):
     for chara in ",.!-*":
         data_sample_str = data_sample_str.replace(chara," ")
     return data_sample_str
+
 #将清洗后的英文字符串进行词频统计。
 def stats_text_en(text):
     list1 = text.split()
@@ -12,20 +13,22 @@ def stats_text_en(text):
     list2 = list(counts.items())
     list2.sort(key=lambda x:x[1], reverse=True)
     print(list2)
+
 #清洗中文字符串中的特殊字符，使其仅对单个中文单词进行排序。
 def data_cleaning_cn(data_sample_str):
     for chara in ["，","。","？","！"," ","\n"]:
         data_sample_str = data_sample_str.replace(chara,"")
     return data_sample_str
+
 #将清洗后的中文字符串进行词频统计。
 def stats_text_cn(text):
-    list1 = list(text)
     counts = {}
-    for i in list1:
+    for i in text:
         counts[i] = counts.get(i,0) + 1
     list2 = list(counts.items())
     list2.sort(key=lambda x: x[1], reverse=True)
     print(list2)
+
 #主函数调用上述所有函数。
 def main():
     text_en = """
@@ -79,5 +82,5 @@ def main():
     stats_text_en(string1)
     string2 = data_cleaning_cn(text_cn)
     stats_text_cn(string2)
-main()
 
+main()
