@@ -10,20 +10,19 @@ plt.rcdefaults()
 fig, ax = plt.subplots()
 
 def draw_bar_chart(xword,yquantity):
-    plt.rcParams['font.sans-serif']=['SimHei']  #用来正常显示中文标签
     plt.rcParams['font.family']='sans-serif'
-
+    plt.rcParams['font.sans-serif']='SimHei' #用来正常显示中文标签
+    plt.rcParams['axes.unicode_minus'] = False #用来正常显示负号
   
     ax.bar(range(len(yquantity)),yquantity,tick_label = xword)
     ax.set_ylabel('Frequency')
     ax.set_xlabel('Word')
     ax.set_title('What are the 20 most used words in this article?')
 
-    plt.savefig('/Users/min/Documents/GitHub/hello-world/selfteaching-python-camp/exercises/1901040010/d13/frcy.jpg')
+    plt.savefig('/Users/min/Documents/frcy.jpg')
     plt.show()
 
 
-# 导入模块
 from wxpy import *
 # 初始化机器人，扫码登陆
 bot = Bot()
@@ -45,7 +44,7 @@ def friend_sharing(msg):
 
     draw_bar_chart(word_list,quantity_list)
 
-    msg.sender.send_image('/Users/min/Documents/GitHub/hello-world/selfteaching-python-camp/exercises/1901040010/d13/frcy.jpg')
+    msg.sender.send_image('/Users/min/Documents/frcy.jpg')
 
 embed()
 
