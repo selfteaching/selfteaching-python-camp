@@ -19,7 +19,7 @@ elif operator == '-':
 elif operator == '*':
     print(a, '*', b, '=', a*b)
 elif operator == '/':
-    print(a, '/', b, '=', a/b)
+    print(a, '/', b, '=', a/b)  
 else:
     print('无效的运算符')
 
