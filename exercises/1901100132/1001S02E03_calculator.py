@@ -20,5 +20,3 @@ elif operator == '/':
 else:
     print('无效的运算符')    
 
-
-range (0.9)

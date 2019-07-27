@@ -1,23 +1,22 @@
-operator=input('ÇëÊäÈëÔËËã·û£¨+¡¢-¡¢*¡¢/):')
-first_name=input('ÇëÊäÈëµÚÒ»¸öÊı×Ö£º')
-second_number=input('ÇëÊäÈëµÚ¶ş¸öÊı×Ö£º')
-
-a=int(first_name)
-b==int(second_number)
+operator=input('è¯·è¾“å…¥è¿ç®—ç¬¦ï¼ˆ+ã€-ã€*ã€/):')
+a=int(first_number)
+b=int(second_number)
 
 print('operator:',operator,type(operator))
 print('first_number:',type(first_number),type(a))
 print('second_number,'type(second_number),type(b))
 
-print('²âÊÔ¼Ó·¨str¼Ó·¨:',first_number+second_number)
+print('æµ‹è¯•åŠ æ³•stråŠ æ³•:',first_number+second_number) 
 
 if operator =='+':
     print(a,'+',b,'=',a+b)
-elif operator=='-'£º
+elif operator=='-'ï¼š
     print(a,'-',b,'=',a-b)
 elif operator=='*':
     print(a,'*',b,'='a*b)
 elif operator=='/':
     print(a,'/',b,'=',a/b)
 else:
-    print('ÎŞĞ§µÄÔËËã')
+    print('æ— æ•ˆçš„è¿ç®—')
+
+#ä¸€å®šè¦åœ¨terminal çŠ¶æ€ä¸‹è¿è¡Œç¨‹åºï¼Œå¦åˆ™ç¨‹åºå‡ºé”™
