@@ -1,1 +1,1 @@
-learn python is a exciting thing 
+hello world
