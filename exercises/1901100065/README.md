@@ -1,3 +1,0 @@
-# day1
-问题1：project和一个repositories之间的关系
-问题2：fork的概念比较模糊，为什么不直接在原仓库里操作而需要fork的操作呢

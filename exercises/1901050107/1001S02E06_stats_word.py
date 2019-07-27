@@ -24,13 +24,6 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those! 
 '''
 
-# 分别调⽤用stats_text_en , stats_text_cn ，输出合并词频统计结果
-def stats_text(text): 
-    print('\n按照出现次数降序输出所有单词:\n')
-    print(stats_text_en(text),'\n')
-    print('\n按照出现次数降序输出所有汉字:\n')
-    print(stats_text_cn(text),'\n')   
-
 # 统计参数中每个英⽂文单词出现的次数，最后返回⼀个按词频降序排列列的数组
 from functools import reduce
 def stats_text_en(text):
@@ -46,11 +39,17 @@ def stats_text_en(text):
         if item in word_dict.keys():
             word_dict[item] += 1
         #  排除‘’
-        elif len(item) and item.isascii():
+        elif item != '': 
             word_dict[item] = 1
     
     # 排序        
-    return(sorted(word_dict.items(),key = lambda x:x[1],reverse = True))
+    word_dict_items = sorted(word_dict.items(),key = lambda x:x[1],reverse = True)
+    word_list = []
+    for item in word_dict_items:
+        word_list.append(item[0])
+    # 最终返回一个春单词的数组    
+    return word_list
+print (stats_text_en(text))
 
 
 text = '''
@@ -75,15 +74,16 @@ print(text)
             chars[char] += 1
         elif '\u4e00' <= char <= '\u9fff':
              chars[char]  = 1   
-    return(sorted(chars.items(),key = lambda x:x[1],reverse = True))
-    
+    chars = sorted(chars.items(),key = lambda x:x[1],reverse = True)
+    char_list = []
+    for item in chars:
+        char_list.append(item[0])
+    # 最终返回一个春单词的数组    
+    return char_list
+
 print (stats_text_cn(text))
     
 #<<<<<<< master
-
-#=======
-#<<<<<<< master
 '''
 #=======
-#>>>>>>> master
 #>>>>>>> master
