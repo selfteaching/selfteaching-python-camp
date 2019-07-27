@@ -10,6 +10,7 @@ print(zifucuan)
 
 r1=zifucuan[2:8] #用切片方式取出第三到第八个字符
 print(r1)
+
 zhengshu=int(r1[::-1]) #将字符串进行反转，并转换为int类型
 print(zhengshu)
 print(bin(zhengshu),oct(zhengshu),hex(zhengshu))  #转换成二进制，八进制，十六进制 
