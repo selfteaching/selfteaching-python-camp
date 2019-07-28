@@ -1,0 +1,10 @@
+p = int(input("输入数字p:"))
+q = int(input("输入数字q:"))
+a = p + q
+b = p - q
+c = p * q
+d = p / q 
+print("p + q = " , a)
+print("p - q = " , b)
+print("p * q = " , c)
+print("p / q = " , d)
