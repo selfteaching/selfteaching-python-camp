@@ -50,7 +50,7 @@ def times(string):
 
 
 
-def divid(string):
+def division(string):
 
     result = 0
 
@@ -78,7 +78,7 @@ if __name__ =="__main__":
 
     print("3：times")
 
-    print("4：divide")
+    print("4：division")
 
     method = input("Please input number(1/2/3/4): ")
 
@@ -104,7 +104,7 @@ if __name__ =="__main__":
 
         string = input("input：")
 
-        divid(string)
+        division(string)
 
     else:
 
