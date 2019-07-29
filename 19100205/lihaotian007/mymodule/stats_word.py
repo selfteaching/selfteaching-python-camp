@@ -1,94 +1,104 @@
 
 # 此文件用函数封装统计词频及排序的操作
+import collections as coll
+import jieba
 
-def stats_text_en(list_a,dic_a) :
-    """通过dictionary统计list_a中每个英文单词出现的次数，并返回该结果"""
-
-    # 参数类型异常检测
-    try :
-        if type(list_a) != type([]) or type(dic_a) != type({}):
-            raise ValueError()
-    except ValueError :
-        print('That was no valid list and dict')
-        return 
-    finally :
-        print('the function is cleaned')
-
-
-    # 通过dictionaries 进行统计中文词频
-    for i in range(len(list_a)) :
-        if list_a[i] in dic_a :
-            dic_a[list_a[i]] += 1
-    return dic_a
-
-
-
-
-def stats_text_cn(list_a,dic_a) :
-    """通过dictionary统计list_a中每个中文单词出现的次数，并返回该结果"""
-
-    # 参数类型异常检测
-    try :
-        if type(list_a) != type([]) or type(dic_a) != type({}):
-            raise ValueError()
-    except ValueError :
-        print('That was no valid list and dict')
-        return 
-    finally :
-        print('the function is cleaned')
-
-    # 通过dictionaries 进行统计英文词频
-    for i in range(len(list_a)) :
-        if list_a[i] in dic_a :
-            dic_a[list_a[i]] += 1
-    return dic_a
-
-
-def stats_text(text) :
-    """将text中的字符串放入list容器，分别调用stats_text_cn、stats_text_en函数输出词频统计结果"""
-
-    list_a = []
-    list_b = []
-    dict_c = {}
-    j = 0
+def stats_text_cn(text, common_t = None) :
+    """通过counter统计text中每个中文单词出现的次数，并返回counter对象"""
 
     # 参数类型异常检测
     try :
         if type(text) != type("") :
-            raise ValueError()
+            raise ValueError('That was no valid str')
     except ValueError :
-        print('That was no valid str')
         return 
     finally :
-        print('the function is cleaned')
+        print()
 
-    # 将text文件转为list结构
-    for i in range(len(text)) :
-        if (text[i] >= '\u4e00') and (text[i] <= '\u9fa5') : #将中文单词放入list和dictionary
-            list_a.append(text[i])
-            j = i + 1
-            if text[i] not in dict_c :
-                dict_c[text[i]] = 0
-        elif (ord(text[i]) not in range(65,91)) and (ord(text[i]) not in range(97,123)) and (text[i] != "\'") :#将英文单词放入list和dictionary
-            if i == j :
+    # 通过jieba进行分词
+    seg_list = '/'.join(jieba.cut(text, cut_all = False))
+
+    # 通过counter进行统计中文词频
+    counter_a = coll.Counter()
+    list_a = []
+    for i in range(len(seg_list)) :
+        if i == (len(seg_list)-1) :
+            list_a.append(seg_list[i])
+            counter_a["".join(list_a)] += 1
+        elif seg_list[i] != '/' :
+            if (seg_list[i] >= '\u4e00') and (seg_list[i] <= '\u9fa5') : #此判断主要为了避免出现分词后形成 "/天气good/ 的情况
+                list_a.append(seg_list[i])
+        else :
+            if len(list_a) != 0 :
+                counter_a["".join(list_a)] += 1
+                list_a = []
+
+    print('中文排序后：', counter_a.most_common(common_t), end = '\n\n')
+    return counter_a.most_common(common_t)
+
+
+
+
+def stats_text_en(text, common_t = None) :
+    """通过counter统计text中每个英文单词出现的次数，并返回counter对象"""
+
+    # 参数类型异常检测
+    try :
+        if type(text) != type("") :
+            raise ValueError('That was no valid list and dict')
+    except ValueError :
+        return 
+    finally :
+        print()
+
+    # 通过jieba进行分词
+    seg_list = '/'.join(jieba.cut(text, cut_all = False))
+
+    # 通过counter进行统计英文词频
+    counter_a = coll.Counter()
+    list_a = []
+    for i in range(len(seg_list)) :
+        if seg_list[i] != '/' :
+            if i == (len(seg_list)-1) : #当末尾是字母或'时，增加最后一个英文单词
+                list_a.append(seg_list[i])
+                counter_a["".join(list_a)] += 1
+            elif (ord(seg_list[i]) not in range(65,91)) and (ord(seg_list[i]) not in range(97,123)) and (seg_list[i] != "\'") and (seg_list[i] != "_"): #将英文单词放入list和dictionary
+                continue
+            else :
+                list_a.append(seg_list[i])
+        else :
+            if len(list_a) != 0 :
+                counter_a["".join(list_a)] += 1
+                list_a = []
+    
+    print('英文排序后：', counter_a.most_common(common_t), end = '\n\n')
+    return counter_a.most_common(common_t)
+
+
+def stats_text(text, common_t = None) :
+    """分别调用stats_text_cn和stats_text_en对text中的中/英词频进行统计，按词频结果输出"""
+
+    list_a = []
+    list_b = []
+    list_c = []
+    j = 0
+
+    #分别调用两个函数统计词频
+    list_a = stats_text_cn(text, common_t)
+    list_b = stats_text_en(text, common_t)
+
+    for i in range(len(list_a)) :
+        while j < len(list_b) :
+            if list_a[i][1] < list_b[j][1] :
+                list_c.append(list_b[j])
                 j += 1
             else :
-                list_b.append(text[j:i])
-                if text[j:i] not in dict_c :
-                    dict_c[text[j:i]] = 0
-                j = i + 1
-        elif i == (len(text)-1) : #当末尾是字母或'时，增加最后一个英文单词
-            list_b.append(text[j:i+1])
-            if text[j:i+1] not in dict_c :
-                    dict_c[text[j:i+1]] = 0
-    if len(list_a) == 0  and len(list_b) == 0 :
-        return
-    print('列表：\n' 'list_a：', list_a,'\n\n' 'list_b：',list_b, end = '\n\n')
-    
-    #分别调用两个函数统计词频
-    stats_text_cn(list_a,dict_c)
-    stats_text_cn(list_b,dict_c)
+                break
+        list_c.append(list_a[i])
+    if j <= (len(list_b)) :
+        while j < len(list_b) :
+            list_c.append(list_b[j])
+            j += 1
 
-    #排序输出
-    return print('排序后：', sorted(dict_c.items(), key = lambda x:x[1], reverse = True), end = '\n\n')
-
+    print("合并排序后：", list_c,'\n')
+    return list_c
