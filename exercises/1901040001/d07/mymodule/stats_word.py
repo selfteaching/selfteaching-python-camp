@@ -1,4 +1,4 @@
-#将英文字符串进行词频统计。
+#将英文进行词频统计。
 def stats_text_en(text):
     #去除字符串中的中文字符
     for chara in text:
@@ -19,7 +19,7 @@ def stats_text_en(text):
     list2.sort(key=lambda x:x[1], reverse=True)
     return print(list2)
 
-#将中文字符串进行词频统计。
+#将中文进行词频统计。
 def stats_text_cn(text):
     list1 = []
     counts = {}
