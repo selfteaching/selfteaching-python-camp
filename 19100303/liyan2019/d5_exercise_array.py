@@ -12,7 +12,7 @@ print(str2)# 字符串拼接
 str3=str2[2:8]#字符串切片方式取出第3到底8个字符
 print(str3)
 
-str4=''.join(str3[i] for i in range(len(str3)-1,-1,-1))  #将字符串反转 意义待理解
+str4=''.join(str3[i] for i in range(len(str3)-1,-1,-1))  #将字符串反转 意义待理解【@@@@】
 print(str4)
 
 a=int(str4) #将字符串转化为int
