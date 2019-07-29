@@ -12,7 +12,7 @@ content = document('#js_content').text()
 
 
 sender = input("输入发件人邮箱：")
-password = 'xdzvsulhymtwbfch'
+password = getpass.getpass("输入密码：")
 recipients = input("输入收件人邮箱:")
 
 result=state_word.stats_text_cn(content,100)
@@ -21,7 +21,7 @@ print(result1)
 #调用state_word.py文件中的stats_text_cn函数实现：词频排序
 
 yag = yagmail.SMTP(sender,password,host='smtp.qq.com')
-yag.send('pythoncamp@163.com', '自学训练营10群 DAY11 丸子', result1)
+yag.send('pythoncamp@163.com', '自学训练营10群，丸子', result1)
 print('发送成功')
 #发送邮件
 
