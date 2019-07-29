@@ -11,7 +11,7 @@ def stats_text_en(text):
     for word01 in words01:
         for symbol in symbols:
             word01 = word01.replace(symbol,'')
-        if len(word01):
+        if len(word01) and word01.isascii():
             words02.append(word01)
     #初始化一个字典
     counter = {}
