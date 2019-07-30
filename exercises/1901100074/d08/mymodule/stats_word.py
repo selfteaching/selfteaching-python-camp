@@ -1,4 +1,6 @@
 def stats_text_en(text):
+    if not isinstance(text,str):
+        raise ValueError('参数必须是 str 类型，输入类型%s' % type(text))
     elements = text.split()
     words = []
     symbols = ',.*-!'
@@ -15,6 +17,8 @@ def stats_text_en(text):
 
 
 def stats_text_cn(text):
+    if not isinstance(text,str):
+        raise ValueError('参数必须是 str 类型，输入类型%s' % type(text))
     cn_characters = []
     for character in text:
         if '\u4e00' <= character <= '\u9fff':
@@ -26,6 +30,8 @@ def stats_text_cn(text):
     return sorted(counter.items(),key=lambda x: x[1],reverse=True)
 
 def stats_text(text):
+    if not isinstance(text,str):
+        raise ValueError('参数必须是 str 类型，输入类型%s' % type(text))
     #合并 英文词频 和 中文字频 的结果
     return stats_text_en(text) + stats_text_cn(text)
 if __name__ == '__main__':
