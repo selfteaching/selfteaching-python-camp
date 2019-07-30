@@ -10,7 +10,7 @@ c = ''.join(b) #.jion()method
 print(c)
 print('-'*50)
 print('3.用字符串切片取出第三到第八个字符\n')
-d = c[3:9]
+d = c[2:8]
 print(d)
 print('-'*50)
 print('4.将获得的字符串进行翻转\n')
