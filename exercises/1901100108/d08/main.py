@@ -1,5 +1,8 @@
-from mymodule import stats_word 
+from mymodule import stats_word
 import traceback
+import logging
+
+logger = logging.getLogger(__name__)
 
 sample_text = '''
 愚公移山
@@ -41,13 +44,18 @@ print('参数中,每个中英文单词出现的次数\n', words)
 def test_traceback():
     try:
         stats_word.stats_text_cn(123)
-    except Exception as xxx:
-        print('test_traceback', xxx)
+    except Exception as e:
+        print('test_traceback', e)
         print(traceback.format_exc)
+
+def test_logger():
+    try:
+        stats_word.stats_text(1)
+    except Exception as e:
+        #print('test_logger =>, e)
+        logger.exception(e)
 
 if __name__ == "__main__":
     stats_word.stats_text_cn(123)
     test_traceback()
-
-
-
+    test_logger()
