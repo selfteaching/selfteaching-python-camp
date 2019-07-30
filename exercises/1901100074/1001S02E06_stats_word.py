@@ -69,6 +69,8 @@ cn_text = '''
 大陆在那头
 '''
 if __name__ == '__main__':
+    en_text = 'english'
+    cn_text = '中文'
     en_result = stats_text_en(en_text)
     cn_result = stats_text_cn(cn_text)
     print('统计参数中每个英文单词出现的次数 ==>\n',en_result)
