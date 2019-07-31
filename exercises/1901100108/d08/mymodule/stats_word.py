@@ -57,8 +57,6 @@ def stats_text(text):
 if __name__ == '__main__':
     en_text = '''
 The Zen of Python, by Tim Peters
-
-
 Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
@@ -82,7 +80,6 @@ Namespaces are one honking great idea -- let's do more of those!
 
     cn_text = '''
 Python之禅 by Tim Peters
-
 优美胜于丑陋
 明了胜于晦涩
 简洁胜于复杂
