@@ -3,12 +3,12 @@
 def stats_text_en(text):
   elements=text.split()
   words=[]
-  symbols=',.*-!'
+  symbols=',.*-!"?'
 
   for element in elements:
     for symbol in symbols:
       element=element.replace(symbol,'')
-    if len(element):
+    if len(element) and element.isascii():
       words.append(element)
 
   counter={}
@@ -26,7 +26,7 @@ def stats_text_cn(text):
   cn_characters = []
 
   for character in text:
-    if '\u4e00'<=character<='\u9fa5':
+    if '\u4e00'<=character<='\u9fff':
       cn_characters.append(character)
   
   counter = {}
@@ -87,4 +87,16 @@ if __name__ == '__main__' :
   cn_result = stats_text_cn(cn_text)
   print('统计参数中每个英文单词出现的次数==》\n',en_result)
   print('统计参数中每个中文单词出现的次数==》\n',cn_result)
+
+
+##########################################################################################
+
+# 添加一个名为stats_text()的函数
+
+def stats_text(text):
+  '''
+  合并中英文统计结果
+  '''
+  return stats_text_en(text) + stats_text_cn(text)
+
 
