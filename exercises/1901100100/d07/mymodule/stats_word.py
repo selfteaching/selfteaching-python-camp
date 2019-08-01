@@ -2,7 +2,7 @@
 # statistics. display the result with a descending order
 #
 #####################################
-
+# -*- coding: uft-8 -*-
 text = '''
 愚公移⼭
 太⾏，王屋⼆⼭的北⾯，住了⼀個九⼗歲的⽼翁，名叫愚公。⼆⼭佔地廣闊，擋住去路，使他
@@ -64,12 +64,13 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered
 two mighty gods to carry the mountains away.
 '''
 
-list_en = text.split()
+
 #split the string to list for statistic
-def stats_text_en(list_words):
+def stats_text_en(text):
     #counts the number of text, and return a list ordered by the consquences.
+    list_en = text.split()
     words = []
-    for j in list_words:
+    for j in list_en:
         word = ""
         for i in j:
             if (u'\u0041' <= i <=u'\u005a') or (u'\u0061' <= i <=u'\u007a'):
@@ -103,27 +104,37 @@ def stats_text_cn(text):
     text_ch = ""
     for i in text:
         if u'\u4e00' <= i<=u'\u9fff':
-            text_ch += i
-    for i in text_ch:
-        list_ch.append(i)
-    print(len(list_ch)
+            list_ch.append(i)
     set_words = set(list_ch)
     dic_ch = {}
     for word in set_words:
         dic_ch[word] = text_ch.count(word)
     list_ch = sorted(dic_ch.items(),key = lambda d:d[1],reverse = True)
-    #print(list_ch)
-    return  list_ch
+    dictionary_1 = {}                                                               #reset the dictionary
+    for i in list_ch:                                                              #change the list to sorted dictionary
+        dictionary_1[i[0]] = i[1]
+    return dictionary_1
 
-
-if __name__ == '__main__':
-    result_en = stats_text_en(list_en)
-    print(result_en)
-    text_ch = stats_text_cn(text)
-    print(text_ch)
-    print(len(text_ch))
-
+def stats_text(text):
+    #call the two fuctions to statistic the word of a string
+    result_en = stats_text_en(text)
+    result_ch = stats_text_cn(text)
+    result_en.update(result_ch)
+    #merge the two dics to one
+    list_all = sorted(result_en.items(),key = lambda d:d[1],reverse = True)
+    dictionary_1 = {}                                                               #reset the dictionary
+    #order the dictionary again
+    for i in list_all:                                                              #change the list to sorted dictionary
+        dictionary_1[i[0]] = i[1]
+    return dictionary_1
     
+if __name__ == '__main__':
+    result_all = stats_text(text)
+    print(result_all)
+  #  text_ch = stats_text_cn(text)
+  #  print(text_ch)
+
+
 
 
 
