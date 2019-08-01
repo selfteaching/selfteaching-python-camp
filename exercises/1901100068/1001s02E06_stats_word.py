@@ -17,13 +17,13 @@ def stats_text_en(text):
     #print('从大到小输出所有的单词及出现的次数 ==>',sorted(counter.items(),key=lambda x: x[1],reverse=True))
     return sorted(counter.items(),key=lambda x: x[1],reverse=True)
 
-    def stats_text_en(text):
-        cn_characters = []
-        for character in text:
-            if '\u4e00'<= character <= '\u9fff':
-                cn_characters.append(character)
+def stats_text_cn(text):
+    cn_characters = []
+    for character in text:
+        if '\u4e00'<= character <= '\u9fff':
+            cn_characters.append(character)
     counter = {}
-    cn_character_set = set(cn_characters)
+    cn_character_set =set (cn_characters)
     for character in cn_character_set:
         counter[character] = cn_characters.count(character)
     return sorted(counter.items(),key=lambda x: x[1],reverse=True)
