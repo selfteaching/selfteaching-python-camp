@@ -22,6 +22,7 @@ Namespaces are one honking great idea -- let's do more of those!
 '''
 text_1 = text.lower().replace(",", "").replace(".", "").replace("-", "").replace("!", "").replace("*", "")
 text_2 = text_1.split()
+
 #第零种，未解决方法，原创
 #text_3 = list(range(len(text_2)))
 #text_4 = zip(text_2, text_3)
@@ -33,9 +34,9 @@ text_2 = text_1.split()
 #    dit[key] = dit.get(key, 0) + 1
 #print(dit)
 
-#第二种解决方法，原创成份更高
+#第二种解决方法，半原创
 dit = {}
-for key in text_2:
-    if text_2.count(key) >= 1:
+for key in set(text_2):
+    if text_2.count(key) > 0:
         dit[key] = text_2.count(key)
-print(dit)
+print(sorted(dit.items(), key=lambda item:item[1], reverse=True))
