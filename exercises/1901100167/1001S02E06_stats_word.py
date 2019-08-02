@@ -19,10 +19,10 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea. 
 Namespaces are one honking great idea -- let's do more of those .
 '''
-def paixu(st):
+def stats_text_en(st1):
     map=str.maketrans('*-.','   ')
-    st=st.translate(map)
-    a=st.split()
+    st1=st1.translate(map)
+    a=st1.split()
     dic={}
     for x in a:
         dic.setdefault(x,0)
@@ -30,4 +30,17 @@ def paixu(st):
     for k in sorted(dic,key=dic.__getitem__,reverse=True):
         print(k,dic[k])
 
-print(paixu(text))
+print(stats_text_en(text))
+
+def stats_text_cn(st2):
+        a=list(st2)
+        dic={}
+        for x in a:
+                if u'\u4e00'<=x<=u'\u9fa5':
+                        dic.setdefault(x,0)
+                        dic[x]+=1
+        for k in sorted(dic,key=dic.__getitem__,reverse=True):
+                print (k,dic[k])
+
+print(stats_text_cn(text2))
+
