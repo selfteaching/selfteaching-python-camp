@@ -10,7 +10,7 @@ import numpy as np
 
 
 
-
+plt.rcdefaults()
 
 def main():
 
@@ -23,7 +23,7 @@ def main():
     nub = [l[1]for l in outcome]
     y_pos = np.arange(len(word))
 
-    plt.rcdefaults()
+    
     plt.rcParams['font.sans-serif'] = 'SimHei'
     fig, ax = plt.subplots()
     
