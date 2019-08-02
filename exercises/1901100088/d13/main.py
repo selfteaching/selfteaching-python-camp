@@ -8,6 +8,7 @@ from wxpy import *
 import numpy as np
 import matplotlib.pyplot as plt
 
+plt.rcdefaults()
 
 def main():
 
@@ -26,7 +27,7 @@ def main():
         nub = [l[1]for l in outcome]
         y_pos = np.arange(len(word))
 
-        plt.rcdefaults()
+        plt.rcParams['font.sans-serif'] = 'SimHei'
         fig, ax = plt.subplots()
         
         ax.barh(y_pos, nub, align='center')
