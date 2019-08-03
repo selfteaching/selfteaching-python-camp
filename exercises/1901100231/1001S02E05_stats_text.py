@@ -30,8 +30,8 @@ text=text.replace(",","")
 text=text.replace("--","")
 text=text.replace("*","")  
     #去除换行符和其他符号
-print(text)
 copy = text.split(' ')#老规矩，先转换为列表，再进行统计
+copy = [x for x in copy if x !=""]#去除空格，否则后续排序时会出现不明空格元素
 a={}#创建空字典
 for x in copy:
     if x in a:
