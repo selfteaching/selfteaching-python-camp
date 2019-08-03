@@ -38,7 +38,7 @@ for x in copy:
         a[x]=a[x]+1
     else:
         a[x]=1       
-for x in sorted(a,key=a.__getitem__,reverse=True):
+for x in sorted(a,key=a.__getitem__,reverse=True):#反向排序
     print(x,a[x])
 
     
