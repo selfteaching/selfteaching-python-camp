@@ -9,8 +9,6 @@ logging.basicConfig(format="file:%(filename)s|line:%(lineno)d|message:%(message)
 
 def test1():
     file_path = path.join(path.dirname(path.abspath(__file__)), "tang300.json")
-    print("文件路径==>", __file__,"\n读取文件路径==>", file_path)
-    
     with open(file_path,"r", encoding="utf-8") as f:
         return f.read()
 
