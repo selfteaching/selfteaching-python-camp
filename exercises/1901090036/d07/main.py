@@ -1,9 +1,6 @@
 #！/usr/bin/python
 #-*-coding:UTF-8 -*-
-
-import sys
-sys.path.append('/Users/apple/Downloads/hello world/selfteaching-python-camp/exercises/1901090036/d07/mymodule/stats_word.py:/')
-import mymodule.stats_word as stats_word
+from mymodule import stats_word
 
 text1='''
 愚公移山
@@ -51,7 +48,5 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 
 Filled with admiration for yugong, the emperor if heavens ordered two mighty gods to carry the mountains away. 
 '''
-def stats_text(text1):
-    global counter
-    counter=stats_word.stats_text(text1)
-    print(counter)
+word_list=stats_word.stats_text(text1)
+print(word_list)
