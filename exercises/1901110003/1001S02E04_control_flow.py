@@ -8,12 +8,10 @@ for i in range (1,10):
             break
 #Task2:使用while循环打印九九乘法表并⽤条件判断把偶数⾏去除掉
 i = 1
-while i <10:
-    j = 1
-    while j<=i:
-        if i%2 == 0:
-            break
-        print('{}*{}={}'.format(i,j,i*j),end = " ")
-        j += 1
-    print()
-    i += 1
+while i < 10:  
+   if i % 2 == 0:     
+      print()
+   else:
+      for j in range(1,i+1): 
+         print('{} * {} = {}'.format(i,j,i * j),end = '\t')         
+   i += 1
