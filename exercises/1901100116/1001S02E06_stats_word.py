@@ -68,4 +68,4 @@ def stats_text_cn(text1):          #定义函数
         counter[character]=cn_characters.count(character)          #统计每个中文汉字出现的次数
     return sorted(counter.items(), key=lambda x: x[1], reverse=True)
 if __name__ == '__main__':
-    print('中文词频降序排列 \n', stats_text_en(text))
+    print('中文词频降序排列 \n', stats_text_cn(text))
