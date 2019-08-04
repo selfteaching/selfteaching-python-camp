@@ -1,73 +1,42 @@
-#创建一个函数，接收字符串text作为参数
+#创建一个函数，接收字符串text作为参数,统计英文单词词频
 def stats_text_en(text):
     """
     stats_text_en 可接收一个英文字符串text作为参数，统计参数中每个英文单词出现的次数，最后返回一个按词频降序排列的数组
     """
-    #创建一个空列表
     words = []
-    #想要删除的标点符号
     symbols = '.,!-*，。？：、?"「 」'
-    #将字符串text分割后赋值给elements，其中包含标点符号，英文单词，和空格，elements数据格式为列表
     elements = text.split()
-    #遍历elements中的每一个element
     for element in elements:
-    #遍历标点符号
         for symbol in symbols:
-            #将标点符号替换为空格，并赋值给element，element是字符串
             element = element.replace(symbol,'')
-            #如果element不是空字符，即element是单词，将单词添加到words列表中
-        if len(element) > 0:
+        if len(element) and element.isascii():
             words.append(element.lower())
-    #print(words)
-    #创建word_set集合，将重复单词去重
     word_set = set(words)
-    #print(word_set)
-    #创建字典
     counter = {}
     for word in word_set:
         counter[word] = words.count(word)
     return sorted(counter.items(),key = lambda x:x[1],reverse = True)
-    #将字典按照单词词频为参数进行降序排列
-    #print(sorted(counter.items(),key = lambda x:x[1],reverse = True))
-#定义一个函数,以text作为参数
+#定义一个函数,以text作为参数，统计汉字词频
 def stats_text_cn(text):
     """
     stats_text_cn接收一个中文字符串text作为参数，统计参数中每个汉字出现的次数，最后返回一个按字频降序排列排列的数组
     """
-    #建立一个列表
     cn_characters = []
     for character in text:
     #如果是汉字，则加入列表中,\u4e00----\u9fff 是Unicode中中文字符的范围
         if '\u4e00' <= character <= '\u9fff':
             cn_characters.append(character)
-    #建立一个字典
     cn_counter = {}
-    #建立集合将文本去重
     character_set = set(cn_characters)
     for character in character_set:
         cn_counter[character] = cn_characters.count(character)
-    #返回按字频降序排列的数组
     return sorted(cn_counter.items(),key = lambda x:x[1],reverse= True)
-    #print(sorted(cn_counter.items(),key = lambda x:x[1],reverse = True))
+#创建一个函数，分别调用stats_text_en和stats_text_cn
 def stats_text(text):
     """
     stats_text接收字符串text作为参数，分别调用stats_word.en和stats_text_cn函数，输出合并词频统计结果
     """
-    #创建两个列表分别添加中英文
-    en_words = []
-    cn_characters = []
-    #遍历text将中英文区分开加入列表
-    for element in text:
-        if '\u4e00' <= element <= '\u9fff':
-            cn_characters.append(element)
-        else:
-            en_words.append(element)
-    #将中英文列表转为字符串
-    sample_text_1 = ''
-    sample_text_2 = ''
-    text_1 = sample_text_1.join(en_words)
-    text_2 = sample_text_2.join(cn_characters)
-    return stats_text_en(text_1) + stats_text_cn(text_2)
+    return stats_text_en(text) + stats_text_cn(text)
 
 text = '''
 愚公移山
