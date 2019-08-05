@@ -23,5 +23,4 @@ def stats_text_cn(st2):
         return b
 
 def stats_text(stri):
-        print(stats_text_cn(stri)+stats_text_en(stri))
-        return 
+        return stats_text_cn(stri)+stats_text_en(stri)
