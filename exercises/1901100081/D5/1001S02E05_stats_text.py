@@ -39,3 +39,4 @@ for word in words:
 print (counter ) 
 
 print (sorted(counter.items(),key=lambda x:x[1],reverse=True))
+# 重新提交作业

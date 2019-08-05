@@ -32,7 +32,7 @@ print(newtext)
 
 text4 =' '.join(newtext)  # 到这一步是可以打印出字符串的
 text5=str(text4).swapcase()  # 这一步的method已经不能自动显示了，swapacase是我自己手动打上去的
-print(text5)  # 报错 built-in method swapcase of str object at 0x000001EAEA58BAA0
+print(text5)  # 报错 是因为调用method没有用（）
 
 t6=text5.split()
 print(t6)

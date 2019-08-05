@@ -15,4 +15,4 @@ s4=int(s3)
 print(s4)
 print(bin(s4))
 print(oct(s4))
-print(hex(s4))
+print(hex(s4)) #重新提交作业
