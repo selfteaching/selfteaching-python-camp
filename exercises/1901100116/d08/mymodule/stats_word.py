@@ -2,7 +2,7 @@ text = '''
 The Zen of Python, by Tim Peters
 
 
-Beautiful is better than ugly.
+Beautiful is better than ugly 88.
 Explicit is better than implicit.
 Simple is better than complex.
 Complex is better than complicated.
@@ -23,26 +23,27 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 #统计参数中每个英⽂单词出现的次数
-def stats_text_en(text):              #定义函数
-    elements = text.split()           #整理字符
-    words = []                        #建立列表
+def stats_text_en(text):  
+    if not isinstance(text, str):
+        raise ValueError('参数必须是 str 类型，输入类型 %s' % type(text))            
+    elements = text.split()           
+    words = []                        
     symbols = ',.*-!'
     for element in elements:
         for symbol in symbols:
-            element = element.replace(symbol, '')             #清除符号
-        if len(element) and element.isascii():   #用str类型的isascii方法判断是否是英文单词
-            words.append(element)                             #将字符加入word列表
-    counter = {}                                              #建立字典
+            element = element.replace(symbol, '')             
+        if len(element) and element.isascii():   
+            words.append(element)                             
+    counter = {}                                              
     word_set = set(words)
 
     for word in word_set:
-        counter[word] = words.count(word)         #统计每个英文单词出现的次数
-        print('英文单词出现的次数 ==>', counter)   
+        counter[word] = words.count(word)         
+        #print('英文单词出现的次数 ==>', counter)   
     return sorted(counter.items(), key=lambda x: x[1], reverse=True)   
-if __name__ == '__main__':
-    print('英文单词词频降序排列 \n', stats_text_en(text))
 
-text1 = '''
+
+    text1 = '''
 简洁胜于复杂
 复杂胜于凌乱
 扁平胜于嵌套
@@ -57,19 +58,23 @@ text1 = '''
 命名空间是一种绝妙的理念，我们应当多加利用
 '''
 #统计参数中每个中⽂单词出现的次数
-def stats_text_cn(text1):          #定义函数
+def stats_text_cn(text1):    
+    if not isinstance(text, str):
+        raise ValueError('参数必须是 str 类型，输入类型 %s' % type(text))        
     cn_characters = []
     for character in text1:
-        if '\u4e00' <= character <= '\u9fff':    #设置中文字符的范围
+        if '\u4e00' <= character <= '\u9fff':    
             cn_characters.append(character)
-    counter={}                                  #建立字典
+    counter={}                                  
     cn_character_set=set (cn_characters)
     for character in cn_character_set:
-        counter[character]=cn_characters.count(character)          #统计每个中文汉字出现的次数
+        counter[character]=cn_characters.count(character)          
     return sorted(counter.items(), key=lambda x: x[1], reverse=True)
-if __name__ == '__main__':
-    print('中文词频降序排列 \n', stats_text_cn(text))
+
+    
 
 
-def stats_text(text):         #合并英文词频和中文字频
-    return stats_text_cn(text) + stats_text_en(text)    
+def stats_text(text):  
+    if not isinstance(text, str):
+        raise ValueError('参数必须是 str 类型，输入类型 %s' % type(text))      
+    return stats_text_cn(text) + stats_text_en(text) 
