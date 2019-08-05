@@ -59,7 +59,7 @@ def stats_text_en(text):
 '''
 #统计参数中每个中⽂单词出现的次数
 def stats_text_cn(text1):    
-    if not isinstance(text, str):
+    if not isinstance(text1, str):
         raise ValueError('参数必须是 str 类型，输入类型 %s' % type(text))        
     cn_characters = []
     for character in text1:
