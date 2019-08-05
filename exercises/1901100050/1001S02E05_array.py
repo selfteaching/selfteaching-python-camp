@@ -23,4 +23,6 @@ int_value = int(reversed_str)
 print('转换为 int 类型 ==>', int_value)
 
 print('转换为 二进制 ==>', bin(int_value))
+print('转换为 八进制 ==>', oct(int_value))
+print('转换为 二进制 ==>', hex(int_value))
 
