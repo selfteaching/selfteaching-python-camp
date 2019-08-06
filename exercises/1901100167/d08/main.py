@@ -65,6 +65,6 @@ sys.path.append('E:/self-teaching/selfteaching-python-camp/exercises/1901100167/
 from mymodule import stats_word
 try:
     print(stats_word.stats_text(text2))
-except (TypeError) as e:
-    print ('you must input string')
+except TypeError as e:
+    print ("error:%s"%e)
     
