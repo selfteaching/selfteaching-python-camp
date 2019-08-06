@@ -1,6 +1,6 @@
+import re
 #英文字符排序
 def stats_text_en(text):
-    import re 
     en = re.sub(r'[^A-Za-z]',' ', text) #仅挑出英文字符，略过中文
     text_1 = en.lower().split() #组成列表
     dic = {}
@@ -11,7 +11,6 @@ def stats_text_en(text):
 
 #中文字符排序
 def stats_text_cn(text):
-    import re
     cn = re.findall(r'[\u4E00-\u9FFF]', text) #\u4E00-\u9FFF代表取出中文字符
     dic = {}
     for char in cn:   #作用同上面英文排序
