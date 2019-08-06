@@ -21,5 +21,4 @@ def stats_text_cn(text):
 
 #封装函数
 def stats_text(text): #定义函数，实现统计汉字和英文单词出现次数
-    print(stats_text_en(text))
-    print(stats_text_cn(text))
+    return stats_text_en(text) + stats_text_cn(text)
