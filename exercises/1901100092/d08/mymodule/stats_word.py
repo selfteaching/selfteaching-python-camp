@@ -74,7 +74,6 @@ def stats_text_cn(text):
  
 
 def stats_text(text):
-    text=1
     '''输出合并词频统计结果'''
     if not isinstance(text,str):
         raise ValueError('参数应为字符串类型')
