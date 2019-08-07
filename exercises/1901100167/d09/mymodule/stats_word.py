@@ -11,7 +11,7 @@ def stats_text_en(st1):
             if u'\u0041'<x<u'\u007a':
                 c.setdefault(x,0)
                 c[x]+=1
-        count=c.most_common(10)
+        count=c.most_common(100)
         return count
 
 def stats_text_cn(st2):
@@ -25,8 +25,9 @@ def stats_text_cn(st2):
             if u'\u4e00'<x<u'\u9fa5':
                 c.setdefault(x,0)
                 c[x]+=1
-        count=c.most_common(10)
+        count=c.most_common(100)
         return count
+        
 
 def stats_text(stri):
     if not isinstance(stri,str):
