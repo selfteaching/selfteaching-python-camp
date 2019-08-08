@@ -1,8 +1,7 @@
+from collections import Counter
 
 # 统计参数中英⽂单词出现的次数
-def stats_text_en(text):
-    if not isinstance(text,str):
-        raise ValueError('参数必须是 str 类型 %s' % type(text))
+def stats_text_en(text, count):
     elements = text.split()
     words = []
     symbols = ',-*_!'
