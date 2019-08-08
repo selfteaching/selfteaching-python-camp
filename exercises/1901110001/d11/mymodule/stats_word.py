@@ -1,5 +1,6 @@
 from collections import Counter
 import jieba
+import request
 
 
 

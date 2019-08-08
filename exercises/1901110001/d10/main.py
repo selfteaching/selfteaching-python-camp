@@ -23,7 +23,7 @@ def test3():
         x = test1()
         logging.info(x[0])
         y = test2(json.loads(x))
-        logging.info("result => %s", stats_word.stats_text_cn(y,100))
+        logging.info("result => %s", stats_word.stats_text_cn(y,20))
     except Exception as e:
         logging.exception(e)
 
