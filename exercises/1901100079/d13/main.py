@@ -43,7 +43,7 @@ def main():
             a=get_artical(msg.url)
             output=stats_word.stats_text_cn(a,20)
             msg.reply(str(output))
-            image_path=path.join(cwd,'统计图.png') 
+            image_path=path.join(cwd,'word_image.png') 
             figure(output,image_path)
             msg.reply_image(image_path)  
         except Exception as i:
@@ -53,7 +53,7 @@ def main():
 '''def test(): # 测试用
     a=get_artical('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
     output=stats_word.stats_text_cn(a,20)
-    image_path=path.join(cwd,'统计图.png') 
+    image_path=path.join(cwd,'word_image.png') 
     figure(output,image_path)'''
 
 if __name__=='__main__':
