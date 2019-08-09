@@ -10,7 +10,7 @@ def stats_text_en(text,count):
             element = element.replace(symbol,'')
         if len(element) and element.isascii():
             words.append(element)
-    return counter(words).most_common(count)
+    return Counter(words).most_common(count)
 
     
 # 统计参数中每个中文汉字出现的次数
