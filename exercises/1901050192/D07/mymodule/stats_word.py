@@ -30,8 +30,8 @@ def stats_text(text):
     '''
     return stats_text_en(text) + stats_set_cn(text)
 
-
-en_text='''
+if __name__ == '__main__':
+    en_text='''
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -54,7 +54,7 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-cn_text='''
+    cn_text='''
 Tim Peters的Python之禅
 美丽胜过丑陋。
 显式优于隐式。
@@ -77,7 +77,7 @@ Flat优于嵌套。
 如果实现很容易解释，那可能是个好主意。
 命名空间是一个很棒的主意 - 让我们做更多的事情吧！
 '''
-if __name__ == '__main__':
+
     en_result = stats_text_en(en_text)
     cn_result = stats_set_cn(cn_text)
     print('统计英文次数 ==>\n',en_result)
