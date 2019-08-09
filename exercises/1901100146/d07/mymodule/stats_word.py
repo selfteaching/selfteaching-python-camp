@@ -1,14 +1,20 @@
+
 # 统计参数中每个英文单词出现的次数
 
 # 先建立一个stats_text_en 的函数，text为参数
 def stats_text_en(text):
-    elements = text.split()
+    # 其实你会发现，这个函数是统计英文单词词频的，但是现在它是不是想把中文也统计进来
+    # 只是中文不是以空格分割的，所以统计出错啊
+
+    elements = text.split() #将文本以空白切分，对么
+
     words=[]
     symbols = ',.*-!'
-    for element in elements:
+    for element in elements: #循环取出切分好的字符串，咱刚刚看到了，是不是里面有中文句子，也有英文单词啊
         for symbol in symbols:
             element = element.replace(symbol, '')
-        if len(element):
+        # 用str 类型的 isascii 方法判断是否是英文单词
+        if len(element) and element.isascii(): 
            words.append(element)
     counter = {}
     word_set = set(words)
@@ -19,7 +25,6 @@ def stats_text_en(text):
     return sorted(counter.items(), key=lambda x: x[1], reverse=True)
 
 # 统计参数中每个中文汉字出现的次数
-# 建立一个 stats_text_cn 函数，text作为参数
 def stats_text_cn(text):
     cn_characters = []
     for character in text:
@@ -32,20 +37,18 @@ def stats_text_cn(text):
         counter[character] = cn_characters.count(character)
     return sorted(counter.items(), key=lambda x: x[1], reverse=True)
 
-
 def stats_text(text):
     '''
-    合并 英文词频 和 中文词频 的结果
+    合并 英文单词 和中文字频 的结果
     '''
     return stats_text_en(text) + stats_text_cn(text)
 
 
-# 搜索__name__=='__main__'
-# 一般情况下在文件内测试代码的时候，代码0以下面的形式进行
-if __name__ == '__main__':
-    en_text = '''
+# 搜索 ——name——== '——main——'
+# 一般情况下在文件内测试 代码的时候以下面的形式进行
+if __name__== '__main__':
+    en_text='''
 The Zen of python, by Tim Peters
-
 
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -94,6 +97,5 @@ if __name__ == '__main__':
     cn_result = stats_text_cn(cn_text)
     print('统计参数中每个英文单词出现的次数 ==>\n', en_result)
     print('统计参数中每个中文汉字出现的次数 ==>\n', cn_result)
-
 
          

@@ -1,8 +1,9 @@
+
 # 统计参数中每个英文单词出现的次数
 
 # 先建立一个stats_text_en 的函数，text为参数
 def stats_text_en(text):
-    if not isinstance(text, str):
+    if not isinstance(text,str):
         raise ValueError('参数必须是 str 类型，输入类型 %s' % type(text))
     elements = text.split()
     words=[]
@@ -10,7 +11,7 @@ def stats_text_en(text):
     for element in elements:
         for symbol in symbols:
             element = element.replace(symbol, '')
-        if len(element):
+        if len(element) and element.isascii():
            words.append(element)
     counter = {}
     word_set = set(words)
@@ -21,7 +22,6 @@ def stats_text_en(text):
     return sorted(counter.items(), key=lambda x: x[1], reverse=True)
 
 # 统计参数中每个中文汉字出现的次数
-# 建立一个 stats_text_cn 函数，text作为参数
 def stats_text_cn(text):
     if not isinstance(text,str):
         raise ValueError('参数必须是 str 类型，输入类型 %s' % type(text))
@@ -36,22 +36,20 @@ def stats_text_cn(text):
         counter[character] = cn_characters.count(character)
     return sorted(counter.items(), key=lambda x: x[1], reverse=True)
 
-
 def stats_text(text):
     '''
-    合并 英文词频 和 中文词频 的结果
+    合并 英文单词 和中文字频 的结果
     '''
     if not isinstance(text,str):
         raise ValueError('参数必须是 str 类型，输入类型 %s' % type(text))
     return stats_text_en(text) + stats_text_cn(text)
 
 
-# 搜索__name__=='__main__'
-# 一般情况下在文件内测试代码的时候，代码0以下面的形式进行
-if __name__ == '__main__':
-    en_text = '''
+# 搜索 ——name——== '——main——'
+# 一般情况下在文件内测试 代码的时候以下面的形式进行
+if __name__== '__main__':
+    en_text='''
 The Zen of python, by Tim Peters
-
 
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -100,6 +98,5 @@ if __name__ == '__main__':
     cn_result = stats_text_cn(cn_text)
     print('统计参数中每个英文单词出现的次数 ==>\n', en_result)
     print('统计参数中每个中文汉字出现的次数 ==>\n', cn_result)
-
 
          

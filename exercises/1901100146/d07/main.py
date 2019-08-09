@@ -1,6 +1,6 @@
 from mymodule import stats_word
 
-sample_text = '''
+sample_text='''
 愚公移山
 
 太行，王屋二山的北面住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他和家人往來極為不便。
@@ -59,3 +59,21 @@ two mighty gods to carry the mountains away.
 result = stats_word.stats_text(sample_text)
 
 print('统计结果 ==>', result)
+#下面这句是调用模块中的stats_text函数对么,然后stats_text函数又是调用了stats_text_cn和 stats_text_en
+# 两个函数，对吧，然后咱去看stats_text函数，看起来也没有什么错误啊，是吧
+# 然后就猜测，是不是stats_text_cn和stats_text_en这两个函数的问题导致的 呢
+# result = stats_word.stats_text(sample_text)
+
+# print('统计结果 ==>', result)
+
+# 在这里测试下stats_text_cn函数，为了方便查看，我先把stats_text注释掉行吧
+# 下面是测试stats_text_cn,运行一下，看起来是不是没有问题啊
+
+# res1 = stats_word.stats_text_cn(sample_text)
+# print(res1)
+
+# 然后就声stats_text_en没有测试了，下面测试下，一样的，我先把上边的注释掉,运行下，发现问题来了
+# stats_text_en是统计英文单词的，怎么会有中文，是不是问题就定位到stats_text_en函数中了,然后就到
+# stats_texxt_en中找问题
+#res2 = stats_word.stats_text_en(sample_text)
+#print(res2)
