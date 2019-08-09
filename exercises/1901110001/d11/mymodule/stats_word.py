@@ -22,7 +22,7 @@ def stats_text_cn(text, count):
     for word in words:
         if len(word) > 1:
             x.append(word)
-    for x in words:
+    for i in words:
         if len(i) > 1:
             x.append(i)
     return Counter(x).most_common(count)
