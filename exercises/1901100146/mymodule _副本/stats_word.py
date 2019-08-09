@@ -2,6 +2,8 @@
 
 # 先建立一个stats_text_en 的函数，text为参数
 def stats_text_en(text):
+    if not isinstance(text, str):
+        raise ValueError('参数必须是 str 类型，输入类型 %s' % type(text))
     elements = text.split()
     words=[]
     symbols = ',.*-!'
@@ -21,6 +23,8 @@ def stats_text_en(text):
 # 统计参数中每个中文汉字出现的次数
 # 建立一个 stats_text_cn 函数，text作为参数
 def stats_text_cn(text):
+    if not isinstance(text,str):
+        raise ValueError('参数必须是 str 类型，输入类型 %s' % type(text))
     cn_characters = []
     for character in text:
         # unicode 中 中文 字符的范围
@@ -37,6 +41,8 @@ def stats_text(text):
     '''
     合并 英文词频 和 中文词频 的结果
     '''
+    if not isinstance(text,str):
+        raise ValueError('参数必须是 str 类型，输入类型 %s' % type(text))
     return stats_text_en(text) + stats_text_cn(text)
 
 
