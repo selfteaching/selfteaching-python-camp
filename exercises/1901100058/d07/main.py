@@ -38,6 +38,7 @@ and Mount Wanwu? Moreover, where will all the earth and rubble go?”
 So Yugong, his sons, and his grandsons started to break up rocks and
 remove the earth. They transported the earth and rubble to the Sea
 of Bohai.
+Now Yugong’s neighbour was a widow who had an only child eight years
 old. Evening the young boy offered his help eagerly.
 Summer went by and winter came. It took Yugong and his crew a full
 year to travel back and forth once.
