@@ -21,7 +21,7 @@ def get_article(url):
 
     #生成图片
 def generate_image(data,image_path): #data是定义的函数中的参数 也是用
-    labels=[v[0]for v in data]
+    labels=[v[0]for v in data]  #必须是中括号！！
     widths=[v[1] for v in data]
     ypos=range(len(data))  #获取y轴上 会出现的元素
     fig,ax=plt.subplots()  #初始化一个图表
