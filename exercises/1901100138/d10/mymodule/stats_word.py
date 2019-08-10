@@ -1,4 +1,5 @@
 from collections import Counter
+import jieba
 
 # 统计参数中每个英文单词出现的次数
 def stats_text_en(text,count):
