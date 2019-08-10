@@ -158,9 +158,9 @@ Issue 的位置与“参考资料2”中的截图不一致，应是 GitHub 改�
 3. 不同人给了不同的解决方案，如：改 hosts，利用开源中国提供的代码仓库（码云 Gitee）转移，给 GitHub Desktop 设置代理；
 4. 个人认为相对彻底的解决方案应该是 GitHub Desktop 整体走代理，方法有两种，一是开 VPN，二是配置 GitHub Desktop；
 5. 考虑眼下的实际情况，VPN 不算靠谱，所以就只能配置 GitHub Desktop 了，试验发现，GitHub Desktop 不从系统设置中取代理服务器，用修改配置文件的方法才能设置代理
-6. Windows 版 GitHub Desktop 设置代理的方法如下：
+6. Windows 版 GitHub Desktop 设置代理的方法如下：<br />
    i. 用文本编辑器打开 C\:\\Users\\*UserName*\\\.gitconfig 
-   文件，注意 *UserName* 要换成自己的账号，直接搜索“`.gitconfig`”也可以，这个文件只有扩展名，开头就是一个“.”，别弄错了；
+   文件，注意 *UserName* 要换成自己的账号，直接搜索“`.gitconfig`”也可以，这个文件只有扩展名，开头就是一个“.”，别弄错了；<br />
    ii. 在文件末尾添加代理信息，SOCKS5 代理类似这样：
    ```
     [http]
@@ -176,13 +176,13 @@ Issue 的位置与“参考资料2”中的截图不一致，应是 GitHub 改�
         proxy = http://127.0.0.1:7890
     ```
     其中`127.0.0.1`是本机地址，`7891`和`7890`都是端口号，`proxy`前面有一个制表符（Tab），注意，这里的代理地址仅为范例，以具体情况为准。
-7. macOS 版 GitHub Desktop 的 `.gitconfig` 文件在 `~/`，可以在终端（Terminal）用 Vim 打开文件并编辑，步骤为：
-   i. 在终端（Terminal）输入 `vi ~/.gitconfig` 并回车；
-   ii. 按`i`键进入插入（insert）编辑模式；
-   iii. 在文件末尾添加代理信息，格式和 Windows 的一样；
-   iv. 按`ESC`键退出插入编辑模式，输入`:wq`，回车保存。
+7. macOS 版 GitHub Desktop 的 `.gitconfig` 文件在 `~/`，可以在终端（Terminal）用 Vim 打开文件并编辑，步骤为：<br />
+   i. 在终端（Terminal）输入 `vi ~/.gitconfig` 并回车；<br />
+   ii. 按`i`键进入插入（insert）编辑模式；<br />
+   iii. 在文件末尾添加代理信息，格式和 Windows 的一样；<br />
+   iv. 按`ESC`键退出插入编辑模式，输入`:wq`，回车保存。<br />
    我没有 macOS，所以并没有测试这样操作是否可行，仅供参考。另外，这部分参考了：<https://www.jianshu.com/p/5e74b1042b70>。
-8. 对比
+8. 对比<br />
    i. 设置前
    ![GitHub_Desktop_设置代理前](image/GitHub_proxy_0.png)
    ii. 设置后
