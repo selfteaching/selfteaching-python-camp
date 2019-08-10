@@ -10,7 +10,39 @@
 
 **目录**
 
-[TOC]
+- [Python 自学训练营 010 期 沈璜 日志](#python-%e8%87%aa%e5%ad%a6%e8%ae%ad%e7%bb%83%e8%90%a5-010-%e6%9c%9f-%e6%b2%88%e7%92%9c-%e6%97%a5%e5%bf%97)
+  - [DAY 00](#day-00)
+    - [1. 学习内容](#1-%e5%ad%a6%e4%b9%a0%e5%86%85%e5%ae%b9)
+    - [2. 学习用时](#2-%e5%ad%a6%e4%b9%a0%e7%94%a8%e6%97%b6)
+    - [3. 收获总结](#3-%e6%94%b6%e8%8e%b7%e6%80%bb%e7%bb%93)
+    - [4. 遇到的难点与问题](#4-%e9%81%87%e5%88%b0%e7%9a%84%e9%9a%be%e7%82%b9%e4%b8%8e%e9%97%ae%e9%a2%98)
+      - [4.1 网络环境](#41-%e7%bd%91%e7%bb%9c%e7%8e%af%e5%a2%83)
+      - [4.2 手册话语](#42-%e6%89%8b%e5%86%8c%e8%af%9d%e8%af%ad)
+      - [总结](#%e6%80%bb%e7%bb%93)
+  - [DAY 01](#day-01)
+    - [1. 学习内容](#1-%e5%ad%a6%e4%b9%a0%e5%86%85%e5%ae%b9-1)
+    - [2. 学习用时](#2-%e5%ad%a6%e4%b9%a0%e7%94%a8%e6%97%b6-1)
+    - [3. 收获总结](#3-%e6%94%b6%e8%8e%b7%e6%80%bb%e7%bb%93-1)
+    - [4. 遇到的难点与问题](#4-%e9%81%87%e5%88%b0%e7%9a%84%e9%9a%be%e7%82%b9%e4%b8%8e%e9%97%ae%e9%a2%98-1)
+      - [4.1 “任务2.3 在 develop 分支中创建一个名为 develop.txt 的文件，提交一个 commit”](#41-%e4%bb%bb%e5%8a%a123-%e5%9c%a8-develop-%e5%88%86%e6%94%af%e4%b8%ad%e5%88%9b%e5%bb%ba%e4%b8%80%e4%b8%aa%e5%90%8d%e4%b8%ba-developtxt-%e7%9a%84%e6%96%87%e4%bb%b6%e6%8f%90%e4%ba%a4%e4%b8%80%e4%b8%aa-commit)
+      - [4.2 “任务2.4 从 develop 提交一个 Pull Request 到 master 分支，并将其合并(merge)”](#42-%e4%bb%bb%e5%8a%a124-%e4%bb%8e-develop-%e6%8f%90%e4%ba%a4%e4%b8%80%e4%b8%aa-pull-request-%e5%88%b0-master-%e5%88%86%e6%94%af%e5%b9%b6%e5%b0%86%e5%85%b6%e5%90%88%e5%b9%b6merge)
+      - [4.3 “任务3 在 GitHub 的仓库中提交 Issue”](#43-%e4%bb%bb%e5%8a%a13-%e5%9c%a8-github-%e7%9a%84%e4%bb%93%e5%ba%93%e4%b8%ad%e6%8f%90%e4%ba%a4-issue)
+      - [4.4 “任务4.2 通过 下载地址 安装 Github Desktop 桌面客户端，完成后登录自己的账户”](#44-%e4%bb%bb%e5%8a%a142-%e9%80%9a%e8%bf%87-%e4%b8%8b%e8%bd%bd%e5%9c%b0%e5%9d%80-%e5%ae%89%e8%a3%85-github-desktop-%e6%a1%8c%e9%9d%a2%e5%ae%a2%e6%88%b7%e7%ab%af%e5%ae%8c%e6%88%90%e5%90%8e%e7%99%bb%e5%bd%95%e8%87%aa%e5%b7%b1%e7%9a%84%e8%b4%a6%e6%88%b7)
+      - [4.5 “任务4.4 在本地电脑的 hello-world 仓库中创建一个名为 local.txt 的文本文件”](#45-%e4%bb%bb%e5%8a%a144-%e5%9c%a8%e6%9c%ac%e5%9c%b0%e7%94%b5%e8%84%91%e7%9a%84-hello-world-%e4%bb%93%e5%ba%93%e4%b8%ad%e5%88%9b%e5%bb%ba%e4%b8%80%e4%b8%aa%e5%90%8d%e4%b8%ba-localtxt-%e7%9a%84%e6%96%87%e6%9c%ac%e6%96%87%e4%bb%b6)
+      - [4.6 “任务4.5 通过 Github Desktop 将本地仓库新增的文本文件提交为一个 commit”](#46-%e4%bb%bb%e5%8a%a145-%e9%80%9a%e8%bf%87-github-desktop-%e5%b0%86%e6%9c%ac%e5%9c%b0%e4%bb%93%e5%ba%93%e6%96%b0%e5%a2%9e%e7%9a%84%e6%96%87%e6%9c%ac%e6%96%87%e4%bb%b6%e6%8f%90%e4%ba%a4%e4%b8%ba%e4%b8%80%e4%b8%aa-commit)
+      - [4.7 “任务5.3 通过 Github Desktop 将自己账户下 fork 的作业仓库 clone 到本地电脑”](#47-%e4%bb%bb%e5%8a%a153-%e9%80%9a%e8%bf%87-github-desktop-%e5%b0%86%e8%87%aa%e5%b7%b1%e8%b4%a6%e6%88%b7%e4%b8%8b-fork-%e7%9a%84%e4%bd%9c%e4%b8%9a%e4%bb%93%e5%ba%93-clone-%e5%88%b0%e6%9c%ac%e5%9c%b0%e7%94%b5%e8%84%91)
+      - [4.8 “任务5.8 回到 Github 自己账户下的作业仓库页面，向远程公用作业仓库的 master 分支发起 Pull Request，在提交的 Pull Request 的标题（title）中填写自己所在的钉钉群名，如示例：【032901】自学训练营 DAY1 ，并在评论（comment）中 @自己的助教（请向助教索要他的 Github 用户名）提醒他检查作业”](#48-%e4%bb%bb%e5%8a%a158-%e5%9b%9e%e5%88%b0-github-%e8%87%aa%e5%b7%b1%e8%b4%a6%e6%88%b7%e4%b8%8b%e7%9a%84%e4%bd%9c%e4%b8%9a%e4%bb%93%e5%ba%93%e9%a1%b5%e9%9d%a2%e5%90%91%e8%bf%9c%e7%a8%8b%e5%85%ac%e7%94%a8%e4%bd%9c%e4%b8%9a%e4%bb%93%e5%ba%93%e7%9a%84-master-%e5%88%86%e6%94%af%e5%8f%91%e8%b5%b7-pull-request%e5%9c%a8%e6%8f%90%e4%ba%a4%e7%9a%84-pull-request-%e7%9a%84%e6%a0%87%e9%a2%98title%e4%b8%ad%e5%a1%ab%e5%86%99%e8%87%aa%e5%b7%b1%e6%89%80%e5%9c%a8%e7%9a%84%e9%92%89%e9%92%89%e7%be%a4%e5%90%8d%e5%a6%82%e7%a4%ba%e4%be%8b032901%e8%87%aa%e5%ad%a6%e8%ae%ad%e7%bb%83%e8%90%a5-day1-%e5%b9%b6%e5%9c%a8%e8%af%84%e8%ae%bacomment%e4%b8%ad-%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8a%a9%e6%95%99%e8%af%b7%e5%90%91%e5%8a%a9%e6%95%99%e7%b4%a2%e8%a6%81%e4%bb%96%e7%9a%84-github-%e7%94%a8%e6%88%b7%e5%90%8d%e6%8f%90%e9%86%92%e4%bb%96%e6%a3%80%e6%9f%a5%e4%bd%9c%e4%b8%9a)
+      - [总结](#%e6%80%bb%e7%bb%93-1)
+  - [DAY 02](#day-02)
+    - [1. 学习内容](#1-%e5%ad%a6%e4%b9%a0%e5%86%85%e5%ae%b9-2)
+    - [2. 学习用时](#2-%e5%ad%a6%e4%b9%a0%e7%94%a8%e6%97%b6-2)
+    - [3. 收获总结](#3-%e6%94%b6%e8%8e%b7%e6%80%bb%e7%bb%93-2)
+    - [4. 遇到的难点与问题](#4-%e9%81%87%e5%88%b0%e7%9a%84%e9%9a%be%e7%82%b9%e4%b8%8e%e9%97%ae%e9%a2%98-2)
+  - [DAY 03](#day-03)
+    - [1. 学习内容](#1-%e5%ad%a6%e4%b9%a0%e5%86%85%e5%ae%b9-3)
+    - [2. 学习用时](#2-%e5%ad%a6%e4%b9%a0%e7%94%a8%e6%97%b6-3)
+    - [3. 收获总结](#3-%e6%94%b6%e8%8e%b7%e6%80%bb%e7%bb%93-3)
+    - [4. 遇到的难点与问题](#4-%e9%81%87%e5%88%b0%e7%9a%84%e9%9a%be%e7%82%b9%e4%b8%8e%e9%97%ae%e9%a2%98-3)
 
 ------
 
