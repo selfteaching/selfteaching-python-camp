@@ -152,9 +152,9 @@ Issue 的位置与“参考资料2”中的截图不一致，应是 GitHub 改�
    我没有 macOS，所以并没有测试这样操作是否可行，仅供参考。另外，这部分参考了：<https://www.jianshu.com/p/5e74b1042b70>。
 8. 对比
    i. 设置前
-   ![GitHub_Desktop_设置代理前](image\GitHub_proxy_0.png)
+   ![GitHub_Desktop_设置代理前](image/GitHub_proxy_0.png)
    ii. 设置后
-   ![GitHub_Desktop_设置代理后](image\GitHub_proxy_1.png)
+   ![GitHub_Desktop_设置代理后](image/GitHub_proxy_1.png)
 
 #### 4.8 “任务5.8 回到 Github 自己账户下的作业仓库页面，向远程公用作业仓库的 master 分支发起 Pull Request，在提交的 Pull Request 的标题（title）中填写自己所在的钉钉群名，如示例：【032901】自学训练营 DAY1 ，并在评论（comment）中 @自己的助教（请向助教索要他的 Github 用户名）提醒他检查作业”
 
