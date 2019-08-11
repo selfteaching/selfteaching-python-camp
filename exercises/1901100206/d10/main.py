@@ -8,7 +8,7 @@ try:
     #先转换成unicode，否则'gbk' codec can't decode byte 0x80 in position 70: illegal multibyte sequence
     with open(path, "r", encoding='UTF-8') as f:  #"r"可不加
         read_one = f.read() #read()将文件内容读取，并存在read_one
-        print(stats_word.stats_text_cn(read_one, 100)) 
+        print(stats_word.stats_text_cn(read_one, 20)) 
 except TypeError as err:
     print('TypeError:' + str(err))
 
