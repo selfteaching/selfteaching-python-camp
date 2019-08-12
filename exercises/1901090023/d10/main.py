@@ -7,7 +7,7 @@ with open('F:/编程入门/selfteaching-python-camp/exercises/1901090023/d09/tan
     text = f.read()                            # f.read()读取并返回文件的整个内容，会读取一些数据并将其作为字符串返回
     
 try:
-    print(stats_text_cn(text,100))                # 输出中文词频最高的前100个词
+    print(stats_text_cn(text,20))                # 输出中文词频最高的前20个词
 except NameError as err:                          # 假设调用者忘了输入text，由于text没有被定义，则由except来捕获NameError异常
     print('Oops, cannot find text! Please input text!')
 else:                                          # 如果调用者正确定义了text,即无错误发生，则执行else语句
@@ -30,7 +30,7 @@ finally:                                       # 不管有无异常，最后都�
 
 # 3. 相对路径和绝对路径的概念
 # 绝对路径就是文件的真正存在的路径，是指从硬盘的根目录(盘符)开始，进行一级级目录指向文件。 
-# 相对路径就是以当前文件为基准进行一级级目录指向被引用的资源文件。 
+# 相对路径就是以当前文件为基准进行一级级目录指向被引用的资源文件。 代码第6行路径还可以设置为：with open('F:/编程入门/我的作业/d09/tang300.json',encoding='UTF-8') as f
 # 以下是常用的表示当前目录和当前目录的父级目录的标识符 
 # ../ 表示当前文件所在的目录的上一级目录 
 # ./ 表示当前文件所在的目录(可以省略) 
