@@ -57,6 +57,6 @@ print(sorted(frequency.items(),key=lambda x: x[1],reverse=True))
 def stats_text(text):
     '''分别调⽤stats_text_en , stats_text_cn ，输出合并词频统计结果'''
 
-    text = stats_text_en(text) + stats_text_cn(text)
+    return  stats_text_en(text) + stats_text_cn(text)
     # print(result)
     # return result
