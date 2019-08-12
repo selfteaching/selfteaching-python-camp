@@ -33,35 +33,46 @@ def stats_text_en(text):
     for element in elements:
         for symbol in symbols:
             element = element.replace(symbol, '')
-        if len(element):
+        if len(element) and element.isascii():
             words.append(element)
     counter = {}
     word_set = set(words)
     for word in word_set:
-        counter[word]=words.count(word)
-    return sorted(counter.items(),key=lambda x:x[1],reverse=True)
+        counter[word] = words.count(word)
+    return sorted(counter.items(), key=lambda x:x[1],reverse=True)
 
 #封装统计中⽂文汉字字频的函数
 #定义一个名为 stats_text_cn 的函数，函数接受⼀个字符串 text 作为参数
 #实现该函数的功能:统计参数中每个中文汉字出现的次数，最后返回⼀个按字频降序排列的数组
 #为 stats_text_cn 添加注释说明
 cn_text='''
-But man is not made for defeat.
-A man can be destroyed but not defeated.
-但人不是为失败而生的.
-一个人可以被毁灭，但不能被打败.
+python 之禅 by Tim Peters
+优美胜于丑陋
+明了胜于晦涩
+简洁胜于复杂
+复杂胜于凌乱
+扁平胜于嵌套
+间隔胜于紧凑
+可读性很重要
+即使假借特例的实用性之名，也不可违背这些规则
+不要包容所有错误，除非你确定需要这样做
+当存在多种可能，不要尝试去猜测
+而是尽量找一种，最好是唯一一种明显的解决方案
+虽然这并不容易，因为你不是 python 之父
+做也许好过不做，但不假思索就动手还不如不做
 '''
 
 def stats_text_cn(text):
     cn_characters = []
     for character in text:
-        if '\u4e00' <= character <= '\u9fff':
-            cn_characters.append(character)
+            #unicode中 中文字符的范围
+            if '\u4e00' <= character <='\u9fff':
+                cn_characters.append(character)
     counter = {}
     cn_character_set = set(cn_characters)
     for character in cn_character_set:
         counter[character] = cn_characters.count(character)
-    return sorted(counter.items(),key=lambda x:x[1],reverse=True)
+    return sorted(counter.items(), key=lambda x:x[1],reverse=True)
 
 #添加一个名为 stats_text 的函数，实现功能:分别调用stats_text_en , stats_text_cn ，输出合并词频统计结果
 #为 stats_text 添加注释说明
