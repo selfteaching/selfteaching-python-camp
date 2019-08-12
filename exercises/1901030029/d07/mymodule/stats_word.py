@@ -40,7 +40,6 @@ print('******************************')
 print("按照出现次数从小到大输出所有的单词及出现的次数")
 print('******************************')
 print(sorted(frequency.items(),key=lambda x:x[1],reverse=True))
-t1=list(stats_text_en(text))
 
  #创建一个名为stas_text_cn的函数 
 def stats_text_cn(text):
@@ -54,11 +53,10 @@ print('**************************')
 print("按照出现次数从大到小输出所有的汉字以及出现的次数")
 print('**************************')        
 print(sorted(frequency.items(),key=lambda x: x[1],reverse=True))
-t2=list(stats_text_cn(text))
 
 def stats_text(text):
     '''分别调⽤stats_text_en , stats_text_cn ，输出合并词频统计结果'''
 
-    return  stats_text_en(text) + stats_text_cn(text)
+    return  stats_text_en(text).update(stats_text_cn(text))
     # print(result)
     # return result
