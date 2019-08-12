@@ -34,10 +34,9 @@ for i in txt1:#让i遍历一遍txt1
         list.append(i)#把i里面的常量添加到list中
 print(list)
         
-#初始化一个字典，其实在统计字数的时候是用遍历的方式，用列表的count方法来做的
-w={}
-listset=set(list)
-for p in listset:
-    w[p]=list.count(p)
+w={}#初始化一个字典，其实在统计字数的时候是用遍历的方式，用列表的count方法来做的
+listset=set(list)#把list里面的元素都用set这个函数建立一个集合，可为什么要建立集合呢？
+for p in listset:#让p遍历这个集合
+    w[p]=list.count(p)#w是个列表，这个列表里面的是p遍历了listset之后，由count统计字符串个数后的值；w[p]这个写法的意思是什么？
 print(w)
 
