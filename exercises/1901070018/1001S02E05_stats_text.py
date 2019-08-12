@@ -25,7 +25,7 @@ texta = text.replace('--', '').replace('*', '').replace('!', '').replace('.','')
 list1 = texta.split()
 dic = {}
 for i in list1:
-    num = text.count(i)
+    num = list1.count(i)
     dic[i] = num
 list2 = sorted(dic.items(),key=lambda d:d[1],reverse=True)
 print(list2)

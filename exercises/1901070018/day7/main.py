@@ -1,5 +1,4 @@
-from day7.mymodule import stats_text
-
+from mymodule import stats_text
 text = '''
 愚公移⼭山
 太⾏行行，王屋⼆二⼭山的北北⾯面，住了了⼀一個九⼗十歲的⽼老老翁，名叫愚公。⼆二⼭山佔地廣闊，擋住去路路，使他
