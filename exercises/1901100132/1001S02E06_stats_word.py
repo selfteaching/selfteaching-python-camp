@@ -6,14 +6,14 @@ def stats_text_en(text):
     for element in elements:
         for symbol in symbols:
             element = element.replace(symbol, '')
-            if len(element):
+        if len(element):
                 words.append(element)
     counter = {}
-    words_set = set(words)
+    word_set = set(words)
 
-    for word in words_set:
+    for word in word_set:
         counter[word] = words.count(word)
-    return sorted(counter.items(), key=lambda x:x[1], reverse=True)
+    return sorted(counter.items(), key=lambda x: x[1], reverse=True)
 
 #统计参数中每个中文汉字出现的次数
 def stats_text_cn(text):
@@ -74,3 +74,6 @@ if __name__ == '__main__':
     cn_result = stats_text_cn(cn_text)
     print('统计参数中每个英文单词出现的次数 ==>\n', en_result) 
     print('统计参数中每个中文汉字出现的次数 ==>\n', cn_result)
+
+test_result = stats_text_en('how old are you?')
+print(test_result)
