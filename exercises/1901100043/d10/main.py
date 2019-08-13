@@ -1,10 +1,10 @@
+from mymodule import stats_word
 from collections import Counter
 from os import path
 import traceback
 import json
 import re
 import logging
-import jieba
 
 logging.basicConfig(
     format='file:%(filename)s|line:%(lineno)d|message:%(message)s',level=logging.DEBUG)
@@ -28,12 +28,7 @@ def main():
         data = load_file()
         logging.info(data[0])
         poems = merge_poems(json.loads(data))
-        cutwords = jieba.cut(poems)  # 分词
-        cutwords2 = []     
-        for w in cutwords:    # 提取长度大于2的词
-            if len(w) >= 2:
-                cutwords2.append(w)  
-        logging.info('result ==> sort :%s',Counter(cutwords2).most_common(20))
+        logging.info('result ==> %s',stats_word.stats_text_cn(poems,20))
     except Exception as e:
         logging.exception(e)
 
