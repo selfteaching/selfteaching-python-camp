@@ -17,7 +17,7 @@ def main():
         logging.info('%s %s',type(result), str(result))
 
         sender = input('请输入发件人邮箱：')
-        password = getpass.getpass('请输入发件人邮箱密码：')#dajmbkrnypoacaif
+        password = getpass.getpass('请输入发件人邮箱密码：')
         recipients = input('请输入收件人邮箱：')
 
         yag = yagmail.SMTP(sender,password,'smtp.qq.com')
