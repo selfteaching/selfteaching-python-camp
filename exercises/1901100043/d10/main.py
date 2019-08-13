@@ -1,0 +1,49 @@
+from collections import Counter
+from os import path
+import traceback
+import json
+import re
+import logging
+import jieba
+
+logging.basicConfig(
+    format='file:%(filename)s|line:%(lineno)d|message:%(message)s',level=logging.DEBUG)
+
+def load_file():
+    # 获取文件路径
+    file_path = path.join(path.dirname(path.abspath(__file__)),'tang300.json')
+    print('当前路径：',__file__,'\n读取文件路径:',file_path)
+    with open(file_path, 'r', encoding = 'utf-8')  as f :
+        return f.read()
+
+def merge_poems(data):
+    poems = ''
+    for item in data:
+        poems += item.get('contents','')
+    return poems
+
+
+def main():
+    try:
+        data = load_file()
+        logging.info(data[0])
+        poems = merge_poems(json.loads(data))
+        cutwords = jieba.cut(poems)  # 分词
+        cutwords2 = []     
+        for w in cutwords:    # 提取长度大于2的词
+            if len(w) >= 2:
+                cutwords2.append(w)  
+        logging.info('result ==> sort :%s',Counter(cutwords2).most_common(20))
+    except Exception as e:
+        logging.exception(e)
+
+
+if __name__ == "__main__":
+    main()
+
+'''
+练习感受：
+
+结巴分词的的使用
+
+'''
