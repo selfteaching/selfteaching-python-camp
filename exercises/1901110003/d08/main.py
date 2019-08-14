@@ -1,5 +1,29 @@
 #调⽤ stats_word 中的任何一个函数，参数传⼊非字符串，验证参数检查功能是否生效
 from mymodule import stats_word
+import traceback
+import logging
+
+logging = logging.getLogger(__name__)
+
+def test_trackback():
+    try:
+        stats_word.stats_text(1)
+    except Exception as e:
+        print('test_traceback =>',e)
+        print(traceback.format_exc())
+
+def test_logger():
+    try:
+        stats_word.stats_text(1)
+    except Exception as e:
+        print('test_logger =>',e)
+        logging.exception(e)
+
+if __name__ == "__main__":
+    #stats_word.stats_text(1)
+    test_trackback()
+    test_logger()
+
 text = '''
 愚公移山
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他 
@@ -59,9 +83,6 @@ incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered
 two mighty gods to carry the mountains away.
 '''
-try:
-    stats_word.stats_text(text)
-except ValueError:
-    print("输入非字符串")
-result=stats_word.stats_text(text)
+
+result = stats_word.stats_text(text)
 print(result)
