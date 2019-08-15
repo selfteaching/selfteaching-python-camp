@@ -1,10 +1,7 @@
 import re#运用正则表达式来去除符号和非目标文字
 def exam(x):#定义参数类型检查函数，若非字符串类型则抛出ValueError类型错误并提示错误类型
-  if not isinstance(x,str):
-      try:
-        raise ValueError("您输入的不是字符，请重新尝试，输入字符类型的参数。")
-      except ValueError as a:
-        print(a)
+  if not isinstance(x,str): 
+    raise ValueError("您输入的不是字符，请重新尝试，输入字符类型的参数。")
   else:
     pass
 def stats_text_en(x) :#定义英文单词词频统计函数

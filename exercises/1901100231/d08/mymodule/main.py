@@ -68,5 +68,7 @@ elif function =="2":
     text = input("请输入要检测的文本：")
     if text.isdigit():
         text = int(text)#将纯数字转化为整数型
-    stats_word.stats_text(text)
-
+    try:
+        stats_word.stats_text(text)
+    except ValueError as a:
+        print(a)
