@@ -60,6 +60,10 @@ def stats_text_cn(t):
     
     return sorted(counter.items(),key=lambda x:x[1],reverse=True)
 
+def stats_text(text):
+    if type(text)!=str:
+        raise ValueError('非字符串类型')
+    return stats_text_cn(text) + stats_text_en(text)
 
 # 测试
 
@@ -72,15 +76,3 @@ if __name__ =='__main__':  #测试时候为了防止被调用
 
 # q 为什么还是会把标点符号算进去呢
 # a 把英文','换成中文‘，’就可以了
-
-
-def stats_text(text):
-    if type(text)!=str:
-        raise ValueError('非字符串类型')
-    return stats_text_cn(text) + stats_text_en(text)
-    
-if __name__ =='__main__ ':  
-    ns=stats_text(text)
-    print(ns)
-
-# def check_arguments(ValueError,kw)

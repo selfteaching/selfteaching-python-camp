@@ -57,12 +57,19 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 # print(result)
 # 感觉这个对今天的作业影响不大，就给注释掉了
 
-
-
-
+simple_text2={'这是啥'}
 try:
-    simple_text2={'这是啥'}
+    result=stats_word.stats_text(simple_text2)
 except ValueError :
     print ('你瞅瞅这是啥')
 else:
     print('我也不知道这是啥')
+    
+try:
+    simple_text2={'这是啥'}
+    # result
+except ValueError :
+    print ('你瞅瞅这是啥')
+else:
+    print('我也不知道这是啥')
+
