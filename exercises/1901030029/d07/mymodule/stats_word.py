@@ -21,9 +21,9 @@ Namespaces are one honking great idea -- let's do more of those!
 '''
 import re
 fuhao=",.!-*，。&"                         #去除英文单词中的标点符号
-for str in fuhao:
-    text=text.replace(str,'')
-print(text)
+for a in fuhao:
+    text=text.replace(a,'')
+print()
 
 
 def stats_text_en(text):                   #定义一个以字符串text为参数的函数
