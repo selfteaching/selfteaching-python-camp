@@ -19,7 +19,7 @@ def stats_text_en(text):
 def stats_text_cn(text):
     cn_characters = []
     for character in text:
-        if '\ude00' <= character <= '\u9fff':
+        if '\u4e00' <= character <= '\u9fff':
             cn_characters.append(character)
     counter = {}
     cn_character_set = set(cn_characters)
