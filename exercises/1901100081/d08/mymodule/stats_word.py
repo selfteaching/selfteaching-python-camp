@@ -60,6 +60,7 @@ def stats_text_cn(t):
     
     return sorted(counter.items(),key=lambda x:x[1],reverse=True)
 
+# 汉字和英文
 def stats_text(text):
     if type(text)!=str:
         raise ValueError('非字符串类型')

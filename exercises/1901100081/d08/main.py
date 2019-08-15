@@ -73,3 +73,4 @@ except ValueError :
 else:
     print('我也不知道这是啥')
 
+# 我又不知道哦作业交上了没有..打算再交一遍
