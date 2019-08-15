@@ -22,8 +22,8 @@ Namespaces are one honking great idea -- let's do more of those!
 import re
 fuhao=",.!-*，。&"                         #去除英文单词中的标点符号
 text =''
-for str in fuhao:
-    text=text.replace(str,'')
+for a in fuhao:
+    text=text.replace(a,'')
 print(text)
 
 
@@ -46,7 +46,7 @@ print(sorted(frequency.items(),key=lambda x:x[1],reverse=True))
 
  #创建一个名为stas_text_cn的函数 
 def stats_text_cn(text):
-    if not isinstance('the type of argument need str'):
+    if not isinstance(text,str):
         raise ValueError('字符串必须是str类型，输入类型  %s' %type(text))
     dictionary={}                         #引用一个新字典
     for i in text:
