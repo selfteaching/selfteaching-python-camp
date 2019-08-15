@@ -21,6 +21,7 @@ Namespaces are one honking great idea -- let's do more of those!
 '''
 import re
 fuhao=",.!-*，。&"                         #去除英文单词中的标点符号
+text =''
 for str in fuhao:
     text=text.replace(str,'')
 print(text)
@@ -28,7 +29,7 @@ print(text)
 
 def stats_text_en(text):                   #定义一个以字符串text为参数的函数
     if not isinstance (text,str):
-        raise ValueError ('the type of argument need str')
+        raise ValueError ('字符串必须是str类型，输入类型  %s' %type(text))
     result=re.sub("[^A-Za-z]"," ",text.strip())#统计单词次数
     dic={}                                 #使用字典统计text中的每个英文单词出现的次数
     for x in result.split():
@@ -46,7 +47,7 @@ print(sorted(frequency.items(),key=lambda x:x[1],reverse=True))
  #创建一个名为stas_text_cn的函数 
 def stats_text_cn(text):
     if not isinstance('the type of argument need str'):
-        raise ValueError('the type of argument need str')
+        raise ValueError('字符串必须是str类型，输入类型  %s' %type(text))
     dictionary={}                         #引用一个新字典
     for i in text:
         if u'\u4e00' <= i <=u'\u9fa5':    #提取中文汉字 \u是unincode的编码，u4e00是十进制表达式
@@ -61,7 +62,7 @@ print(sorted(frequency.items(),key=lambda x: x[1],reverse=True))
 def stats_text(text):
     '''分别调⽤stats_text_en , stats_text_cn ，输出合并词频统计结果'''
     if not isinstance(text,str):
-        raise ValueError('the type of argument need str ')
+        raise ValueError('字符串必须是str类型，输入类型  %s' %type(text))
 
     return  stats_text_en(text).update(stats_text_cn(text))
     # print(result)

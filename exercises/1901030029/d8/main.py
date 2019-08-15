@@ -1,4 +1,5 @@
 from mymodule import stats_word 
+import traceback
 
 sample_text = '''
 愚公移⼭
@@ -64,4 +65,5 @@ def stats_text():
     try:
         stats_word.stats_text(sample_text)
     except Exception as err:
-        print('Value Error: {}'.format (err))
+        print('text_traceback=>,',err)
+        print(traceback.format_exc())
