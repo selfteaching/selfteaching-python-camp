@@ -20,8 +20,7 @@ Namespaces are one honking great idea -- let's do more of those!
 去除英文单词中的标点符号
 '''
 import re
-fuhao=",.!-*，。&"                         #去除英文单词中的标点符号
-text =''
+fuhao=",.!-*，。&"                         #去除英文单词中
 for a in fuhao:
     text=text.replace(a,'')
 print(text)
