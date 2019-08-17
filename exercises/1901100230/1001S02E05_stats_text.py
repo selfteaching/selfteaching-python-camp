@@ -24,10 +24,10 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-text = re.split(r'[ ,.*--\n]', text)
+text = re.split(r'[ ,.*--\s]', text)
 d = {}
 for i in text:
-        if i in d:
+        if i in d and len(i)>0:
                 d[i] = d[i]+1
         else:
                 d[i]= 1
