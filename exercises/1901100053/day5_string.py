@@ -32,7 +32,7 @@ print('将字符串样本里的 better 全部替换成 worse ==>',text)
 # 2. 将单词中包含 ea 的单词剔除
 
 # 先将字符串根据空白字符分割成 list ,要调用 str 类型
-words = text_split()
+words = text.split()
 # 定义一个 list 类型的变量用来存放过滤完的单词
 filterde = []
 # 用 for...in 循环遍历一遍 words 里的元素然后判断单词是否包含 ea 
