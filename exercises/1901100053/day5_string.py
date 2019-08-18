@@ -34,18 +34,18 @@ print('将字符串样本里的 better 全部替换成 worse ==>',text)
 # 先将字符串根据空白字符分割成 list ,要调用 str 类型
 words = text.split()
 # 定义一个 list 类型的变量用来存放过滤完的单词
-filterde = []
+filtered = []
 # 用 for...in 循环遍历一遍 words 里的元素然后判断单词是否包含 ea 
 for word in words:
     # str 类型的 find 方法 如果不包含 参数 字符则返回 -1 ,如果包含则返回该字符第一次出现时的索引
     if word.find('ea') < 0:
-        filterde.append(word)
-print('将单词中包含 ea 的单词剔除==>', filterde) 
+        filtered.append(word)
+print('将单词中包含 ea 的单词剔除==>', filtered) 
 
 # 3. 进行大小写翻转
 # 利用列表推倒式 对 str 类型的元素进行大小写翻转
-swapcased = [i.swapcase() for i in filtered]
-print('进行大小写翻转 == >', swapcased)
+swapcased = [i.swapcase()  for i in filtered ]
+print('进行大小写翻转 ==>', swapcased)
 
 # 4.单词按 a_z 升序排列
 # print('单词按 a_z 升序排列==>', sorted(swapcased))
