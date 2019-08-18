@@ -1,6 +1,8 @@
 import re # 调用正则表达式模块，从尖子生哪里学来的
           # re.sub(pattern, repl, string, count=0, flags=0)
 def stats_text_en(t_en): # 定义函数
+    if not isinstance(t_en, str):
+        raise ValueError('input data is not string type1!')
     a = t_en.replace(',','').replace('.','').replace(':','').replace(';','').replace('"','').replace('!','').replace('?','').replace('、','').replace('，','').replace('。','').replace('“','').replace('”','').replace('：','').replace('；','').replace('\n','').replace('！','').replace('？','').replace('/','').replace('*',' ').replace('--',' ')
     a = a.lower() # 全英文单词小写
     a = re.sub("[^A-Za-z]", " ", a) # 借用了这个正则表达式，这里保留了英文单词，^代表取出大小写a-z以外所有的字符串剔除
@@ -20,6 +22,8 @@ def stats_text_en(t_en): # 定义函数
 # 4.定义一个参数f，用sorted()函数对f进行排序
 # 5.print缩进函数里面就是函数的一个输出参数了
 def status_text_cn(t_cn):
+    if not isinstance(t_cn, str):
+        raise ValueError('input data is not string type2!')
     d = t_cn.replace(',','').replace('-',' ').replace('.','').replace(':','').replace(';','').replace('"','').replace('!','').replace('?','').replace('、','').replace('，','').replace('。','').replace('“','').replace('”','').replace('：','').replace('；','').replace('\n','').replace('！','').replace('？','').replace('/','').replace('*',' ').replace(' ','')
     d = re.sub("[A-Za-z0-9]", "",d) #借用了这个正则表达式，这里删除了英文单词，因为没有加上^
     e = {}
@@ -34,3 +38,4 @@ def stats_text(tt):
     if not isinstance(tt, str):
         raise ValueError('input data is not string type3!')
     return(stats_text_en(tt),status_text_cn(tt))
+
