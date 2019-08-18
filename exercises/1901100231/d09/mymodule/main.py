@@ -1,4 +1,4 @@
-import json
+import json#加载json模块完成对.json文件的读取
 import stats_word
 print('请输入要统计的唐诗三百首的词频前多少位：')
 a = open('D:/Git hub/selfteaching-python-camp/exercises/1901100231/d09/mymodule/tang300.json',encoding = 'utf-8')#打开文件
