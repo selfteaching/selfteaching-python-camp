@@ -22,18 +22,15 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!'''
 str1=text.replace('better','worse')
-#print(str1)
+print(str1)
 list1=str1.split() #转换为列表
-#print(list1)
+print(list1)
 list2=[]
 for i in list1:
     if 'ea' not in list1:
         list2.append(i) #去除ea的列表
-list3=[]
-for i in list2:
-     if i.isupper():
-         list3.append(i.lower())
-     elif i.islower():
-         list3.append(i.upper())
-list3.sort()         
-print(list3)
+print(list2)
+tup1=(' '.join(list2))
+tup2=tup1.swapcase()
+#print(tup2)
+print(sorted(tup2.split(), key=str.lower))
