@@ -29,7 +29,7 @@ text2 = tex1.split()  #需要将str变成list来进行操作
 a = "ea"
 text3 = []
 for i in text2:
-    if i.find(a) < 0:
+    if i.find(a) == -1:
         text3.append(i)
 print(text3)
 #任务3：大小写切换
