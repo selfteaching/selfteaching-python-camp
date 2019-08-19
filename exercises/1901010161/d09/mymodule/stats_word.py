@@ -23,6 +23,6 @@ def stats_text_cn(text, count):     # 定义中文文本统计函数
 
 def stats_text(text, count):     # 定义文本统计函数
     if type(text) == str:
-        return(stats_text_en(text, count, count) + stats_text_cn(text, count, count))    # 输出合并英文和中文词频统计结果
+        return(stats_text_en(text, count) + stats_text_cn(text, count))    # 输出合并英文和中文词频统计结果
     else:
         raise ValueError('type of argument is not string')
