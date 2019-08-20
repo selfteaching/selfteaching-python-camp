@@ -8,7 +8,8 @@ def stats_text_en(text):
     for element in elements:
         for symbol in symbols:
             element = element.replace(symbol, '')
-        if len(element):
+        # 用 str 类型 的 isascii 方法判断是否是英文单词
+        if len(element) and element.isascii():
             words.append(element)
     counter = {}
     word_set = set(words)
