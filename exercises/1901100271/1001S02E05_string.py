@@ -24,9 +24,8 @@ Namespaces are one honking great idea -- let's do more of those!
 '''
 #任务1：将字符串串样本 text里的 better全部替换成 worse
 text1 = text.replace("better","worse") #replace是有返回值的
-print(text1)
-#任务2：从第 2 步的结果里，将单词中包含 ea 的单词剔除
-text2 = tex1.split()  #需要将str变成list来进行操作
+print(text1)  #任务2：从第 2 步的结果里，将单词中包含 ea 的单词剔除
+text2 = text1.split()  #需要将str变成list来进行操作
 a = "ea"
 for i in text2:
     if i.find(a) != -1:
