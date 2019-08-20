@@ -21,25 +21,26 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-#任务1：将字符串串样本 text ⾥里里的 better 全部替换成 worse
-tex1 = text.replace("better","worse") #replace是有返回值的
+#任务1：将字符串串样本 text里的 better全部替换成 worse
+text1 = text.replace("better","worse") #replace是有返回值的
 print(text1)
 #任务2：从第 2 步的结果里，将单词中包含 ea 的单词剔除
 text2 = tex1.split()  #需要将str变成list来进行操作
 a = "ea"
-text3 = []
 for i in text2:
-    if i.find(a) == -1:
-        text3.append(i)
-print(text3)
+    if i.find(a) != -1:
+        b = text2.index(i)
+        del text2[b]
+        continue
+print(text2)
 #任务3：大小写切换
-text4 = " ".join(text3)  #大小写切换需要将list切换成str格式
-text5 = text4.swapcase()
-print(text5)
+text3 = " ".join(text2)  #大小写切换需要将list切换成str格式
+text4 = text3.swapcase()
+print(text4)
 #任务4升序排列
-text6 = text5.split()   #排序的时候需要将str再转换成list格式
-text7 = text6.sort()   #排序函数没有返回值
-print(text6)
+text5 = text4.split()   #排序的时候需要将str再转换成list格式
+text6 = text5.sort()   #排序函数没有返回值
+print(text5)
 
 
         
