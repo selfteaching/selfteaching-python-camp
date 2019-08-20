@@ -3,7 +3,7 @@ from mymodule.stats_word import stats_text_cn     # 从 模块中(mymodule是包
 
 import json                                    # 导入json模块
 # unicode是一个内置函数，第二个参数指示源字符串的编码格式，从unicode转str，要用encode方法，即转换为utf-8编码的字符串str
-with open('d09/tang300.json',encoding='UTF-8') as f:    # tang文件和main文件是同级目录，这是用相对路径；还有一种是绝对路径：with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tang300.json')) as f :
+with open('F:/编程入门/selfteaching-python-camp/exercises/1901090023/d09/tang300.json',encoding='UTF-8') as f:    # tang文件和main文件是同级目录，这是用相对路径；还有一种是绝对路径：with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tang300.json')) as f :
     text = f.read()                            # f.read()读取并返回文件的整个内容，会读取一些数据并将其作为字符串返回
     
 try:
@@ -30,7 +30,7 @@ finally:                                       # 不管有无异常，最后都�
 
 # 3. 相对路径和绝对路径的概念
 # 绝对路径就是文件的真正存在的路径，是指从硬盘的根目录(盘符)开始，进行一级级目录指向文件。 
-# 相对路径就是以当前文件为基准进行一级级目录指向被引用的资源文件。 代码第6行路径还可以设置为：with open('F:/编程入门/我的作业/d09/tang300.json',encoding='UTF-8') as f
+# 相对路径就是以当前文件为基准进行一级级目录指向被引用的资源文件。 
 # 以下是常用的表示当前目录和当前目录的父级目录的标识符 
 # ../ 表示当前文件所在的目录的上一级目录 
 # ./ 表示当前文件所在的目录(可以省略) 
