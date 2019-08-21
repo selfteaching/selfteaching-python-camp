@@ -59,7 +59,7 @@ cn_text='''现在每个我遇见的笑着的人，
 def stats_text_cn(text):
     item_cn=[]
     for item in text:
-        if'\u4e00'<=item<='u9fff':
+        if'\u4e00'<=item<='\u9fff':
             item_cn.append(item)
     counter={}
     item_cn_set=set(item_cn)

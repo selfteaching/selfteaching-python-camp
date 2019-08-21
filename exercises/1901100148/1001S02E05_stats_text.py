@@ -53,3 +53,8 @@ print()
 # dict 类型 counter 的items 方法会返回一个包含 相应项（key,value) 的元组 列表
 # print('counter.items()--->',counter.items())
 print('从大到小输出所有单词及出现的次数===》',sorted(counter.items(),key=lambda x:x[1],reverse=True))
+
+
+name='Ann'
+age=22
+print(f'{name} is {age} years old')
