@@ -22,8 +22,8 @@ Namespaces are one honking great idea -- let's do more of those!
 '''
 # 统计参数中每个英文单词出现的次数，最后返回一个按词频词频降序排列的数组
 def stats_text_en(t):
-    if type(t)!=str:
-        raise ValueError('非字符串类型')
+    # if type(t)!=str:
+        # raise ValueError('非字符串类型')
     # 统计次数
     l1=t.split()
     l2=[]
@@ -53,12 +53,18 @@ def stats_text_cn(t):
             c2=c2.replace(sy2,'')
         if '\u4e00'<=c2<='\u9fff':
             c.append(c2)
-    counter ={}
-    set2=set(c)
-    for c2 in set2:
-        counter[c2]=c.count(c2)
+    from collections import Counter
+    cnt = Counter()
+    for word in c:
+        cnt[word] += 1
+    return (cnt.most_common(100))
+    # print (cnt)
+    # counter ={}
+    # set2=set(c)
+    # for c2 in set2:
+        # counter[c2]=c.count(c2)
     
-    return sorted(counter.items(),key=lambda x:x[1],reverse=True)
+    # return sorted(counter.items(),key=lambda x:x[1],reverse=True)
 
 # 汉字和英文
 def stats_text(text):
@@ -71,9 +77,10 @@ def stats_text(text):
 cn='照猫画虎，照葫芦画瓢'
 if __name__ =='__main__':  #测试时候为了防止被调用
     e=stats_text_en(text)
-    c=stats_text_cn(cn)
+    cx =stats_text_cn(cn)
     print (e)
-    print (c)
+    print (cx)
 
 # q 为什么还是会把标点符号算进去呢
 # a 把英文','换成中文‘，’就可以了
+
