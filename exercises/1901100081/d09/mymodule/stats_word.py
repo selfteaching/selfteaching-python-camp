@@ -21,7 +21,7 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 # 统计参数中每个英文单词出现的次数，最后返回一个按词频词频降序排列的数组
-def stats_text_en(t):
+def stats_text_en(t,co=100):
     # if type(t)!=str:
         # raise ValueError('非字符串类型')
     # 统计次数
@@ -35,15 +35,14 @@ def stats_text_en(t):
         if len (l3) and l3.isascii():
             l2.append(l3)
     # 排序
-    counter={}
-    words=set (l2)
-
-    for word in words:
-        counter[word]=l2.count(word)
-    return (sorted(counter.items(),key=lambda x:x[1],reverse=True))
+    from collections import Counter
+    cnt = Counter()
+    for word in l2:
+        cnt[word] += 1
+    return (cnt.most_common(co))
 
 # 统计汉字
-def stats_text_cn(t):
+def stats_text_cn(t,co = 100):
     if type(t)!=str:
         raise ValueError('非字符串类型')
     c=[]
@@ -57,7 +56,7 @@ def stats_text_cn(t):
     cnt = Counter()
     for word in c:
         cnt[word] += 1
-    return (cnt.most_common(100))
+    return (cnt.most_common(co))
     # print (cnt)
     # counter ={}
     # set2=set(c)

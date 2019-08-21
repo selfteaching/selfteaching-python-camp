@@ -96,8 +96,9 @@ with open(f,'r',encoding='UTF-8') as f1:
     
 from mymodule import stats_word
 x = stats_word.stats_text_cn(read_data)
+print(x)
 # list1 = list(x)
 # list1 = x.split()
 # print(list1[:99])
-print(x)
+# print(x)
 
