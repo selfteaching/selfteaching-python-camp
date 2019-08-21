@@ -1,2 +1,0 @@
->>> word = 'Python'
->>> word[0:2]
