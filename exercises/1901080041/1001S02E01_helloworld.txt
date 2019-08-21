@@ -1,0 +1,24 @@
+Hello Program World
+
+1.Github ID: create GitHub.com account 
+
+2. Key concept
+
+Repositories:
+-organize a single project. 
+-contain folders and files, images, videos, spreadsheets, and data sets
+-including a README, or a file with information about your project. 
+-also offers other common options such as a license file.
+
+branches:the way to work on different versions of a repository at one time.
+-default:master
+-edit on other branches:keep bug fixed and feature work
+-merge
+
+commits:saved changes 
+-commit message: a description explaining why a particular change was made. 
+
+Pull Requests:collaboration on GitHub
+-proposing your changes and requesting that someone review and pull in your contribution and merge them into their branch
+-By using GitHub’s @mention system in your pull request message, you can ask for feedback from specific people or teams
+-merge pull request
