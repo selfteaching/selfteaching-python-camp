@@ -1,34 +1,24 @@
-import re
+
 from collections import Counter
-count = int(input('输出词频前多少位：'))
-#创建一个函数，接收字符串text作为参数,统计英文单词词频
-def stats_text_en(text):
-    """
-    stats_text_en 可接收一个英文字符串text作为参数，统计参数中每个英文单词出现的次数，最后返回一个按词频降序排列的数组
-    """
-    if not isinstance(text,str):
-        raise ValueError('参数必须为str类型，当前输入类型%s'%type(text))
-    words = []
-    symbols = '.,!-"*，。？：、?"「 」'
+
+
+# 创建一个函数，统计参数中每个英文单词词频
+def stats_text_en(text,count):
     elements = text.split()
+    words = []
+    symbols = ',.*-!'
     for element in elements:
         for symbol in symbols:
             element = element.replace(symbol,'')
+        # 用 str 类型的 isascii 方法判断是否是英文单词
         if len(element) and element.isascii():
-            words.append(element.lower())
-    word_set = set(words)
-    counter_en = {}
-    for word in word_set:
-        counter_en[word] = words.count(word)
-    #return sorted(counter_en.items(),key = lambda x:x[1],reverse = True)
-    return Counter(counter_en).most_common(count)
-#定义一个函数,以text作为参数，统计汉字词频
-def stats_text_cn(text):
-    """
-    stats_text_cn接收一个中文字符串text作为参数，统计参数中每个汉字出现的次数，最后返回一个按字频降序排列排列的数组
-    """
-    if not isinstance(text,str):
-        raise ValueError('输入类型必须为str，当前输入类型为%s'%type(text))
+            words.append(element)
+    return Counter(words).most_common(count)
+
+
+#定义一个函数,统计参数中每个中文汉字出现的次数
+def stats_text_cn(text,count):
+
     characters_cn = []
     for character in text:
         if '\u4e00' <= character <= '\u9fff':
@@ -81,3 +71,4 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 '''
     result = stats_text(text)
     print('统计参数中英文单词和中文汉字出现的次数 ==>\n',result)
+

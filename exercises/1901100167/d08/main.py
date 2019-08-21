@@ -61,10 +61,12 @@ two mighty gods to carry the mountains away.
 text1=165
 text2=[1,2,3,4,5]
 import sys
-sys.path.append('E:/self-teaching/selfteaching-python-camp/exercises/1901100167/d08/mymodule')
+sys.path.append('E:/self-teaching/selfteaching-python-camp/exercises/1901100167/d09/mymodule')
 from mymodule import stats_word
 try:
-    print(stats_word.stats_text(text2))
+    print(stats_word.stats_text_en(text))
 except TypeError as e:
     print ("error:%s"%e)
+
+
     
