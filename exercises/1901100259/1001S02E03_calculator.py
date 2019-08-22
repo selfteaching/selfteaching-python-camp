@@ -1,0 +1,10 @@
+a,b=[4,3]
+A=a+b
+B=a-b
+C=a*b
+D=a/b
+E=a//b
+F=a%b
+G=a**b
+W=[A,B,C,D,E,F,G]
+print(W)
