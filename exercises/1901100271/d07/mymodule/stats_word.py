@@ -25,5 +25,5 @@ def stats_text_cn(text):
 
 def stats_text(text):
     print("文本中的中文汉字词频为：\n",stats_text_cn(text))
-    print("文本中的英文汉字词频为：\n",stats_text_en(text))
+    print("文本中的英文单词词频为：\n",stats_text_en(text))
     return
