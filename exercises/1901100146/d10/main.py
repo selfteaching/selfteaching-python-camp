@@ -16,7 +16,6 @@ def load_file():
         return f.read()
 
 
-
 def merge_poems(data):
     poems = ''
     for item in data:
@@ -35,5 +34,6 @@ def main():
 
 
 
-if __name__  == "__main__":
+if __name__ == "__main__":
     main()
+   
