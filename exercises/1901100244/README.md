@@ -42,9 +42,6 @@
       - [4.2 PATH 的设置](#42-path-%e7%9a%84%e8%ae%be%e7%bd%ae)
       - [4.3 VS Code 的配置](#43-vs-code-%e7%9a%84%e9%85%8d%e7%bd%ae)
       - [4.4 “Hello, World!”程序](#44-hello-world%e7%a8%8b%e5%ba%8f)
-- [Filename : 1001S02E02_hello_python.py](#filename--1001s02e02hellopythonpy)
-- [author by : @shen-huang](#author-by--shen-huang)
-- [输出“Hello World!”</code>](#%e8%be%93%e5%87%bahello-worldcode)
       - [4.5 JupyterLab 的配置](#45-jupyterlab-%e7%9a%84%e9%85%8d%e7%bd%ae)
       - [4.6 JupyterLab 系统服务配置](#46-jupyterlab-%e7%b3%bb%e7%bb%9f%e6%9c%8d%e5%8a%a1%e9%85%8d%e7%bd%ae)
       - [4.7 把 JupyterLab 设置为桌面应用](#47-%e6%8a%8a-jupyterlab-%e8%ae%be%e7%bd%ae%e4%b8%ba%e6%a1%8c%e9%9d%a2%e5%ba%94%e7%94%a8)
@@ -347,14 +344,15 @@ ii. 引号<br />
 单引号（'）、双引号（"）、三引号（'''或"""）有区别有联系，应注意识别，参见：<https://blog.csdn.net/woainishifu/article/details/76105667>；<br />
 iii. 如果想写中文的话（比如“你好，世界！”），需要在程序第一行添加<pre><code># -*- coding: UTF-8 -*-</code></pre>
 iv. 建议在程序开头用注释的形式写明程序用途，如
-<pre>
-<code># -*- coding: UTF-8 -*-
+
+```Python
+# -*- coding: UTF-8 -*-
 
 # Filename : 1001S02E02_hello_python.py
 # author by : @shen-huang
 
 # 输出“Hello World!”</code>
-</pre>
+```
 
 “Hello, World!”现在已经可以算是个[模因（meme）](https://zh.wikipedia.org/wiki/%E8%BF%B7%E5%9B%A0)了，任务之外，了解一下它的[相关信息](https://zh.wikipedia.org/wiki/Hello_World)还是蛮有意思的。
 
