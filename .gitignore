@@ -181,6 +181,6 @@ exercises/1901010092/1001s02e05_stats_text.py
 
 *.json
 *.pkl
-*.png
-*.jpg
+# *.png
+# *.jpg
 exercises/1901100142/1001S02E02_hello_python.py
