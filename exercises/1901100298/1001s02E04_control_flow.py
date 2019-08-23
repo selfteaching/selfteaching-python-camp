@@ -1,3 +1,4 @@
+
 print('打印九九乘法表')
 for i in rang(1,10):
     #print('第%d行'%i,end='\t')
@@ -16,3 +17,18 @@ while i <10:
             print(i,'*',j,'=',i * j,end='\t')
             #print('{}*{}={}'.format（i,j,i*j),end="\t")
     i +=1
+
+for i in rang(1,10):
+    for j in range (1,i+1):
+        print(j,'*',i,'=',i*j,end="\t")
+    print()
+
+i = 1
+while i <=9:
+　　j = 1
+　 while j <= i:
+　　　　print('%d*%d=%2d\t'%(i,j,i*j),end='')
+　　　　j+=1
+ print()
+ i +=1
+
