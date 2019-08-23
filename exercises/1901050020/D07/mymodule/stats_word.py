@@ -89,4 +89,4 @@ def stats_text(text):
     if __name__ == '__main__':
         en_text = '''
     The Zen of Python, by Tim Peters
-    '''
+
