@@ -42,6 +42,7 @@ Namespaces are one honking great idea -- let's do more of those!
 '''
 
 from mymodule import stats_word
+text=1                  #验证参数检查功能是否生效
 try:
     print(stats_word.stats_text(text))
 except ValueError:
