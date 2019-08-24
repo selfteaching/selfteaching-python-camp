@@ -16,22 +16,10 @@ def stats_text_en(text, count):
     for element in elements:
         for symbol in symbols:
             element = element.replace(symbol, '') #删除掉标点符号
-        if len(element) and element.isascii():  # element非空切为ascii码
+        if len(element) and element.isascii():  # element非空且为ascii码
             words.append(element)
-    counter = {}
-    word_set = set(words) 
-
-    for word in word_set:
-        counter[word] = words.count(word) # 向counter字典中添加东西
-    """ 
-    dict.items() 以列表返回可遍历的(键, 值) 元组数组
-    sorted(iterable, cmp=None, key=None, reverse=False)
-    key=lambda x: x[1] 的意思是按照元祖数组的第2个元素排序
-    """   
-    list_en = sorted(counter.items(), key=lambda x: x[1], reverse=True)
-    return collections.Counter(list_en).most_common(count) 
-
-
+    return collections.Counter(words).most_common(count) 
+    
 def stats_text_cn(text,count):
     if not isinstance(text, str):
         raise ValueError('参数必须是 str 类型')
@@ -39,12 +27,8 @@ def stats_text_cn(text,count):
     for character in text:
         if '\u4e00' <= character <= '\u9fff':
             cn_characters.append(character)
-    counter = {}
-    cn_characters_set = set(cn_characters)
-    for character in cn_characters_set:
-        counter[character] = cn_characters.count(character)
-    list_cn = sorted(counter.items(), key=lambda x: x[1], reverse=True)
-    return collections.Counter(list_cn).most_common(count) 
+    return collections.Counter(cn_characters).most_common(count) 
+    
 
 en_text = '''
 The Zen of Python, by Tim Peters
