@@ -15,5 +15,5 @@ while i <10:
         j +=1
     print('') #换行
     i +=1
-print('')#输出换行
+print('')#输出换行  
  
