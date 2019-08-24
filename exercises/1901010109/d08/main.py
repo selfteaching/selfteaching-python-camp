@@ -1,7 +1,7 @@
 from IPython.core.interactiveshell import InteractiveShell
 InteractiveShell.ast_node_interactivity = 'all'
 
-from stats_word import stats_text
+from mymodule import stats_word
 
 text = '''
 愚公移⼭
@@ -83,6 +83,9 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered
 two mighty gods to carry the mountains away.
 '''
 
-print( f"text 里各英文单词和各中文汉字出现的次数，降序排列：", stats_text(text) )
-for key,value in stats_text(text) :
-    print( key, value )
+try:
+    print( f"text 里各英文单词和各中文汉字出现的次数，降序排列：", stats_word.stats_text(text) )
+    for key,value in stats_word.stats_text(text) :
+        print( key, value )
+except ValueError:
+    print( "输入的不是文本，请重新输入" )
