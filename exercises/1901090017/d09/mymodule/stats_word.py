@@ -37,7 +37,7 @@ def stats_text_cn(text,count):
         raise ValueError('参数必须是 str 类型')
     cn_characters = []
     for character in text:
-        if '\u4e00' <= character <= '\u9fff': # 判断元素为中文
+        if '\u4e00' <= character <= '\u9fff':
             cn_characters.append(character)
     counter = {}
     cn_characters_set = set(cn_characters)
