@@ -1,5 +1,5 @@
 from collections import Counter
-
+import jieba
 
 
 def stats_text_en(text,count):
@@ -15,11 +15,12 @@ def stats_text_en(text,count):
 
 
 def stats_text_cn(text,count):
-    cn_characters=[]
-    for character in text:
-        if '\u4e00'<= character <='\u9fff':
-            cn_characters.append(character)
-    return Counter(cn_characters).most_common(count)
+    words = jieba.cut(text)
+    tmp = []
+    for i in words:
+        if len(i)>1:
+            tmp.append(i)
+    return Counter(tmp).most_common(count)
 
 
 
