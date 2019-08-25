@@ -7,7 +7,6 @@ import yagmail
 import getpass
 import logging
 
-
 # 使⽤requests 请求参考资料4微信公众号⽂章的链接，获取返回结果(response)
 # 获得一个名为 response 的 Response 对象。我们可以从这个对象中获取所有我们想要的信息。
 # response 的类型class 'requests.models.Response'？？
