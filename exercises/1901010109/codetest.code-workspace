@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "D:\\myPython\\Future"
 		}
 	]
 }
