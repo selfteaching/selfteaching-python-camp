@@ -82,6 +82,11 @@
     - [2. 学习用时](#2-%e5%ad%a6%e4%b9%a0%e7%94%a8%e6%97%b6-6)
     - [3. 收获总结](#3-%e6%94%b6%e8%8e%b7%e6%80%bb%e7%bb%93-6)
     - [4. 遇到的难点与问题](#4-%e9%81%87%e5%88%b0%e7%9a%84%e9%9a%be%e7%82%b9%e4%b8%8e%e9%97%ae%e9%a2%98-6)
+      - [4.1 函数的定义和使用](#41-%e5%87%bd%e6%95%b0%e7%9a%84%e5%ae%9a%e4%b9%89%e5%92%8c%e4%bd%bf%e7%94%a8)
+      - [4.2 加载模块语句的使用](#42-%e5%8a%a0%e8%bd%bd%e6%a8%a1%e5%9d%97%e8%af%ad%e5%8f%a5%e7%9a%84%e4%bd%bf%e7%94%a8)
+      - [4.3 自然语言工具包（NLTK）的使用](#43-%e8%87%aa%e7%84%b6%e8%af%ad%e8%a8%80%e5%b7%a5%e5%85%b7%e5%8c%85nltk%e7%9a%84%e4%bd%bf%e7%94%a8)
+      - [4.4 逻辑运算符的使用](#44-%e9%80%bb%e8%be%91%e8%bf%90%e7%ae%97%e7%ac%a6%e7%9a%84%e4%bd%bf%e7%94%a8)
+      - [4.5 汉字的匹配方法](#45-%e6%b1%89%e5%ad%97%e7%9a%84%e5%8c%b9%e9%85%8d%e6%96%b9%e6%b3%95)
       - [总结](#%e6%80%bb%e7%bb%93-6)
 
 ------
@@ -198,9 +203,9 @@ Issue 的位置与“参考资料2”中的截图不一致，应是 GitHub 改�
 3. 不同人给了不同的解决方案，如：改 hosts，利用开源中国提供的代码仓库（码云 Gitee）转移，给 GitHub Desktop 设置代理；
 4. 个人认为相对彻底的解决方案应该是 GitHub Desktop 整体走代理，方法有两种，一是开 VPN，二是配置 GitHub Desktop；
 5. 考虑眼下的实际情况，VPN 不算靠谱，所以就只能配置 GitHub Desktop 了，试验发现，GitHub Desktop 不从系统设置中取代理服务器，用修改配置文件的方法才能设置代理
-6. Windows 版 GitHub Desktop 设置代理的方法如下：<br />
+6. Windows 版 GitHub Desktop 设置代理的方法如下：  
    i. 用文本编辑器打开<code>C:\Users\\<<em>UserName</em>>\\.gitconfig</code> 
-   文件，注意 <code><<em>UserName</em>></code> 要换成自己的账户，直接搜索“`.gitconfig`”也可以，这个文件只有扩展名，开头就是一个“.”，别弄错了；<br />
+   文件，注意 <code><<em>UserName</em>></code> 要换成自己的账户，直接搜索“`.gitconfig`”也可以，这个文件只有扩展名，开头就是一个“.”，别弄错了；  
    ii. 在文件末尾添加代理信息，SOCKS5 代理类似这样：
    ```
     [http]
@@ -216,17 +221,17 @@ Issue 的位置与“参考资料2”中的截图不一致，应是 GitHub 改�
         proxy = http://127.0.0.1:7890
     ```
     其中`127.0.0.1`是本机地址，`7891`和`7890`都是端口号，`proxy`前面有一个制表符（Tab），注意，这里的代理地址仅为范例，以具体情况为准。
-7. macOS 版 GitHub Desktop 的 `.gitconfig` 文件在 `~/`，可以在终端（Terminal）用 Vim 打开文件并编辑，步骤为：<br />
-   i. 在终端（Terminal）输入 `vi ~/.gitconfig` 并回车；<br />
-   ii. 按`i`键进入插入（insert）编辑模式；<br />
-   iii. 在文件末尾添加代理信息，格式和 Windows 的一样；<br />
-   iv. 按`ESC`键退出插入编辑模式，输入`:wq`，回车保存。<br />
+7. macOS 版 GitHub Desktop 的 `.gitconfig` 文件在 `~/`，可以在终端（Terminal）用 Vim 打开文件并编辑，步骤为：  
+   i. 在终端（Terminal）输入 `vi ~/.gitconfig` 并回车；  
+   ii. 按`i`键进入插入（insert）编辑模式；  
+   iii. 在文件末尾添加代理信息，格式和 Windows 的一样；  
+   iv. 按`ESC`键退出插入编辑模式，输入`:wq`，回车保存。  
    我没有 macOS，所以并没有测试这样操作是否可行，仅供参考。另外，这部分参考了：<https://www.jianshu.com/p/5e74b1042b70>。
-8. 对比<br />
-   i. 设置前
-   ![GitHub_Desktop_设置代理前](image/GitHub_proxy_0.png)
-   ii. 设置后
-   ![GitHub_Desktop_设置代理后](image/GitHub_proxy_1.png)
+8. 对比  
+   i. 设置前  
+   ![GitHub_Desktop_设置代理前](https://raw.githubusercontent.com/shen-huang/img/master/2019-08/GitHub_proxy_0.png)  
+   ii. 设置后  
+   ![GitHub_Desktop_设置代理后](https://raw.githubusercontent.com/shen-huang/img/master/2019-08/GitHub_proxy_1.png)
 
 #### 4.8 “任务5.8 回到 Github 自己账户下的作业仓库页面，向远程公用作业仓库的 master 分支发起 Pull Request，在提交的 Pull Request 的标题（title）中填写自己所在的钉钉群名，如示例：【032901】自学训练营 DAY1 ，并在评论（comment）中 @自己的助教（请向助教索要他的 Github 用户名）提醒他检查作业”
 
@@ -292,13 +297,13 @@ PATH 指的是“环境变量”，很多人都没听说过这个东西，所以
 </pre>
 影响其实还不仅如此，不设置环境变量的话，很多程序自动化的功能，都会因为找不到需要的文件失效，所以设置环境变量是必不可少的一步。
 
-Anaconda3 在安装的时候对此有所提示——<br />
-![Anaconda3_PATH提示](image/Anaconda3_PATH.png)<br />
+Anaconda3 在安装的时候对此有所提示——  
+![Anaconda3_PATH提示](https://raw.githubusercontent.com/shen-huang/img/master/2019-08/Anaconda3_PATH.png)  
 不过按照安装包的说法，是不建议使用上面这个复选框的，我就选择了安装完成后手动设置。
 
-设置的方法是：<br />
-i. 依次打开【控制面板】-【系统和安全】-【系统】-【高级系统设置】-【环境变量(<u>N</u>)...】<br />
-ii. 在【系统变量(<u>S</u>)】区域双击【Path】<br />
+设置的方法是：  
+i. 依次打开【控制面板】-【系统和安全】-【系统】-【高级系统设置】-【环境变量(<u>N</u>)...】  
+ii. 在【系统变量(<u>S</u>)】区域双击【Path】  
 iii. 使用右侧的【新建(<u>N</u>)】按钮添加如下几行
 <pre>
 <code>C:\Users\<<em>UserName</em>>\Anaconda3
@@ -323,10 +328,10 @@ C:\Users\<<em>UserName</em>>\Anaconda3\Library\mingw-w64\bin</code>
 
 也不用看太细（太细也搞不明白），差不多照猫画虎弄弄就行。
 
-值得记录的几点：<br />
-i. 验证 Python 安装，在命令提示符里输入 `python --version` 就行，会提示现在安装的 Python 版本。入门教程里那个 `py` 开头的命令我怎么都没能成功运行，既然目的已经实现，我也就不纠结它了；<br />
+值得记录的几点：  
+i. 验证 Python 安装，在命令提示符里输入 `python --version` 就行，会提示现在安装的 Python 版本。入门教程里那个 `py` 开头的命令我怎么都没能成功运行，既然目的已经实现，我也就不纠结它了；  
 ii. 项目文件夹用文件资源管理器新建就行，不必纠结于命令行。对于本次学习来说，用 VS Code 菜单上的【文件(F)】-【打开文件夹...】打开昨天创建的作业文件夹就行（如 <code>C:\Users\\<em>UserName</em>\Documents\GitHub\selfteaching-python-camp\exercises\\<em>StudentID</em></code>，其中 <code><<em>UserName</em>></code> 是账户，<code><em>StudentID</em></code> 是学号 ）；
-iii. Python 解释器（Python interpreter）也可以跳过去，有问题了再琢磨这部分也不迟；<br />
+iii. Python 解释器（Python interpreter）也可以跳过去，有问题了再琢磨这部分也不迟；  
 iv. [配置并运行调试器（Configure and run the debugger）](https://code.visualstudio.com/docs/python/python-tutorial#_configure-and-run-the-debugger)后面的眼下都可以先不看了，将来有需要再回来查吧。
 
 另外，我为了更好地用 VS Code 写日志，买了本全面讲解 Markdown 的书《了不起的 Markdown》（毕小朋著，北京：电子工业出版社，2019.8）（[CSDN 相关页面](https://blog.csdn.net/wirelessqa/article/category/6865384)、[简书相关页面](https://www.jianshu.com/nb/12797531)、[百度试读页面](https://yuedu.baidu.com/ebook/f2ec7e699a6648d7c1c708a1284ac850ad020418)、[亚马逊电子版购买页面](https://www.amazon.cn/dp/B07W2ZN8TM/ref=sr_1_1?__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&keywords=%E4%BA%86%E4%B8%8D%E8%B5%B7%E7%9A%84markdown&qid=1565786132&s=gateway&sr=8-1)、[京东（纸质版）购买页面](https://item.jd.com/12669274.html)），里面有一章专门讲了 VS Code，很值得一读。
@@ -337,11 +342,11 @@ iv. [配置并运行调试器（Configure and run the debugger）](https://code.
 
 上文提到的 [VS Code Python 入门教程](https://code.visualstudio.com/docs/python/python-tutorial)里其实就有编写“Hello, World!”程序的逐步说明，所以如果认真过了一遍入门教程，这一步也就完成了。
 
-需要注意的几个点：<br />
-i. 括号（“()”）<br />
-一定要是半角英文括号，成对出现；<br />
-ii. 引号<br />
-单引号（'）、双引号（"）、三引号（'''或"""）有区别有联系，应注意识别，参见：<https://blog.csdn.net/woainishifu/article/details/76105667>；<br />
+需要注意的几个点：  
+i. 括号（“()”）  
+一定要是半角英文括号，成对出现；  
+ii. 引号  
+单引号（'）、双引号（"）、三引号（'''或"""）有区别有联系，应注意识别，参见：<https://blog.csdn.net/woainishifu/article/details/76105667>；  
 iii. 如果想写中文的话（比如“你好，世界！”），需要在程序第一行添加<pre><code># -*- coding: UTF-8 -*-</code></pre>
 iv. 建议在程序开头用注释的形式写明程序用途，如
 
@@ -362,18 +367,18 @@ iv. 建议在程序开头用注释的形式写明程序用途，如
 
 好在笑来老师写过一篇《[JupyterLab 的安装与配置](https://github.com/selfteaching/the-craft-of-selfteaching/blob/master/T-appendix.jupyter-installation-and-setup.ipynb)》，从安装 Anaconda 开始讲了 JupyterLab 的配置过程。
 
-可我照着做的时候遇到了网络错误，痛快解决还是要设置代理——<br />
-i. conda 代理<br />
+可我照着做的时候遇到了网络错误，痛快解决还是要设置代理——  
+i. conda 代理  
 用文本编辑器打开 <code>C:\Users\\<<em>UserName</em>>\\.condarc</code> 文件（<code><<em>UserName</em>></code> 是自己的账户），在结尾添加代理，如
 <pre>
 <code>proxy_servers:
     http: http://127.0.0.1:7890
     https: http://127.0.0.1:7890</code>
 </pre>
-注意 Anaconda 只能用 HTTP 代理。<br />
-另可参见：<br />
-[How to enable proxy servers with anaconda python?](https://stackoverflow.com/questions/29267646/how-to-enable-proxy-servers-with-anaconda-python)<br />
-ii. pip 代理<br />
+注意 Anaconda 只能用 HTTP 代理。  
+另可参见：  
+[How to enable proxy servers with anaconda python?](https://stackoverflow.com/questions/29267646/how-to-enable-proxy-servers-with-anaconda-python)  
+ii. pip 代理  
 在账户文件夹（<code>C:\Users\\<<em>UserName</em>></code>）下新建文件夹“`pip`”，在其中新建文本文档“`pip.ini`”（注意扩展名），用文本编辑器将文档打开，在其中填写相关设置，如
 <pre>
 <code>[global]
@@ -382,10 +387,10 @@ trusted-host = pypi.python.org
                files.pythonhosted.org
 proxy = http://127.0.0.1:7890</code>
 </pre>
-其中 `trusted-host` 是可信任的安装路径，如果不是很在意的话，也可以使用中国大陆地区的镜像位置（如 `pypi.douban.com`、`mirrors.aliyun.com` 等），速度也会快不少，使用中国大陆镜像的话，`proxy` 的设置也可以不用做的。<br />
-另可参见：<br />
-[How to use pip on windows behind an authenticating proxy?](https://stackoverflow.com/questions/9698557/how-to-use-pip-on-windows-behind-an-authenticating-proxy)<br />
-[pip 添加 trusted host](https://blog.csdn.net/helinbin/article/details/56834323)<br />
+其中 `trusted-host` 是可信任的安装路径，如果不是很在意的话，也可以使用中国大陆地区的镜像位置（如 `pypi.douban.com`、`mirrors.aliyun.com` 等），速度也会快不少，使用中国大陆镜像的话，`proxy` 的设置也可以不用做的。  
+另可参见：  
+[How to use pip on windows behind an authenticating proxy?](https://stackoverflow.com/questions/9698557/how-to-use-pip-on-windows-behind-an-authenticating-proxy)  
+[pip 添加 trusted host](https://blog.csdn.net/helinbin/article/details/56834323)  
 [linux 设置 pip 镜像 Pip Warning：–trusted-host 问题解决方案](https://www.cnblogs.com/yudar/p/4657511.html)
 
 调试 JupyterLab 配置文件（`jupyter_notebook_config.py`）的时候又卡住很久。
@@ -401,9 +406,9 @@ proxy = http://127.0.0.1:7890</code>
 
 第1项没有问题，我只在自己的计算机上用 JupyterLab，没有安全问题，启用这一项即可。
 
-第2项设置的是启动 JupyterLab 的时候是否打开浏览器，我一时间没弄明白这是什么意思，就把它启用了，造成的效果就是从 Anaconda Navigator 里启动 JupyterLab 时进度条走完就没反应了，从 Anaconda Prompt 里输入 `jupyter notebook list` 可以看到服务已经启动，而且还没法用 `jupyter notebook stop` 命令终止服务。我来回试了数次才反映过来，直接在浏览器里访问 `http://localhost:8888` 就能看到  JupyterLab 了，如果要关闭的话，通过菜单【File】-【Shut Down】即可。<br />
-笑来老师提到了一个使用习惯：把一个平时不怎么用的浏览器专门用在 JupyterLab 上，那如果想要在 Anaconda Navigator 里启动 JupyterLab 时直接跳出特定浏览器要怎么办呢？还是要靠修改 `jupyter_notebook_config.py` 文件。<br />
-i. 首先保证 `c.NotebookApp.open_browser = False` 没有启用，就是行首有`#`号；<br />
+第2项设置的是启动 JupyterLab 的时候是否打开浏览器，我一时间没弄明白这是什么意思，就把它启用了，造成的效果就是从 Anaconda Navigator 里启动 JupyterLab 时进度条走完就没反应了，从 Anaconda Prompt 里输入 `jupyter notebook list` 可以看到服务已经启动，而且还没法用 `jupyter notebook stop` 命令终止服务。我来回试了数次才反映过来，直接在浏览器里访问 `http://localhost:8888` 就能看到  JupyterLab 了，如果要关闭的话，通过菜单【File】-【Shut Down】即可。  
+笑来老师提到了一个使用习惯：把一个平时不怎么用的浏览器专门用在 JupyterLab 上，那如果想要在 Anaconda Navigator 里启动 JupyterLab 时直接跳出特定浏览器要怎么办呢？还是要靠修改 `jupyter_notebook_config.py` 文件。  
+i. 首先保证 `c.NotebookApp.open_browser = False` 没有启用，就是行首有`#`号；  
 ii. 在任意位置（尾部即可）添加要使用的特定浏览器
 
 ```python
@@ -414,8 +419,8 @@ c.NotebookApp.browser = 'Kinza'
 
 其中`'Kinza'`是浏览器的名字，`'C:\Users\<UserName>\AppData\Local\Kinza\Application\kinza.exe'`是浏览器可执行文件的位置，注意前面有一个 `r` 字符，表示后面的字符串不转义。很多文档不用 `r` 而用 `u`，实践证明，如果路径是全英文的，那还是用 `r` 比较好，用 `u` 可能会报错。
 
-第3项用于设置 JupyterLab 可访问的根目录，如果 JupyterLab 是从 Anaconda Navigator 启动的话，这一目录实际上是 `.jupyter` 文件夹所在的位置，这就又平添了几分麻烦。<br />
-我所用的一台计算机，配置的是固态硬盘+机械硬盘，我根据日常的习惯，把系统装在了固态硬盘（盘符为 `C`）上，又把账户下的默认文件夹（桌面、文档、图片、视频、音乐、下载等）移动到了机械硬盘（盘符为 `D`）上。这一设置导致 Anaconda 和 GitHub 文件夹默认都装在了 D 盘，而 `.jupyter` 文件夹默认在 C 盘生成，JupyterLab 启动之后看不到 GitHub 文件夹。<br />
+第3项用于设置 JupyterLab 可访问的根目录，如果 JupyterLab 是从 Anaconda Navigator 启动的话，这一目录实际上是 `.jupyter` 文件夹所在的位置，这就又平添了几分麻烦。  
+我所用的一台计算机，配置的是固态硬盘+机械硬盘，我根据日常的习惯，把系统装在了固态硬盘（盘符为 `C`）上，又把账户下的默认文件夹（桌面、文档、图片、视频、音乐、下载等）移动到了机械硬盘（盘符为 `D`）上。这一设置导致 Anaconda 和 GitHub 文件夹默认都装在了 D 盘，而 `.jupyter` 文件夹默认在 C 盘生成，JupyterLab 启动之后看不到 GitHub 文件夹。  
 笑来老师建议把这一项设置成 `'~/'`，但这一设置在 Windows 上不适用，我摸索了一阵子，把它设置成了 `'D:\\'` 才成功打开 GitHub 文件夹里的《自学是门手艺》。
 
 第4项用于切换 JupyterLab 和 Jupyter Notebook，我没用过 Jupyter Notebook，也没什么可怀旧的，就没启用这一项。
@@ -424,12 +429,12 @@ c.NotebookApp.browser = 'Kinza'
 
 如果想要将来用 JupyterLab 方便一点，不必每次都从 Anaconda Navigator 启动，还是把 JupyterLab 配置成系统服务比较好。macOS 的配置方法笑来老师写了，Windows 的配置方法如下。
 
-1. **获取创建服务的应用程序 instsrv.exe 和 srvany.exe**<br />
-   instsrv.exe 和 srvany.exe 是 Windows Server 2003 Resource Kit Tools 工具集中的两个程序，配合使用可以将任何 EXE 程序作为 Windows 服务运行。<br />
-   下载地址为：<https://www.microsoft.com/en-us/download/details.aspx?id=17657>。<br />
-   instsrv.exe 和 srvany.exe 可以在安装后的安装文件夹找到，也可以用 7-Zip 等软件直接解开安装包得到。<br />
+1. **获取创建服务的应用程序 instsrv.exe 和 srvany.exe**  
+   instsrv.exe 和 srvany.exe 是 Windows Server 2003 Resource Kit Tools 工具集中的两个程序，配合使用可以将任何 EXE 程序作为 Windows 服务运行。  
+   下载地址为：<https://www.microsoft.com/en-us/download/details.aspx?id=17657>。  
+   instsrv.exe 和 srvany.exe 可以在安装后的安装文件夹找到，也可以用 7-Zip 等软件直接解开安装包得到。  
    为方便使用，建议将这两个文件放到 `C:\Windows\System32\` 文件夹和 `C:\Windows\SysWOW64\` 文件夹下。
-2. **创建 JupyterLab 运行项**<br/>
+2. **创建 JupyterLab 运行项**  
    如上文所说，JupyterLab 的具体设置是依赖 `jupyter_notebook_config.py` 文件的，为了方便启动，将其复制到 `jupyter.exe` 所在的文件夹 <code>C:\Users\\<<em>UserName</em>>\\Anaconda3\Scripts\\</code> 下，然后创建文本文档，命名为“`jl.cmd`”，在其中写入启动 JupyterLab 的指令
 
    ```Batchfile
@@ -438,37 +443,37 @@ c.NotebookApp.browser = 'Kinza'
 
    并保存退出。
 
-3. **创建服务**<br />
+3. **创建服务**  
    以管理员身份运行命令提示符，输入
 
    ```PowerShell
    instsrv.exe JupyterLab C:\WINDOWS\System32\srvany.exe
    ```
 
-4. **完成服务设置**<br />
+4. **完成服务设置**  
    打开注册表编辑器（【开始】-【运行】-【`Regedit`】），定位到：
 
    ```text
    计算机\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\JupyterLab
    ```
 
-   在其中新建一个字符串值“`DisplayName`”，设置为“`JupyterLab 服务`”，这是对本服务的描述，可填写方便辨别的内容，也可省略。<br />
-   在其中新建一个项，名为“`Parameters`”，再在其中建立 `Application`、`AppDirectory`、`AppParameters` 三个字符串值。<br />
+   在其中新建一个字符串值“`DisplayName`”，设置为“`JupyterLab 服务`”，这是对本服务的描述，可填写方便辨别的内容，也可省略。  
+   在其中新建一个项，名为“`Parameters`”，再在其中建立 `Application`、`AppDirectory`、`AppParameters` 三个字符串值。  
    `Application` 的值为作为服务运行的程序，这里设置为 
-   <code>C:\\\\Users\\\\<<em>UserName</em>>\\\\Anaconda3\\\\Scripts\\\\jl.cmd</code><br />
-   `AppDirectory` 的值为作为服务运行的程序所在的文件夹位置，这里设置为 <code>C:\\\\Users\\\\<<em>UserName</em>>\\\\Anaconda3\\\\Scripts</code><br />
-   `AppParameters` 的值为作为服务运行的程序启动时的参数，这里暂不设置。<br />
+   <code>C:\\\\Users\\\\<<em>UserName</em>>\\\\Anaconda3\\\\Scripts\\\\jl.cmd</code>  
+   `AppDirectory` 的值为作为服务运行的程序所在的文件夹位置，这里设置为 <code>C:\\\\Users\\\\<<em>UserName</em>>\\\\Anaconda3\\\\Scripts</code>  
+   `AppParameters` 的值为作为服务运行的程序启动时的参数，这里暂不设置。  
    注意 <code><<em>UserName</em>></code> 要换成自己的账户名，所有的反斜杠都是两个。
-   ![JupyterLab服务_注册表设置](image/JupyterLab_Server_0.png)
-5. **启动服务**<br />
+   ![JupyterLab服务_注册表设置](https://raw.githubusercontent.com/shen-huang/img/master/2019-08/JupyterLab_Server_0.png)
+5. **启动服务**  
    打开服务（【开始】-【Windows 管理工具】-【服务】），可找到其中 JupyterLab 项，将其启动类型设置为“自动”，再启动这个服务，以后就可以不通过 Anaconda，直接在浏览器里访问 <http://localhost:8888/lab?> 来使用 JupyterLab 了。
-   ![JupyterLab服务](image/JupyterLab_Server_1.png)
+   ![JupyterLab服务](https://raw.githubusercontent.com/shen-huang/img/master/2019-08/JupyterLab_Server_1.png)
 
 注意，服务和进程并不完全关联，启动服务会启动 JupyterLab 进程，但停止服务并不会终止进程，要彻底退出，需要在停止服务后再在管理员身份的命令提示符中运行 `TASKKILL /F /IM jupyter.exe /T` 杀掉进程。如果在停止服务前杀掉了进程，还需要再停止服务，才能重新启动服务。
 
-参见：<br />
-[windows服务注册](https://www.jianshu.com/p/77a0f0660a2d)<br />
-[使用instsrv.exe+srvany.exe将应用程序安装为windows服务](https://blog.51cto.com/qingmu/1248649)<br />
+参见：  
+[windows服务注册](https://www.jianshu.com/p/77a0f0660a2d)  
+[使用instsrv.exe+srvany.exe将应用程序安装为windows服务](https://blog.51cto.com/qingmu/1248649)  
 [Windows下安装Jupyter，作为后台服务运行](https://zhuanlan.zhihu.com/p/35956723)
 
 #### 4.7 把 JupyterLab 设置为桌面应用
@@ -482,13 +487,13 @@ c.NotebookApp.browser = 'Kinza'
 ```
 
 然后就会出现这样的一个 JupyterLab：
-![JupyterLab桌面应用](image/JupyterLab_App.png)
+![JupyterLab桌面应用](https://raw.githubusercontent.com/shen-huang/img/master/2019-08/JupyterLab_App.png)
 
-更优雅的形式，是给这行命令建一个快捷方式：<br/>
-在合适的位置（如开始菜单的 Anaconda3 (64-bit) 文件夹里）新建一个快捷方式，对象位置填写为<br />
-<code>"C:\Users\\<<em>UserName</em>>\\AppData\Local\Google\Chrome\Application\chrome.exe" --app=http://localhost:8888/lab?</code><br />
-快捷方式的名称填写为<br />
-`JupyterLab`<br />
+更优雅的形式，是给这行命令建一个快捷方式：  
+在合适的位置（如开始菜单的 Anaconda3 (64-bit) 文件夹里）新建一个快捷方式，对象位置填写为  
+<code>"C:\Users\\<<em>UserName</em>>\\AppData\Local\Google\Chrome\Application\chrome.exe" --app=http://localhost:8888/lab?</code>  
+快捷方式的名称填写为  
+`JupyterLab`  
 点击“完成(<u>F</u>)”即可。
 
 如果觉得默认的图标不好看，可以更改，JupyterLab 的图标可以在这里下载：<https://github.com/jupyterlab/jupyterlab_app/tree/master/dist-resources>
@@ -500,10 +505,10 @@ c.NotebookApp.browser = 'Kinza'
 
 我在这一步也犯了不少傻，先是用了批处理文件，为了不跳命令提示符窗口又用了 VBS，为了固定到任务栏上好看又把 VBS 转成了 EXE，结果发现点击任务栏上的图标后会弹出另一个图标运行 JupyterLab，合不起消不掉，相当尴尬，最后才想起来直接设置快捷方式就行了，真是……汗。
 
-其他参考资料：<br />
-[在应用模式下启动Google Chrome](http://www.kbase101.com/question/46225.html)<br />
-[这样能将网站添加到Win10任务栏](https://www.pconline.com.cn/win10/988/9882805.html)<br />
-[在 Windows 上安装和配置 Jupyter Lab 作为桌面级应用程序](https://blog.csdn.net/weixin_37641832/article/details/94437445#_Chrome__41)<br />
+其他参考资料：  
+[在应用模式下启动Google Chrome](http://www.kbase101.com/question/46225.html)  
+[这样能将网站添加到Win10任务栏](https://www.pconline.com.cn/win10/988/9882805.html)  
+[在 Windows 上安装和配置 Jupyter Lab 作为桌面级应用程序](https://blog.csdn.net/weixin_37641832/article/details/94437445#_Chrome__41)  
 
 #### 4.8 闲话
 
@@ -515,17 +520,17 @@ Anaconda 的含义则是一种南美洲热带无毒大蛇“森蚺（rán）”�
 
 Jupyter 从 IPython 衍生而来，现在的名字来源于其支持的核心编程语言 Julia、Python、R，是取了三个名字中的字母拼成的，另外“Jupyter”与“Jupiter”谐音，“Jupiter”则有“木星”的含义，这一名字还暗含了对伽利略记录木星卫星发现的笔记本的致敬。Jupyter 的徽标是木星及其卫星的抽象表达，同时还暗指了三个核心编程语言。
 
-另可参见：<br />
-[维基百科的 Python 页面](https://en.wikipedia.org/wiki/Project_Jupyter)<br />
-[维基百科的 Monty Python 页面](https://en.wikipedia.org/wiki/Monty_Python)<br />
-[谁设计了Python的徽标？](https://www.quora.com/Who-designed-Pythons-logo)<br />
-[维基百科的 Anaconda 页面](https://en.wikipedia.org/wiki/Anaconda_(Python_distribution))<br />
-[Anaconda needs a new logo](https://99designs.com/logo-design/contests/anaconda-needs-logo-240255)<br />
-[维基百科的 Project Jupyter 页面](https://en.wikipedia.org/wiki/Project_Jupyter)<br />
-[维基百科的 IPython 页面](https://en.wikipedia.org/wiki/IPython)<br />
-[维基百科的伽利略·伽利莱页面](https://zh.wikipedia.org/wiki/%E4%BC%BD%E5%88%A9%E7%95%A5%C2%B7%E4%BC%BD%E5%88%A9%E8%8E%B1)<br />
-[维基百科的《星际信使》页面](https://zh.wikipedia.org/wiki/%E6%98%9F%E9%9A%9B%E4%BF%A1%E4%BD%BF)<br />
-[清华大学开源软件镜像站新闻页](https://mirrors.tuna.tsinghua.edu.cn/news/)<br />
+另可参见：  
+[维基百科的 Python 页面](https://en.wikipedia.org/wiki/Project_Jupyter)  
+[维基百科的 Monty Python 页面](https://en.wikipedia.org/wiki/Monty_Python)  
+[谁设计了Python的徽标？](https://www.quora.com/Who-designed-Pythons-logo)  
+[维基百科的 Anaconda 页面](https://en.wikipedia.org/wiki/Anaconda_(Python_distribution))  
+[Anaconda needs a new logo](https://99designs.com/logo-design/contests/anaconda-needs-logo-240255)  
+[维基百科的 Project Jupyter 页面](https://en.wikipedia.org/wiki/Project_Jupyter)  
+[维基百科的 IPython 页面](https://en.wikipedia.org/wiki/IPython)  
+[维基百科的伽利略·伽利莱页面](https://zh.wikipedia.org/wiki/%E4%BC%BD%E5%88%A9%E7%95%A5%C2%B7%E4%BC%BD%E5%88%A9%E8%8E%B1)  
+[维基百科的《星际信使》页面](https://zh.wikipedia.org/wiki/%E6%98%9F%E9%9A%9B%E4%BF%A1%E4%BD%BF)  
+[清华大学开源软件镜像站新闻页](https://mirrors.tuna.tsinghua.edu.cn/news/)  
 [意大利书商伪造伽利略著作以假乱真，藏书圈风声鹤唳](http://zhishifenzi.com/depth/humanity/4520.html)
 
 #### 总结
@@ -650,7 +655,7 @@ print(eval(input()))
 
 任务中的要求输出是这样的——  
 
-![九九乘法表（原始）](image/9x9_Table_0.png)
+![九九乘法表（原始）](https://raw.githubusercontent.com/shen-huang/img/master/2019-08/9x9_Table_0.png)
 
 但这个输出有几个不尽如人意的地方：
 
@@ -666,7 +671,7 @@ print(eval(input()))
 
 除此之外，我还试了一下另一个方向的九九表——
 
-![九九乘法表（转向）](image/9x9_Table_1.png)
+![九九乘法表（转向）](https://raw.githubusercontent.com/shen-huang/img/master/2019-08/9x9_Table_1.png)
 
 这是常见的九九表的转置，也是最初的大九九去掉另外一半的效果，不过这么排版对对齐有进一步的要求，也算是额外的练习了。
 
@@ -986,15 +991,69 @@ Python 里可用的转换函数有这些：
 
 ### 1. 学习内容
 
-
+函数的用法
 
 ### 2. 学习用时
 
- 小时
+2 小时
 
 ### 3. 收获总结
 
+1. 了解了函数定义的方法
+2. 熟悉了加载模块的方法
+3. 学习了正则表达式的写法
+
 ### 4. 遇到的难点与问题
+
+#### 4.1 函数的定义和使用
+
+定义函数使用这样的语法——
+
+```Python
+def function_name(parameters):
+    """function’s documentation string"""
+    function_suite
+    return [expression]
+```
+
+其中：
+
+- `function_name` 是函数名，程序用这个名字来调用函数。  
+  具体要怎么起这个名字，Python 3.7.4 官方文档《[Python 语言参考](https://docs.python.org/zh-cn/3.7/reference/index.html)》的《[2.3. 标识符和关键字](https://docs.python.org/zh-cn/3.7/reference/lexical_analysis.html#identifiers)》部分给出了使用字符的范围：
+  > 在 ASCII 范围内 (U+0001..U+007F)，可用于标识符的字符与 Python 2.x 一致: 大写和小写字母 `A` 至 `Z`，下划线 `_` 以及数字 `0` 至 `9`，但不可以数字打头。
+
+  由于 Python 3.0 引入了 Unicode，所以现在可以用的字符大大增加了，什么 `ǅ`、`ᾮ`、`ๆ`、`ꀕ`、`ↈ`、`𒐝`、`𒐱`、`꜉`、`꜕`、`۵`、`꘨` 等等的都能用。但是，为了通用性，别作妖，应该<span style="color: OrangeRed;">坚持使用ASCII范围内的字符</span>。  
+  另外，具体的命名风格《[*PEP 8 — Style Guide for Python Code*](https://www.python.org/dev/peps/pep-0008/)》在《[*Descriptive: Naming Styles*](https://www.python.org/dev/peps/pep-0008/#id36)》部分给出了建议，简单地说，单个大小写字母、单个全大写或全小写单词、用下划线连接的全大写或全小写单词、首字母大写的无间隔单词、第一个单词首字母小写其余单词首字母大写的无间隔单词，这些都可以，用下划线连接的首字母大写单词也行，但是丑陋。  
+  此外，《[*PEP 8*](https://www.python.org/dev/peps/pep-0008/)》的《[*Prescriptive: Naming Conventions*](https://www.python.org/dev/peps/pep-0008/#id37)》部分针对变量名、包和模块名、类名、变量类型名、异常名、函数名、方法名、常量名等等做出了详细的约定。《[Python 教程](https://docs.python.org/zh-cn/3/tutorial/index.html)》的《[4.8. 小插曲：编码风格](https://docs.python.org/zh-cn/3/tutorial/controlflow.html#intermezzo-coding-style)》也讲了相关的问题。  
+  具体到函数名，应该使用全小写单词，根据需要添加下划线连接。  
+  <span style="color: OrangeRed;">一定**不要**用数字开头！一定**不要**用数字开头！一定**不要**用数字开头！</span>
+- `parameters` 是参数，通过参数向函数传入变量。  
+  要注意的是一定不要将字符`'l'`（小写字母 l），`'O'`（大写字母 O）或`'I'`（大写字母 I）用作单个字符变量名称。因为这些字母可能跟 0 和 1 混淆。`'L'`（大写字母 L）可以使用。
+- `"""function’s documentation string"""` 是函数的文档字符串，用作对函数的说明。  
+  用三个直双引号（`"""`）标记，可以写多行。写多行的时候，第一行用作标题，然后空一行，第三行开始写其他内容，考虑到第一行开头是“`"""`”，所以缩进按第三行（准确地说，是第一个非空行）的缩进对齐，尾部的。例如：  
+
+  ```Python
+  def function_name(parameters):
+    """Title"""
+    function_suite
+    return [expression]
+  ```
+
+#### 4.2 加载模块语句的使用
+
+Python 可以把任何一个 `.py` 文件当作模块进行加载，使用的语句是 `import <module_name>` 或者 `from <module_name> import <x>`。
+
+使用 `import` 要注意这么几个问题：
+
+1. `import` 语句的位置  
+   `import` 语句一般要放在程序的开头，如果是在某个函数里使用 `import` 语句，也要
+2. 啊
+
+#### 4.3 自然语言工具包（NLTK）的使用
+
+#### 4.4 逻辑运算符的使用
+
+#### 4.5 汉字的匹配方法
 
 #### 总结
 
