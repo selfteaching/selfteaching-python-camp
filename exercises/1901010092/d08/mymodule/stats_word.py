@@ -1,3 +1,4 @@
+import collections
 import re
 
 def stats_word_en(text):
