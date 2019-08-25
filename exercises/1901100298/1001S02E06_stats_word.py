@@ -11,7 +11,7 @@ def stats_text_en(text):
     counter = {}
     word_set = set(words)
     for word in word_set:
-        counter[word] =  words.counter(word)
+        counter[word] =  words.count(word)
     # 函数返回值用 return 进行返回，如果没有 return 返回值则为none
     return sorted(counter.items(),key = lambda x:x[1],reverse = True)
 
@@ -19,9 +19,9 @@ def stats_text_en(text):
 # 统计参数中每个中文汉字出现的次数
 def stats_text_cn(text):
     cn_characters = []
-    for character in text；
+    for character in text:
         # unicode 中 中文字符的范围
-        if '\u4e00' <= character <= '\u9fff'
+        if '\u4e00' <= character <= '\u9fff':
             cn_characters.append(character)
     counter = {}
     cn_character_set = set(cn_characters)
@@ -74,7 +74,8 @@ cn_text = '''
 '''
 
 
-if__name__ == '__main__':
+if __name__ == "__main__":
+
    en_result = stats_text_en(en_text)
    cn_result = stats_text_cn(cn_text)
    print(en_result)
