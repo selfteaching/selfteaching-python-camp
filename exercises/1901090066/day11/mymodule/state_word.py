@@ -1,11 +1,12 @@
 from collections import Counter
 import jieba
+import re
 def stats_text_en(tx1,count):
     '''定义函数，英文单词按词频输出'''
     if not isinstance(tx1,str):#如果不是字符串，则抛出异常
          raise ValueError("输入的不是字符串类型!")
     text0=[]
-    txt= tx1.replace('\n', ' ').replace('.', ' ').replace('：', ' ').replace('--', ' ').replace('.',' ').replace('*',' ').replace('「',' ').replace('」',' ')
+    txt=re.sub("^[A-Za-z_]", " ", tx1)
     txt1=txt.split()
     for i in txt1:
         if i >'\u9fff' or i<'\u4e00':
