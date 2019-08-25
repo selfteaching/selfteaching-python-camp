@@ -29,3 +29,4 @@ def stats_text(text,count):
     if not isinstance(text,str):
         raise ValueError('参考必须是str类型，输入类型%s'%type(text))
     return stats_text_en(text,count) + stats_text_cn(text,count)
+    #update d12
