@@ -6,9 +6,8 @@
 # 函数的用法
 
 
-def stats_text_en(name: str) -> str:
+def stats_text_en(text: str) -> str:
     import re  # 加载正则表达式模块
-    # import nltk  # 加载自然语言工具包（Natural Language Toolkit）模块
     from nltk.tokenize import regexp_tokenize  # 加载正则表达式分词函数
 
     pattern = r"""             # 设置以编写较长的正则条件
@@ -20,7 +19,6 @@ def stats_text_en(name: str) -> str:
         """
 
     # 去掉 text 里的多余符号和空格，添加分词用空格，全文转为小写
-    text = str
     text2 = re.sub(r",|\*|!", " ", text)
     text2 = re.sub("—", " ", text2)
     text2 = re.sub("([0-9A-Za-z]*)['’]([0-9A-Za-z]*)", "\\1 ’\\2", text2)
@@ -30,10 +28,7 @@ def stats_text_en(name: str) -> str:
 
     # 分词，去掉空元素，排序
     text3 = regexp_tokenize(text2, pattern)
-    # text3 = nltk.tokenize.regexp_tokenize(text2, pattern)  # 仅加载 nltk 的写法
     text3 = [i for i in text3 if i != '' and i != '.']
-    # text3 = [i for i in text3 if not i == '' and not i == '.']  # 使用 not 的写法
-    # text3 = [i for i in text3 if i != '.']  # 多次过滤的写法
     text3 = sorted(text3)
 
     # 生成非重复单词列表
