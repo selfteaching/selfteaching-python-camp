@@ -15,22 +15,3 @@ def statistics(msg):#以捕获的网页连接为参数，获取其中内容的�
     result = stats_word.stats_text_cn(content,100)#对网页内容进行词频统计
     msg.reply(str(result))
 embed()
-
-
-
-
-
-
-
-
-
-
-
-
-
-#获取词频统计结果
-response = requests.get('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
-document = PyQuery(response.text)
-content = document('#js_content').text()#微信公众号文章的内容被提取到了content变量中
-output = stats_word.stats_text_cn(content,100)
-output = str(output)#将结果转换为str类型
