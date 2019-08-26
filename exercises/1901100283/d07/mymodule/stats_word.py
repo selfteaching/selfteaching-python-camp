@@ -31,4 +31,9 @@ def stats_text_cn(text):
     sorted_dic=sorted(n_dic.items(),key=lambda n_dic:n_dic[1],reverse=True)
     return dict(sorted_dic)
 
+#stats_text 分别调用stats_text_en , stats_text_cn ，输出合并词频统计结果
+def stats_text(text):
+    new_dic=dict(stats_text_en(text),**stats_text_cn(text))
+    return new_dic
+
 
