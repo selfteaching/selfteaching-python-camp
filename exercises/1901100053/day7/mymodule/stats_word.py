@@ -1,4 +1,4 @@
-# 统计参数中每个英文单词出现的次数
+ # 统计参数中每个英文单词出现的次数
 def stats_text_en(text):
     elements = text.split()
     words = []
