@@ -25,7 +25,6 @@ def merge_poems(data):
     return poems
 
 
-
 def main():
     try:
         data = load_file()
