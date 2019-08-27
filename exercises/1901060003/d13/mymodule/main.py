@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 # from wxpy import *
 #获取当前工作目录
-cwd=path.abspath(path.dirname(_file_))
+cwd=path.abspath(path.dirname(__file__))
 #设置中文字体
 plt.rcParams['font.sans-serif']='SimHei'
 
@@ -25,11 +25,11 @@ def get_article(url):
 
 #生成图片
 def generate_image(data,image_path):
-    labels=[V[0] for v in data]
-    widths==[V[1] for v in data]
+    labels=[v[0] for v in data]
+    widths=[v[1] for v in data]
     ypos=range(len(data))
     fig,ax=plt.subplots()
-    ax.barth(ypos,widths)
+    ax.barh(ypos,widths)
     ax.set_yticks(ypos)
     ax.set_yticklabels(labels)
     ax.invert_yaxis()
@@ -60,6 +60,12 @@ def main():
         except Exception as e:
             logging.exception(e)
     embed()
+
+def test():
+    article=get_article("https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA")
+    result=stats_word.stats_text_cn(article,20)
+    image_path=path.join(cwd,'stats.png')
+    generate_image(result,image_path)
 
 # bot = Bot()
 
@@ -158,4 +164,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+   # main()
+   test()
