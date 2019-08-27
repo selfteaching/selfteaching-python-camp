@@ -34,8 +34,10 @@ def stats_text(text):
     '''
     合并 英文词频 和 中文词频 的结果
     '''
+
     if not isinstance(text,str):
         raise ValueError('参数必须是 str 类型，输入类型%s'% type(text))
+
     return stats_text_en(text) + stats_text_cn(text)
     
 

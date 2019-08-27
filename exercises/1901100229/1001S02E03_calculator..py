@@ -6,7 +6,7 @@ if operator == '+':                      #if...  elif...语句的流程控制
    print(num1,"+",num2,"=",float((num1 + num2)) )
 elif operator == '-':
    print(num1,"-",num2,"=",float((num1 - num2)) )
-elif operator == '*':
+elif operator == '*':+
    print(num1,"*",num2,"=",float((num1 * num2)) )
 elif operator == '/':
    if num2 == 0:                         
