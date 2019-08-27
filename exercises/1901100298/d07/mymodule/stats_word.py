@@ -6,7 +6,7 @@ def stats_text_en(text):
     for element in elements:
         for symbol in symbols:
             element = element.replace(symbol,'')
-        if len(element):
+        if len(element)and element.isascii():
             words.append(element)
     counter = {}
     word_set = set(words)
@@ -33,8 +33,9 @@ def stats_text_cn(text):
 def stats_text(text):
     '''
     合并 英文词频 和 中文词频 的结果
+    '''
     return stats_text_en(text) + stats_text_cn(text)
-
+    
 
 en_text = '''
 The Zen of Python, by Tim Peters

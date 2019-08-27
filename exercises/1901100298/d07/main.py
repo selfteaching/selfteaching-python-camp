@@ -17,9 +17,10 @@ sample_text = '''
 愚公歎息道：「你有這樣的成见，是不會明白的。你比那寡婦的小兒子還不如呢！就算我死
 了，還有我的兒子，我的孫子，我的曾孫子，他們一直傳下去。而這二山是不會加大的，總有
 一天，我們會把它們剷平。」
-智叟聽了，無話可說：
+智叟聽了，無話可說。
 二山的守護神被愚公的堅毅精神嚇倒，便把此事奏知天帝。天帝佩服愚公的精神，就命兩位大
 力神揹走二山
+
 How The Foolish Old Man Moved Mountains
 Yugong was a ninety-year-old man who lived at the north of two high
 mountains, Mount Taixing and Mount Wangwu.
