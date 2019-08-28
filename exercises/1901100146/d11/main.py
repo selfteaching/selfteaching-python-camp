@@ -12,6 +12,7 @@ logging.basicConfig(format='file:%(filename)s|line:%(lineno)d|message: %(message
 
 
 #提取微信公众号文章正文
+
 def get_article():
     r = requests.get('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
     document = pyquery.PyQuery(r.text)
@@ -36,3 +37,5 @@ def main():
 if __name__ == "__main__":
     main()
    
+
+
