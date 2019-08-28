@@ -2,10 +2,9 @@
 # Using the user-defined algrorithm 'stats_word' and package 'json'
 import stats_word
 import json
-import os
 
 # Imput the tang300.json documents and transfer into form of [{dict},{dict},{dict}]
-with open('Documents/GitHub/selfteaching-python-camp/exercises/1901100240/d09/mymodule/tang300.json','r+',encoding = "utf-8") as f:
+with open('/Users/yanning/Documents/GitHub/selfteaching-python-camp/exercises/1901100240/d10/mymodule/tang300.json','r+',encoding = "utf-8") as f:
     tang_load = json.load(f)
 
 # Create a empty string and use it as storage.
@@ -18,4 +17,4 @@ for unit in tang_load:      # Unit will be each dictionary in the list
                 tang_text += str(content)       # Store the string into the storage string tang_text
 
 # Doing the statistic of frequncy of each Chinese characters and make it a list
-print(stats_word.stats_text_cn(tang_text,100))
+print(stats_word.stats_text_cn(tang_text,20))
