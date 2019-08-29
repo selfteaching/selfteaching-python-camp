@@ -1,20 +1,15 @@
 def stats_text_en(text):
     ''' count the word in the text '''
-    #convert string to list
     words_list = text.split()
-    #remove the punctuation
     no_pun_list = []
     for word in words_list:
         word = word.strip('.!--*')
-        #remove the number
         if word.isalpha():
             no_pun_list.append(word)
-    #count the words in list
     words_dict = {}
     word_set = set(no_pun_list)
     for word in word_set:
         words_dict[word] = no_pun_list.count(word)
-    #print out as the sequence
     words_seq = sorted(words_dict.items(), key = lambda x: x[1], reverse = True)
     return words_seq
 
@@ -22,12 +17,27 @@ def stats_text_en(text):
 def stats_text_cn(text):
     '''统计中文字频'''
     List = [i for i in text]
-
     word_dict = {}
     for word in set(List):
         word_dict[word] = List.count(word)
     word_seq = sorted(word_dict.items(), key = lambda x: x[1], reverse = True)
     return word_seq
 
-text = '离离原上草，春风吹又生！'
-print(stats_text_cn(text))
+def stats_text(text):
+    "统计文本中出现的英文以及中文字符频率"
+    cn_str = ''
+    en_str = ''
+    for char in text:
+        if '\u4e00' <= char <= '\u9fff':
+            cn_str += char
+        else:
+            en_str += char
+    cn_result = stats_text_cn(cn_str)
+    en_result = stats_text_en(en_str)
+    return cn_result,en_result
+    
+    
+
+
+
+    
