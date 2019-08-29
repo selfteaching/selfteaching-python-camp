@@ -1,7 +1,7 @@
 # Using wxpy to do the automatic reaply for sharing type
 from wxpy import *
 bot = Bot()
-
+Chats=bot.friends()
 # Doing the statistic for SHARING type
 @bot.register(Chats,SHARING)
 def print_statis(msg):
