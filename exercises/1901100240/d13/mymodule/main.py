@@ -32,5 +32,6 @@ def print_statis(msg):
     plt.ylabel("词频")
     plt.bar(scale,value)
     plt.xticks(scale,index)
-    msg.reply(plt.show())
+    plt.savefig("stats.png")    # Save the image
+    msg.reply_image("stats.png")    # Send the image as a result
 embed()
