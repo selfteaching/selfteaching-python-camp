@@ -1,4 +1,5 @@
 from collections import Counter
+import jieba
 def stats_text_en(text,count):
     elements = text.split()
     words = []
@@ -10,11 +11,13 @@ def stats_text_en(text,count):
             words.append(element)
     return Counter(words).most_common(count)
 def stats_text_cn(text,count):
-    cn_characters = []
-    for character in text:
-        if '\u4e00' <= character <= '\u9fff':
-            cn_characters.append(character)
-    return Counter(cn_characters).most_common(count)
+    words=jieba.cut(text)
+    tmp=[]
+    for i in words:
+        if len(i)>1:
+            tmp.append(i)
+    return Counter(tmp).most_common(count)
+            
 def stats_text(text,count):
     '''
     合并中英词频的结果
