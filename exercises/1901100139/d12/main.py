@@ -25,7 +25,7 @@ def main():
             msg.reply(str(result))
         except Exception as e:
             logging.exception(e)
-    embed            
+    embed()            
 
 
 if __name__=='__main__':
