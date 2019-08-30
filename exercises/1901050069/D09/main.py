@@ -1,9 +1,13 @@
 from mymodule import stats_word
-import traceback
+from os import path
+import json
+import re
 import logging
 
-logger = logging.getLogger(__name__)
+logging.basicConfig(format = 'file:%(filename)s|line:%(lineno)d|message:%(message)s',level = logging.DEBUG)
 
+def load_file():
+    
 def test_traceback():
     try:
         stats_word.stats_text(1)
