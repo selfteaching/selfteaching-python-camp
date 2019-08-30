@@ -1,14 +1,12 @@
 # 课程总结
 
-### Github
-'''
-除编译器之外的重要协作软件Github，其功能类似于编程版本的Google Doc，可以允许多人同时编程
+# Github
+除编译器之外的重要协作软件Github，其功能类似于编程版本的Google Doc，可以允许多人同时编程\n
 对每段更改保有历史记录，可回溯任意更改，避免代码被覆盖，且可回溯任意版本
 Github建立在分支架构之上，主分支负责程序主体，dev分支则可供个人修改使用。个人修改的程序可通过pull request请求并入主分支。此功能保证多人同时协作的同时，亦可以避免程序被个人错误更改
 通过folk加入其他repository，通过clone下载到本地，通过commit讲更改提交到主分支，通过pull request将修改提交
-'''
 
-### Python 编译器
+# Python 编译器
 '''
 Anaconda-Navigator 综合了数个python编译器。
 Visual Studio Code适合快速编译python shell内容，界面视觉效果较好。Spyder适合做短代码测试，界面一般
@@ -16,7 +14,7 @@ Visual Studio Cose 和 Spyder 保存的代码可以自动同步，方便转换
 在python shell中需要print将数值显示，否则默认隐藏
 '''
 
-### Hello Word
+# Hello Word
 '''
 约定俗称的语言入门所编写的第一个程序
 Print作为python输出，在python shell内不print的内容默认隐藏
@@ -24,7 +22,7 @@ print时以'/t'控制同行空格打印
 print时以''换新的一行
 '''
 
-### 结构类型
+# 结构类型
 '''
 有字典（dictionary），元组(tuple)，列表(list)等储存单位
 元组和列表是以位置储存元素，位置0对应第一元素，位置1对应第二元素，构成元素和位置一一对应的关系
