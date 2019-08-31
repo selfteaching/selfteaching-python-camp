@@ -16,8 +16,8 @@ def stats_text_en(text):
     #返回元素魏元组的列表
     wordSort = sorted(wordDic.items(),key = lambda x:x[1],reverse=True)
     #print(wordSort)
-    print(dict(wordSort))
-    return dict(wordSort)
+#    print(dict(wordSort))
+    return wordSort
 
 def stats_text_cn(text):
     """
@@ -37,7 +37,8 @@ def stats_text_cn(text):
     
     #返回按降序排序的列表
     wordSort = sorted(word_dict.items(),key = lambda x:x[1],reverse=True)
-    print(wordSort)
+    return wordSort
+    
 
 
 
@@ -71,5 +72,5 @@ str2 ='''
 
 
 #stats_text_en(str1)
-stats_text_cn(str2)
+print(stats_text_en(str1))
     
