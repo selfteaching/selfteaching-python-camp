@@ -29,6 +29,10 @@ def stats_text_en(text):
 	    text1=text.replace(x,"")
     text2=text1.split() #以空格拆分为独立单词
 
+    for i in text2:
+        if u'\u4e00' <= i <= u'\u9fff':#判断是不是中文
+            text2.remove(i) #将列表中中文删除
+
     dic={}
     for i in text2:  #将字符串转换为字典
         count=text2.count(i)
