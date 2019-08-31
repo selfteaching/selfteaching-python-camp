@@ -24,7 +24,7 @@ Namespaces are one honking great idea -- let's do more of those!
 texta = text.replace('better','worse')
 print('将字符串样本里的 better 全部替换成 worse ==>',texta)
 
-words = texta.split()
+words = texta.split()       
 filtered = []
 for word in words:
     if word.find('ea')<0:
