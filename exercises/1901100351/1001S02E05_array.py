@@ -3,7 +3,7 @@ string=''                       #初始化字符串
 array=sorted(array,reverse=True)#翻转字符串，reverse=true为降序
 print(array)
 
-for i in range(0,len(array)):   #循环查找
+for i in range(0,len(array)):   #for…in循环查找,len()字符串长度
     string=string+str(array[i]) #拼接字符串
 print(array)
 

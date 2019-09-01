@@ -8,8 +8,8 @@ for i in range(1, 10):# 从第1行循环到第9行
 
 print('打印去除偶数行的九九乘法表')
 i = 1
-while i < 10:
-    if i % 2 == 0:# 如果i是奇数
+while i<10:#while是条件判断循环
+    if i%2==0:# 如果i是奇数
         print()# 不打印
     else:
         for j in range(1, i+1):

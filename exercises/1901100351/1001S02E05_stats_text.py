@@ -24,7 +24,7 @@ Namespaces are one honking great idea -- let's do more of those!
 
 t1=text.replace(',',' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('*',' ').replace('!',' ')
 # 去掉文本中的中文字符、英文字符、字号、连接符
-text=text.split()
+text=text.split() #以空格为分隔符，将text中的字符串转换为列表
 
 # 统计各个单词出现的次数
 textDict={}#创建名称为textDict的字典
