@@ -76,6 +76,12 @@ Python之禅 by Tim Peters
 。。。
 '''
 
+def stats_text(text):
+    '''
+    合并 英文词频 和 中文词频 的结果
+    '''
+    return stats_text_en(text) + stats_text_cn(text)
+    
 # 搜索__name__ == __main__
 # 一般情况下在文件内 测试 代码的时候以下面的形式进行
 if __name__ == '__main__':
@@ -85,10 +91,6 @@ if __name__ == '__main__':
     print('统计参数中每个中文汉字出现的次数 ==>\n', cn_result)
 
 
-def stats_text(text):
-    '''
-    合并 英文词频 和 中文词频 的结果
-    '''
-    return stats_text_en(text) + stats_text_cn(text)
+
 
    
