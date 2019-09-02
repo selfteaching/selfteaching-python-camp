@@ -5,7 +5,7 @@ import getpass
 import stats_word
 from wxpy import *
 
-
+logging.basicConfig(filename='mylog.log',level=logging.DEBUG)
 def stats_msg(url):
     r = requests.get(url)
     #get all the content of the web
@@ -35,8 +35,8 @@ def main():
                 my_friend.send(msg) 
             else:
                 pass
-        except exception as e:
-            longging.exception(e)    
+        except Exception as e:
+            logging.exception(e)    
     embed()
 
 if __name__ == '__main__':
