@@ -19,7 +19,7 @@ def divide(x,y):
 print("选择运算:")
 print("1.加")
 print("2.减")
-print("3.乘")3
+print("3.乘")
 print("4.除")
 
 choice = input("choice（1/2/3/4):")
