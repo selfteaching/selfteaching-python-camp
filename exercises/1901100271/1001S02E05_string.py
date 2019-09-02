@@ -1,5 +1,9 @@
 text = '''
+
+The Zen of Python, by Tim Peters
+
 The zen of Python, by Tim Peters
+
 
 
 Beautiful is better than ugly.
@@ -35,12 +39,21 @@ for i in text2:
 print(text2)
 #任务3：大小写切换
 text3 = " ".join(text2)  #大小写切换需要将list切换成str格式
+
+text4 = text3.swapcase() 
+print(text4)
+#任务4升序排列
+text5 = text4.split()   #排序的时候需要将str再转换成list格式
+print(sorted(text5))    #排序函数sort和sorted的区别在于sort是应用在list上的函数，而sorted可以对任何可迭代的对象进行操作；比如list.sort() or sorted(iterable)
+
+
 text4 = text3.swapcase()
 print(text4)
 #任务4升序排列
 text5 = text4.split()   #排序的时候需要将str再转换成list格式
 text6 = text5.sort()   #排序函数没有返回值
 print(text5)
+
 
 
         
