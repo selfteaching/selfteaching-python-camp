@@ -1,3 +1,4 @@
+
 '''
 计算器
 '''
@@ -11,10 +12,17 @@ x=0
 while x<1:
     try:
         value=input("请输入运算公式，如：9+8：")
+
+x=0
+while x<1:
+    try:
+        value=input("请输入计算：")
+
         print("计算结果是：",eval(value))
     except (BaseException):
         x=2
         print("输入有误！")
+
 '''  
 '''
 方法二：
@@ -33,3 +41,5 @@ elif s=='/':
     print('运算结果：',n1,s,n2,'=',int(n1)/int(n2))
 else:
     print("输入有误！")
+
+
