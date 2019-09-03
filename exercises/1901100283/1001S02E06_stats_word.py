@@ -15,7 +15,12 @@ def stats_text_en(text):
 
     return dict(sorted_dic)
 
+
+
+    return dict(sorted_dic)
+
     print(dict(sorted_dic))
+
 
 
 
@@ -36,7 +41,12 @@ def stats_text_cn(text):
 
     return dict(sorted_dic)
 
+
+
+    return dict(sorted_dic)
+
     print(dict(sorted_dic))
+
 
 
 
