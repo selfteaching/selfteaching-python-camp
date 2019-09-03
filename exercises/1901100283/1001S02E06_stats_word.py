@@ -12,7 +12,15 @@ def stats_text_en(text):
         else:
             n_dic[word]=n_dic[word]+1
     sorted_dic=sorted(n_dic.items(),key=lambda n_dic:n_dic[1],reverse=True)
+
     return dict(sorted_dic)
+
+
+
+    return dict(sorted_dic)
+
+    print(dict(sorted_dic))
+
 
 
 
@@ -30,7 +38,15 @@ def stats_text_cn(text):
         else:
             n_dic[word]=n_dic[word]+1
     sorted_dic=sorted(n_dic.items(),key=lambda n_dic:n_dic[1],reverse=True)
+
     return dict(sorted_dic)
+
+
+
+    return dict(sorted_dic)
+
+    print(dict(sorted_dic))
+
 
 
 
