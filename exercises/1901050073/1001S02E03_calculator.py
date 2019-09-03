@@ -38,4 +38,4 @@ elif choice == '3':
 elif choice == '4':
     print(num1,"/",num2,"=",divide(num1,num2))
 else:
-    print(输入错误)
+    print('输入错误')
