@@ -1,0 +1,22 @@
+oringin = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+oringin.reverse()
+str1 = ', '.join(str(i) for i in oringin)
+str2 = str1.replace(", ","")
+str3 = str2[2:8]
+l1 = list(str3)
+l1.reverse()
+str4 = "".join(l1)
+number = int(str4)
+number2 = bin(number)
+number8 = oct(number)
+number16 = hex(number)
+
+print(oringin)
+print(str1)
+print(str2)
+print(str3)
+print(str4)
+print(number)
+print(number2)
+print(number8)
+print(number16)

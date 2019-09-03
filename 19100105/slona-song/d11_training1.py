@@ -15,8 +15,8 @@ def pro_art(url,n):
     import mymodule.stats_word                      #运行检索模块
 
     result = mymodule.stats_word.stats_text(content,n)        #输入参数
-    result = str(result)                                        #转字符串
-    print(result)
+    # result = str(result)                                        #转字符串
+    # print(result)
     return result
 
 def email(result):

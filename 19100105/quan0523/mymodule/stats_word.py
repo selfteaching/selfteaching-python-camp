@@ -12,7 +12,7 @@ def stats_text_cn(checkcn):    # 定义检索中文字符
         countcn={}    # 初始化一个词典
         """Count the chinese in the text"""    # 注释
         cn_str=''    # 新建空白字符串
-        count = 100   # 限制输出元素个数
+        count = 20   # 限制输出元素个数
 
         for i in checkcn:
             if u'\u4e00' <= i <= u'\u9fff':    # 中文字符的正则表达式

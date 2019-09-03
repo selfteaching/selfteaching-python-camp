@@ -10,7 +10,7 @@ for i in range(1,10):
 while i <= 9:
     j = 1
     while j <= i:
-        print("%d*%d=%-2d"%(i,j,i*j))
+        print("%d*%d=%-2d"%(i,j,i*j),end = ' ')
         j += 1
     print()
-    i += 2
+    i += 1

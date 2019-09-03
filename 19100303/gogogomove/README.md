@@ -1,34 +1,8 @@
 ﻿# 自学训练营003期3班，学员姓名：陈亮，学员github用户名：gogogomove
 
-# day1 excercise was to create hellword.txt file;
-## days 2 excercise is creating hell_python.py file;
-
-### day 3 is quite terrible for me, despite the grand tutorial documents reading for me very much and complex, the task of creating a calcuator is like a fairy tale to me, mamamia, i googled, there are some even more completed answer for that, among these one i found, i chose one i could understand more, then try to make it step by step. in the end when i try to execut it on my terminal, it would shut down at the timing point when should come out with the answer of the calculation,mamamia
-the answer to me is , i need to read more..
-
-#### day 4, some key words to memorize during the reading:
-Labels / Line numbers / identifier
-Subroutines/routines, procedures, functions or methods 
-imperative programming language VS a declarative programming
-Count-controlled loops / Condition-controlled loops/Collection-controlled loops/Infinite loops
-(Often, an infinite loop is unintentionally created by a programming error in a condition-controlled loop, wherein the loop condition uses variables that never change within the loop)
-for n in set_of_numbers:
-    if isprime(n):
-        print "Set contains a prime number"
-        break
-else:
-    print "Set did not contain any prime numbers"
-The else clause in the above example is linked to the for statement, and not the inner if statement. Both Python's for and while loops support such an else clause, which is executed only if early exit of the loop has not occurred.
-Programming language - Python
-conditional/ begin-Yes middle-No end-No	
-loop /count-No	collection-Yes	general-No infinite-No
-early exit -deep nested 
-continuation-deep nested
-redo-NO  retry-/
-correctness facilities: variant-/ invariant-/
-
-#### ''' day4 more comments 
-  honestly i could not finish the tasks of day4 by myself without google or some one , even with the help needed, still very difficult for me to undertand the fundamentals very clearly,  guess the only reason is that i still can not distinguish all the concepts which read by myself, although i spend all the available time today for the studying, i guess i need to slow down little bit to repeat what have been learned in the past three days. 
-
-
-
+#   day14_自学心得
+    此番十四天，吭哧吭哧步履维艰，连滚带爬，倒也摆出了日日不忘打卡的姿态。
+    问何所获，几不敢言，如与初始自我期许相比较，则相去甚远！
+    然无所获？也非如此，若与期初四顾茫然互对照，似胸有竹笋。
+    困顿之余翻抄代码，前几日理解别家代码并无障碍，内心亦无愧意。后几日则如伤口撒盐雪上加霜，捶胸顿足进度难赶，只得复习过往基本概念，一边焦躁于作业一边难免自我怀疑，大概基础太差底子太薄需要更多时日罢。
+    既至第十四日，仿佛大赦，然而思想负担却加重一层，往后任务似乎愈加艰重，遂自定目标：颠倒数字一十又四，which is 41，以四十一日为期自明日算起，目标为四十一日之后可独立完成此次训练营所布置之作业。先就这样罢！
