@@ -1,12 +1,19 @@
-# 自学 Python 入门训练营 003期02班
-0324 学习感悟
-
-1.代码打进去了，按了执行；有时候部分代码因为某种原因，计算机并没有执行，所以需要检查
-
-2.有时运行不了，检查文件格式是否错误
-
-3.把事情想复杂了，动手做的时候就发现解决方法就在界面上（here are some friendly suggestions for what to do next ）
-
-4.不要嫌自己独立解决问题浪费时间，独立解决问题是种能力，越练越强
-
-5.只字不差地阅读英文，我现在的感觉是读过去后没记得多少，以前我是消极排斥心理，不想读了。今天感受到这和我一年前读中文是一样的，当时我阅读能力差，读过去啥都记不住，现在我能感受到我中文阅读的进步，读英文也是同样的道路呀
+#aosjiabei selfteaching
+##用时间浇灌
+It is the time you have wasted for your rose that makes your rose so important。——《the little prince》
+##短时间不断试错
+```
+a=str (input("请问你是否开始“自学之旅”,输入yes or no：")) 
+if a=="yes":
+    print("Congraduations")
+else:
+    print("恭喜,自学的第一步就是勇敢对'被动学习‘say no! ")
+i=0#尝试次数
+x=str (input("代码完成了?请输入你的运行结果(error or success)："))
+while x == "error":
+    x=str (input("代码完成了?请再输入运行结果(error or success)："))
+    print("try again")
+    i+=1
+print("试错了%d次,你怎么这么棒?!!"%i)
+```
+##因为看见,所以相信

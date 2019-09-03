@@ -8,10 +8,7 @@ def auto_text(url):
     r = requests.get(url)
     document = PyQuery(r.text)#提取公众号正文
     content = document('#js_content').text()
-
-    result = stats_word.stats_text(content,100)
-    result1 = str(result)
-    return result1
+    return stats_word.stats_text(content,20)
 
 #d12_training不要用到
 #import getpass

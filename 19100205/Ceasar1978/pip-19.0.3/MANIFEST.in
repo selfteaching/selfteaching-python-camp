@@ -1,0 +1,33 @@
+include AUTHORS.txt
+include LICENSE.txt
+include NEWS.rst
+include README.rst
+include pyproject.toml
+
+include src/pip/_vendor/README.rst
+include src/pip/_vendor/vendor.txt
+recursive-include  src/pip/_vendor *LICENSE*
+recursive-include  src/pip/_vendor *COPYING*
+
+include docs/docutils.conf
+
+exclude .coveragerc
+exclude .mailmap
+exclude .appveyor.yml
+exclude .travis.yml
+exclude tox.ini
+
+recursive-include src/pip/_vendor *.pem
+recursive-include docs Makefile *.rst *.py *.bat
+
+exclude src/pip/_vendor/six
+exclude src/pip/_vendor/six/moves
+recursive-exclude src/pip/_vendor *.pyi
+
+prune .github
+prune .azure-pipelines
+prune docs/build
+prune news
+prune tasks
+prune tests
+prune tools

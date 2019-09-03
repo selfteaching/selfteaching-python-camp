@@ -1,3 +1,4 @@
+
 # 实现一个简单的计算器
 # 1 接收用户输入的第一个数字(字符串类型)，并转化为整数类型int
   first_num = input('请输入第一个数字:')
@@ -36,3 +37,4 @@
 # 格式化输出 format
   # print(result)
   print(f'{first_num}{symbol}{sec_num}={result}')
+

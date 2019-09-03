@@ -7,7 +7,6 @@ cn_pattern = re.compile(r'[\u4e00-\u9fa5]')
 
 text = '''
 The Zen of Python, by Tim Peters
-
 美丽 is better than 丑陋.
 清楚 is better than 含糊.
 简单 is better than 复杂.
@@ -104,7 +103,7 @@ def stats_text(text,rmodel,count):
 
 def main():
     mdict=[]
-    mdict=stats_text(text,1,5)
+    mdict=stats_text(text,1,30)
     print(mdict)
 
 if __name__=='__main__':

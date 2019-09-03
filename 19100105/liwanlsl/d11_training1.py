@@ -7,7 +7,7 @@ import requests
 
 
 # 获取公众号文件
-
+response = requests.get('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
 
 # 提取公众号正文
 def stats(url):

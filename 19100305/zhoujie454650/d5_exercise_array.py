@@ -1,0 +1,19 @@
+#翻转数组
+a=[0,1,2,3,4,5,6,7,8,9]
+a.reverse()
+print(a)
+#拼接字符串
+b=''.join(str (i) for i in a)
+print(b)
+#用字符串切片的方式取出第3到第8个字符（包含第3和第8字符）
+c=b[3:9]
+print(c)
+#将获得的字符串翻转
+print(c[::-1])
+#将结果转换为int类型
+d=int(c)
+print(d)
+#分别转换为二进制、八进制、十六进制
+print(bin(d))
+print(oct(d))
+print(hex(d))

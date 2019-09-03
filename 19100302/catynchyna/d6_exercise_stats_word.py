@@ -39,65 +39,64 @@ Namespaces are one honking great idea -- let's do more of those!
 import re # call out regular expressions module when dealing with cn? 
 
 # let define this function (its name is stats_text_en)
+def stats(originObj, newDict) :
+    d = newDict
+    for m in originObj :
+        d[m] = d.get(m, 0) + 1 # used the get function?
+    return d
 
-def stats_text_en(text_en):  
+
+def stats_text_en(text_en):
+    '''
+    # TODO
+    '''
     # dealing with chinese strings(non a-zA-Z dead)
     result_en = re.sub("[^A-Za-z]", " ", text_en.strip())
 
-    # print(result_en) used checking upon what we could get from last dealing
     list1 = result_en.split() # let's change the strings into a list
-    i = 0 #eliminate the first blank?
-    for i in range(0,len(list1)):
-        if list1[i] == ' ':
-            list1[i].remove(' ')
-        else:
-            i = i + 1
-    import collections
+    # import collections
     
-    return collections.Counter(list1)
+    # return collections.Counter(list1)
+    words = dict()
+    stats(list1, words)
+    newWords = sorted(words.items(), key=lambda item: item[1], reverse=True) 
+    return dict(newWords)# if no "return" it wont run here, but it's ok in original code 
 
-x = stats_text_en(text)
-print(x)
+
 
 
 # Task2
 # copied from @echojce and revised with some of my thoughts
 # not clarified and required further digging 
 # with my thoughts and comments and questions 
-def stats_text_cn(text_cn):
-    ''' @echojce thoughts: 统计中文汉字字频
+def stats_text_cn(text_cn): 
+    #FIXME @echojce thoughts: 
+    ''' 统计中文汉字字频
     
-    第一步：过滤汉字字符，并定义频率统计函数 stats()。
-    第二步：清除文本中的标点字符,将非标点字符组成新列表 new_list。
-    第三步：遍历列表，将字符同上一次循环中频率统计结果作为形参传给统计函数stats()。
-    第四步：统计函数在上一次统计结果基础上得出本次统计结果，赋值给newDict。
-    第五步：new_list遍历结束，输出倒序排列的统计结果。
+    第一步：过滤汉字字符，并定义频率统计函数 stats()。\n
+    第二步：清除文本中的标点字符,将非标点字符组成新列表 new_list。\n
+    第三步：遍历列表，将字符同上一次循环中频率统计结果作为形参传给统计函数stats()。\n
+    第四步：统计函数在上一次统计结果基础上得出本次统计结果，赋值给newDict。\n
+    第五步：new_list遍历结束，输出倒序排列的统计结果。\n
     '''
     result_cn = re.findall(u'[\u4e00-\u9fff]+', text_cn)
     str2 = ''.join(result_cn)
 
-    def stats(orgString, newDict) :
-        d = newDict
-        for m in orgString :
-            d[m] = d.get(m, 0) + 1 # used the get function?
-        return d
-    
-    new_list = []
-    for char in str2 :
-        cn = char.strip('-*、。，：？！……') # this should be dealing with the chinese punctuation?
-        new_list.append(cn)
-    
+
+
     words = dict()
-    for n in range(0,len(new_list)) :
-        words = stats(new_list[n],words)
+    stats(str2, words)
+
     newWords = sorted(words.items(), key=lambda item: item[1], reverse=True) 
-    return print('中文汉字字频统计结果： ',dict(newWords))# if no "return" it wont run here, but it's ok in original code 
+    return dict(newWords)# if no "return" it wont run here, but it's ok in original code 
 
 # y = stats_text_cn(text)
 # print(y) 
 # I used "stats_text_cn(text)"to call the function ,,,it worked here...sign .but why not en one?..
 
 # call those two function
-stats_text_cn(text)
+result_cn = stats_text_cn(text)
+print('中文汉字字频统计结果： ', result_cn)# if no "return" it wont run here, but it's ok in original code 
 
-stats_text_en(text)
+result_en = stats_text_en(text)
+print('英文汉字字频统计结果： ', result_en)# if no "return" it wont run here, but it's ok in original code 

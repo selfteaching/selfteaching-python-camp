@@ -1,6 +1,7 @@
 
 import json
 from mymodule import stats_word
+
 with open('tang300.json') as text:
     
 
@@ -15,4 +16,4 @@ with open('tang300.json') as text:
     a = text.read()
 
 
-    print(stats_word.stats_text_cn(a,100))
+    print(stats_word.stats_text_cn(a,20))
