@@ -17,5 +17,5 @@ result = stats_word.cn(content,100) #用stats——word模块的函数处理文�
 result_str = str(result) #将结果转为字符串
 
 import yagmail #插入yagmail库
-yag = yagmail.SMTP(sender,password,host='stmp.qq.com') #链接邮箱服务器。此处不懂为何有问题？
-yag.send('pythoncamp@163.com','[1901010115]自学训练营DAY11 游业鹏',contents=['result_str']) #设定接收人、标题、内容信息后，发送
+yag = yagmail.SMTP(sender,password,host='smtp.qq.com') #链接邮箱服务器。此处不懂为何有问题？
+yag.send(recipients,'[1901010115]自学训练营DAY11 游业鹏',result_str) #设定接收人、标题、内容信息后，发送
