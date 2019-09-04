@@ -4,20 +4,8 @@ import string
 
 def stats_text_en(words):
 
-    """
-    elements = l_text.split()
 
-    words = []
-    symbols = ',.“-*!'
 
-    for element in elements:
-        for symbol in symbols:
-            #replace返回新的字符串，因此必须要新的字符串
-            element = element.replace(symbol,'')
-        #将非空字符添加到列表中
-        if len(element) :
-            words.append(element)
-    """
     #初始化一个counter字典，用来存放单词出现的频次
     counter = {}
 
