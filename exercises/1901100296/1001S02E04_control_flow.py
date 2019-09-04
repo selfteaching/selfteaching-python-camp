@@ -1,6 +1,7 @@
 '''
 九九乘法表
 '''
+
 print("九九乘法表:")
 
 for i in range(1,10):
@@ -21,4 +22,5 @@ while i<10:
     if i%2!=0:
         print() 
     i=i+1
+
 

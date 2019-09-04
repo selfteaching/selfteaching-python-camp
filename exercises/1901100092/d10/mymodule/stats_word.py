@@ -40,7 +40,8 @@ Namespaces are one honking great idea -- let's do more of those!
 如果实现很容易解释，这可能是一个好主意
 名称空间是一个很棒的主意——让我们做更多这样的事情
 '''
-import collections
+import jieba
+import collections 
 
 def stats_text_en(text):
     if not isinstance(text,str):
@@ -55,19 +56,24 @@ def stats_text_en(text):
             if len(element) and element.isascii():
                 words.append(element)                #将字符加入words列表
     
-    l_en = collections.Counter(words).most_common(100) 
+    l_en = collections.Counter(words).most_common(20) 
     return l_en
 
 def stats_text_cn(text):
     if not isinstance(text,str):
         raise ValueError('参数应为字符串类型')
-    cn_characters = []                                       #建立列表
-    for character in text:
-        if '\u4e00' <= character <= '\u9fff':
-            cn_characters.append(character)
-    l_en_cn = collections.Counter(cn_characters).most_common(100) 
+
+    seg_list = jieba.cut(text,cut_all=False)
+
+    cn_characters = []  #建立一个空列表，为下一个循环使用
+    for i in seg_list:
+        if '\u4e00' <= i <= '\u9fff' and len(i) >= 2:
+            cn_characters.append(i)
+
+    l_en_cn = collections.Counter(cn_characters).most_common(20) 
     return l_en_cn
- 
+
+    
  
 def stats_text(text):
     '''输出合并词频统计结果'''
@@ -78,4 +84,7 @@ def stats_text(text):
 
 if __name__ =='__main__':
     print(stats_text(text))
+
+
+
 
