@@ -1,6 +1,11 @@
 #统计参数中每个英文单词出现的次数
-def stats_text_en(text):
-    elements = text.split()
+import string
+
+
+def stats_text_en(words):
+
+    """
+    elements = l_text.split()
 
     words = []
     symbols = ',.“-*!'
@@ -12,7 +17,7 @@ def stats_text_en(text):
         #将非空字符添加到列表中
         if len(element) :
             words.append(element)
-
+    """
     #初始化一个counter字典，用来存放单词出现的频次
     counter = {}
 
@@ -27,32 +32,33 @@ def stats_text_en(text):
     return sorted(counter.items(), key = lambda x:x[1],reverse=True)
 
 #统计参数中每个中文字符出现的次数
-def stats_text_cn(text):
-    cn_characters = []
-     
-    for character in text:
-        #unicode中中文字符的范围
-        if '\u4e00' <= character <= '\u9fff':
-            cn_characters.append(character)
-    
-    #print('中文字符列表==>',cn_characters)
+def stats_text_cn(words):
+    str_words = ''.join(words)
+    set_words = set(str_words)
 
     counter = {}
 
-    #减少迭代次数
-    cn_character_set = set(cn_characters)
-    for character in cn_character_set:
-        counter[character] = cn_characters.count(character)
+    for ch in set_words:
+        counter[ch] = str_words.count(ch)
     return sorted(counter.items(),key = lambda x:x[1],reverse=True)
 
 def stats_text(text):
-    cn_text = text[:text.rfind('\u3002')+1]
-    en_text = text[text.rfind('\u3002')+1:]
-    #print('resule is ==>',**stats_text_cn(cn_text),**stats_text_en(en_text))
+
+    symbols = '，。:「」,?.”、!'
+    for symbol in symbols:
+        text = text.replace(symbol,' ')
+    l1 = text.split()
+    en_text = []
+    cn_text = []
+    for i in l1:
+        if len(i)>0:
+            if i[0] in string.ascii_letters:
+                en_text.append(i)
+            else:
+                cn_text.append(i)
+        
     cn_result = stats_text_cn(cn_text)
     en_result = stats_text_en(en_text)
-#    print('cn_result==>',cn_result)
-#    print('en_result==>',en_result)
     merged_result = cn_result+en_result
     return (merged_result)
 

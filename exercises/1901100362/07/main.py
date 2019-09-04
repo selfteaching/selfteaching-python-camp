@@ -64,5 +64,5 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered
 
 if __name__ == '__main__':
 
-    result = stats_word.stats_text(text)
-    print(result)
+  result = stats_word.stats_text(text)
+  print(result)
