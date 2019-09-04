@@ -44,7 +44,7 @@ def stats_text_cn(words):
 
 def stats_text(text):
 
-    symbols = '，。:「」,?.”、!'
+    symbols = '，。:「」,?.”、-!'
     for symbol in symbols:
         text = text.replace(symbol,' ')
     l1 = text.split()
