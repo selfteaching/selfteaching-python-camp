@@ -1,18 +1,15 @@
-
 from os import path
 import yagmail
 import requests
 import matplotlib.pyplot as plt
-
 import pyquery
 import getpass
 import logging
 from wxpy import *
 from mymodule import stats_word
 
-
 # 安装依赖包  matplotlib 和 numpy
-# pip install -i https://pypi.tuna.tsinghua.edu.cn/simple  matplotlib numpy
+# pip install -i https://pypi.tuna.tsinghua.edu.cn/simple  matplotlib  numpy
 
 # 获取当前工作目录
 cwd = path.abspath(path.dirname(__file__))
@@ -31,7 +28,6 @@ def get_article(url):
     print(article)
     return article
 
-
 # 生成图片
 def generate_image(data,image_path):
     labels = [v[0] for v in data]
@@ -49,7 +45,6 @@ def generate_image(data,image_path):
 
 
 
-
 def main():
     bot = Bot()
     friends = bot.friends()
@@ -59,7 +54,6 @@ def main():
         try:
             logging.info('sharing url = %s',msg.url)
             article = get_article(msg.url)
-
             result = stats_word.stats_text_cn(article,20)
             image_path = path.join(cwd,'stats.png')
             generate_image(result,image_path)
@@ -67,12 +61,16 @@ def main():
         except Exception as e:
             logging.exception(e)
     embed()
-def test()
-    article = get_article
 
+def test():
+    article = get_article('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
+    result = stats_word.stats_text_cn(article,20)
+    image_path = path.join(cwd,'stats.png')
+    generate_image(result,image_path)
+            
 if __name__ == "__main__":
-    
-    main()
+    # main()
+    test()
 
 
 
