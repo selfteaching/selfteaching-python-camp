@@ -9,12 +9,13 @@ from wxpy import *
 from mymodule import stats_word
 
 # 安装依赖包  matplotlib 和 numpy
-# pip install -i https://pypi.tuna.tsinghua.edu.cn/simple  matplotlib numpy
+# pip install -i https://pypi.tuna.tsinghua.edu.cn/simple  matplotlib  numpy
 
 # 获取当前工作目录
 cwd = path.abspath(path.dirname(__file__))
 # 设置中文字体
 plt.rcParams['font.sans-serif'] = 'SimHei'
+
 logging.basicConfig(format='file:%(filename)s|line:%(lineno)d|message: %(message)s',level=logging.DEBUG)   
 
 # 提取微信公众号文章正文
@@ -44,7 +45,6 @@ def generate_image(data,image_path):
 
 
 
-
 def main():
     bot = Bot()
     friends = bot.friends()
@@ -61,12 +61,16 @@ def main():
         except Exception as e:
             logging.exception(e)
     embed()
-def test()
-    article = get_article
+
+def test():
+    article = get_article('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
+    result = stats_word.stats_text_cn(article,20)
+    image_path = path.join(cwd,'stats.png')
+    generate_image(result,image_path)
             
 if __name__ == "__main__":
-    
-    main()
+    # main()
+    test()
 
 
 
