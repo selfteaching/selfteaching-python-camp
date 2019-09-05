@@ -5,10 +5,13 @@ print('翻转后的数组：',array)
 
 # 2、翻转后的数组拼接成字符串
 #先将列表里的int型转换成str类型，再拼接
-# 方法一：int转换成str
+
+
+# 方法一：int转换成str，使用list的内置推导式
 # str_array=''.join(str(i) for i in array)
 # print('数组拼接成字符串：',str_array)
-# 方法二：int转换成str
+
+# 方法二：int转换成str,使用内置函数 map
 str_array=''.join(map(str,array))
 print('数组拼接成字符串：',str_array)
 
@@ -17,14 +20,10 @@ str_array=str_array[2:8]
 print('取出第3-8个字符：',str_array)
 
 # 4、将获得的字符串进行翻转
-# 方法一：使用字符串切片法翻转
+
 str_array=str_array[::-1]
 print('字符串翻转：',str_array)
-# 方法二：使用reverse方法翻转
-# list_array=list(str_array)
-# list_array.reverse()
-# str_array=''.join(list_array)
-# print('字符串翻转：',str_array)
+
 
 # 5、将结果转换为int类型
 int_str_array=int(str_array)
