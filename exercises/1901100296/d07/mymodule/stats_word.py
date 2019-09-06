@@ -8,7 +8,8 @@ def stats_text_en(text:str) -> list:
             for symbol in symbols:
                 word=word.replace(symbol,'')
             # if len(word)and word<'\u4e00' or word>'\u9fff':
-            if word.encode('UTF-8').isalpha():
+            # if word.encode('UTF-8').isalpha():
+            if len(word) and word.isascii():
                     words.append(word)
     
     # 使用字典类型统计文本中单词数

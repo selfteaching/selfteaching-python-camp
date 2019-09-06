@@ -63,4 +63,12 @@ text = '''
     two mighty gods to carry the mountains away.
 
     '''
-print('统计结果：',stats_word.stats_text(text))
+text2=45657568
+
+try:
+    print('统计结果：',stats_word.stats_text(text2))
+    # print('统计结果：',stats_word.stats_text_en(text2))
+    # print('统计结果：',stats_word.stats_text_cn(text2))
+except ValueError as err:
+    print('发现错误：',err)
+
