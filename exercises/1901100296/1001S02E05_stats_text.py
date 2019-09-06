@@ -71,6 +71,7 @@ print(word_dic)
 list_sorted=sorted (word_dic.items(),key=lambda item:item[1],reverse=True)
 # 打印统计结果  
 print ('按统计次数从大到小排序：')
+
 for i in list_sorted:
         a,b=i
         print(a,':',b)  
