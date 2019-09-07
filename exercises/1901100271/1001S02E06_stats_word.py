@@ -9,7 +9,11 @@ def stats_text_en(text):  #自定义函数，该函数用于统计参数text中�
             text2.append(En)
     #先把text中的符号剔除掉
     text3 = " ".join(text2)
+
     text3 = text3.lower()
+
+    text3 = text3.lower()   
+
     #把所有的单词变成小写格式
     text3 = text3.split()  
     #把text变成list格式
