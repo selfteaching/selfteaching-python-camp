@@ -23,7 +23,7 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 
-#1.使⽤字典（dict）统计字符串样本 text 中各个英⽂单词出现的次数
+#1.使用字典（dict）统计字符串样本 text 中各个英文单词出现的次数
 # 先将字符串根据 空白字符 分割成 list
 elements=text.split()
 # 定义一个新的 list 类型的变量，用以存储处理过的单词
@@ -53,3 +53,8 @@ print()
 # dict 类型 counter 的items 方法会返回一个包含 相应项（key,value) 的元组 列表
 # print('counter.items()--->',counter.items())
 print('从大到小输出所有单词及出现的次数===》',sorted(counter.items(),key=lambda x:x[1],reverse=True))
+
+
+name='Ann'
+age=22
+print(f'{name} is {age} years old')
