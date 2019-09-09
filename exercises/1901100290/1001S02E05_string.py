@@ -26,6 +26,7 @@ Namespaces are one honking great idea -- let's do more of those!
 s = text.replace('better','worse')
 print(s)
 
+
 #2.剔除含有ea的单词
 a="EA"
 b=[]
@@ -34,9 +35,11 @@ for a in s:
         b.append(a)
 print(s)
 
+
 #3.大小写替换
 y=s.swapcase()
 print(y)
+
 
 #4.升序排列
 list1=y.split()

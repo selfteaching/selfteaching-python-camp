@@ -25,11 +25,22 @@ Namespaces are one honking great idea -- let's do more of those!
 
 
 
-s = {}
-for n in text.split():
-        if not n in s:
-                s[n] = 1
-        else:
-                s[n] = s[n]+1
-print(s)
-   
+
+
+# 只统计英文单词，不包括非英文字符的其他任何符号，如连接符号、空白字符等等
+list1 = text.split( )
+i=0
+for i in range(0,len(list1)):
+    list1[i]=list1[i].strip('*-,.!')
+    if list1[i]==' ': 
+        list1[i].remove(' ')
+    else:
+        i=i+1
+# 使用dict统计字符串样本中各个英文单词出现的次数
+# 按照出现次数从大到小排列，示例 {'is': 10, ‘better’ : 9, …… }
+import collections
+print(collections.Counter(list1))
+
+
+
+
