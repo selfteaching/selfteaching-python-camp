@@ -3,7 +3,9 @@ import string
 
 
 def stats_text_en(words):
-
+#    if type(words) != str:
+    if not isinstance(words,str):
+        raise ValueError("参数必须是字符串 %s" % type(words))
 
 
     #初始化一个counter字典，用来存放单词出现的频次
@@ -22,10 +24,13 @@ def stats_text_en(words):
 
 #统计参数中每个中文字符出现的次数
 def stats_text_cn(words):
+    
+    if type(words) != str:
+        raise ValueError("参数必须是字符串 %s" % type(text))
 
 
-    str_words = ''.join(words)
-    set_words = set(str_words)
+        str_words = ''.join(words)
+        set_words = set(str_words)
     counter = {}
 
     for ch in set_words:
@@ -37,7 +42,9 @@ def stats_text_cn(words):
 
 
 def stats_text(text):
-
+    
+    if type(text) != str:
+            raise ValueError("请输入字符串！")
 
     symbols = '，。:「」,?.”、-!'
     l1 = []

@@ -1,4 +1,7 @@
 from mymodule import stats_word
+import traceback
+import logging
+
 """
 text = '''
 愚公移⼭山
@@ -63,18 +66,27 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered
 """
 text = 1
 
+def test_traceback():
+  try:
+    stats_word.stats_text(text)
+  except Exception as e:
+    print("trace_back==>",e)
+    print(traceback.format_exc())
+def test_logger():
+  try:
+    stats_word.stats_text(text)
+  except Exception as e:
+    logging.exception(e)
 
 
 if __name__ == '__main__':
+  test_traceback()
+  test_logger()
 
-  try:
-    if type(text) != str:
-      raise ValueError
     
-    result = stats_word.stats_text(text)
-    en_result = stats_word.stats_text_en(text)
-    cn_result = stats_word.stats_text_cn(text)
-    print(result)
-  except ValueError:
-    print('请输入字符串！')
+#    result = stats_word.stats_text(text)
+#    en_result = stats_word.stats_text_en(text)
+#    cn_result = stats_word.stats_text_cn(text)
+#    print(result)
+
 
