@@ -1,4 +1,7 @@
 from mymodule import stats_word
+import traceback
+import logging
+
 text = '''
     愚公移山
     太行，王屋二山的北面，住了一個九十歲的⽼翁，名叫愚公。⼆山佔地廣闊，擋住去路路，使他和家人往來極為不不便。
@@ -65,10 +68,24 @@ text = '''
     '''
 text2=45657568
 
-try:
-    print('统计结果：',stats_word.stats_text(text2))
+def test_traceback():
+    try:
+        print('统计结果：',stats_word.stats_text(text2))
     # print('统计结果：',stats_word.stats_text_en(text2))
-    # print('统计结果：',stats_word.stats_text_cn(text2))
-except ValueError as err:
-    print('发现错误：',err)
+    # # print('统计结果：',stats_word.stats_text_cn(text2))
+    except ValueError as err:
+        print('发现错误：',err)
+        print(traceback.format_exc())
+
+def test_logging():
+    logger = logging.getLogger(__name__)
+    try:
+        print('统计结果：',stats_word.stats_text(text2))
+    except ValueError as err:
+        print('发现错误：',err)
+        logger.exception(err)
+
+if __name__ == '__main__':
+    # test_traceback()
+    test_logging()
 

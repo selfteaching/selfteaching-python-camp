@@ -26,7 +26,8 @@ def main():
         data = load_file()
         logging.info(data[0])
         poems = merge_poems(json.loads(data))
-        logging.info('统计结果：：%s',stats_word.stats_text_cn(poems,100))
+        logging.info('统计结果：：%s',stats_word.stats_text_cn(poems,20))
+        # print(stats_word.stats_text_cn(poems,20))
     except Exception as e:
         logging.exception(e)
 
