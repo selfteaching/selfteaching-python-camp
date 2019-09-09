@@ -68,6 +68,13 @@ def stats_text_cn(text):
         counter[character]=cn_characters.count(character)#统计中文列表里字符的次数，且赋值给字典对应的项，就是字符出现的次数
     return sorted(counter.items(),key=lambda x:x[1],reverse=True) #进行降序排序
 
+
+#添加stats_text 的函数，实现功能：分别调⽤stats_text_en , stats_text_cn ，输出合并词频统计结果
+def stats_text(text):
+    return stats_text_en(text)+stats_text_cn(text)
+
+
+
 #搜索__name__==__main__
 #一般情况下在文件内 测试 代码的时候以下面的形式进行
 if __name__=='__main__':
