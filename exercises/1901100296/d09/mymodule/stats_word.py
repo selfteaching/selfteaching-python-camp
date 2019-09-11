@@ -1,4 +1,5 @@
 import collections
+
 def stats_text_en(text,count) :
     # if type(text)!=str:
     if not isinstance(text,str):
@@ -31,4 +32,5 @@ def stats_text(text,count):
     if type(text)!=str:
         raise ValueError('输入类型 %s,参数必须是 str 类型'%type(text))
     return(stats_text_cn(text,count)+stats_text_en(text,count))
+
 

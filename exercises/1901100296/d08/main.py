@@ -1,6 +1,8 @@
 from mymodule import stats_word
+
 import traceback
 import logging
+
 
 text = '''
     愚公移山
@@ -68,6 +70,7 @@ text = '''
     '''
 text2=45657568
 
+
 def test_traceback():
     try:
         print('统计结果：',stats_word.stats_text(text2))
@@ -85,7 +88,7 @@ def test_logging():
         print('发现错误：',err)
         logger.exception(err)
 
-if __name__ == '__main__':
     # test_traceback()
     test_logging()
+
 
