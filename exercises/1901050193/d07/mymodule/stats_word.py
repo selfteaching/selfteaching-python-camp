@@ -6,7 +6,7 @@ def stats_text_en(text):
     for word in words:
         for symbol in symbols:
             word = word.replace(symbol,'')
-        if len(word):
+        if len(word) and word.isascii():
             wordlist.append(word)
     counter = {}
     wordset = set(wordlist)
@@ -27,6 +27,11 @@ def stats_text_cn(text):
     for cnsymbol in cnsymbols_set:
         counter[cnsymbol]=cnsymbols.count(cnsymbol)
     return sorted(counter.items(), key = lambda x: x[1], reverse=True) #同上返回函数结果
+
+
+def stats_text(text): 
+#合并 英文词频 和中文词频 的结果
+    return stats_text_en(text) + stats_text_cn(text)
 
 
 en_text='''
@@ -110,10 +115,5 @@ if __name__=='__main__':
     print('英文单词按出现次数降序排列:\n', en_result)
     print('中文单字按出现次数降序排列:\n', cn_result)
 
-#在python中，每个模块都有一个叫_name_的内置变量，这个变量的值会根据该模块被使用的方式而变化：
-# 1、假设模块A.py 在另一个模块 B.py 中，被作为模块导入，则_name_的值为模块 A.py 的名称
-# 2、假设模块 A.py被直接执行，则_name_ 的值为_main_
-# 英文参考：https://stackoverflow.com/questions/419163/what-does-if-name-main-do
 
-#那么中文按照拼音开头排序呢
 
