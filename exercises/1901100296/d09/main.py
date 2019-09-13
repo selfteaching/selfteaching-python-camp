@@ -1,4 +1,5 @@
 from mymodule import stats_word
+
 from os import path
 import json
 import logging
@@ -32,4 +33,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 

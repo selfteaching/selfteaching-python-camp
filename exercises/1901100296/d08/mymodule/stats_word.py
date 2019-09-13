@@ -1,5 +1,6 @@
 # 封装统计英文单词词频的函数
 def stats_text_en(text) :
+
     # if type(text)!=str:
     if not isinstance(text,str):
         raise ValueError('输入类型 %s,参数必须是 str 类型'%type(text))
@@ -42,3 +43,4 @@ def stats_text(text):
     if type(text)!=str:
         raise ValueError('输入类型 %s,参数必须是 str 类型'%type(text))
     return(stats_text_cn(text)+stats_text_en(text))
+
