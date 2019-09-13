@@ -1,6 +1,4 @@
-
 import stats_word
-
 
 text = 123
 try:
