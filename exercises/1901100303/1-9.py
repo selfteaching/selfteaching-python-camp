@@ -1,3 +1,11 @@
+
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = 'all'
+import sys
+#print(sys.builtin_module_names)
+print("_sre" in sys.builtin_module_names)
+print("math" in sys.builtin_module_names)
+
 for row in range(1,10):
     for col in range(1,10):
         prod=row*col
@@ -6,4 +14,4 @@ for row in range(1,10):
         print(row*col,' ',end='')
     print()    
 
-        
+

@@ -1,4 +1,5 @@
 from mymodule import stats_word
+
 import traceback   #引入trackback模块
 
 text = 1, 2, 3
@@ -18,3 +19,4 @@ def text1_traceback():   #定义一个含有try，except的函数
 
 if __name__ == "__main__":
     text1_traceback()
+
