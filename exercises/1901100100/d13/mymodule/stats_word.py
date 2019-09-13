@@ -6,9 +6,6 @@
 from collections import Counter
 import jieba
 text = '''
-sender = 'suhunter@163.com'
-password = 'redfox176wy'
-recipients = 'suyy@gdg.com.cn'
 愚公移⼭
 太⾏，王屋⼆⼭的北⾯，住了⼀個九⼗歲的⽼翁，名叫愚公。⼆⼭佔地廣闊，擋住去路，使他
 和家⼈往來極為不便。
