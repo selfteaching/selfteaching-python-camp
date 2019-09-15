@@ -1,69 +1,92 @@
-from wxpy import *
-bot = Bot()
-my_friend = bot.friends()
-@bot.register(my_friend,SHARING)
-def auto_reply(msg):
 
-    text = msg.url
-    print(text)
-
-    import requests
-    response = requests.get(text) 
-    # 以上通过requests请求文章链接，获取网页内容
-
-
-    from pyquery import PyQuery
-    document = PyQuery(response.text)
-    content = document('#js_content').text() # 将网页内容提取为一个字符串文本作为输入
-
-    print(content)
-
-
-    import mymodule.stats_word
-
-
-    try:
-        if not isinstance(content,str):
-            raise ValueError()
-        
-    except ValueError:
-        print('输入的不是文本格式，请重新输入：')   
-    dic = mymodule.stats_word.stats_text_cn(content) # 调用函数进行分词并统计词频
     
-    dic = dict(dic) # counter函数输出的结果是一个二维list，而非字典，此步操作将二维list转换为字典。
+import sys
+
+sys.path.append('/Users/shining/Documents/GitHub/selfteaching-python-camp/19100302/7Lou/mymodule/')
+from mymodule import stats_word 
+text = '''
+愚公移山
+
+太行，王屋二山的北面，住了一個九十歲的老翁，叫愚公.二山佔地廣闊，擋住去路，使他和家人往來極為不便。
+
+一天，愚公召集家人說：「讓我們各盡其力，剷平二山，開條道路，直通豫州，你們認為怎樣？」
+大家都異口同聲贊成，只有他的妻子表示懷疑，並說：「你連開鑿一個小丘的力量都沒有，怎可能剷平太行、王屋二山呢？況且，鑿出的土石又丟到哪裏去呢？」
+
+大家都熱烈地說：「把土石丟進渤海裏。」
+於是愚公就和兒孫，一起開挖土，把土石搬運到渤海去。
+愚公的鄰居是個寡婦，有個兒子八歲也興致勃勃地走來幫忙。
+寒來暑往，他們要一年才能往返渤海一次。
+
+住在黃河河畔的智叟，看見他們這樣辛苦，取笑愚公說：「你不是很愚蠢嗎？你已一把年紀了，就是用盡你的氣力，也不能挖去山的一角呢？」
+
+愚公歎息道：「你有這樣的成見，是不會明白的。你比那寡婦的小兒子還不如呢！就算我死了，還有我的兒子，我的孫子，我的曾孫子，他們一直傳下去。而這二山是不會加大的，總有一天，我們會把它們剷平。」
+
+智叟聽了，無話可說：
+二山的守護神被愚公的堅毅精神嚇倒，便把此事奏知天帝。天帝佩服愚公的精神，就命兩位大力神揹走二山。
+
+How The Foolish Old Man Moved Mountains
+
+Yugong was a ninety-year-old man who lived at the north of two high mountains, Mount Taixing and Mount Wangwu.
+
+Stretching over a wide expanse of land, the mountains blocked yugong’s way making it inconvenient for him and his family to get around.
+One day yugong gathered his family together and said,”Let’s do our best to level these two mountains. We shall open a road that leads to Yuzhou. What do you think?”
+
+All but his wife agreed with him.
+“You don’t have the strength to cut even a small mound,” muttered his wife. “How on earth do you suppose you can level Mount Taixin and Mount Wanwu? Moreover, where will all the earth and rubble go?”
+“Dump them into the Sea of Bohai!” said everyone.
+
+So Yugong, his sons, and his grandsons started to break up rocks and remove the earth. They transported the earth and rubble to the Sea of Bohai.
+
+Now Yugong’s neighbour was a widow who had an only child eight years old. Evening the young boy offered his help eagerly.
+
+Summer went by and winter came. It took Yugong and his crew a full year to travel back and forth once.
+
+On the bank of the Yellow River dwelled an old man much respected for his wisdom. When he saw their back-breaking labour, he ridiculed Yugong saying,”Aren’t you foolish, my friend? You are very old now, and with whatever remains of your waning strength, you won’t be able to remove even a corner of the mountain.”
+
+Yugong uttered a sigh and said,”A biased person like you will never understand. You can’t even compare with the widow’s little boy!”
+
+“Even if I were dead, there will still be my children, my grandchildren, my great grandchildren, my great great grandchildren. They descendants will go on forever. But these mountains will not grow any taler. We shall level them one day!” he declared with confidence.
+
+The wise old man was totally silenced.
+When the guardian gods of the mountains saw how determined Yugong and his crew were, they were struck with fear and reported the incident to the Emperor of Heavens.
+
+Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
+'''
+dic = stats_word.stats_text(text) # 调用函数进行分词并统计词频
+print(dic)
+    
+dic = dict(dic) # counter函数输出的结果是一个二维list，而非字典，此步操作将二维list转换为字典。
 
     # 以下是通过matplotlib和numpy库将词频分析结果进行图形化
-    import matplotlib.pyplot as plt
-    import numpy as ny
+import matplotlib.pyplot as plt
+import numpy as ny
     
     
     # Fixing random state for reproducibility
-    ny.random.seed(19680801)
+ny.random.seed(19680801)
 
 
-    plt.rcdefaults()
-    fig, ax = plt.subplots()
+plt.rcdefaults()
+fig, ax = plt.subplots()
 
     # Example data
-    word = []
-    frequency = []
-    for i in dic:
-        word.append(i)
-        frequency.append(dic[i]) #将词频统计结果字典拆分成两个列表，一个包含词语，一个包含出现的次数
+word = []
+frequency = []
+for i in dic:
+    word.append(i)
+    frequency.append(dic[i]) #将词频统计结果字典拆分成两个列表，一个包含词语，一个包含出现的次数
 
-    y_pos = ny.arange(len(word))
+y_pos = ny.arange(len(word))
 
-    error = ny.random.rand(len(word))
-    plt.rcParams['font.sans-serif'] = ['SimHei'] #这一步是为了添加字体，否则汉字会显示为方框
+error = ny.random.rand(len(word))
+plt.rcParams['font.sans-serif'] = ['STFangsong']
+plt.rcParams['axes.unicode_minus'] = False
 
-    ax.barh(y_pos, frequency, xerr=error, align='center',
+ax.barh(y_pos, frequency, xerr=error, align='center',
             color='green', ecolor='black')
-    ax.set_yticks(y_pos)
-    ax.set_yticklabels(word)
-    ax.invert_yaxis()  # labels read top-to-bottom
-    ax.set_xlabel('词语出现次数')
-    ax.set_title('词频统计')
-
-    plt.savefig('words_frequency.png') # 将结果保存为图片文件
-    msg.reply_image('words_frequency.png') # 将图片发送给好友
-embed()
+ax.set_yticks(y_pos)
+ax.set_yticklabels(word)
+ax.invert_yaxis()  # labels read top-to-bottom
+ax.set_xlabel('词语出现次数')
+ax.set_title('词频统计')
+plt.show()

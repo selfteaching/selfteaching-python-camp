@@ -14,7 +14,7 @@ def reply(msg):
 
     from stats_word_d12 import stats_text   #调用模板,统计
     result=str(stats_text(content))
-    my_friend.send('Hello, WeChat!')        #返回消息给好友
+    return
 embed()
 
 

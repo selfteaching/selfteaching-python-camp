@@ -1,7 +1,3 @@
-import sys
-
-sys.path.append('/Users/shining/Documents/GitHub/selfteaching-python-camp/19100302/7Lou/mymodule/')
-from mymodule import stats_word 
 text = '''
 愚公移山
 
@@ -50,35 +46,23 @@ When the guardian gods of the mountains saw how determined Yugong and his crew w
 
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
-
-
-try:
-    stats_word.stats_text(text)
-    
-except ValueError:
-    print('ValueError:输入的不是文本格式，请重新输入：')
-
-
-#第九天作业 参考？？？混乱
+with open('/Users/shining/Documents/GitHub/selfteaching-python-camp/19100302/7Lou/tang300.json','r',encoding='utf-16') as f:
+    text = f.read()
 import sys
 
 sys.path.append('/Users/shining/Documents/GitHub/selfteaching-python-camp/19100302/7Lou/mymodule/')
-
-from mymodule import stats_word 
-from collections import Counter
-import json
-
-with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tang300.json')) as f ：
-
-    x = f.read()
-    json.dump(x, f)
-    x = json.load(f)
-    read = Counter(stats_word.stats_text(x))
-    print(read.most_common(100))
+import stats_word 
+#from stats_word import stats_text
 
 try:
-    stats_word.stats_text(text)
+    if not isinstance(text,str):#判断参数类型
+        raise ValueError()#抛出异常类型
     
-except :
-    print('ValueError:输入的不是文本格式，请重新输入：'）
+except ValueError:
+    print('输入的不是文本格式，请重新输入：')
+
+#print(stats_word.stats_text(text))
+count = int(input('限制输出的个数:'))
+print(stats_word.stats_text_cn(text,count))
+
 

@@ -18,9 +18,9 @@ def stats_text_cn(text):
     for x in text:
         if len(x) >=2 and u'\u4e00' <= x <= u'\u9fff' :
             d[x] = text.count(x)
-    print(Counter(d).most_common())
+    print(Counter(d).most_common(20))
 
 
-with open('tang300.json','r',encoding = ('UTF-8')) as f :
+with open('/Users/shining/Documents/GitHub/selfteaching-python-camp/19100302/7Lou/tang300.json','r',encoding='utf-16') as f:
     text = f.read()
-    print(text)
+    print(stats_text_cn(text))
