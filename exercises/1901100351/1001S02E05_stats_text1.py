@@ -22,18 +22,7 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 
-elements = sample_text.split()#将sample_text分割为字符集合
-words = []#设置字符列表
-symbols = ',.*-!'#定义非字母符号
-for element in elements:#遍历字符集合
-    for symbol in symbols:
-        element = element.replace(symbol,'')#用空格代替非字母符号
-    if len(element):#如果字符串长度>=1
-        words.append(element)#把字符串放到列表中
-print('正常的英文单词==>',words)
 
-counter = {}#设置词典
-word_set = set(words)#创建无序不重复元素集
 
 for word in word_set:
     counter[word] = words.count(word)
