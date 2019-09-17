@@ -1,5 +1,6 @@
-sample_text = '''
-the Zen of Python, by Tim Peters
+text_sample = '''
+The Zen of Python, by Tim Peters
+
 
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -12,7 +13,7 @@ Special cases aren't special enough to break the rules.
 Although practicality beats purity.
 Errors should never pass silently.
 Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
+In the face of ambxiguity, refuse the temptation to guess.
 There should be one-- and preferably only one --obvious way to do it.
 Although that way may not be obvious at first unless you're Dutch.
 Now is better than never.
@@ -22,10 +23,21 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 
+#使⽤用字典（dict）统计字符串样本 text 中各个英⽂文单词出现的次数。
 
+elements = text_sample.split()
+words = []
+symbols = ',.*-!'
+for element in elements:
+    for symbol in symbols:
+        element = element.replace(symbol,'')
+    if len(element):
+        words.append(element)
+print(words)
 
+counter = {}
+word_set = set(words)
 for word in word_set:
     counter[word] = words.count(word)
-print('英文单词出现次数 ==>',counter)
-
-print('从大到小输出所有单词出现的次数 ==>', sorted(counter.items(), key=lambda x: x[1], reverse=True))
+print(counter)
+print(sorted(counter.items(),key=lambda x:x[1],reverse=True))
