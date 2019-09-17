@@ -28,11 +28,4 @@ def stats_text_cn(text,count):
             words.append(word)
     # 使用标准库的Counter统计词和词频数，返回前count位的数据
     cnt_words = collections.Counter(words).most_common(count)
-    res_words=''
-    for r in cnt_words:
-        a,b = r
-        w = a + ':' +str(b)
-        # print(w)
-        res_words = res_words + '\n' + w
-        
-    return res_words
+    return cnt_words

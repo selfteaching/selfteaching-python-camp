@@ -1,19 +1,6 @@
 import collections
 import jieba
-import requests
-import yagmail
 import json
-from pyquery import PyQuery
-
-# 获取网页内容
-def getcontent(url):
-    # 请求网页返回内容
-    response = requests.get(url)
-    # 提取微信公众号正⽂
-    document = PyQuery(response.text) 
-    content = document('#js_content').text()
-    return content
-
 
 # 封装统计汉字词频的函数
 def stats_text_cn(text,count):
@@ -28,6 +15,7 @@ def stats_text_cn(text,count):
             words.append(word)
     # 使用标准库的Counter统计词和词频数，返回前count位的数据
     cnt_words = collections.Counter(words).most_common(count)
+    # res_words = str(cnt_words)
     res_words=''
     for r in cnt_words:
         a,b = r
