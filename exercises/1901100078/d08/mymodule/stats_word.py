@@ -19,7 +19,7 @@ def stats_text_en(text):
 def stats_text_cn(text):
     '''统计中文字频'''
     if not isinstance(text, str):
-        raise ValueError
+        raise ValueError('Sould be str type, input %s'%type(text))
     List = [i for i in text]
     word_dict = {}
     for word in set(List):
@@ -30,7 +30,7 @@ def stats_text_cn(text):
 def stats_text(text):
     "统计文本中出现的英文以及中文字符频率"
     if not isinstance(text, str):
-        raise ValueError
+        raise ValueError('not str type, input tyoe is %s'%type(text))
     cn_str = ''
     en_str = ''
     for char in text:
