@@ -1,5 +1,6 @@
 import collections
 import jieba
+
 import json
 
 # 封装统计汉字词频的函数
@@ -15,7 +16,9 @@ def stats_text_cn(text,count):
             words.append(word)
     # 使用标准库的Counter统计词和词频数，返回前count位的数据
     cnt_words = collections.Counter(words).most_common(count)
+
     # res_words = str(cnt_words)
+
     res_words=''
     for r in cnt_words:
         a,b = r
