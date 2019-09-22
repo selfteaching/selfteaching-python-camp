@@ -15,7 +15,9 @@ def test_traceback():
 def test_logger():
     try:
         stats_word.stats_text(1)
+
     except Exception as e:
+
         # print('test_logger =>',e)
         logger.exception(e)
 

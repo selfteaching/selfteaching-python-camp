@@ -15,8 +15,8 @@ print ("""\
     divide:4
 """)
 choice=input ("please choose your calculator number:")
-num1 =float(input("number1:"))
-num2 =float(input("number2:"))
+num1 =int(input("number1:"))
+num2 =int(input("number2:"))
 if choice=='1':
     print(num1,"+", num2, "=",add(num1,num2))
 elif choice=='2':
