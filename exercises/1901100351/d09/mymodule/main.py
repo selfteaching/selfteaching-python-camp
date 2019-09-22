@@ -1,31 +1,14 @@
-# this is d8 exercise for erros and exceptions
-
-# date: 2019.09.15;renew in 09.18
+# this is d9 exercise for stander libirary
+# date: 2019.09.20
 # author by: rtgong
 
 import stats_word
-import traceback
-import logging
 
-logger = logging.getLogger(__name__)
+with open(r'D:\编程学习\selfteaching-python-camp\exercises\1901100351\d09\mymodule\tang300.json',encoding='UTF-8') as f:
+    text = f.read()
+f.closed
 
-def test_traceback():
-    try:
-        stats_word.stats_text(1)
-    except Exception as e:
-        print('test_traceback =>',e)
-        print(traceback.format_exc())
-
-def test_logger():
-    try:
-        stats_word.stats_text(1)
-    except Exception as e:
-        logger.exception(e)
-
-if __name__=="__main__":
-    test_traceback()
-    test_logger()
-
+print(stats_word.stats_text_cn(text))
 
 
 
@@ -44,7 +27,6 @@ text = '''
 智叟聽了，無話可說：
 二山的守護神被愚公的堅毅精神嚇倒，便把此事奏知天帝。天帝佩服愚公的精神，就命
 兩位大力神揹走二山。
-
 
 
 How The Foolish Old Man Moved Mountains
@@ -80,9 +62,3 @@ When the guardian gods of the mountains saw how
 determined Yugong and his crew were, they were struck with fear and reported the incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
-
-try:
-    print('合并词频统计结果:', stats_word.stats_text(text))
-except ValueError:
-    print()
-

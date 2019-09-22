@@ -1,52 +1,52 @@
-# this is d8 exercise for erros and exceptions
-
+# this is d9 exercise for stander libirary
+# date: 2019.09.20
 # author by: rtgong
 
 # 统计参数中英文单词出现的次数，并按降序排列
 def stats_text_en(text):  #定义函数
-
+    import collections
     if not isinstance(text,str):
         raise ValueError('参数必须是 str 类型,输入类型 %s' % type(text))
-    elements = text.split()#对字符串进行切片
-    words = []#设置列表
-    symbols = ',.*-!'
-    for element in elements:
-        for symbol in symbols:
-            element = element.replace(symbol,'')
-            if len(element):
-                 words.append(element)
-    counter = {}#创建字典
-    word_set = set(words)#创建无序不重复集合    
-        
-    for word in word_set:
-        counter[word] = words.count(word)
-    return sorted(counter.items(), key=lambda x:x[1], reverse=True)
-
+    text = text.replace(',','').replace('.','').replace('!','').replace('--','').replace('*','').replace('(','').replace(')','')
+    list_text = text.split()
+    count = int(input("请输入要限制输出的元素个数："))
+    dic = collections.counter(list_text).most_common(count)
+    return dic
 
 # 统计参数中汉字出现次数，并按降序排列
 def stats_text_cn(text):#设定函数
-
+    dic = {}
     if not isinstance(text,str):
         raise ValueError('参数必须是 str 类型,输入类型 %s' % type(text))
-    cn_charactors = []
-    for charactor in text:
-        if '\u4e00'<= charactor <= '\u9fff':#中文字符的代码区间
-            cn_charactors.append(charactor)
-    counter = {}#创建字典
-    cn_charactor_set = set(cn_charactors)
-    for charactor in cn_charactor_set:
-        counter[charactor] = cn_charactors.count(charactor)
-    return sorted(counter.items(),key=lambda x:x[1], reverse=True)
-
-
-# 合并英汉词频统计
-def stats_text(text_en_cn) :
-    if not isinstance(text_en_cn,str):
-        raise ValueError('参数必须是 str 类型,输入类型 %s' % type(text_en_cn))
-    return (stats_text_en(text_en_cn)+stats_text_cn(text_en_cn))
+    
+    for i in text:
+        if '\u4e00'<= i <= '\u9fff':#中文字符的代码区间
+            dic[i] = text.count(i)
+    import collections
+    count = int(input("请输入要限制输出的元素个数："))
+    dic = collections.Counter(dic).most_common(count)
+    return dic
     
 
+# 合并英汉词频统计
+def stats_text(text) :
+    dic_1 = stats_text_cn(text)
+    if not isinstance(text,str):
+        raise ValueError('参数必须是 str 类型,输入类型 %s' % type(text))
+    for i in text:
+        if '\u4e00'<= i <= '\u9fff':
+            text = text.replace(i,'')
+    text = text.replace('「','').replace('」','').replace('，','').replace('。','').replace('？','').replace('！','').replace('：','')
+    dic_2 = stats_text_cn(text)
+    dic_3 = {}
+    dic_3.update(dic_2)
+    dic_3.update(dic_1)
+    dic_3 = sorted(dic_3.items(),key=lambda x:x[1], reverse = True)
 
+    return(dic_3)
+
+print(stats_text.__doc__)
+     
 
 en_text = '''
 the Zen of Python, by Tim Peters
@@ -91,9 +91,3 @@ Python之禅 by Tim Peters
 如果你无法向人描述你的方案，那肯定不是一个好方案；反之亦然 
 命名空间是一种绝妙的理念，请多加利用
 '''
-
-if __name__ == "__main__":
-    en_result = stats_text_en(en_text)
-    cn_result = stats_text_cn(cn_text)
-    print('统计参数中英文单词出现次数==>\n', en_result)
-    print('统计参数中汉字出现次数==>\n', cn_result)
