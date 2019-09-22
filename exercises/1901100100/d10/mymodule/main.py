@@ -23,7 +23,7 @@ data = load()
 text = merge(data)
 
 try:
-    dict1_order = stats_word.stats_text_cn(text,25)
+    dict1_order = stats_word.stats_text_cn(text,20)
     #get the order of the 100th number
     print(dict1_order)
 except ValueError as e:
