@@ -1,9 +1,10 @@
 # this is d8 exercise for erros and exceptions
-# date: 2019.09.15;renew in 09.18
+
 # author by: rtgong
 
 # 统计参数中英文单词出现的次数，并按降序排列
 def stats_text_en(text):  #定义函数
+
     if not isinstance(text,str):
         raise ValueError('参数必须是 str 类型,输入类型 %s' % type(text))
     elements = text.split()#对字符串进行切片
@@ -24,6 +25,7 @@ def stats_text_en(text):  #定义函数
 
 # 统计参数中汉字出现次数，并按降序排列
 def stats_text_cn(text):#设定函数
+
     if not isinstance(text,str):
         raise ValueError('参数必须是 str 类型,输入类型 %s' % type(text))
     cn_charactors = []
@@ -43,6 +45,7 @@ def stats_text(text_en_cn) :
         raise ValueError('参数必须是 str 类型,输入类型 %s' % type(text_en_cn))
     return (stats_text_en(text_en_cn)+stats_text_cn(text_en_cn))
     
+
 
 
 en_text = '''

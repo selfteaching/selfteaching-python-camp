@@ -1,3 +1,7 @@
 # Day1学习心得
-
 今天用了3个多小时的时间掌握了Github的基本用法，还需要对markdown的使用多一些了解。
+
+# Day2学习心得
+配置Python运行的各种环境花了不少时间，是因为之前从未有过相关经验，缺少背景技术积累，所有内容都需要从头学起。
+环境配置完成后试着写print程序，这一步倒不是很复杂，但是在使用mac os自带的terminal运行时却碰到了python: can't open file in macbook terminal - [Errno 2]!的问题。
+Google了一下才发现是python文件没有存放在命令执行所对应的文件夹，于是又尝试学习pwd和cd命令，最终解决了问题。
