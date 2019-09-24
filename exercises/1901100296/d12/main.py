@@ -3,6 +3,7 @@ import getpass
 import yagmail
 from wxpy import *
 
+
 logging.basicConfig(format='file:%(filename)s|line:%(lineno)d|message:%(message:%(message)s',level=logging.DEBUG)
 def main():
     # 初始化机器人，扫码登录
@@ -23,4 +24,5 @@ def main():
     embed()
 if __name__ == '__main__':
     main()
+
 
