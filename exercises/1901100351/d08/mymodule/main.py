@@ -1,4 +1,5 @@
 # this is d8 exercise for erros and exceptions
+
 # date: 2019.09.15;renew in 09.18
 # author by: rtgong
 
@@ -27,6 +28,7 @@ if __name__=="__main__":
 
 
 
+
 text = '''
 愚公移山
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，擋住去路，使他和家人往來極為不便。
@@ -42,6 +44,7 @@ text = '''
 智叟聽了，無話可說：
 二山的守護神被愚公的堅毅精神嚇倒，便把此事奏知天帝。天帝佩服愚公的精神，就命
 兩位大力神揹走二山。
+
 
 
 How The Foolish Old Man Moved Mountains
@@ -77,3 +80,9 @@ When the guardian gods of the mountains saw how
 determined Yugong and his crew were, they were struck with fear and reported the incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
+
+try:
+    print('合并词频统计结果:', stats_word.stats_text(text))
+except ValueError:
+    print()
+
