@@ -93,6 +93,7 @@ def stats_text_cn (cn_text) :
     d1=sorted(d.items(),key=lambda x:x[1],reverse=True)      
     return d1
 
+
 def stats_text(string):
     '''
     统计 英文单词字频 和中文字频 的结果,并按从大到小排列
@@ -101,6 +102,7 @@ def stats_text(string):
     #如果不是字符串，抛异常，异常会终止代码执行
     if not isinstance(string, str):
         raise ValueError("非字符串格式，请重新输入")
+
 
     return stats_text_en(en_text) + stats_text_cn(cn_text)
 
