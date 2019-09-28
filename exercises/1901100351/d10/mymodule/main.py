@@ -1,6 +1,5 @@
-# this is d9 exercise for stander libirary
-
-# date: 2019.09.20; renewed 9.24
+# this is d10 exercise for using the third lib
+# date: 2019.09.28
 # author by: rtgong
 
 import stats_word
@@ -30,10 +29,9 @@ def main():
         data = load_file()
         logging.info(data[0])
         poems = merge_poems(json.loads(data))
-        logging.info('result==>%s',stats_word.stats_text_cn(poems,100))
+        print('前20汉字字频结果：',stats_word.stats_text_cn(poems,20))
     except Exception as e:
         logging.exception(e)
 
 if __name__ == "__main__":
     main()
-
