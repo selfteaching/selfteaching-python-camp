@@ -1,4 +1,5 @@
 # this is d8 exercise for erros and exceptions
+
 # date: 2019.09.15;renew in 09.18
 # author by: rtgong
 
@@ -6,7 +7,9 @@ import stats_word
 import traceback
 import logging
 
+
 logger = logging.getLogger(__name__)
+
 
 def test_traceback():
     try:
