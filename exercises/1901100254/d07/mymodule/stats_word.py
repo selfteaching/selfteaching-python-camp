@@ -1,5 +1,50 @@
-text = '''
+# 统计参数中每个英文单词出现的次数
+def stats_text_en(text):   
+    elements = text.split()   
+    words = []             
+    symbols = ',.*-!'   
+    for element in elements:   
+        for symbol in symbols:    
+            element = element.replace(symbol, '')  
+        # 用 str 类型 的 isascii 方法判断是否是英文单词
+        if len(element) and element.isascii():    
+            words.append(element)
+    counter = {}
+    word_set = set(words)
+
+    for word in word_set:
+        counter[word] = words.count(word)
+    # 函数返回值用 return 进行返回，如果没有 return 返回值则为 None
+    return sorted(counter.items(), key=lambda x: x[1], reverse=True)
+
+
+# 统计参数中每个中文汉字出现的次数
+def stats_text_cn(text):
+    cn_characters = []
+    for character in text:
+        # unicode 中 中文 字符的范围
+        if '\u4e00' <= character <= '\u9fff':
+            cn_characters.append(character)
+    counter = {}
+    cn_character_set = set(cn_characters)
+    for character in cn_character_set:
+       counter[character] = cn_characters.count(character)
+    return sorted(counter.items(), key=lambda x: x[1], reverse=True)
+
+
+def stats_text(text):
+    '''
+    合并 英文词频 和 中文词频 的结果
+    '''
+    return stats_text_en(text) + stats_text_cn(text)
+
+
+
+if __name__ == '__main__':
+    en_text = '''
 The Zen of Python, by Tim Peters
+
+
 Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
@@ -19,45 +64,33 @@ Although never is often better than *right* now.
 If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
-美丽胜过丑陋。
-显式优于隐式。
-简单比复杂更好。
-复杂比复杂更好。
-优于嵌套。
-稀疏优于密集。
-可读性很重要。
-特殊情况不足以打破规则。
-虽然实用性胜过纯洁。
-错误不应该默默地传递。
-除非明确沉默。
-面对困惑，拒绝猜测的诱惑。
-应该有一个 - 最好只有一个 - 明显的方法来做到这一点。
-虽然这种方式起初可能并不明显，除非你是荷兰人。
-现在比永远好。
-虽然现在永远不会比*正确好。
-如果实施很难解释，这是一个坏主意。
-如果实现很容易解释，那可能是个好主意。
-命名空间是一个很棒的主意 - 让我们做更多的事情吧！
 '''
 
 
-import re    # 引入正则表达式，以便操作字符串
-import collections   # 引入collections模块，以便使用计数功能
-def stats_text_en(text):
-    text = re.sub("[^A-Za-z]", " ", text)
-    text = text.lower()
-    text = text.split()
-    text = collections.Counter(text)
-    print('英文单词词频: \n', text, '\n')
+cn_text = '''
+Python之禅 by Tim Peters
 
-def stats_text_cn(text):
-    text = re.sub("[A-Za-z.。，,'!！“”「」？?、：\"\-* \n]", "", text)
-    for text1 in text:
-        text1 = text.split() 
-    text=collections.Counter(text)         
-    print('中文汉字字频：\n', text, '\n')
+优美胜于丑陋
+明了胜于晦涩
+简洁胜于复杂
+复杂胜于凌乱
+扁平胜于嵌套
+间隔胜于紧凑
+可读性很重要
+即便假借特例的实用性之名，也不可违背这些规则
+不要包容所有错误，除非你确定需要这样做
+当存在多种可能，不要尝试去猜测
+而是尽量找一种，最好是唯一一种明显的解决方案
+虽然这并不容易，因为你不是 python 之父
+做也许好过不做，但不假思索就动手还不如不做
+。。。
+'''
 
-stats_text_en(text)
-stats_text_cn(text)
-def stats_text(text):
-    return(stats_text_en(text), stats_text_cn(text))
+
+# 搜索 __name__ == __main__
+# 一般情况下再文件内 测试 代码的时候以下面的形式进行
+if __name__ == '__main__':
+    en_result = stats_text_en(en_text)
+    cn_result = stats_text_cn(cn_text)
+    print('统计参数中每个英文单词出现的次数 ==>\n', en_result, '\n')
+    print('统计参数中每个中文汉字出现的次数 ==>\n', cn_result, '\n')
