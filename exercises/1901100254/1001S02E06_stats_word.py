@@ -1,37 +1,38 @@
 # 自定义函数，该函数用于统计参数text中每个英文单词出现的次数，最后返回一个按词频降序排列的数组
 def stats_text_en(text):   
-    text1 = text.split()   # 先将字符串根据 空白字符 分割成 list, 要调用 str 类型
-    text2 = []             # 定义一个新的 list 型变量，存储处理过的单词          
-    symbols = ",.-!*"      # 先针对样本文本挑选出需要剔除的非单词符号
+    elements = text.split()   # 先将字符串根据 空白字符 分割成 list, 要调用 str 类型
+    words = []             # 定义一个新的 list 型变量，存储处理过的单词          
+    symbols = ',.*-!'     # 先针对样本文本挑选出需要剔除的非单词符号
 
-    for En in text1:       # 在列表text1中遍历一遍要剔除的符号
+    for element in elements:       # 在列表text1中遍历一遍要剔除的符号
         for symbol in symbols:  # 如果包含symbols中需要剔除的字符，用replace语句替换掉
-            En = En.replace(symbol, '')  # 逐个替换字符号，用''是为了同时剔除符号所占的位置
-        if len(En):        # 剔除了字符后如果单词En的长度不为0，那么就算正常单词，可以加入到新的列表中
-            text2.append(En)
-   
-    # 先把text中的符号剔除掉
-    text3 = " ".join(text2)
-    text3 = text3.lower()
-    text3 = text3.lower()   
+            element = element.replace(symbol, '')  # 逐个替换字符号，用''是为了同时剔除符号所占的位置
+        if len(element):        # 剔除了字符后如果单词En的长度不为0，那么就算正常单词，可以加入到新的列表中
+            words.append(element)
+    counter = {}
+    word_set = set(words)
 
-    # 把所有的单词变成小写格式
-    text3 = text3.split() 
-
-    # 把text变成list格式
-    d = {}   
-
-    # 采用空字典形式保存结果
-    for i in text3:    
-        a = text3.count(i)
-        d[i] = a    # 统计text2中i的频次a，并将结果导入字典
-    d1 = sorted(d.items(), key = lambda item : item[1], reverse = True)
-    # 将字典里的元素按照value的降序排列
-    print(d1, '\n')
-    return
+    for word in word_set:
+        counter[word] = words.count(word)
+    # 函数返回值用 return 进行返回，如果没有 return 返回值则为 None
+    return sorted(counter.items(), key=lambda x: x[1], reverse=True)
 
 
-text = '''
+# 统计参数中每个中文汉字出现的次数
+def stats_text_cn(text):
+    cn_characters = []
+    for character in text:
+        # unicode 中 中文 字符的范围
+        if '\u4e00' <= character <= '\u9fff':
+            cn_characters.append(character)
+    counter = {}
+    cn_character_set = set(cn_characters)
+    for character in cn_character_set:
+       counter[character] = cn_characters.count(character)
+    return sorted(counter.items(), key=lambda x: x[1], reverse=True)
+
+
+en_text = '''
 The Zen of Python, by Tim Peters
 
 
@@ -57,43 +58,30 @@ Namespaces are one honking great idea -- let's do more of those!
 '''
 
 
-stats_text_en(text)
+cn_text = '''
+Python之禅 by Tim Peters
 
-def stats_text_cn(text):
-    text1 = []   # 设置一个空列表用来存储中文字符
-    for cn in text:     
-        if '\u4e00' <= cn <= '\u9fff':    # 判断text中的每个字符是否属于中文字符，是的话就加入到列表text1中，中文标点符号都去掉
-            text1.append(cn)
-
-    d = {}    # 新建一个空字典保存统计结果
-    for zh in text1:
-        d[zh] = text1.count(zh)    # 将统计text1中的字频a导入到字典d中
-    d1 = sorted(d.items(), key = lambda item : item[1], reverse = True) # 按字频降序排列
-    print(d1)
-    return
-
-text = '''
-提姆·彼得斯（Tim Peters）撰写的《 Python之禅》
-
-
-美丽胜于丑陋。
-显式胜于隐式。
-简单胜于复杂。
-复杂胜于复杂。
-扁平比嵌套更好。
-稀疏胜于密集。
-可读性很重要。
-特殊情况还不足以打破规则。
-尽管实用性胜过纯度。
-错误绝不能默默传递。
-除非明确地保持沉默。
-面对不解之谜，拒绝猜测的诱惑。
-应该有一种-最好只有一种-显而易见的方法。
-尽管除非您是荷兰人，否则一开始这种方式可能并不明显。
-现在总比没有好。
-尽管从来没有比现在“正确”好。
-如果实现难以解释，那是个坏主意。
-如果实现易于解释，则可能是个好主意。
-命名空间是一个很棒的主意-让我们做更多这些吧！
+优美胜于丑陋
+明了胜于晦涩
+简洁胜于复杂
+复杂胜于凌乱
+扁平胜于嵌套
+间隔胜于紧凑
+可读性很重要
+即便假借特例的实用性之名，也不可违背这些规则
+不要包容所有错误，除非你确定需要这样做
+当存在多种可能，不要尝试去猜测
+而是尽量找一种，最好是唯一一种明显的解决方案
+虽然这并不容易，因为你不是 python 之父
+做也许好过不做，但不假思索就动手还不如不做
+。。。
 '''
-stats_text_cn(text)
+
+
+# 搜索 __name__ == __main__
+# 一般情况下再文件内 测试 代码的时候以下面的形式进行
+if __name__ == '__main__':
+    en_result = stats_text_en(en_text)
+    cn_result = stats_text_cn(cn_text)
+    print('统计参数中每个英文单词出现的次数 ==>\n', en_result)
+    print('统计参数中每个中文汉字出现的次数 ==>\n', cn_result)
