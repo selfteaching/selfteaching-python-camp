@@ -1,5 +1,4 @@
-
-text = '''
+sample_text = '''
 The Zen of Python, by Tim Peters
 
 
@@ -24,24 +23,33 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 
+# 1. 将字符串样本里的 better 全部替换成 worse
 
-string = text
-string.replace("better", "worse")   #替换函数str.replace()
-print('\n替换better后的结果：',string.replace("better","worse"))
-
-
-#从第2步的结果⾥，将单词中包含 ea 的单词剔除
-text1 = text.replace('better','worse')
-text2  =text1.replace('ea', '__')  
-print ('\n删除含ea的单词的结果：\n',text2)
+# 调用 str 类型的 replace 方法进行替换
+text = sample_text.replace('better', 'worse')
+print('将字符串样本里的 better 全部替换成 worse ==>', text, '\n')
 
 
-#将第3步的结果里的字⺟进⾏大小写翻转(将大写字母转成小写，⼩写字母转成大写)
-text3 = ' '.join(text2)   #列表转换成字符串
-text4 = text3.swapcase()   #逐个字符更替大小写
-print('\n大小写翻转后新字符串text4为：\n',text4)
+# 2. 将单词中包含 ea 的单词剔除
 
-#将第4步的结里所有单词按a...z升序排列，并输出结果
-text5 = text4.split()   # 排序需要通过列表，上一步结果字符串转换成列表
-text5.sort()
-print('\n排列结果如下：\n',text5)
+# 先将字符串根据 空白字符 分割成 list, 要调用 str 类型
+words = text.split()
+# 定义一个 list 类型的变量用来存放过滤完的单词
+filtered = []
+# 用 for ... in 循环遍历一遍 words 里的元素然后判断单词是否包含 ea
+for word in words:
+    # str 类型的 find 方法 如果不包含 参数 字符则返回 -1, 如果包含则返回该字符第一次出现时的索引
+    if word.find('ea') < 0:
+        filtered.append(word)
+print('将单词中包含 ea 的单词剔除==>', filtered, '\n')
+
+
+# 3. 进行大小写翻转
+# 利用 列表推到式 对 str 类型的元素进行大小写翻转
+swapcased = [i.swapcase() for i in filtered]
+print('进行大小写翻转 ==>', swapcased, '\n')
+
+
+# 4. 单词按 a...z 升序排列
+print('单词按 a...z 升序排列 ==>', sorted(swapcased))
+# print('单词按 a...z 降序排列 ==>', sorted(swapcased, reverse=True))
