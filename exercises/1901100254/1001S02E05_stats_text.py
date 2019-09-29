@@ -1,4 +1,6 @@
+
 sample_text = '''
+
 The Zen of Python, by Tim Peters
 
 
@@ -22,6 +24,7 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
+
 
 # 1. 使用字典(dict 类型) 统计字符串样本 text 中各个英文单词出现的次数
 
@@ -62,3 +65,4 @@ print('英文单词出现的次数 ==>', counter)
 # dict 类型 counter 的 items 方法会返回一个 包含 相应 项 (key, value) 的 元组 列表
 # print('counter.items() ==>', counter.items())
 print('从大到小输出所有的单词及出现的次数 ==>', sorted(counter.items(), key=lambda x: x[1], reverse=True))
+

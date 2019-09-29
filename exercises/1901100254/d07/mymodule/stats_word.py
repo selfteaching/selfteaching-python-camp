@@ -1,3 +1,4 @@
+
 # 统计参数中每个英文单词出现的次数
 def stats_text_en(text):   
     elements = text.split()   
@@ -45,6 +46,10 @@ if __name__ == '__main__':
 The Zen of Python, by Tim Peters
 
 
+
+text = '''
+The Zen of Python, by Tim Peters
+
 Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
@@ -64,6 +69,7 @@ Although never is often better than *right* now.
 If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
+
 '''
 
 
@@ -94,3 +100,4 @@ if __name__ == '__main__':
     cn_result = stats_text_cn(cn_text)
     print('统计参数中每个英文单词出现的次数 ==>\n', en_result, '\n')
     print('统计参数中每个中文汉字出现的次数 ==>\n', cn_result, '\n')
+

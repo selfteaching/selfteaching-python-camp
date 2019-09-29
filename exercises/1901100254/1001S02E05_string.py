@@ -1,4 +1,6 @@
+
 sample_text = '''
+
 The Zen of Python, by Tim Peters
 
 
@@ -53,3 +55,4 @@ print('进行大小写翻转 ==>', swapcased, '\n')
 # 4. 单词按 a...z 升序排列
 print('单词按 a...z 升序排列 ==>', sorted(swapcased))
 # print('单词按 a...z 降序排列 ==>', sorted(swapcased, reverse=True))
+

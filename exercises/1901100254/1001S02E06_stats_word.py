@@ -1,5 +1,6 @@
 # 自定义函数，该函数用于统计参数text中每个英文单词出现的次数，最后返回一个按词频降序排列的数组
 def stats_text_en(text):   
+
     elements = text.split()   # 先将字符串根据 空白字符 分割成 list, 要调用 str 类型
     words = []             # 定义一个新的 list 型变量，存储处理过的单词          
     symbols = ',.*-!'     # 先针对样本文本挑选出需要剔除的非单词符号
@@ -33,6 +34,7 @@ def stats_text_cn(text):
 
 
 en_text = '''
+
 The Zen of Python, by Tim Peters
 
 
@@ -56,6 +58,7 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
+
 
 
 cn_text = '''
@@ -85,3 +88,4 @@ if __name__ == '__main__':
     cn_result = stats_text_cn(cn_text)
     print('统计参数中每个英文单词出现的次数 ==>\n', en_result)
     print('统计参数中每个中文汉字出现的次数 ==>\n', cn_result)
+
