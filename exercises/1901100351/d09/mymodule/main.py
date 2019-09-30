@@ -1,4 +1,5 @@
 # this is d9 exercise for stander libirary
+
 # date: 2019.09.20; renewed 9.24
 # author by: rtgong
 
@@ -35,3 +36,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
