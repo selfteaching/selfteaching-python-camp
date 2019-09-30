@@ -24,11 +24,12 @@ def stats_text_en(text, count):  #定义函数
 
 # 统计参数中汉字出现次数，并按降序排列
 def stats_text_cn(text, count):
-    cn_characters = []
-    for character in text:
-        if '\u4e00'<= character <= '\u9fff':#中文字符的代码区间
-            cn_characters.append(character)
-    return Counter(cn_characters).most_common(count)
+    words = jieba.cut(text)
+    tmp = []
+    for i in words:
+        if len(i)>1:
+            tmp.append(i)
+    return Counter(tmp).most_common(count)
     
 
 # 合并英汉词频统计
