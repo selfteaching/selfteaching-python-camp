@@ -1,4 +1,4 @@
-text = '''
+sample_text = '''
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -22,22 +22,27 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 #第一步将字符串样本text里的better全部替换成worse
-s=text
-s.replace('better', 'worse', )
-print(s.replace('better', 'worse', ))
+#调用str类型的replace方法进行替换
+text=sample_text.replace('better','worse')
+print('将字符串样本里的better全部替换成worse ==>', text)
 
 #第二步将单词中包含ea的单词剔除
-s.split()
-L = list(s)
-for C in L:
-    if 'ea' in 'C',
-    del L[C]
-    print(L_list)
-else:
-    print(L_list)
+#先将字符串根据 空白字符 分割成 list，在调用str类型
+words = text.split()
+#定义一个list类型的变量用来存放过滤完的单词
+filtered = []
+#用 for...in 循环遍历一遍words里的元素然后判断单词是否包含ea
+for word in words:
+    #str类型的find方法涂过不包含参数字符则返回-1，如果包含则返回该字符第一次出现时的索引
+    if word.find('ea')<0:
+        filtered.append(word)
+print('将单词中包含ea的单词剔除==>',filtered)
 
 #第三步将字⺟进行⼤小写翻转
-s.swapcase()
+#利用列表推导式对str类型的元素进行大小写翻转
+swapcasd=[i.swapcase()for i in filtered]
+print('进行大小写翻转-->',swapcased)
 
 #第四步将单词升序排列
-L_list.sort()
+print('单词按a...z升序排列-->',sorted(swapcased))
+#print('单词按a...z降序排列-->',sorted(swapcased,reverse=true))
