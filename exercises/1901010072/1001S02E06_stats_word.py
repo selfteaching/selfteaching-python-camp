@@ -1,6 +1,4 @@
-
 sample_text = '''
-
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -23,15 +21,14 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-
-# 1.使用字典（dict）统计字符串样本text中各个英文单词出现的次数
+# 1.统计字符串样本text中各个英文单词出现的次数
 # 先将字符串根据 空白字符 分割成list，在调用str类型
 elements = sample_text.split()
 # 定义一个新的list类型变量，存储处理过的单词
 words=[]
 #先针对样本文本挑选出需要提出的非单词符号
 symbols=',.*-!'
-for element elements:
+for element in elements:
     #遍历一遍要剔除的符号
     for symbol in symbols:
         #逐个替换字符号，用''是为了同时剔除符号所占的位置
@@ -50,12 +47,16 @@ word_set=set(words)
 for word in word_set:
     counter[word]=words.count(word)
 
-print('英文单词出现的次数==>',counter)
+# 按照出现次数从⼤到⼩输出所有的单词及出现的次数进行统计、定义函数
 
-# 2.按照出现次数从⼤到⼩输出所有的单词及出现的次数
+def stats_text_en(sorted(counter.items(),sample_text,reverse=True)):
+    result={}
+    for word in word_set:
+        result[word] = word_set.count(word)
+    reture result
 
-#内置函数sorted的参数key表示按元素的那一项的值进行排序
-#dict类型counter的items方法会返回一个包含相应项（key,value)的元组列表
-#print('counter.items()==>',counter.items())
-print('从大到小输出所有的单词及出现的次数==>',sorted(counter.items(),key=lamda x:x[],reverse=True))
-
+def stats_text_cn(sorted(counter.items(),sample_text,reverse=True)):
+    for word in word_set:
+        if'\u4e00'<=word<='\u9fff':
+        result[word] = word_set.count(word)
+    reture result
