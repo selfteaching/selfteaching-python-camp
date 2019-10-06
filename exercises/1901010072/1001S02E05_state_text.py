@@ -1,4 +1,6 @@
+
 sample_text = '''
+
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -21,6 +23,7 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
+
 # 1.使用字典（dict）统计字符串样本text中各个英文单词出现的次数
 # 先将字符串根据 空白字符 分割成list，在调用str类型
 elements = sample_text.split()
@@ -55,3 +58,4 @@ print('英文单词出现的次数==>',counter)
 #dict类型counter的items方法会返回一个包含相应项（key,value)的元组列表
 #print('counter.items()==>',counter.items())
 print('从大到小输出所有的单词及出现的次数==>',sorted(counter.items(),key=lamda x:x[],reverse=True))
+

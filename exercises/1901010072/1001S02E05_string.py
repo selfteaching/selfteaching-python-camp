@@ -1,4 +1,6 @@
+
 sample_text = '''
+
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -22,6 +24,7 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 #第一步将字符串样本text里的better全部替换成worse
+
 #调用str类型的replace方法进行替换
 text=sample_text.replace('better','worse')
 print('将字符串样本里的better全部替换成worse ==>', text)
