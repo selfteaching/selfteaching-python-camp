@@ -1,14 +1,18 @@
-# 自定义函数，该函数用于统计参数text中每个英文单词出现的次数，最后返回一个按词频降序排列的数组
-def stats_text_en(text):   
+import re    # 引入正则表达式，以便操作字符串
+import collections   # 引入collections模块，以便使用计数功能
 
-    elements = text.split()   # 先将字符串根据 空白字符 分割成 list, 要调用 str 类型
-    words = []             # 定义一个新的 list 型变量，存储处理过的单词          
-    symbols = ',.*-!'     # 先针对样本文本挑选出需要剔除的非单词符号
-
-    for element in elements:       # 在列表text1中遍历一遍要剔除的符号
-        for symbol in symbols:  # 如果包含symbols中需要剔除的字符，用replace语句替换掉
-            element = element.replace(symbol, '')  # 逐个替换字符号，用''是为了同时剔除符号所占的位置
-        if len(element):        # 剔除了字符后如果单词En的长度不为0，那么就算正常单词，可以加入到新的列表中
+# 统计参数中每个英文单词出现的次数
+def stats_text_en(text):
+    if type(text) != str:
+        raise ValueError('非字符串类型')   
+    elements = text.split()   
+    words = []             
+    symbols = ',.*-!'   
+    for element in elements:   
+        for symbol in symbols:    
+            element = element.replace(symbol, '')  
+        # 用 str 类型 的 isascii 方法判断是否是英文单词
+        if len(element) and element.isascii():    
             words.append(element)
     counter = {}
     word_set = set(words)
@@ -21,6 +25,8 @@ def stats_text_en(text):
 
 # 统计参数中每个中文汉字出现的次数
 def stats_text_cn(text):
+    if type(text) != str:
+        raise ValueError('非字符串类型') 
     cn_characters = []
     for character in text:
         # unicode 中 中文 字符的范围
@@ -33,8 +39,18 @@ def stats_text_cn(text):
     return sorted(counter.items(), key=lambda x: x[1], reverse=True)
 
 
-en_text = '''
+def stats_text(text):
+    '''
+    合并 英文词频 和 中文词频 的结果
+    '''
+    if type(text) != str:
+        raise ValueError('非字符串类型') 
+    return stats_text_en(text) + stats_text_cn(text)
 
+
+
+if __name__ == '__main__':
+    en_text = '''
 The Zen of Python, by Tim Peters
 
 
@@ -58,7 +74,6 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-
 
 
 cn_text = '''
@@ -86,6 +101,5 @@ Python之禅 by Tim Peters
 if __name__ == '__main__':
     en_result = stats_text_en(en_text)
     cn_result = stats_text_cn(cn_text)
-    print('统计参数中每个英文单词出现的次数 ==>\n', en_result)
-    print('统计参数中每个中文汉字出现的次数 ==>\n', cn_result)
-
+    print('统计参数中每个英文单词出现的次数 ==>\n', en_result, '\n')
+    print('统计参数中每个中文汉字出现的次数 ==>\n', cn_result, '\n')

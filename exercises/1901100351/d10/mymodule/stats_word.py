@@ -24,12 +24,14 @@ def stats_text_en(text, count):  #定义函数
 
 # 统计参数中汉字出现次数，并按降序排列
 def stats_text_cn(text, count):
+
     words = jieba.cut(text)
     tmp = []
     for i in words:
         if len(i)>1:
             tmp.append(i)
     return Counter(tmp).most_common(count)
+
     
 
 # 合并英汉词频统计
