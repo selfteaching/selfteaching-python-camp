@@ -24,9 +24,9 @@ text =text.replace(',','').replace('.','').replace('--','').replace('*','')
 text=text.lower()
 text=text.split()
 print(text)
-#dict1={}
-#for x in text:
-#    dict1[x]=text.count(x)
-#print(dict1)
-#dict2=sorted(dict1.items(),key=lambda x:x[1],reverse=True)
-#print(dict2) 
+dict1={}
+for x in text:
+    dict1[x]=text.count(x)
+print(dict1)
+dict2=sorted(dict1.items(),key=lambda x:x[1],reverse=True)
+print(dict2) 
