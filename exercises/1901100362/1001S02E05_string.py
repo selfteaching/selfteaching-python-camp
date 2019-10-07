@@ -22,7 +22,7 @@ Namespaces are one honking great idea -- let's do more of those!'''
 
 #把better替换成worse
 t1 = text.replace('better','worse')
-print(t1)
+print("将所有better替换成worse==>",t1)
 print("-------------------------------------------------------------------------------")
 
 #删除字符串中的带ea的单词
