@@ -46,16 +46,3 @@ while a <10:
   
 
 
-
-
-#第5步  99乘法表的无限循环输出
-t =1
-while t %2 !=0:
-    for t in range(1,10):   
-        for m in range(1,t+1):
-
-        
-            #print(t,'*',m,'='m*t)
-            print(t,'*',m,'=',m*t,end='\t')    #在一个完整的循环内，end='\t'的作用是取消print默认输出时结尾自带的回车功能，使一个循环内的结果都显示在同一行
-         
-        print()                                 
