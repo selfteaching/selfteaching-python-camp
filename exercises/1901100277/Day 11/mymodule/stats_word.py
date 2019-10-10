@@ -49,8 +49,8 @@ def stats_text_cn (cn_text) :
         if  "\u4e00" <= wen_zi <=  "\u9fff" and len(wen_zi) >= 2: # unicode 中 中文字符的 范围 (包括中文标点符号) 
             words.append(wen_zi)          # 把他添加到words 列表里  
 
-    n = int(input("请输入 您需要显示出现词频最高的前多少个词? >>> :"))
-    return dict(Counter(words).most_common(n)) 
+    # n = int(input("请输入 您需要显示出现词频最高的前多少个词? >>> :"))
+    return dict(Counter(words).most_common(100)) 
 
     #################################################
 
