@@ -1,49 +1,51 @@
 # this is d8 exercise for erros and exceptions
-# date: 2019.09.15
+
 # author by: rtgong
 
 # 统计参数中英文单词出现的次数，并按降序排列
 def stats_text_en(text):  #定义函数
-    if type(text)==str:
-        elements = text.split()#对字符串进行切片
-        words = []#设置列表
-        symbols = ',.*-!'
-        for element in elements:
-            for symbol in symbols:
-                element = element.replace(symbol,'')
-                if len(element):
-                    words.append(element)
-        counter = {}#创建字典
-        word_set = set(words)#创建无序不重复集合    
+
+    if not isinstance(text,str):
+        raise ValueError('参数必须是 str 类型,输入类型 %s' % type(text))
+    elements = text.split()#对字符串进行切片
+    words = []#设置列表
+    symbols = ',.*-!'
+    for element in elements:
+        for symbol in symbols:
+            element = element.replace(symbol,'')
+            if len(element):
+                 words.append(element)
+    counter = {}#创建字典
+    word_set = set(words)#创建无序不重复集合    
         
-        for word in word_set:
-            counter[word] = words.count(word)
-        return sorted(counter.items(), key=lambda x:x[1], reverse=True)
-    else:
-        raise ValueError('type of text is not str')
+    for word in word_set:
+        counter[word] = words.count(word)
+    return sorted(counter.items(), key=lambda x:x[1], reverse=True)
 
 
 # 统计参数中汉字出现次数，并按降序排列
 def stats_text_cn(text):#设定函数
-    if type(text)==str:
-        cn_charactors = []
-        for charactor in text:
-            if '\u4e00'<= charactor <= '\u9fff':#中文字符的代码区间
-                cn_charactors.append(charactor)
-        counter = {}#创建字典
-        cn_charactor_set = set(cn_charactors)
-        for charactor in cn_charactor_set:
-            counter[charactor] = cn_charactors.count(charactor)
-        return sorted(counter.items(),key=lambda x:x[1], reverse=True)
-    else:
-        raise ValueError('type of text is not str')
+
+    if not isinstance(text,str):
+        raise ValueError('参数必须是 str 类型,输入类型 %s' % type(text))
+    cn_charactors = []
+    for charactor in text:
+        if '\u4e00'<= charactor <= '\u9fff':#中文字符的代码区间
+            cn_charactors.append(charactor)
+    counter = {}#创建字典
+    cn_charactor_set = set(cn_charactors)
+    for charactor in cn_charactor_set:
+        counter[charactor] = cn_charactors.count(charactor)
+    return sorted(counter.items(),key=lambda x:x[1], reverse=True)
+
 
 # 合并英汉词频统计
 def stats_text(text_en_cn) :
-    if type(text_en_cn)==str:
-        return (stats_text_en(text_en_cn)+stats_text_cn(text_en_cn))
-    else:
-        raise ValueError('type of text is not str')
+    if not isinstance(text_en_cn,str):
+        raise ValueError('参数必须是 str 类型,输入类型 %s' % type(text_en_cn))
+    return (stats_text_en(text_en_cn)+stats_text_cn(text_en_cn))
+    
+
 
 
 en_text = '''
