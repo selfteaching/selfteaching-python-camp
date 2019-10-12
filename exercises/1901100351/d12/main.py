@@ -2,21 +2,34 @@
 # date: 2019.10.6
 # author by: rtgong
 
-from mymodule import stats_word
+import logging
 import requests
-from pyquery import PyQuery
+import pyquery
+import logging
+from mymodule import stats_word
 from wxpy import *
 
-bot = Bot()
-my_friend = bot.friends().search('慧慧')[0]
-my_friend.send('请分享我一篇文章')
+logging.basicConfig(format='file:%(filename)s|line:%(lineno)s|message:%(message)s',level=logging.DEBUG)
 
-@bot.register(my_friend,SHARING)
-def get_msg(msg):
-    response = requests.get(msg.url)
-    document = PyQuery(response.text)
-    content = document('#js_content').text()
-    text = str(dict(stats_word.stats_text_cn(content,10)))
-    my_friend.send(text)
-        
-embed
+def get_article(url):
+    r = requests.get(url)
+    document = pyquery.PyQuery(r.text)
+    return document('#js_content').text()
+
+def main():
+    bot = Bot()
+    friends = bot.friends()
+    
+    @bot.register(friends,SHARING)
+    def handler(msg):
+        try:
+            logging.info('sharing url = %s', msg.url)
+            article = get_article(msg.url)
+            result = stats_word.stats_text_cn(article,10)
+            msg.reply(str(result))
+        except Exception as e:
+            logging.exception(e)
+    embed
+
+if __name__=="__main__":
+    main()
