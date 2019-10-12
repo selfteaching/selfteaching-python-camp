@@ -1,4 +1,36 @@
-sample_text = '''
+# 统计参数中每个英文单词出现的次数
+def stats_text_en(text):
+    elements=text.split()
+    words=[]
+    symbols=',.*-!'
+    for element in elements:
+        for symbol in symbols:
+            element = element.replace(symbol,'')
+        if len(element):
+            words.append(element)
+    counter={}
+    word_set=set(words)
+
+    for word in word_set:
+        counter[word]=words.count(word)
+    #函数返回值用return进行返回，如果没有return返回值则为None
+    return sorted(counter.items(),key=lambda x:x[1],reverse=True)
+
+# 统计参数中每个中文单词出现的次数
+def stats_text_cn(text):
+    cn_characters=[]
+    for character in text:
+        #unicode中中文字符的范围
+        if '\u4e00'<=character<='\u9fff':
+            cn_characters.append(character)
+    counter={}
+    cn_character_set=set(cn_characters)
+    for character in cn_character_set:
+        counter[character]=cn_characters.count(character)
+    return sorted(counter.items(),key=lambda x:x[1],reverse=True)
+
+
+en_text='''
 The Zen of Python, by Tim Peters
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -12,51 +44,37 @@ Although practicality beats purity.
 Errors should never pass silently.
 Unless explicitly silenced.
 In the face of ambxiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do
-it.
+There should be one-- and preferably only one --obvious way to do it.
 Although that way may not be obvious at first unless you're Dutch.
-Now is better than never.
-Although never is often better than *right* now.
+Now is better than never. Although never is often better than *right* now.
 If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
-# 1.统计字符串样本text中各个英文单词出现的次数
-# 先将字符串根据 空白字符 分割成list，在调用str类型
-elements = sample_text.split()
-# 定义一个新的list类型变量，存储处理过的单词
-words=[]
-#先针对样本文本挑选出需要提出的非单词符号
-symbols=',.*-!'
-for element in elements:
-    #遍历一遍要剔除的符号
-    for symbol in symbols:
-        #逐个替换字符号，用''是为了同时剔除符号所占的位置
-        element=elements.replace(symbol,'')
-    #剔除了字符后如果element的长度不为0，则算作正常单词
-    if len(element):
-        words.append(element)
-print('正常的英文单词==>',words)
 
-#初始化一个dict(字典)类型的数量，用来存放单词出现的次数
-count={}
+cn_text='''
+Python之禅 by Tim Peters
+优美胜于丑陋
+明了胜于晦涩
+简洁胜于复杂
+复杂胜于凌乱
+扁平胜于嵌套
+间隔胜于紧凑
+可读性很重要
+即便假借特例的实用性之名，也不可违背这些规则
+不要包容所有错误，除非你确定需要这样做
+当存在多种可能，不要尝试去猜测
+而是尽量找一种，最好是唯一一种明显的解决方案
+虽然这并不容易，因为你不是 Python 之父
+做也许好过不做，但不假思索就动手还不如不做
+如果你无法向人描述你的方案，那肯定不是一个好方案；反之亦然
+命名空间是一种绝妙的理念，我们应当多加利用。。。
+'''
 
-#set(集合)类型可以去掉列表里的重复元素，可以在for...in里减少循环次数
-word_set=set(words)
-
-for word in word_set:
-    counter[word]=words.count(word)
-
-# 按照出现次数从⼤到⼩输出所有的单词及出现的次数进行统计、定义函数
-
-def stats_text_en(sorted(counter.items(),sample_text,reverse=True)):
-    result={}
-    for word in word_set:
-        result[word] = word_set.count(word)
-    reture result
-
-def stats_text_cn(sorted(counter.items(),sample_text,reverse=True)):
-    for word in word_set:
-        if'\u4e00'<=word<='\u9fff':
-        result[word] = word_set.count(word)
-    reture result
+#搜索__name__==__main}__
+#一般情况下在文件内测试代码的时候以下面的形式进行
+if __name__=='__main__':
+    en_result=stats_text_en(en_text)
+    cn_result=stats_text_cn(cn_text)
+    print('统计参数中每个英文单词出现的次数 ==>\n',en_result)
+    print('统计参数中每个中文汉字出现的次数==>\n',cn_result)
