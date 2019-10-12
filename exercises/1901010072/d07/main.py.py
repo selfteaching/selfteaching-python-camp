@@ -61,11 +61,12 @@ two mighty gods to carry the mountains away.
 '''
 
 import stats_word
+
 text = f.read()
 stats_word.stats_text(text)
 def stats_text(text):
     if __name__=='__main__':
         en_result=stats_text_en(text)
         cn_result=stats_text_cn(text)
-    print('统计参数中每个中英文单词出现的次数 ==>\n',en_result,cn_result)
+        print('统计参数中各中英文单词出现的次数 ==>\n',en_result,cn_result)
  
