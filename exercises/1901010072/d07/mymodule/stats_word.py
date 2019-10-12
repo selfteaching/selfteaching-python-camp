@@ -92,11 +92,12 @@ def stats_text_cn(text):
     return sorted(counter.items(),key=lambda x:x[1],reverse=True)
 
 # 添加名为 stats_text的函数，实现功能：分别调用stats_text_en , stats_text_cn ，输出合并词频统计结果
+
 def stats_text(text):
     if __name__=='__main__':
         en_result=stats_text_en(text)
         cn_result=stats_text_cn(text)
-        print('统计参数中每个中英文单词出现的次数 ==>\n',en_result,cn_result)
+        print('统计参数中各中英文单词出现的次数 ==>\n',en_result,cn_result)
 
     """
     Return a list of frequency of each English alphabet and Chinese characters,
