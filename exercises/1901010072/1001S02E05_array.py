@@ -1,3 +1,4 @@
+
 # 1.对列表 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 翻转
 sample_list =[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 reverse_list=sample_list[::-1]
@@ -28,3 +29,5 @@ print('转换为 int 类型-->',int_value)
 print('转换为二进制==>',bin(int_value))
 print('转换为八进制==>',oct(int_value))
 print('转换为十六进制==>',hex(int_value))
+
+
