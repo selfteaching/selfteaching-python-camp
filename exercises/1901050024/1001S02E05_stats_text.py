@@ -23,7 +23,7 @@ If the implementation is easy to explain, it may be a good idea.
 text =text.replace(',','').replace('.','').replace('--','').replace('*','')
 text=text.lower()
 text=text.split()
-
+print(text)
 dict1={}
 for x in text:
     dict1[x]=text.count(x)

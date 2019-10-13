@@ -1,4 +1,6 @@
-text = '''
+
+sample_text = '''
+
 The Zen of Python, by Tim Peters
 
 
@@ -23,18 +25,44 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 
-textlist1 = text.split()#形成单词列表
-textlist2 = []
-for i in textlist1:
-    if i.isalpha():
-        textlist2.append(i)#去除非单词
 
-dict1 = {}
-dict1 = dict1.fromkeys(textlist2)#将textlist2的元素作为dict1的键值key
-word_1 = list(dict1.keys())
-for i in word_1:
-    dict1[i] = textlist2.count(i)#统计单词出现的次数
-dict2 = {}
-dict2 = sorted(dict1.items(),key=lambda d:d[1],reverse=True)#按values进行排序
-dict2 = dict(dict2)#转化为字典
-print(dict2)
+# 1. 使用字典(dict 类型) 统计字符串样本 text 中各个英文单词出现的次数
+
+# 先将字符串根据 空白字符 分割成 list, 要调用 str 类型
+elements = sample_text.split()
+
+# 定义一个新的 list 型变量，存储处理过的单词# 定义一个新的 list 型变量，存储处理过的单词
+words = []
+
+# 先针对样本文本挑选出需要剔除的非单词符号
+symbols = ',.*-!'
+
+for element in elements:
+    #遍历一遍要剔除的符号
+    for symbol in symbols:
+        # 逐个替换字符号，用''是为了同时剔除符号所占的位置
+        element = element.replace(symbol,'')
+# 剔除了字符后如果 element 的长度不为 0，则算作正常单词
+if len(element):
+    words.append(element)
+
+print('正常的英文单词 ==>', words)
+
+# 初始化一个 dict (字典)类型的变量，用来存放单词出现的次数
+counter = {}
+
+# set(集合) 类型 可以去掉 列表 里的重复元素，可以再for...in 里减少循环次数
+word_set = set(words)
+
+for word in word_set:
+    counter[word] = words.count(word)
+
+print('英文单词出现的次数 ==>', counter)
+
+# 2. 按照出现次数从大到小输出所有的单词及出现的次数
+
+# 内置函数 sorted 的参数 key 表示按元素的那一项的值进行排序
+# dict 类型 counter 的 items 方法会返回一个 包含 相应 项 (key, value) 的 元组 列表
+# print('counter.items() ==>', counter.items())
+print('从大到小输出所有的单词及出现的次数 ==>', sorted(counter.items(), key=lambda x: x[1], reverse=True))
+
