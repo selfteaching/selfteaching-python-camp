@@ -1,12 +1,12 @@
 # Program make a simple calculator that can add, subtract, multiply and dicide using functions
 
-# #Pode是一个简单的计算器，可以使用函数进行加，减，乘和自杀
 
- adds two numbers
+# This function adds two numbers
 def add(x, y):
     return x + y
 
-# subtracts two numbers This function
+# This function subtracts two numbers
+
 def subtract(x, y):
     return x - y 
 
