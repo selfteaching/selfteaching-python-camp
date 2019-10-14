@@ -34,18 +34,18 @@ def stats_text_en(text):    # 统计参数中英文单词出现的次数，最�
     for element in elements:
         for symbol in symbols:
             element=element.replace(symbol,'')
-        if len(element):
+        if len(element):#单词长度是否大于0，大于0则为单词，否则是空格
             words.append(element)
 
     # 初始化一个dict（字典）类型的变量，用来存放单词出现的次数
     counter={}
-    word_set=set(words)
-    for word in word_set:
+    word_set=set(words) #set集合里的元素是无序且不重复的。
+    for word in word_set: # 遍历的时候也会减少遍历的次数
         counter[word]=words.count(word)
+    # 函数返回值用 return 进行返回，如果没有 return 返回值则为 None。
     return sorted(counter.items(),key=lambda x:x[1],reverse=True)   
 
-en_result=stats_text_en(en_text)
-print(en_result)
+
 
 
 # 2.定义stats_text_cn 函数，接受一个字符串作为参数，统计参数中每个汉字出现的次数，最后返回一个按字频降序排列的数组
@@ -57,15 +57,23 @@ cn_text='''现在每个我遇见的笑着的人，
 而是因为我们越来越坚强。'''
 
 def stats_text_cn(text):
-    item_cn=[]
-    for item in text:
-        if'\u4e00'<=item<='\u9fff':
-            item_cn.append(item)
+    cn_characters = [] # characters字符
+    for character in text:
+        # unicode 中 中文 字符的范围
+        if'\u4e00'<=character<='\u9fff':
+            cn_characters.append(character)
     counter={}
-    item_cn_set=set(item_cn)
-    for item1 in item_cn_set:
-        counter[item1]=item_cn.count(item1)
-    return sorted(counter.items(),key=lambda x:x[1],reverse=True)
+    cn_character_set=set(cn_characters) # 把中文字符列表转化成一个集合的形式，去除重复的字符
+    for character in cn_character_set: # 遍历集合
+        counter[character]=cn_characters.count(character)#统计中文列表里字符的次数，且赋值给字典对应的项，就是字符出现的次数
+    return sorted(counter.items(),key=lambda x:x[1],reverse=True) #进行降序排序
 
-cn_result=stats_text_cn(cn_text)
-print(cn_result)
+#搜索__name__==__main__
+#一般情况下在文件内 测试 代码的时候以下面的形式进行
+if __name__=='__main__':
+    en_result=stats_text_en(en_text)
+    cn_result=stats_text_cn(cn_text)
+    print('统计参数中每个英文单词出现的次数-->\n',en_result)
+    print('统计参数中每个中文汉字出现的次数-->\n',cn_result)
+
+

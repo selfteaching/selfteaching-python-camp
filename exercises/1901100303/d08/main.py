@@ -1,4 +1,5 @@
 from mymodule import stats_word
+
 import traceback
 import logging
 
@@ -20,10 +21,6 @@ def test_logger():
 if __name__ == "__main__":
     test_traceback()
     test_logger()
-
-
-
-
 
 
 
