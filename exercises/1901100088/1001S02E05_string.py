@@ -1,4 +1,4 @@
-#1. 创建⼀一个名为 1001S02E05_string.py 的文件
+#1. 创建⼀一个名为  的文件
 text='''
 The Zen of Python, by Tim Peters
 

@@ -21,6 +21,29 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 
+
+# 1、将字符串串样本text⾥里里的better全部替换成worse
+text = text.replace('better','worse')
+print('将字符串里的better全部替换为worse：',text)
+
+# 从第 1 步的结果⾥里里，将单词中包含 ea 的单词剔除
+words = text.split()  # 切成一个列表,如果写text.split（' '）的话，换行符号会保留
+print(words)
+
+filtered = [] #用来存放单词
+for word in words:  # 遍历这个列表,把含有 ea 的东西剔除掉
+    if word.find('ea')< 0:
+        filtered.append(word)
+print('将单词中包含ea的单词剔除',filtered)
+
+# 将第3步的结果⾥的字⺟进⾏大小写翻转
+swapcased = [i.swapcase() for i in filtered]
+print(swapcased)
+
+# 将第4步的结果⾥里里所有单词按a...z升序排列列，并输出结果
+
+print(sorted(swapcased))
+
 # 将字符串串样本text⾥里里的better全部替换成worse
 
 
@@ -62,3 +85,4 @@ text2.sort()
 print(text2)
 
 print('5=======================')
+
