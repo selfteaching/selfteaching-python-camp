@@ -15,3 +15,23 @@ for n in range(2, 100): #range(2,100)表示含左侧2，不含右侧100，是不
 print("hello world")
 
 
+html = """
+<html lang="en">
+    <head>
+        <title>PyQuery学习</title>
+    </head>
+    <body>
+        <ul id="container">
+            <li class="object-1"/>
+            <li class="object-2"/>
+            <li class="object-3"/>
+        </ul>
+    </body>
+</html>
+
+"""
+
+from pyquery import PyQuery
+doc = PyQuery(html)
+print(doc)
+

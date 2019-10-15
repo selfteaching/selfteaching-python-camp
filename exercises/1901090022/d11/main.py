@@ -28,20 +28,4 @@ recipients = '532820370@qq.com'
 
 yag = yagmail.SMTP(user=sender, password=password, host='smtp.163.com')
 # contents = [mail_content]
-r = yag.send(recipients, '自学训练营学习9群 D11 adamlu008', mail_content)
-"""
-print(str(word_list))
-
-
-
-
-json_file_path = os.path.join(os.path.dirname(__file__), '1001S02E09.json')
-json_file = open(json_file_path)
-json_data = json.load(json_file)
-
-text = ""
-for poetry in json_data:
-    text += poetry['contents']
-word_list = stats_word.stats_text_cn(text, 20)
-print(word_list)
-"""
+yag.send(recipients, '自学训练营学习9群 D11 adamlu008', mail_content)
