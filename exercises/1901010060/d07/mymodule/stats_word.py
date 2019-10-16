@@ -23,7 +23,9 @@ def stats_text_cn(text):    #统计中文汉字出现的次数，按词频降序
 
 
 def stats_text(text):   #统计英文单词词频和中文汉字字频出现的次数，按词频降序排列
-    return stats_text_en(text),stats_text_cn(text)
+     print(en_result)
+
+     print(cn_result)
 
 
 #测试

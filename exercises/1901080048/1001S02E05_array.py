@@ -6,7 +6,7 @@ arr1.reverse()
 str1 = ''.join(map(str,arr1))
 
 # 3.用字符串切片的方式取出第三到第八个字符
-str2 = str1[1:8]
+str2 = str1[2:8]
 
 # 4.将获得的字符串进行翻转
 str3 = str2[::-1]

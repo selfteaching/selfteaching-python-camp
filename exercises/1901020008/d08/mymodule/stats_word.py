@@ -1,4 +1,48 @@
+#<<<<<<< master
+
+
+def stats_text_en(en_text):
+    if not isinstance(en_text, str):
+        raise ValueError('非字符串类型')
+    elements = en_text.split()
+    words = []
+    symbols = ',.*-!'
+    for element in elements:
+        for symbol in symbols:
+            element = element.replace(symbol,'')
+        if len(element)and element.isascii():
+            words.append(element)
+    counter = {}
+    word_set = set(words)
+
+    for word in word_set:
+        counter[word] = words.count(word)
+
+    return sorted(counter.items(), key=lambda x: x[1], reverse=True)
+    
+def stats_text_cn(cn_text):
+    if not isinstance(en_text, str):
+        raise ValueError('非字符串类型')
+    cn_characters = []
+    for character in cn_text:
+        if '\u4e00' <= character <= '\u9fff':
+            cn_characters.append(character)
+        counter = {}
+        cn_characters_set = set(cn_characters)
+        for character in cn_characters_set:
+            counter[character] = cn_characters.count(character)
+        return sorted(counter.items(), key=lambda x:x[1], reverse=True)
+
+def stats_text(text):
+    if not isinstance(text, str):
+        raise ValueError('非字符串类型')
+    return stats_text_en(en_text) + stats_text_cn(cn_text)
+
+if __name__ == '__main__':
+    en_text = '''
+#=======
 en_text = '''
+#>>>>>>> master
 The Zen of python,by Tim Peters
 
 
@@ -22,6 +66,8 @@ If the implementation is hard to explain,it may be a good idea.
 If the implementation is easy to explain,it may be a good idea.
 Namespaces are one honking great idea--let's do more of those!
 '''
+#<<<<<<< master
+#=======
 
 def stats_text_en(en_text):
     elements = en_text.split()
@@ -42,6 +88,7 @@ def stats_text_en(en_text):
     
 
 
+#>>>>>>> master
 cn_text = '''
 轻轻的我走了
 
@@ -98,6 +145,9 @@ cn_text = '''
 我挥一挥衣袖
 
 不带走一片云彩
+#<<<<<<< master
+'''
+#=======
 '''
 
 
@@ -123,3 +173,4 @@ def stats_text_cn(cn_text):
     cn_text=collections.Counter(cn_text)         
     print('中文汉字字频：\n',cn_text)
 
+#>>>>>>> master

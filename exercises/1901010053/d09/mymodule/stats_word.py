@@ -9,7 +9,7 @@ The Zen of Python, by Tim Peters
 '''
 import re  
 import collections  
-count=int()
+count=int() 
 def stats_text_en(text,count):
     if type(text)!=str:
         raise ValueError("文本为非字符串")

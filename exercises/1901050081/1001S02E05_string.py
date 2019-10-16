@@ -23,12 +23,12 @@ Namespaces are one honking great idea -- let's do more of those!
 text1=text.replace('better','worse')
 print(text1)
 import re
-text2=re.sub('\w*(ea)\w*','',text1,0)
+text2=re.sub(r'\w*(ea)\w*','',text1,0)
 print(text2)
 text3=text2.swapcase()
 print(text3)
 import re
-pattern=re.compile('\w+')
+pattern=re.compile(r'\w+')
 result=pattern.findall(text3)
 set1=set(result)
 sorted_words=sorted(set1)

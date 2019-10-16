@@ -1,3 +1,28 @@
+#<<<<<<< master
+from mymodule import stats_word
+import traceback
+import logging
+
+logger = logging.getLogger(__name__)
+
+
+def test_traceback():
+    try:
+        stats_word.stats_text(1)
+    except Exception as e:
+        print('test_traceback =>',e)
+        print(traceback.format_exc())
+
+def test_logger():
+    try:
+        stats_word.stats_text(1)
+    except Exception as e:
+        logger.exception(e)
+
+if __name__ == "__main__":
+    test_traceback()
+    test_logger()
+#=======
 sample_text = '''
 愚公移山
 太行，王屋二山的北面，住了一個九十歲的老翁，名叫愚公。二山佔地廣闊，檔住去路，使他 和家人往來極為不便。
@@ -30,3 +55,4 @@ Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty god
 from mymodule import stats_word
 result = stats_word.stats_text(sample_text)
 print(result)
+#>>>>>>> master

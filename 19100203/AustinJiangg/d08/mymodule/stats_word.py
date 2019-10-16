@@ -1,29 +1,3 @@
-from functools import wraps
-
-def typeassert(*type_args, **type_kwargs):
-    def decorate(func):
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            return func(*args, **kwargs)
-        return wrapper
-    return decorate
-
-
-from inspect import signature
-from functools import wraps
-
-def typeassert(*type_args, **type_kwargs):
-    def decorate(func):
-        sig = signature(func)
-        bound_types = sig.bind_partial(*type_args, **type_kwargs).arguments
-
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            return func(*args, **kwargs)
-        return wrapper
-    return decorate
-
-
 from inspect import signature
 from functools import wraps
 

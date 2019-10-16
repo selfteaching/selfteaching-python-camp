@@ -40,7 +40,7 @@ def stats_text_en(text1):#定义统计英文单词词频函数stats_text_en(text
     return sorted(counter.items(), key=lambda x:x[1],reverse=True)#返回
 if __name__ == '__main__':#搜索__name__ == '__main__，测试代码
     en_result = stats_text_en(text1)
-    print('英文单词词频降序排列 \n', en_result)
+    print('英文单词词频降序排列 \n', en_result)o
  
 
 #2.封装统计中文汉字字频的函数
