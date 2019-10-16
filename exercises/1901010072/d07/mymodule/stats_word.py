@@ -68,7 +68,8 @@ def stats_text_en(text):
     for element in elements:
         for symbol in symbols:
             element = element.replace(symbol,'')
-        if len(element):
+        # 用str 类型的 isascii 方法判断是否是英文单词
+        if len(element) and element.isascii():
             words.append(element)
     counter={}
     word_set=set(words)
@@ -94,12 +95,18 @@ def stats_text_cn(text):
 # 添加名为 stats_text的函数，实现功能：分别调用stats_text_en , stats_text_cn ，输出合并词频统计结果
 
 def stats_text(text):
-    if __name__=='__main__':
-        en_result=stats_text_en(text)
-        cn_result=stats_text_cn(text)
-        print('统计参数中各中英文单词出现的次数 ==>\n',en_result,cn_result)
-
     """
     Return a list of frequency of each English alphabet and Chinese characters,
     Sorted in descending order.
+    合并 英文词频和中文词频 的结果
     """
+    return stats_text_en(text)+stats_text_cn(text)
+
+
+#搜索 _name_ == '_main_'
+#一般情况下在文件内测试代码的时候以下面的形式进行
+if __name__=='__main__':
+    en_text='''
+the Zen of Python, by Tim Peters
+
+
