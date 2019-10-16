@@ -20,8 +20,10 @@ def my_friend_sharing(msg): #定义函数 ，当有msg发送过来，则用reque
     msg_content = doc('#js_content').text() #提取文本
     msg_result = stats_word.cn(msg_content,10) #引用模块统计处理文本
     
-    plt.rcdefaults() #固定语法，啥意思？？？
-    fig,ax = plt.subplots() #固定语法，引入图层？？？
+
+    plt.rcdefaults() #恢复到缺省的配置(matplotlib载入时从配置文件读入的配置)?
+    fig,ax = plt.subplots() #初始化，面向对象画图。在图表中创建子图fig.ax   fig画布 ax对象
+
     plt.rcParams['font.sans-serif']=['SimHei'] #引入汉字输入功能
     dict_result = dict(msg_result) #字典化了那个统计结果列表，应该直接可转吧
     x_val = [] #空列表
@@ -29,17 +31,19 @@ def my_friend_sharing(msg): #定义函数 ，当有msg发送过来，则用reque
     for keys,values in dict_result: #分别提取统计结果的键和数量值
         x_val.append(keys)
         y_val.append(values)
-    y_pos = np.arange(len(x_val)) #y轴的范围设定为0到xv的个数？？？
-    error = np.random.rand(len(x_val)) #啥意思？？？
+
+    y_pos = np.arange(len(x_val)) #y——pos的范围设定为0到xv的个数
+    error = np.random.rand(len(x_val)) #error为在len(x_val)范围内的随机数？
         
-    ax.barh(y_pos,y_val,xerr=error,align='center') #设置一个y轴为y_pos,x轴为y_val的条形图，xerr不知控制什么，align为设定子图居于有值的视窗中间
-    ax.set_yticks(y_pos) #设定y轴上的值个数，本案例为10
-    ax.set_yticklabels(x_val) #y轴上各个节点的标签设定为x_val内的数据，本案例即排在前10的10个汉字
-    ax.invert_yaxis() #标签由上至下读取？？？
-    ax.set_xlabel('高频汉字') #设置y轴的标题
+    ax.barh(y_pos,y_val,xerr=error,align='center') #绘制一个width为y_pos即10,bottom为y_val的横向条形图，xerr=error是什么意思？align为设定子图居于有值的视窗中间
+    ax.set_yticks(y_pos) #设定y轴上的值个数，本案例为10（每个刻度线都是一个ytick对象）
+    ax.set_yticklabels(x_val) #设定y轴刻度标签设定为x_val内的数据，本案例即排在前10的10个词
+    ax.invert_yaxis() #y轴反向？从横向转为正向？ （官方说明：labels read top-to-bottom）
+    ax.set_xlabel('高频词') #设置y轴的标题
     ax.set_ylabel('出现次数') #设置x轴的标题
     ax.set_title('词频统计表') #设置图形的标题
-    plt.savefig("词频统计图.png") #应该是把该图另存为“词频统计图。png”，这个在刚才的网搜没搜到
+    plt.savefig("词频统计图.png") #把该图另存为“词频统计图。png”，分辨率为默认值
+
     
     msg.reply_image("词频统计图.png") #12节wxpy模块的运用，记不太清了，见过
 
