@@ -1,9 +1,8 @@
-print('打印奇数行九九乘法表')
-for i in range(1,10):
-    while i%2 == 0:
-        break
-    else:
-        for j in range (1,i+1):
-            print(i,'*',j,'=',i*j,end='\t')
+def fib(n):    # write Fibonacci series up to n
+    a, b = 0, 1
+    while a < n:
+        print(a, end=' ')
+        a, b = b, a+b
     print()
 
+fib(1000)

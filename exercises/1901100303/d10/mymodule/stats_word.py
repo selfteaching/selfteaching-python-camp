@@ -1,3 +1,4 @@
+
 from collections import Counter
 import jieba
 
@@ -34,6 +35,7 @@ def stas_text(text,count):
     if not isinstance(text,str):
         raise ValueError('参数必须是 str 类型，输入类型 %s' % type(text))
     return stats_text_cn(text,count) + stats_text_en(text,count)
+
 
 
 
