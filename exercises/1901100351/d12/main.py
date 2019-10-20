@@ -2,6 +2,7 @@
 # date: 2019.10.6
 # author by: rtgong
 
+
 import logging
 import requests
 import pyquery
@@ -33,3 +34,4 @@ def main():
 
 if __name__=="__main__":
     main()
+
