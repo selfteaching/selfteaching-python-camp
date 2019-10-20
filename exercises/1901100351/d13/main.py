@@ -1,8 +1,10 @@
+
 # this is d13 exercise for using wxpy
 # date: 2019.10.19
 # author by: rtgong
 
 from os import path
+
 import logging
 import requests
 import pyquery
@@ -12,8 +14,10 @@ import numpy as np
 from mymodule import stats_word
 from wxpy import *
 
+
 cwd = path.abspath(path.dirname(__file__))  # 获取当前工作目录
 plt.rcParams['font.sans-serif'] = 'SimHei'  # 设置中文字体
+
 
 
 logging.basicConfig(format='file:%(filename)s|line:%(lineno)s|message:%(message)s',level=logging.DEBUG)
@@ -42,6 +46,7 @@ def main():
     friends = bot.friends()
     
     @bot.register(friends,SHARING)
+
     def handler(msg):
         try:
             logging.info('sharing url = %s', msg.url)
@@ -50,6 +55,7 @@ def main():
             image_path = path.jion(cwd, 'stats.png')
             generate_image(result, image_path)
             msg.reply_image(image_path)
+
         except Exception as e:
             logging.exception(e)
     embed
