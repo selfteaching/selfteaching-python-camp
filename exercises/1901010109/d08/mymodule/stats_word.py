@@ -11,7 +11,7 @@ def stats_text_en(text):
         raise ValueError("您输入的是非字符串类型") 
     
     # if not isinstance(text, str): 
-	#     raise ValueError("您输入的是非字符串类型") 
+	#     raise ValueError("您输入的是非字符串类型" % type(text)) 
 
     # 统计 text 里某个单词出现的次数时不区分大小写, 将字符串 text 里的字母全部转化成小写
     text = text.lower()
