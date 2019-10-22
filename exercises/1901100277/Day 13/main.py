@@ -76,4 +76,3 @@ ax.set_title('中文汉字词频统计') # 图标名
 plt.savefig('作业 微信文章词频统计',dpi = 600)   # 保存图像,dpi图像像素质量
 
 plt.show()
-

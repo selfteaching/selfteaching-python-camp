@@ -65,6 +65,7 @@ def stats_text(string):
 
     return stats_text_en(en_text) + stats_text_cn(cn_text)
 
+
 en_text = ""
 cn_text = ""
 
