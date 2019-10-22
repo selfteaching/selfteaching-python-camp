@@ -1,4 +1,4 @@
-#使用另一个个人微信分享一篇文章 给登录微信机器人的个人微信号,并统计好文章词频,将处理结果返回给发送消息过来的好友
+# 使用另一个个人微信分享一篇文章 给登录微信机器人的个人微信号,并统计好文章词频,将处理结果返回给发送消息过来的好友
 
 # # 导入模块
 # from wxpy import *
@@ -27,7 +27,6 @@
 # embed()
 
 
-
 #转化成图表
 import requests
 response=requests.get('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
@@ -36,37 +35,45 @@ from pyquery import PyQuery
 document=PyQuery(response.text)
 content=document('#js_content').text()
 
-
-# from mymodule import stats_word
-# email_content = str(stats_word.stats_text_cn(content))
-# # print (email_content)
-
-
+###############################################
 import numpy as np
 import matplotlib.pyplot as plt
+
+np.random.seed()
+plt.rcdefaults()
+fig, ax = plt.subplots()
+
 from matplotlib.ticker import FuncFormatter
 from pylab import mpl
 mpl.rcParams['font.sans-serif']=['Microsoft YaHei']
+mpl.rcParams['font.sans-serif'] = ['FangSong']
+mpl.rcParams['axes.unicode_minus'] = False
+
+###################################################
 
 from mymodule import stats_word
-data = stats_word.stats_text_cn(content)
-print (data)    # data 是一个大字典
+email_content = stats_word.stats_text_cn(content)
+print (email_content)    # data 是一个大字典
 
-key_s = data.keys()
-value_s = data.values()
-# for keys,values in data.items() :
+key_s = list(email_content.keys())   # 对大字典操作分别取出 键和值(操作后默认是元组类型,再用list()转换为列表)
+value_s = list(email_content.values())  # 对大字典操作分别取出 键和值(操作后默认是元组类型,再用list()转换为列表)
 
-print (f"词频中所有的 词_键) 为: {key_s}")
+# print(f"vakue_s的类型为: {type(value_s)}")
+# print (f"词频中所有的 词_键 为: {key_s}")
+# print (f"词频中所有的词 词频_值 为: {value_s}")
 
-print (f"词频中所有的词 词频_值 为: {value_s}")
+y_pos = np.arange(len(key_s)) 
+# performance =  value_s
+error = np.random.rand(len(key_s))
 
-plt.rcParams.update({'figure.autolayout':True})
-fig,ax=plt.subplots()
-ax.barh(key_s,value_s)
-plt.style.use('seaborn-paper')
-labels=ax.get_xticklabels()
-plt.setp(labels,horizontalalignment='right')
-ax.set(xlabel='词频',ylabel='中文汉字',title='中文汉字词频统计')
+
+ax.barh( y_pos, value_s, xerr=error, align='center')
+ax.set_yticks(y_pos)       # y轴元素名
+ax.set_yticklabels(key_s)  # y轴标签
+ax.invert_yaxis()           
+ax.set_xlabel('词频')    # X轴标签
+ax.set_title('中文汉字词频统计') # 图标名
+plt.savefig('作业 微信文章词频统计',dpi = 600)   # 保存图像,dpi图像像素质量
+
 plt.show()
-
 
