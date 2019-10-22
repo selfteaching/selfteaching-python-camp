@@ -21,3 +21,4 @@ recipient=input('请输入收件人邮箱：')
 import yagmail
 yag=yagmail.SMTP(sender,password,"smtp.qq.com")
 yag.send(recipient,'1901100277 自学训练营学习19群 Day11 xuefeng365',email_content)
+
