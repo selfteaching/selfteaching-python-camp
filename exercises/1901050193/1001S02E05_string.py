@@ -43,3 +43,4 @@ print(swap)
 #1.4 Sort from a to z
 print('1.4 Sort from a to z.',end='\n')
 print(sorted(swap))
+#如果想从z到a排序 要怎么排呢 reverse=True并不行

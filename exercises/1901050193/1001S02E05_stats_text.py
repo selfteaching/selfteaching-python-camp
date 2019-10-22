@@ -32,7 +32,7 @@ for word in words:#遍历list
 counter = {} #建立空字典
 wordset = set(wordlist) #单词集合
 
-for singleword in wordlist:
+for singleword in wordset:
     counter[singleword] = wordlist.count(singleword)
 
 print('计数：',counter)

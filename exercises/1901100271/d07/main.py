@@ -59,6 +59,6 @@ incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered
 two mighty gods to carry the mountains away.
 '''
-print(stats_word.stats_text(text))
+stats_word.stats_text(text)
 
 
