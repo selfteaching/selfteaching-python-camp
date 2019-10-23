@@ -94,8 +94,6 @@ def stats_text_cn (cn_text) :
     return d1
 
 
-
-
 def stats_text(string):
     '''
     统计 英文单词字频 和中文字频 的结果,并按从大到小排列

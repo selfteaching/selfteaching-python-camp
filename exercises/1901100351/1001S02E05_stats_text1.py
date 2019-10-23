@@ -22,18 +22,7 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 '''
 
-elements = sample_text.split()
-words = []
-symbols = ',.*-!'
-for element in elements:
-    for symbol in symbols:
-        element = element.replace(symbol,'')
-    if len(element):
-        words.append(element)
-print('正常的英文单词==>',words)
 
-counter = {}
-word_set = set(words)
 
 for word in word_set:
     counter[word] = words.count(word)
