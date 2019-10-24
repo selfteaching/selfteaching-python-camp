@@ -19,6 +19,3 @@ with open(r'E:\xuefeng\selfteaching-python-camp\exercises\1901100277\Day 09\mymo
 
 print(stats_word.stats_text_cn(cn_text))
 
-
-
-

@@ -14,13 +14,7 @@ def stats_text_en (en_text) :
 
     symbols = ",.*-!@\n"    # 经过观察里面 有这几种符号 需要剔除
 
-    for new1 in new :   # 遍历首次分割后单词
-
-    symbols = ",.*-!@\n"    # 经过观察里面 有这几种符号 我们不需要.
-
     for new1 in new :   # 遍历分割后的粗糙单词
-
-
         for symbol in symbols :  # 遍历要剔除的符号
             new1 = new1.replace(symbol,"")  # 如果粗糙单词里有这个符号,就将符号 替换为空
         if len(new1) >0 :  # 替换后如果 元素长度大于零,说明是有效单词
@@ -129,29 +123,28 @@ def stats_text_cn (cn_text) :
     # 0：代表按照第一个字段索引，1：代表按照第二个字段索引，比如下面的1 就是按照 单词的频率 进行索引排序
     #################################################
 
-    d1=sorted(d.items(),key=lambda x:x[1],reverse=True)      
+    d1 = sorted(d.items(),key=lambda x:x[1],reverse=True)      
     return d1
 
 
 cn_text = "测试：今天是个好日子，好日子 126456220600 ，心想的事儿都能成，哈哈哈，都能成＃＄％＆＇（）＊＋，－／"  # 中文文字
 
 
-#搜索_name_ = _main_
-#一般情况下在文件内测试代码的时候以下面的形式进行
-if __name__ == "__main__" :
-    en_result = stats_text_en(en_text)
-    cn_result = stats_text_cn(cn_text)
 
-    print("统计参数中每个英文单词出现的次数=>\n",en_result)
-    print("统计参数中每个中文汉字出现的次数=>\n",cn_result)
-
-    # sorted 函数 排序:https://docs.python.org/zh-cn/3/howto/sorting.html#sortinghowto
-    d1=sorted(d.items(),key=lambda x:x[1],reverse=True)   
-    return d1
-
-
-cn_text = "测试：今天是个好日子，126456220600 ，心想的事儿都能成，哈哈哈，都能成＃＄％＆＇（）＊＋，－／" # 中文文字
 bb = stats_text_cn(cn_text)  # 调用函数
 print(bb)
 
 
+# 搜索_name_ = _main_
+# 一般情况下在文件内测试代码的时候以下面的形式进行
+
+# if __name__ == "__main__" :
+#     en_result = stats_text_en(en_text)
+#     cn_result = stats_text_cn(cn_text)
+
+#     print("统计参数中每个英文单词出现的次数=>\n",en_result)
+#     print("统计参数中每个中文汉字出现的次数=>\n",cn_result)
+
+#     # sorted 函数 排序:https://docs.python.org/zh-cn/3/howto/sorting.html#sortinghowto
+#     d1=sorted(d.items(),key=lambda x:x[1],reverse=True)   
+#     return d1

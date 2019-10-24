@@ -26,6 +26,5 @@ def get_friend_url(msg) :
 
         # print ("我的好友或群里成员 分享的内容,转化为从大到小的词频为 >>>" + email_content)
 
-
 # 进入 Python 命令行、让程序保持运行
 embed()
