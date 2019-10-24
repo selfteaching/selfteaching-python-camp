@@ -25,7 +25,7 @@ Namespaces are one honking great idea -- let's do more of those!
 import collections
 
 list_text = text.split() #讲字符串分割成列表
-words_new = []
+
 for a  in range(len(list_text)):
     str_words = list_text[a]    #遍历每一个元素
     b = str_words.strip("*-,.!") #删掉各种出现的特殊字符
