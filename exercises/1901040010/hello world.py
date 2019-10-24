@@ -1,1 +1,0 @@
-print ("MO XIYUN")
