@@ -68,5 +68,3 @@ def stats_text(string):
 en_text = ""
 cn_text = ""
 
-
-

@@ -24,7 +24,7 @@ r = requests.get('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
 document = PyQuery(r.text)
 content = document('#js_content').text()
 
-wx_list = stats_word.stats_text_cn(content,100)
+
 ll_word = []
 ll_num  = []
 for ll in wx_list:
@@ -43,6 +43,8 @@ print(ll_num)
 #   wx_str = wx_str + str(word)
 
 #yagmail.SMTP('sender','password').send('pythoncamp@163.com','[1901100303]自学训练营学习20群 day11 yuanweiyu',wx_str)
+
+
 
 
 

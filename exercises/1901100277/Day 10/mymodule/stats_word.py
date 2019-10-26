@@ -69,4 +69,3 @@ en_text = ""
 cn_text = ""
 
 
-

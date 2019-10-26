@@ -1,11 +1,15 @@
 
+import jieba
+from collections import Counter
+
+
 def stats_text_en (en_text) :
     ''' 统计参数中每个英文单词出现的次数，最后返回一个按词频降序排列的数组'''
 
     #如果不是字符串，抛异常，异常会终止代码执行
     if not isinstance(en_text, str):
         raise ValueError("非字符串格式，请重新输入")
-    
+
     new = en_text.split(" ") #分割字符串，变为列表,以空格进行分割
 
     words = [] 
@@ -22,7 +26,7 @@ def stats_text_en (en_text) :
 
     # 使用 collections 模块里的 counter函数 进行词频统计 
     
-    from collections import Counter
+    # from collections import Counter
     n = int(input("请输入 您需要显示出现词频最高的前多少个词? >>> :"))
     return dict(Counter(words).most_common(n))
 
@@ -39,22 +43,14 @@ def stats_text_cn (cn_text) :
     if not isinstance(cn_text, str):
         raise ValueError("非字符串格式，请重新输入")
 
-    # text = str(cn_text)
-    # new = list (text) #汉字 字符串可以直接用 list 转化为 单个文字的列表.
-
+    cn_text = jieba.lcut(cn_text)   # jieba.lcut 默认就是精确模式 
     words = []                             # 定义一个新列表,存储去掉符号后的新列表
-
-    symbols = "！？｡＂＃＄％＆＇ （）＊＋，－／：；＜＝＞＠［＼］＾＿｀｛｜｝～｟｠｢｣､、〃》「」『』【】〔〕〖〗〘〙〚〛〜〝〞〟〰〾〿–—‘’‛“”„‟…‧﹏." 
-
     for wen_zi in cn_text :  # i 就是文章里的某个元素
-        if  "\u4e00" <= wen_zi <=  "\u9fff" : # unicode 中 中文字符的 范围 (包括中文标点符号)   如果元素是中文
-            for symbol in symbols :        # 遍历要剔除的标点符号
-                wen_zi1 = wen_zi.replace(symbol,"")   
-            words.append(wen_zi1)          # 把他添加到words 列表里  
+        if  "\u4e00" <= wen_zi <=  "\u9fff" and len(wen_zi) >= 2: # unicode 中 中文字符的 范围 (包括中文标点符号) 
+            words.append(wen_zi)          # 把他添加到words 列表里  
 
-    from collections import Counter
-    n = int(input("请输入 您需要显示出现词频最高的前多少个词? >>> :"))
-    return dict(Counter(words).most_common(n)) 
+    # n = int(input("请输入 您需要显示出现词频最高的前多少个词? >>> :"))
+    return dict(Counter(words).most_common(100)) 
 
     #################################################
 
@@ -70,6 +66,8 @@ def stats_text(string):
     return stats_text_en(en_text) + stats_text_cn(cn_text)
 
 
+en_text = ""
+cn_text = ""
 
 
 
