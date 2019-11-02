@@ -3,7 +3,7 @@ import getpass
 import requests
 from pyquery import PyQuery as pq
 from wxpy import *
-
+'''
 bot = Bot() #扫描二维码登录微信
 my_friend = bot.friends() #回复对象为所有好友
 
@@ -17,4 +17,29 @@ def auto_reply(msg):
     return result #将结果返回给好友
 
 embed() #堵塞线程，保持监听状态
+'''
 
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Fixing random state for reproducibility
+np.random.seed(19680801)
+
+
+plt.rcdefaults()
+fig, ax = plt.subplots()
+
+# Example data
+people = ('Tom', 'Dick', 'Harry', 'Slim', 'Jim')
+y_pos = np.arange(len(people))
+performance = 3 + 10 * np.random.rand(len(people))
+error = np.random.rand(len(people))
+
+ax.barh(y_pos, performance, xerr=error, align='center')
+ax.set_yticks(y_pos)
+ax.set_yticklabels(people)
+ax.invert_yaxis()  # labels read top-to-bottom
+ax.set_xlabel('Performance')
+ax.set_title('How fast do you want to go today?')
+
+plt.show()
