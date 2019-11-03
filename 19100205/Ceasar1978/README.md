@@ -126,3 +126,122 @@ d.update(d1)前面不能加 d=，经测试，如果两个字典中有相同的�
     msg.reply_image('words_frequency.png')
  先把结果保存为图片格式，再将图片发送。
  3、plt.rcParams['font.sans-serif'] = ['SimHei'] ，这一步是为了添加字体，否则汉字会显示为方框
+
+ 4.13 学习心得
+ 1、值的三种形式：布尔值，数值，字符串。
+ 2、函数的关键字参数必须包含=，也就是必须指定一个具体值，无论是默认指定还是我们特别指定。
+ 3、Python用的编码是Unicode，跟ASCII没什么关系。
+ 4、input()函数接收的输入和传递的结果都只能是字符串。
+ 5、字符串是一种容器，每个元素即是一个字符。
+ 4.14 学习心得
+ 1、列表删除操作：del 和 pop 操作的对象是索引，remove 操作的是元素本身,表达形式为：
+    del a_list[i]   p = a_list.pop(i)   a_list.remove('example')
+ 2、集合中不能有重复元素，而且是无序的。包括可变和不可变两种。创建集合要用 p = set(),
+    如果用 p = {}，这样创建出来的是字典。
+ 3、数据结构就是容器。
+ 4、冻结集合（Frozen Set），Frozen Set 之于 Set，正如 Tuple 之于 List，前者是不可变容器（Immutable），后者是可变容器（Mutable），无非是为了节省内存使用而设计的类别。
+ 5、dic 为字典：
+ list(dic) 得到一个以dic中所有key（索引）为元素的一个列表。set(dic)、tuple(dic)分别得到以key为元素的集合与元组。
+ dic.itenms() 得到一个二维列表，每个元素为字典的映射对 (key,value)，也就是说这个列表中每个元素都是一个包含两个元素的子列表。
+ sorted(dic) 得到一个以dic中所有key（索引）为元素的一个列表，并按顺序排列。
+
+ 4.15 学习心得
+ 1、
+def be_careful(a, b):
+    a = 2
+    b[0] = 'What?!'
+
+a = 1
+b = [1, 2, 3]
+be_careful(a, b)
+a, b
+
+运行结果是(1, ['What?!', 2, 3])
+
+def be_careful(a, b):
+    a = 2
+    b_copy = b.copy()
+    b_copy[0] = 'What?!'
+
+a = 1
+b = [1, 2, 3]
+be_careful(a, b)
+a, b
+
+运行结果是：(1, [1, 2, 3])
+
+可变容器（例如，列表）经过函数运算后，会把函数运算结果更新到列表中，如上述第一个函数；
+通过.copy()函数，可以备份列表，使其不受函数运算的影响，如上述第二个函数。
+对列表运行其他Method也是如此，会改变原来的列表。
+而不可变容器，例如元组，字符串，则不会被函数运算结果改变，如果要得到函数运算结果，应该将结果赋值给一个新变量。这一特性也就体现了“可变”和“不可变”的意思。
+
+2、遍历函数中的Arbitrary Positional Arguments时，如果参数是字典，则只遍历其中的key部分。
+3、 Arbitrary Keyword Argument 似乎必须是字典格式？或者类似字典的映射结构？因为关键字参数必须具有key=value的结构。
+
+4.21 学习心得
+1、
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
+
+import re
+
+str = 'error wonderer severeness'
+
+pttn = r'er+'
+re.findall(pttn, str)
+
+pttn = r'[er]+'
+re.findall(pttn, str)
+
+pttn = r'(er)+'
+re.findall(pttn, str)
+运行结果：
+['err', 'er', 'er', 'er']
+['err', 'r', 'erer', 'e', 'ere', 'e']
+['er', 'er', 'er']
+
+pttn = r'[er]+' 的意义分析：
+从字符串的开头开始寻找，第一个字符是e或r就匹配，然后继续向后找，如果是e或r也匹配，如果不是e或r就中断，然后把之前匹配的片段合并输出。之后继续用同样的规则向后找，找到匹配的片段再输出，直至整个字符串结束。
+
+4.23 学习心得
+1、官方文档中对嵌套(nest,nested)list的介绍
+>>> a = ['a', 'b', 'c']
+>>> n = [1, 2, 3]
+>>> x = [a, n]
+>>> x
+[['a', 'b', 'c'], [1, 2, 3]]
+>>> x[0]
+['a', 'b', 'c']
+>>> x[0][1]
+'b
+
+x[0][1]表示两重索引，x[0]是['a', 'b', 'c']，x[0][1]就是['a', 'b', 'c']中的第二个item。
+2、
+>>> a = 1
+>>> b = 2
+>>> a, b = b, a + b
+第三行是先计算等号右边，形成一个元组(2,3),然后把这个元组的值分别赋给左边的a和b，使a=2，b=3。
+a, b = b, a 相当于就是把 a 和 b 对调一下。
+官方文档实现斐波那契数列的方法：
+a, b = 0, 1
+while a < 100:
+        print(a)
+        a,b = b,a+b
+自己想出的使用中间变量的方法，但不如上述方法简洁：
+a, b = 0, 1
+while a < 100:
+        print(a)
+        c=a+b
+        a=b
+        b=c
+3、True 和 False 分别等于数值 1 和 0。数值进行布尔运算，得出的结果也是数值（0 或后一个本来值）：
+0 and 2     # => 0
+-5 or 0     # => -5
+5 and 2     # => 2
+
+4.24 学习心得
+1、字典的key必须为不可变类型，而value可以使任意类型。不可变类型包括：整数、浮点、字符串和元组。
+2、list(dict.keys())这个method可以将字典dict的key提取出来形成一个list。
+   list(dict.values())这个method可以将字典dict的value提取出来形成一个list。
+3、字典的in命令对象是key而非value，例如：1 in dict 。
+4、集合(set)的元素必须为不可变类型。
