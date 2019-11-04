@@ -53,5 +53,5 @@ text_2 = ['How', 'The', 'Foolish', 'Old', 'Man', 'Moved', 'Mountains']
 from  mymodule import stats_word
 try:
     print(stats_word.stats_text(text_2)) #stats_word里没有输出的功能
-except TypeError as e:
-    print('TypeError:', e)
+except TypeError as err:
+    print('TypeError: ' + str(err))

@@ -5,6 +5,7 @@ strset=(''.join('%s'%id for id in set1))
 print (strset)
 restrset=strset[2:8]
 a=restrset[::-1]
+print(a)
 b=int(a)
 print(b)
 print(bin(b))
