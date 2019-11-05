@@ -13,7 +13,7 @@ def stats_text_en(text):
     
     for singleword in wordset:
         counter[singleword] = wordlist.count(singleword)
-    return sorted(counter.items(), key=lambda x: x[1], reverse=True) #返回函数结果
+    return sorted(counter.items(), key=lambda x: x[1], reverse=True)  #返回函数结果
 
 
 #定义函数2：统计文档中中文单词出现的次数并按照频率降序排列。
@@ -109,3 +109,11 @@ if __name__=='__main__':
     cn_result = stats_text_cn(cn_text)  #中文同上
     print('英文单词按出现次数降序排列:\n', en_result)
     print('中文单字按出现次数降序排列:\n', cn_result)
+
+#在python中，每个模块都有一个叫_name_的内置变量，这个变量的值会根据该模块被使用的方式而变化：
+# 1、假设模块A.py 在另一个模块 B.py 中，被作为模块导入，则_name_的值为模块 A.py 的名称
+# 2、假设模块 A.py被直接执行，则_name_ 的值为_main_
+# 英文参考：https://stackoverflow.com/questions/419163/what-does-if-name-main-do
+
+#那么中文按照拼音开头排序呢
+
