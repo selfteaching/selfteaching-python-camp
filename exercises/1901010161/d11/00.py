@@ -28,8 +28,6 @@ countlist_str = ''.join(str(i) for i in countlist)
 print(countlist_str)
 # Use getpass to enter the email address related information
 import getpass
-sender = input('894101858@qq.com')    ##'Enter the email address of sender:'
-password = getpass.getpass('kdkrtqtbtazubdef') ##'Enter the password of the email from sender:'
 recipients = input('pythoncamp@163.com') ##'Enter the email address of the reciever:'
 # Leverage yagmail to send out emai
 import yagmail
