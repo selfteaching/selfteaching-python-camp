@@ -1,0 +1,14 @@
+
+for n in range(1,10):
+    for i in range(1,n+1):
+        print(n,'*',i,'=',n*i,end='\t')
+    print()
+
+i=1
+while i<10:
+    if i%2==0:
+        print()
+    else:
+        for j in range(1,i+1):
+            print(i,'*',j,'=',i*j,end='\t')
+    i+=1
