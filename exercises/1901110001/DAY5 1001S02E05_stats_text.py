@@ -39,4 +39,5 @@ print('单词出现的次数:',c)
 print('排序',sorted(c.items(),key=lambda x: x[1],reverse=True))
 
 print(sorted(c.items(),key=lambda x: x[1],reverse=True))
+print(type(a1))
 

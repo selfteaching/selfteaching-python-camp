@@ -71,4 +71,3 @@ if __name__=="__main__":
     cn_result=stats_text_cn(cn_text)
 print("统计参数中英文单词出现的次料==》\n",en_result)
 print("统计参数中中文单词出现的次数==》\n",cn_result)
-

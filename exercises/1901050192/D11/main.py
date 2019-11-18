@@ -24,7 +24,7 @@ def main():
         password = getpass.getpass('请输入发件人邮箱密码：')
         recipients = input('输入收件人邮箱：')
         yag = yagmail.SMTP(sender,password,'smtp.qq.com')
-        yag.send(recipients,'自学训练学习X群 楔子木',str(result))
+        yag.send(recipients,'自学训练学习4群 xiezimu',str(result))
         logging.info('已发送，请注意查收。')
     except Exception as e:
         logging.exception(e)

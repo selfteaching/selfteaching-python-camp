@@ -32,11 +32,12 @@ for element in elements:
         words.append(element)
 print('正常的英文单词 ==>',words)
 
-counter={}
+counter={} #定义一个字典集合
 
-word_set=set(words)
-for word in word_set:
-    counter[word]=words.count(word)
-print('英文单词出现的次数 ==>',counter)
+word_set=set(words)  #对words做一个集汇总，统计words中所有出现过的单词
+for word in word_set:   #如果 Word 在 set的集合中
+    counter[word]=words.count(word) #那么，统计这个单词出现的次数（用count（word）这个程序），并添加到 新的words命名的list，
+               #然后赋值给 counter[word]
+print('英文单词出现的次数 ==>',counter)  # counter print 出来的结果是 {'those': 1, 'Dutch': 1, 'may': 2, ....}
 
 print('从大到小输出所有单词出现的次数 ==>',sorted(counter.items(), key=lambda X : X[1],reverse=True))
