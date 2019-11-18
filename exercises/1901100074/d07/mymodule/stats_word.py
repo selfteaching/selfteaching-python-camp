@@ -29,6 +29,8 @@ def stats_text(text):
     #合并 英文词频 和 中文字频 的结果
     return stats_text_en(text) + stats_text_cn(text)
 if __name__ == '__main__':
+    en_text = 'english'
+    cn_text = '中文'
     en_result = stats_text_en(en_text)
     cn_result = stats_text_cn(cn_text)
     print('统计参数中每个英文单词出现的次数 ==>\n',en_result)

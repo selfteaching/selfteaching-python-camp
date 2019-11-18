@@ -33,7 +33,8 @@ templist = []
 #print(list1)
 consquence = []
 
-dictionary_1 = {}                               #use dictionanry to count the list1
+dictionary_1 = {} 
+#use dictionanry to count the list1                              
 for i in list1:
     if i in dictionary_1:
         dictionary_1[i] += 1
