@@ -1,4 +1,5 @@
-text="""
+from mymodule import stats_word
+sample_text="""
 愚公移山
 
 太行、王屋二山的背面，住了一个九十岁的老翁，名叫愚公。二山占地广阔，挡住去路，使他和家人往来极为不便。
@@ -54,3 +55,9 @@ with fear and reported the incident to the Emperor of Heavens.
 
 Filled with admiratiion for Yugong,the Emperor of Heavens ordered tow mighty gods to carry the mountains awawy.
 """
+
+result=stats_word.stats_text(sample_text)
+
+print("统计结果",result)
+
+
