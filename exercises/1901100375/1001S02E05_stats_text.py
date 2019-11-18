@@ -40,6 +40,6 @@ print(d)
 
 
 print("按出现频次数从大到小输出：")  
-
+# sorted 函数 排序:https://docs.python.org/zh-cn/3/howto/sorting.html#sortinghowto
 d1=sorted(d.items(),key=lambda x:x[1],reverse=True)   
 print(d1) 
