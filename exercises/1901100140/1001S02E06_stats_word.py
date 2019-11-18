@@ -21,7 +21,7 @@ If the implementation is east to explain,it may  be a good idea.
 Namespaces are one honking great idea-- let's do more of those!
 """
 
-def stats_text_en(text):
+def stats_text_en(en_text):
     elements=en_text.split()
     words=[]
     symbols=",.*-"
@@ -55,9 +55,9 @@ cn_text="""
 ***
 """
 
-def stats_text_cn(text):
+def stats_text_cn(cn_text):
     cn_characters=[]
-    for character in text:
+    for character in cn_text:
         if "\u4e00"<=character<="\u9fff":
             cn_characters.append(character)
     counter={}
@@ -71,3 +71,4 @@ if __name__=="__main__":
     cn_result=stats_text_cn(cn_text)
 print("统计参数中英文单词出现的次料==》\n",en_result)
 print("统计参数中中文单词出现的次数==》\n",cn_result)
+
