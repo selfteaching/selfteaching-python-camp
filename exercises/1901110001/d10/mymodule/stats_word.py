@@ -1,6 +1,9 @@
 from collections import Counter
 import jieba
 
+
+
+
 def stats_text_en(text,count):
     if not isinstance(text, str):
         raise ValueError('参数应当为str类型')
@@ -19,7 +22,11 @@ def stats_text_cn(text, count):
     for word in words:
         if len(word) > 1:
             x.append(word)
+
+    for x in words:
+
     for i in words:
+
         if len(i) > 1:
             x.append(i)
     return Counter(x).most_common(count)
