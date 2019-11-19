@@ -1,36 +1,12 @@
-import requests
-import getpass
-import yagmail
-from pyquery import PyQuery as py
 from mymodule import stats_word
 
-reponse = requests.get('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')   # 网页请求
-web_text = reponse.text    # 保存更多网页文本数据
-document = py(web_text)
-content = document('#js_content').text()
-print('content=', content)
+path = r'd:\用户目录\我的文档\GitHub\selfteaching-python-camp\exercises\1901010161\d11\mymodule\tang300.json'
+with open(path, 'r', encoding='UTF-8') as f:     # byte编码的类型名称是 UTF-8
 
-w_list = stats_word.stats_text_cn(content, 100)
-w_list = str(w_list)
-print(w_list)
+    read_date = f.read()
 
-sender = input("请输入发件人邮箱:")
-password = getpass.getpass("输入发件人邮箱授权码:")
 
-yagmail.register(sender, password)
-
-yag = yagmail.SMTP(sender, password, host='smtp.qq.com')
-yag.send('pythoncamp@163.com', '【1901010161】自学训练营学习2群DAY11 Zezhou-Sun', w_list)
-print("发送成功")
-
-'''
-countlist_str = ''.join(str(i) for i in countlist)
-print(countlist_str)
-# Use getpass to enter the email address related information
-import getpass
-recipients = input('pythoncamp@163.com') ##'Enter the email address of the reciever:'
-# Leverage yagmail to send out emai
-import yagmail
-yag = yagmail.SMTP(user=sender, password=password, host='smtp.qq.com')
-yag.send(recipients, '【1901010161】自学训练营学习2群DAY11 Zezhou-Sun', countlist_str)
-'''
+try:
+    print('出现频率最高的前20个词： \n', stats_word.stats_text_cn(read_date, 20))
+except ValueError:
+    print('ValueError:type of argument is not string!')
