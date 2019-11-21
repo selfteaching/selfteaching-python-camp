@@ -1,6 +1,30 @@
 from mymodule import stats_word
+import traceback
+import logging
 
-sample_text = '''
+logger = logging. getlogger(__name__)
+
+def test_traceback():
+    try:
+        stats_word.stats_text(1)
+    except Exception as e:
+        print('test_traceback =>',e)
+        print(traceback.format_exc())
+
+def test_logger():
+    try:
+        stats_word.stats_text(1)
+    except Exception as e:
+        #print('test_logger =>',e)
+        logger.exception(e)
+
+if __name__=="__main__":
+    #stats_word.stats_text(1)
+    test_traceback()
+    test_logger()
+
+
+text = '''
 愚公移⼭
 太行，王屋⼆山的北面，住了一個九十歲的⽼翁，名叫愚公。⼆山佔地廣闊，擋住去路路，使他
 和家⼈往來極為不便。
@@ -41,13 +65,3 @@ The wise old man was totally silenced.
 When the guardian gods of the mountains saw how determined Yugong and his crew were, they were struck with fear and reported the incident to the Emperor of Heavens.
 Filled with admiration for Yugong, the Emperor of Heavens ordered two mighty gods to carry the mountains away.
 '''
-
-result = stats_word.stats_text(sample_text)
-
-test = 1  # 用 try except 捕获异常并执行
-try:
-    stats_word.stats_text(test,100)
-except ValueError:
-    print("input is not string, you may check again!")
-
-stats_word.stats_text(text,100)
