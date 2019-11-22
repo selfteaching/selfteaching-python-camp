@@ -22,6 +22,8 @@ Namespaces are one honking great idea-- let's do more of those!
 """
 
 def stats_text_en(en_text):
+    if not isinstance(en_text,str):
+        raise ValueError("参数必须是str类型,输入类型%s" % type(en_text))
     elements=en_text.split()
     words=[]
     symbols=",.*-"
@@ -56,6 +58,8 @@ cn_text="""
 """
 
 def stats_text_cn(cn_text):
+    if not isinstance(cn_text,str):
+        raise ValueError("参数必须是str类型,输入类型%s" % type(cn_text))
     cn_characters=[]
     for character in cn_text:
         if "\u4e00"<=character<="\u9fff":
@@ -74,6 +78,8 @@ print("统计参数中中文单词出现的次数==>\n",cn_result)
 
 text=en_text + cn_text
 def stats_text(text):
+    if not isinstance(text,str):
+        raise ValueError("参数必须是str类型,输入类型%s" % type(text))
     #合并英文词频和中文词频的结果
     return stats_text_en(en_text) + stats_text_cn(cn_text)
 
