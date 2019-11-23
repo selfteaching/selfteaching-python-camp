@@ -1,4 +1,3 @@
-from mymodule import stats_word
 sample_text="""
 愚公移山
 
@@ -56,8 +55,9 @@ with fear and reported the incident to the Emperor of Heavens.
 Filled with admiratiion for Yugong,the Emperor of Heavens ordered tow mighty gods to carry the mountains awawy.
 """
 
+from mymodule import stats_word
+
 result=stats_word.stats_text(sample_text)
 
 print("统计结果",result)
-
 
