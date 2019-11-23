@@ -56,8 +56,26 @@ Filled with admiratiion for Yugong,the Emperor of Heavens ordered tow mighty god
 """
 
 from mymodule import stats_word
+import traceback
+import logging
 
-result=stats_word.stats_text(sample_text)
+logger=logging.getLogger(__name__)
 
-print("统计结果",result)
+def test_traceback():
+    try:
+        stats_word.stats_text(1)
+    except Exception as e:
+        print("test_traceback=>",e)
+        print(traceback.format_exc())
+
+def test_logger():
+    try:
+        stats_word.stats_text(1)
+    except Exception as e:
+        logger.exception(e)
+
+if __name__=="__main__":
+    test_traceback
+    test_logger
+
 
