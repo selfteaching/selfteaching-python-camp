@@ -73,8 +73,8 @@ def stats_text_cn(cn_text):
 if __name__=="__main__":
     en_result=stats_text_en(en_text)
     cn_result=stats_text_cn(cn_text)
-print("统计参数中英文单词出现的次料==>\n",en_result)
-print("统计参数中中文单词出现的次数==>\n",cn_result)
+    print("统计参数中英文单词出现的次数==>\n",en_result)
+    print("统计参数中中文单词出现的次数==>\n",cn_result)
 
 text=en_text + cn_text
 def stats_text(text):
@@ -85,5 +85,5 @@ def stats_text(text):
 
 if __name__=="__main__":
     result=stats_text(text)
-print("合并的英文词频和中文词频==>\n",result)
+    print("合并的英文词频和中文词频==>\n",result)
 
