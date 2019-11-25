@@ -81,3 +81,4 @@ if __name__=="__main__":
     result=stats_text(text)
     print("合并的英文词频和中文词频==>\n",result)
 
+

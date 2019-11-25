@@ -55,9 +55,9 @@ cn_text="""
 ***
 """
 
-def stats_text_cn(text):
+def stats_text_cn(cn_text):
     cn_characters=[]
-    for character in text:
+    for character in cn_text:
         if "\u4e00"<=character<="\u9fff":
             cn_characters.append(character)
     counter={}

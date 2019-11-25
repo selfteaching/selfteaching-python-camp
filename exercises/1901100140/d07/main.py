@@ -59,4 +59,3 @@ from mymodule import stats_word
 result=stats_word.stats_text(text)
 
 print("统计结果",result)
-
