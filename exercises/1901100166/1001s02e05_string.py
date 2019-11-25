@@ -47,4 +47,3 @@ print('升序==>',sorted(E))  #sorted默认升序
 
 
 
-
