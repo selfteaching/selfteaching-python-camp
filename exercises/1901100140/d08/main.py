@@ -1,4 +1,4 @@
-text="""
+sample_text="""
 愚公移山
 
 太行、王屋二山的背面，住了一个九十岁的老翁，名叫愚公。二山占地广阔，挡住去路，使他和家人往来极为不便。
@@ -54,8 +54,28 @@ with fear and reported the incident to the Emperor of Heavens.
 
 Filled with admiratiion for Yugong,the Emperor of Heavens ordered tow mighty gods to carry the mountains awawy.
 """
+
 from mymodule import stats_word
+import traceback
+import logging
 
-result=stats_word.stats_text(text)
+logger=logging.getLogger(__name__)
 
-print("统计结果",result)
+def test_traceback():
+    try:
+        stats_word.stats_text(1)
+    except Exception as e:
+        print("test_traceback=>",e)
+        print(traceback.format_exc())
+
+def test_logger():
+    try:
+        stats_word.stats_text(1)
+    except Exception as e:
+        logger.exception(e)
+
+if __name__=="__main__":
+    test_traceback
+    test_logger
+
+
