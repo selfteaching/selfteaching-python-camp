@@ -25,4 +25,4 @@ elif choice=="*":
 elif choice=="/"and num2!=0:
     print(num1,"*",num2,"=",div(num1,num2))
 else:
-    print("运算错误")
+    print("Error")
