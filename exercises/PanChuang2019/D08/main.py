@@ -22,10 +22,11 @@ def test_logger():
 
 
 if __name__=="__main__":
+
     #stats_word.stats_text(1)
     test_traceback()
     test_logger()
-    
+
 
 
                      
