@@ -29,4 +29,4 @@ mystr = str(mydic)
 '''连接服务器，用yagmail发送邮件，此处的password为邮箱的授权码，非邮箱登录密码'''
 sendSmpt = yagmail.SMTP(user = input('15001901187@163.com'),
 password=getpass.getpass('mogudidizi'),host='smtp.163.com')  
-sendSmpt.send(to = input('pythoncamp@163.com'),subject="191010072 Bear4",contents=mystr)
+sendSmpt.send(to = input('pythoncamp@163.com'),subject="191010072 Bear127",contents=mystr)
