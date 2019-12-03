@@ -7,7 +7,7 @@ def auto_reply(msg):
     import requests
     from pyquery import PyQuery
     import stats_word
-    response = requests.get('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
+    response = requests.get(msg.url)
     document = PyQuery(response.text)
     content = document('#js_content').text()
     list1 = stats_word.stats_text(content,100)
